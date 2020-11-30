@@ -23,6 +23,7 @@ namespace MathProgram
 
         private void mi_exit_Click(object sender, EventArgs e)
         {
+            //
             Close();
         }
 
