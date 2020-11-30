@@ -28,6 +28,7 @@ namespace MathProgram
 
         private void lommeregnerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //
             CalculatorForm form = new CalculatorForm();
             form.Show(dp_main, DockState.Document);
         }
