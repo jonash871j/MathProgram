@@ -46,7 +46,7 @@ namespace MathProgram.Forms
             // 
             // tb_calculation
             // 
-            this.tb_calculation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tb_calculation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_calculation.Location = new System.Drawing.Point(12, 29);
             this.tb_calculation.Name = "tb_calculation";
@@ -65,7 +65,7 @@ namespace MathProgram.Forms
             // 
             // tb_result
             // 
-            this.tb_result.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tb_result.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_result.Location = new System.Drawing.Point(12, 79);
             this.tb_result.Name = "tb_result";

@@ -29,26 +29,32 @@ namespace MathProgram.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.ms_main = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.visToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_coordSystem = new System.Windows.Forms.ToolStripMenuItem();
             this.værktøjerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lommeregnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_calculator = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_quadraticEquations = new System.Windows.Forms.ToolStripMenuItem();
             this.dp_main = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.menuStrip1.SuspendLayout();
+            this.ss_main = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ms_main.SuspendLayout();
+            this.ss_main.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // ms_main
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ms_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.visToolStripMenuItem,
             this.værktøjerToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.ms_main.Location = new System.Drawing.Point(0, 0);
+            this.ms_main.Name = "ms_main";
+            this.ms_main.Size = new System.Drawing.Size(800, 24);
+            this.ms_main.TabIndex = 0;
+            this.ms_main.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -65,26 +71,41 @@ namespace MathProgram.Forms
             this.mi_exit.Text = "Afslut";
             this.mi_exit.Click += new System.EventHandler(this.mi_exit_Click);
             // 
+            // visToolStripMenuItem
+            // 
+            this.visToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mi_coordSystem});
+            this.visToolStripMenuItem.Name = "visToolStripMenuItem";
+            this.visToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
+            this.visToolStripMenuItem.Text = "Vis";
+            // 
+            // mi_coordSystem
+            // 
+            this.mi_coordSystem.Name = "mi_coordSystem";
+            this.mi_coordSystem.Size = new System.Drawing.Size(163, 22);
+            this.mi_coordSystem.Text = "Koordinatsystem";
+            this.mi_coordSystem.Click += new System.EventHandler(this.mi_coordSystem_Click);
+            // 
             // værktøjerToolStripMenuItem
             // 
             this.værktøjerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lommeregnerToolStripMenuItem,
+            this.mi_calculator,
             this.mi_quadraticEquations});
             this.værktøjerToolStripMenuItem.Name = "værktøjerToolStripMenuItem";
             this.værktøjerToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.værktøjerToolStripMenuItem.Text = "Værktøjer";
             // 
-            // lommeregnerToolStripMenuItem
+            // mi_calculator
             // 
-            this.lommeregnerToolStripMenuItem.Name = "lommeregnerToolStripMenuItem";
-            this.lommeregnerToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.lommeregnerToolStripMenuItem.Text = "Lommeregner";
-            this.lommeregnerToolStripMenuItem.Click += new System.EventHandler(this.lommeregnerToolStripMenuItem_Click);
+            this.mi_calculator.Name = "mi_calculator";
+            this.mi_calculator.Size = new System.Drawing.Size(180, 22);
+            this.mi_calculator.Text = "Lommeregner";
+            this.mi_calculator.Click += new System.EventHandler(this.mi_calculator_Click);
             // 
             // mi_quadraticEquations
             // 
             this.mi_quadraticEquations.Name = "mi_quadraticEquations";
-            this.mi_quadraticEquations.Size = new System.Drawing.Size(175, 22);
+            this.mi_quadraticEquations.Size = new System.Drawing.Size(180, 22);
             this.mi_quadraticEquations.Text = "Andengradsligning";
             this.mi_quadraticEquations.Click += new System.EventHandler(this.mi_quadraticEquations_Click);
             // 
@@ -93,10 +114,27 @@ namespace MathProgram.Forms
             this.dp_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dp_main.BackColor = System.Drawing.Color.Black;
             this.dp_main.Location = new System.Drawing.Point(0, 22);
             this.dp_main.Name = "dp_main";
-            this.dp_main.Size = new System.Drawing.Size(800, 536);
+            this.dp_main.Size = new System.Drawing.Size(800, 518);
             this.dp_main.TabIndex = 1;
+            // 
+            // ss_main
+            // 
+            this.ss_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.ss_main.Location = new System.Drawing.Point(0, 539);
+            this.ss_main.Name = "ss_main";
+            this.ss_main.Size = new System.Drawing.Size(800, 22);
+            this.ss_main.TabIndex = 4;
+            this.ss_main.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(102, 17);
+            this.toolStripStatusLabel1.Text = "Math Program 2.0";
             // 
             // MainForm
             // 
@@ -104,15 +142,18 @@ namespace MathProgram.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 561);
+            this.Controls.Add(this.ss_main);
             this.Controls.Add(this.dp_main);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.ms_main);
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.ms_main;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "MainForm";
             this.Text = "Math Program";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.ms_main.ResumeLayout(false);
+            this.ms_main.PerformLayout();
+            this.ss_main.ResumeLayout(false);
+            this.ss_main.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,13 +161,17 @@ namespace MathProgram.Forms
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip ms_main;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mi_exit;
         private WeifenLuo.WinFormsUI.Docking.DockPanel dp_main;
         private System.Windows.Forms.ToolStripMenuItem værktøjerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lommeregnerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mi_calculator;
         private System.Windows.Forms.ToolStripMenuItem mi_quadraticEquations;
+        private System.Windows.Forms.StatusStrip ss_main;
+        private System.Windows.Forms.ToolStripMenuItem visToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mi_coordSystem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

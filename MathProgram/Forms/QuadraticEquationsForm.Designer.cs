@@ -237,7 +237,6 @@ namespace MathProgram.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(465, 450);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
