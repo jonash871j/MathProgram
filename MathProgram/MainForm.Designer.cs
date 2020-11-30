@@ -31,15 +31,18 @@ namespace MathProgram
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.værktøjerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dp_main = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+            this.lommeregnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.værktøjerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -49,36 +52,52 @@ namespace MathProgram
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+            this.mi_exit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(31, 20);
+            this.fileToolStripMenuItem.Text = "Fil";
             // 
-            // exitToolStripMenuItem
+            // mi_exit
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.mi_exit.Name = "mi_exit";
+            this.mi_exit.Size = new System.Drawing.Size(105, 22);
+            this.mi_exit.Text = "Afslut";
+            this.mi_exit.Click += new System.EventHandler(this.mi_exit_Click);
+            // 
+            // værktøjerToolStripMenuItem
+            // 
+            this.værktøjerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lommeregnerToolStripMenuItem});
+            this.værktøjerToolStripMenuItem.Name = "værktøjerToolStripMenuItem";
+            this.værktøjerToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.værktøjerToolStripMenuItem.Text = "Værktøjer";
             // 
             // dp_main
             // 
             this.dp_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dp_main.AutoSize = true;
-            this.dp_main.Location = new System.Drawing.Point(0, 27);
+            this.dp_main.Location = new System.Drawing.Point(0, 22);
             this.dp_main.Name = "dp_main";
-            this.dp_main.Size = new System.Drawing.Size(806, 586);
+            this.dp_main.Size = new System.Drawing.Size(800, 536);
             this.dp_main.TabIndex = 1;
+            // 
+            // lommeregnerToolStripMenuItem
+            // 
+            this.lommeregnerToolStripMenuItem.Name = "lommeregnerToolStripMenuItem";
+            this.lommeregnerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lommeregnerToolStripMenuItem.Text = "Lommeregner";
+            this.lommeregnerToolStripMenuItem.Click += new System.EventHandler(this.lommeregnerToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 561);
             this.Controls.Add(this.dp_main);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "MainForm";
@@ -94,8 +113,10 @@ namespace MathProgram
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mi_exit;
         private WeifenLuo.WinFormsUI.Docking.DockPanel dp_main;
+        private System.Windows.Forms.ToolStripMenuItem værktøjerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lommeregnerToolStripMenuItem;
     }
 }
 

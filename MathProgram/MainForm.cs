@@ -18,13 +18,18 @@ namespace MathProgram
             InitializeComponent();
           
 
-            TestForm f1 = new TestForm();
-            f1.Show(dp_main, DockState.DockLeft);
+           
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mi_exit_Click(object sender, EventArgs e)
         {
+            Close();
+        }
 
+        private void lommeregnerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CalculatorForm form = new CalculatorForm();
+            form.Show(dp_main, DockState.Document);
         }
     }
 }
