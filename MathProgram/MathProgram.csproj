@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UIElements\GraphProgram.cs" />
     <Compile Include="Forms\CalculatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,7 +91,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VSRender.cs" />
+    <Compile Include="UIElements\VSRender.cs" />
     <EmbeddedResource Include="Forms\CalculatorForm.resx">
       <DependentUpon>CalculatorForm.cs</DependentUpon>
     </EmbeddedResource>
