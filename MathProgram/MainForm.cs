@@ -16,7 +16,6 @@ namespace MathProgram
         public MainForm()
         {
             InitializeComponent();
-          
 
            
         }
