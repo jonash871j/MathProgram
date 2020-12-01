@@ -40,6 +40,8 @@ namespace MathProgram.Forms
             this.dp_main = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.ss_main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.indstillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_isFullscreen = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_main.SuspendLayout();
             this.ss_main.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +51,8 @@ namespace MathProgram.Forms
             this.ms_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.visToolStripMenuItem,
-            this.værktøjerToolStripMenuItem});
+            this.værktøjerToolStripMenuItem,
+            this.indstillingerToolStripMenuItem});
             this.ms_main.Location = new System.Drawing.Point(0, 0);
             this.ms_main.Name = "ms_main";
             this.ms_main.Size = new System.Drawing.Size(800, 24);
@@ -98,14 +101,14 @@ namespace MathProgram.Forms
             // mi_calculator
             // 
             this.mi_calculator.Name = "mi_calculator";
-            this.mi_calculator.Size = new System.Drawing.Size(180, 22);
+            this.mi_calculator.Size = new System.Drawing.Size(175, 22);
             this.mi_calculator.Text = "Lommeregner";
             this.mi_calculator.Click += new System.EventHandler(this.mi_calculator_Click);
             // 
             // mi_quadraticEquations
             // 
             this.mi_quadraticEquations.Name = "mi_quadraticEquations";
-            this.mi_quadraticEquations.Size = new System.Drawing.Size(180, 22);
+            this.mi_quadraticEquations.Size = new System.Drawing.Size(175, 22);
             this.mi_quadraticEquations.Text = "Andengradsligning";
             this.mi_quadraticEquations.Click += new System.EventHandler(this.mi_quadraticEquations_Click);
             // 
@@ -135,6 +138,22 @@ namespace MathProgram.Forms
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(102, 17);
             this.toolStripStatusLabel1.Text = "Math Program 2.0";
+            // 
+            // indstillingerToolStripMenuItem
+            // 
+            this.indstillingerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mi_isFullscreen});
+            this.indstillingerToolStripMenuItem.Name = "indstillingerToolStripMenuItem";
+            this.indstillingerToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.indstillingerToolStripMenuItem.Text = "Indstillinger";
+            // 
+            // mi_isFullscreen
+            // 
+            this.mi_isFullscreen.CheckOnClick = true;
+            this.mi_isFullscreen.Name = "mi_isFullscreen";
+            this.mi_isFullscreen.Size = new System.Drawing.Size(180, 22);
+            this.mi_isFullscreen.Text = "Fuldskærm";
+            this.mi_isFullscreen.Click += new System.EventHandler(this.mi_isFullscreen_Click);
             // 
             // MainForm
             // 
@@ -172,6 +191,8 @@ namespace MathProgram.Forms
         private System.Windows.Forms.ToolStripMenuItem visToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mi_coordSystem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem indstillingerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mi_isFullscreen;
     }
 }
 
