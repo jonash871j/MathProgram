@@ -44,6 +44,9 @@ namespace MathProgram.Forms
             this.pb_coordinateSystem.Size = new System.Drawing.Size(801, 452);
             this.pb_coordinateSystem.TabIndex = 0;
             this.pb_coordinateSystem.TabStop = false;
+            this.pb_coordinateSystem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pb_coordinateSystem_MouseDown);
+            this.pb_coordinateSystem.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pb_coordinateSystem_MouseMove);
+            this.pb_coordinateSystem.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pb_coordinateSystem_MouseUp);
             // 
             // CoordinateSystemForm
             // 
