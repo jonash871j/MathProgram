@@ -14,7 +14,7 @@ namespace MathLib
         Pow = '^',
     }
 
-    internal class Number
+    internal class CalculatorNumber
     {
         internal double Value { get; set; } = 0.0;
         internal Operator Operator { get; set; } = Operator.Asign;
@@ -43,11 +43,11 @@ namespace MathLib
 
         public string GetFormular()
         {
-            List<Number> numbers = GetNumbers(calculation);
+            List<CalculatorNumber> numbers = GetNumbers(calculation);
             string formular = "";
             bool wasDivision = false;
 
-            foreach(Number number in numbers)
+            foreach(CalculatorNumber number in numbers)
             {
                 if (number.Operator == Operator.Divide)
                 {
@@ -69,7 +69,6 @@ namespace MathLib
                         formular += (char)number.Operator;
                 }
             }
-
             return formular;
         }
 
@@ -77,10 +76,10 @@ namespace MathLib
         {
             try
             {
-                List<Number> numbersRaw = GetNumbers(calculation);
-                List<Number> numbersAfterRAndP = CalculateRootsAndPowers(numbersRaw);
-                List<Number> numbersAfterTAndD = CalculateTimesAndDivide(numbersAfterRAndP);
-                Number result = CalculatePlusAndMinus(numbersAfterTAndD);
+                List<CalculatorNumber> numbersRaw = GetNumbers(calculation);
+                List<CalculatorNumber> numbersAfterRAndP = CalculateRootsAndPowers(numbersRaw);
+                List<CalculatorNumber> numbersAfterTAndD = CalculateTimesAndDivide(numbersAfterRAndP);
+                CalculatorNumber result = CalculatePlusAndMinus(numbersAfterTAndD);
                 Result = result.Value.ToString();
             }
             catch(Exception exception)
@@ -92,29 +91,29 @@ namespace MathLib
         {
       
         }
-        private List<Number> CalculateRootsAndPowers(List<Number> numbers)
+        private List<CalculatorNumber> CalculateRootsAndPowers(List<CalculatorNumber> numbers)
         {
             Operator[] operators = { Operator.Asign, Operator.Pow };
             return CalculateByOperators(numbers, operators);
         }
-        private List<Number> CalculateTimesAndDivide(List<Number> numbers)
+        private List<CalculatorNumber> CalculateTimesAndDivide(List<CalculatorNumber> numbers)
         {
             Operator[] operators = { Operator.Asign, Operator.Times, Operator.Divide };
             return CalculateByOperators(numbers, operators);
         }
-        private Number CalculatePlusAndMinus(List<Number> numbers)
+        private CalculatorNumber CalculatePlusAndMinus(List<CalculatorNumber> numbers)
         {
             Operator[] operators = { Operator.Asign, Operator.Plus, Operator.Minus };
             return CalculateByOperators(numbers, operators)[0];
         }
-        private List<Number> CalculateByOperators(List<Number> numbers, Operator[] operators)
+        private List<CalculatorNumber> CalculateByOperators(List<CalculatorNumber> numbers, Operator[] operators)
         {
-            List<Number> results = new List<Number>();
-            results.Add(new Number());
+            List<CalculatorNumber> results = new List<CalculatorNumber>();
+            results.Add(new CalculatorNumber());
 
-            foreach (Number number in numbers)
+            foreach (CalculatorNumber number in numbers)
             {
-                Number result = results[results.Count - 1];
+                CalculatorNumber result = results[results.Count - 1];
                 bool isOperatorFound = false;
 
                 foreach (Operator @operator in operators)
@@ -131,7 +130,7 @@ namespace MathLib
                 {
                     result.Value = OperatorCalculate(result.Value, result.Operator, number.Value);
                     result.Operator = number.Operator;
-                    results.Add(new Number());
+                    results.Add(new CalculatorNumber());
                 }
             }
 
@@ -207,10 +206,10 @@ namespace MathLib
             }
         }
 
-        private List<Number> GetNumbers(string calculation)
+        private List<CalculatorNumber> GetNumbers(string calculation)
         {
-            List<Number> numbers = new List<Number>();
-            Number number = new Number();
+            List<CalculatorNumber> numbers = new List<CalculatorNumber>();
+            CalculatorNumber number = new CalculatorNumber();
             string numberText = "";
 
             try
@@ -231,7 +230,7 @@ namespace MathLib
                         number.Operator = (Operator)calculation[i];
                         numbers.Add(number);
 
-                        number = new Number();
+                        number = new CalculatorNumber();
                         numberText = "";
                     }
                 }
