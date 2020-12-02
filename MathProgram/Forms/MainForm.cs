@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
@@ -22,6 +23,8 @@ namespace MathProgram.Forms
         {
             InitializeComponent();
             EnableVSRenderer();
+
+            ShowDockForm(coordinateSystemForm, DockState.Document);
             WindowState = FormWindowState.Maximized;
         }
         private void MainForm_KeyDown(object sender, KeyEventArgs e)

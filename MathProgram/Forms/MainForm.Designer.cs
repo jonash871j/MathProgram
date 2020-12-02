@@ -37,17 +37,18 @@ namespace MathProgram.Forms
             this.værktøjerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_calculator = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_quadraticEquations = new System.Windows.Forms.ToolStripMenuItem();
+            this.indstillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_isFullscreen = new System.Windows.Forms.ToolStripMenuItem();
             this.dp_main = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.ss_main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.indstillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mi_isFullscreen = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_main.SuspendLayout();
             this.ss_main.SuspendLayout();
             this.SuspendLayout();
             // 
             // ms_main
             // 
+            this.ms_main.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ms_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.visToolStripMenuItem,
@@ -112,11 +113,28 @@ namespace MathProgram.Forms
             this.mi_quadraticEquations.Text = "Andengradsligning";
             this.mi_quadraticEquations.Click += new System.EventHandler(this.mi_quadraticEquations_Click);
             // 
+            // indstillingerToolStripMenuItem
+            // 
+            this.indstillingerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mi_isFullscreen});
+            this.indstillingerToolStripMenuItem.Name = "indstillingerToolStripMenuItem";
+            this.indstillingerToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.indstillingerToolStripMenuItem.Text = "Indstillinger";
+            // 
+            // mi_isFullscreen
+            // 
+            this.mi_isFullscreen.CheckOnClick = true;
+            this.mi_isFullscreen.Name = "mi_isFullscreen";
+            this.mi_isFullscreen.Size = new System.Drawing.Size(133, 22);
+            this.mi_isFullscreen.Text = "Fuldskærm";
+            this.mi_isFullscreen.Click += new System.EventHandler(this.mi_isFullscreen_Click);
+            // 
             // dp_main
             // 
             this.dp_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dp_main.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.dp_main.BackColor = System.Drawing.Color.Black;
             this.dp_main.Location = new System.Drawing.Point(0, 22);
             this.dp_main.Name = "dp_main";
@@ -125,6 +143,7 @@ namespace MathProgram.Forms
             // 
             // ss_main
             // 
+            this.ss_main.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ss_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.ss_main.Location = new System.Drawing.Point(0, 539);
@@ -138,22 +157,6 @@ namespace MathProgram.Forms
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(102, 17);
             this.toolStripStatusLabel1.Text = "Math Program 2.0";
-            // 
-            // indstillingerToolStripMenuItem
-            // 
-            this.indstillingerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mi_isFullscreen});
-            this.indstillingerToolStripMenuItem.Name = "indstillingerToolStripMenuItem";
-            this.indstillingerToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.indstillingerToolStripMenuItem.Text = "Indstillinger";
-            // 
-            // mi_isFullscreen
-            // 
-            this.mi_isFullscreen.CheckOnClick = true;
-            this.mi_isFullscreen.Name = "mi_isFullscreen";
-            this.mi_isFullscreen.Size = new System.Drawing.Size(180, 22);
-            this.mi_isFullscreen.Text = "Fuldskærm";
-            this.mi_isFullscreen.Click += new System.EventHandler(this.mi_isFullscreen_Click);
             // 
             // MainForm
             // 

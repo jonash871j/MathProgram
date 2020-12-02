@@ -29,13 +29,14 @@ namespace MathProgram.Forms
         {
             InitializeComponent();
             EnableVSRenderer();
-
             MouseWheel += new MouseEventHandler(gl_coordinateSystem_MouseWheel);
 
             graphProgram = new GraphProgram(ref gl_coordinateSystem);
-            graphProgram.Functions.Add(x => (int)(64.0 * (Math.Sin(x * 0.01) + Math.Sin(x * 0.05))));
-            graphProgram.Functions.Add(x => (int)(0.2 * Math.Pow(x, 2) + x));
-            graphProgram.Functions.Add(x => x);
+            graphProgram.Functions.Add(x => 5.0 * Math.Sin(x));
+            graphProgram.Functions.Add(x => 0.2 * Math.Pow(x, 2) + x);
+            graphProgram.Functions.Add(x => x + 4);
+
+            SetSettings();
         }
 
         private void CoordinateSystemForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -49,6 +50,14 @@ namespace MathProgram.Forms
 
         /* Toolbar *******************/
 
+        private void bn_toggleAxis_Click(object sender, EventArgs e)
+        {
+            UpdateSettings();
+        }
+        private void bn_toggleGrid_Click(object sender, EventArgs e)
+        {
+            UpdateSettings();
+        }
         private void bn_gotoOrigin_Click(object sender, EventArgs e)
         {
             graphProgram.GotoOrigin();
@@ -57,33 +66,19 @@ namespace MathProgram.Forms
 
         /* Graph *********************/
 
-        Font font = new Font(new FontFamily("Microsoft Sans Serif"), 11.5f, FontStyle.Regular, GraphicsUnit.Pixel);
-        SolidBrush fontColor = new SolidBrush(Color.FromArgb(255, 255, 255, 255));
+
 
         private void gl_coordinateSystem_Paint(object sender, PaintEventArgs e)
         {
-            tb_x.Text = graphProgram.X.ToString();
-            tb_y.Text = graphProgram.Y.ToString();
+            tb_x.Text = graphProgram.ActualX.ToString();
+            tb_y.Text = graphProgram.ActualY.ToString();
             tb_zoom.Text = (graphProgram.Zoom).ToString();
 
-            graphProgram.Draw();
-
-            // Bad
-            //if (!isDown)
-            //{
-            //    for (int x = xPos; x < (width / 2) - xPos; x += 60)
-            //    {
-            //        if (x == 0)
-            //            continue;
-            //        e.Graphics.DrawString(((x - xPos) / 60).ToString(), font, fontColor, new PointF((width / 2) + x, (height / 2) - yPos));
-            //    }
-            //    for (int x = xPos; x > (-width / 2) - xPos; x -= 60)
-            //    {
-            //        if (x == 0)
-            //            continue;
-            //        e.Graphics.DrawString(((x - xPos) / 60).ToString(), font, fontColor, new PointF((width / 2) + x, (height / 2) - yPos));
-            //    }
-            //}
+            graphProgram.GLDraw();
+            if (!isDown)
+            {
+                //graphProgram.CPUDraw(e.Graphics);
+            }
         }
         private void gl_coordinateSystem_Load(object sender, EventArgs e)
         {
@@ -95,8 +90,8 @@ namespace MathProgram.Forms
             if (isDown)
             {
                 mouseMove = e.Location;
-                graphProgram.X = coordUpdate.X + mouseMove.X - mouseStart.X;
-                graphProgram.Y = coordUpdate.Y + mouseStart.Y - mouseMove.Y;
+                graphProgram.X = coordUpdate.X + mouseStart.X - mouseMove.X;
+                graphProgram.Y = coordUpdate.Y + mouseMove.Y - mouseStart.Y;
                 gl_coordinateSystem.Refresh();
             }
         }
@@ -107,8 +102,8 @@ namespace MathProgram.Forms
         }
         private void gl_coordinateSystem_MouseUp(object sender, MouseEventArgs e)
         {
-            coordUpdate.X += mouseMove.X - mouseStart.X;
-            coordUpdate.Y += mouseStart.Y - mouseMove.Y;
+            coordUpdate.X += mouseStart.X - mouseMove.X;
+            coordUpdate.Y += mouseMove.Y - mouseStart.Y;
             isDown = false;
             gl_coordinateSystem.Refresh();
         }
@@ -121,6 +116,19 @@ namespace MathProgram.Forms
         private void EnableVSRenderer()
         {
             VSRender.SetStyle(ts_main);
+        }
+
+        private void SetSettings()
+        {
+            bn_toggleAxis.Checked = graphProgram.IsAxisVisible;
+            bn_toggleGrid.Checked = graphProgram.IsGridVisible;
+            gl_coordinateSystem.Refresh();
+        }
+        private void UpdateSettings()
+        {
+            graphProgram.IsAxisVisible = bn_toggleAxis.Checked;
+            graphProgram.IsGridVisible = bn_toggleGrid.Checked;
+            gl_coordinateSystem.Refresh();
         }
     }
 }
