@@ -30,11 +30,14 @@ namespace MathProgram.Forms
             InitializeComponent();
             EnableVSRenderer();
 
+            MouseWheel += new MouseEventHandler(gl_coordinateSystem_MouseWheel);
+
             graphProgram = new GraphProgram(ref gl_coordinateSystem);
             graphProgram.Functions.Add(x => (int)(64.0 * (Math.Sin(x * 0.01) + Math.Sin(x * 0.05))));
             graphProgram.Functions.Add(x => (int)(0.2 * Math.Pow(x, 2) + x));
             graphProgram.Functions.Add(x => x);
         }
+
         private void CoordinateSystemForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -59,6 +62,10 @@ namespace MathProgram.Forms
 
         private void gl_coordinateSystem_Paint(object sender, PaintEventArgs e)
         {
+            tb_x.Text = graphProgram.X.ToString();
+            tb_y.Text = graphProgram.Y.ToString();
+            tb_zoom.Text = (graphProgram.Zoom).ToString();
+
             graphProgram.Draw();
 
             // Bad
@@ -88,8 +95,8 @@ namespace MathProgram.Forms
             if (isDown)
             {
                 mouseMove = e.Location;
-                graphProgram.Position.X = coordUpdate.X + mouseMove.X - mouseStart.X;
-                graphProgram.Position.Y = coordUpdate.Y + mouseStart.Y - mouseMove.Y;
+                graphProgram.X = coordUpdate.X + mouseMove.X - mouseStart.X;
+                graphProgram.Y = coordUpdate.Y + mouseStart.Y - mouseMove.Y;
                 gl_coordinateSystem.Refresh();
             }
         }
@@ -103,6 +110,11 @@ namespace MathProgram.Forms
             coordUpdate.X += mouseMove.X - mouseStart.X;
             coordUpdate.Y += mouseStart.Y - mouseMove.Y;
             isDown = false;
+            gl_coordinateSystem.Refresh();
+        }
+        private void gl_coordinateSystem_MouseWheel(object sender, MouseEventArgs e)
+        {
+            graphProgram.Zoom -= (e.Delta / 1000.0f) * graphProgram.Zoom;
             gl_coordinateSystem.Refresh();
         }
 

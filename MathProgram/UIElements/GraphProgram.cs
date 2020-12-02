@@ -12,7 +12,51 @@ namespace MathProgram.UIElements
 {
     public class GraphProgram
     {
-        public Point Position = new Point(0, 0);
+        private float zoom = 1.0f;
+        private float x = 0.0f;
+        private float y = 0.0f;
+
+        public float X
+        {
+            get 
+            { 
+                return x; 
+            }
+            set
+            {
+                x = value;
+            }
+        }
+        public float Y
+        {
+            get
+            {
+                return y;
+            }
+            set
+            {
+                y = value;
+            }
+        }
+        public float Zoom
+        {
+            get 
+            { 
+                return zoom; 
+            }
+            set 
+            {
+                if (value <= 0.0002f)
+                    zoom = 0.0002f;
+                else if (value >= 1000.0f)
+                    zoom = 1000.0f;
+                else
+                    zoom = value;
+
+                if ((zoom >= 0.9f) && (zoom < 1.0f))
+                    zoom = (float)Math.Round(zoom);
+            }
+        }
 
         public SimpleOpenGlControl OpenGlControl { get; private set; }
         public int Width
@@ -27,7 +71,7 @@ namespace MathProgram.UIElements
         public bool IsGridVisible { get; set; } = true;
         public bool IsOriginVisible { get; set; } = true;
         
-        public List<Func<int, int>> Functions { get; set; } = new List<Func<int, int>>();
+        public List<Func<float, float>> Functions { get; set; } = new List<Func<float, float>>();
 
         public GraphProgram(ref SimpleOpenGlControl simpleOpenGlControl)
         {
@@ -48,7 +92,7 @@ namespace MathProgram.UIElements
             }
         }
 
-        private void DrawGrid(int gridWidth, int gridHeight, float r, float g, float b)
+        private void GLDrawGrid(int gridWidth, int gridHeight, float r, float g, float b)
         {
             if (IsGridVisible)
             {
@@ -56,21 +100,21 @@ namespace MathProgram.UIElements
                 Gl.glColor3f(r, g, b);
 
                 // Draws horizontal grid lines
-                for (int y = (Position.Y + Height / 2) % gridHeight; y < Height; y += gridHeight)
+                for (float y = (Y + Height / 2) % gridHeight; y < Height; y += gridHeight)
                 {
                     Gl.glVertex2f(0, y);
                     Gl.glVertex2f(Width, y);
                 }
 
                 // Draws vertical grid lines
-                for (int x = (Position.X + Width / 2) % gridWidth; x < Width; x += gridWidth)
+                for (float x = (X + Width / 2) % gridWidth; x < Width; x += gridWidth)
                 {
                     Gl.glVertex2f(x, 0);
                     Gl.glVertex2f(x, Height);
                 }
             }
         }
-        private void DrawOrigin()
+        private void GLDrawOrigin()
         {
             if (IsOriginVisible)
             {
@@ -78,29 +122,29 @@ namespace MathProgram.UIElements
                 Gl.glColor3f(0.75f, 0.75f, 0.75f);
 
                 // Draws vertical origin line
-                Gl.glVertex2f(Position.X + Width / 2, 0);
-                Gl.glVertex2f(Position.X + Width / 2, Height);
+                Gl.glVertex2f(X + Width / 2, 0);
+                Gl.glVertex2f(X + Width / 2, Height);
 
                 // Draws horizontal origin line
-                Gl.glVertex2f(0, Position.Y + Height / 2);
-                Gl.glVertex2f(Width, Position.Y + Height / 2);
+                Gl.glVertex2f(0, Y + Height / 2);
+                Gl.glVertex2f(Width, Y + Height / 2);
             }
         }
-        private void DrawGraph(Func<int, int> function, float r, float g, float b)
+        private void GLDrawGraph(Func<float, float> function, float r, float g, float b)
         {
-            int xPre = 0;
-            int yPre = 0;
+            float xPre = 0;
+            float yPre = 0;
             bool isFirstIteration = true;
 
             Gl.glColor3f(r, g, b);
-            for (int x = (-Width / 2) - Position.X; x < (Width / 2) - Position.X; x++)
+            for (float x = (-Width / 2) - X; x < (Width / 2) - X; x++)
             {
-                int y = function(x);
+                float y = function(x);
 
                 if (!isFirstIteration)
                 {
-                    Gl.glVertex2f(Position.X + x + Width / 2, Position.Y + y + Height / 2);
-                    Gl.glVertex2f(Position.X + xPre + Width / 2, Position.Y + yPre + Height / 2);
+                    Gl.glVertex2f(X + x + Width / 2, Y + y + Height / 2);
+                    Gl.glVertex2f(X + xPre + Width / 2, Y + yPre + Height / 2);
                 }
 
                 xPre = x;
@@ -125,15 +169,23 @@ namespace MathProgram.UIElements
             // Begin GL line drawing
             Gl.glBegin(Gl.GL_LINES);
 
-            DrawGrid(12, 12, 0.15f, 0.15f, 0.15f);
-            DrawGrid(60, 60, 0.20f, 0.20f, 0.20f);
-            DrawOrigin();
+            GLDrawGrid(12, 12, 0.15f, 0.15f, 0.15f);
+            GLDrawGrid(60, 60, 0.20f, 0.20f, 0.20f);
+            GLDrawOrigin();
 
             // Draws each graph based on mathematical function
             foreach (var function in Functions)
             {
-                DrawGraph(function, 0.5f, 0.25f, 0.25f);
+                GLDrawGraph(function, 0.5f, 0.25f, 0.25f);
             }
+
+            Gl.glColor3f(0, 1, 0);
+            Gl.glBegin(Gl.GL_POINTS);
+            Gl.glVertex2f(X * 10, Y * 10);
+            Gl.glVertex2f(X * 10 + 10, Y * 10);
+            Gl.glVertex2f(X * 10, Y * 10 + 10);
+            Gl.glVertex2f(X * 10 + 10, Y * 10 + 10);
+            Gl.glPointSize(128.0f);
 
             // End GL drawing
             Gl.glEnd();
@@ -144,7 +196,8 @@ namespace MathProgram.UIElements
 
         public void GotoOrigin()
         {
-            Position = new Point(0, 0);
+            X = 0;
+            Y = 0;
             OpenGlControl.Refresh();
         }
     }
