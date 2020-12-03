@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+using MathProgram.StaticContainers;
 
 namespace MathProgram.Forms
 {
@@ -17,7 +18,6 @@ namespace MathProgram.Forms
     {
         // Link to math formular libary: http://numerator.sourceforge.net/components.php
         private CoordinateSystemForm coordinateSystemForm = new CoordinateSystemForm();
-        private bool isFullscreen = false;
 
         public MainForm()
         {

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MathLib.Geometry;
+using MathProgram.Containers;
+using MathProgram.StaticContainers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -20,6 +23,7 @@ namespace MathProgram.UIElements
             public Color Background;
             public Color Axis;
             public Color Graph;
+            public Color Shape;
         }
 
         // Fields
@@ -30,7 +34,6 @@ namespace MathProgram.UIElements
         public Colors color;
 
         public SimpleOpenGlControl OpenGlControl { get; private set; }
-        public List<Func<double, double>> Functions { get; set; }
         public int Width
         {
             get { return OpenGlControl.Width; }
@@ -78,19 +81,12 @@ namespace MathProgram.UIElements
             }
             set 
             {
-                if (value > 0)
-                {
-                    zoom -= zoom / 2.0;
-                }
-                else
-                {
-                    zoom += zoom;
-                }
-                if (zoom < 0.001953125)
-                    zoom = 0.001953125;
+                zoom = value;
 
-                //if ((zoom >= 0.9f) && (zoom < 1.0f))
-                //    zoom = (float)Math.Round(zoom);
+                if (zoom < 0.001953125)
+                {
+                    zoom = 0.001953125;
+                }
             }
         }
         public bool IsGridVisible { get; set; } = true;
@@ -102,14 +98,13 @@ namespace MathProgram.UIElements
         {
             OpenGlControl = simpleOpenGlControl;
 
-            Functions = new List<Func<double, double>>();
-
             color.Text = Color.FromArgb(51, 173, 255);
             color.LargeGrid = Color.FromArgb(48, 48, 48);
             color.SmallGrid = Color.FromArgb(32, 32, 32);
             color.Background = Color.FromArgb(16, 16, 16);
             color.Axis = Color.FromArgb(192, 192, 192);
             color.Graph = Color.FromArgb(64, 128, 64);
+            color.Shape = Color.FromArgb(128, 64, 128);
 
             Font = new Font(new FontFamily("Microsoft Sans Serif"), 11.5f, FontStyle.Regular, GraphicsUnit.Pixel);
             textBrush = new SolidBrush(color.Text);
@@ -187,7 +182,7 @@ namespace MathProgram.UIElements
                 );
             }
         }
-        private void GLDrawGraph(Func<double, double> function, Color color)
+        private void GLDrawGraph(IFunction function, Color color)
         {
             double centerX = Width / 2;
             double centerY = Height / 2;
@@ -202,7 +197,7 @@ namespace MathProgram.UIElements
             {
                 // Gets y from math function and 
                 // adds additional mathematics for scaling
-                double y = function(x / GridFactor * Zoom) * GridFactor / Zoom;
+                double y = function.Function(x / GridFactor * Zoom) * GridFactor / Zoom;
 
                 // Don't draw the graph line the first loop iteration.
                 // This is to avoid bad geometry
@@ -216,12 +211,42 @@ namespace MathProgram.UIElements
                         y2: -Y + lastY + centerY,
                         thickness: 2
                     );
-  
                 }
 
                 // Stores current point as last point
                 lastX = x;
                 lastY = y;
+            }
+        }
+        private void GLDrawPoint(PointD point)
+        {
+            double x = -X + (point.X * (GridFactor / Zoom)) + Width / 2;
+            double y = -Y + Height / 2;
+            int length = 6;
+
+            Gl.glColor3ub(255, 0, 0);
+            GLDrawLine(x - length, y - length, x + length, y + length, 3);
+            GLDrawLine(x + length, y - length, x - length, y + length, 3);
+        }
+        private void GLDrawLine(Line line)
+        {
+            double x = -X + Width / 2;
+            double y = -Y + Height / 2;
+
+            Gl.glColor3ub(color.Shape.R, color.Shape.G, color.Shape.B);
+            GLDrawLine(
+                x + (line.A.X * (GridFactor / Zoom)), 
+                y + (line.A.Y * (GridFactor / Zoom)), 
+                x + (line.B.X * (GridFactor / Zoom)), 
+                y + (line.B.Y * (GridFactor / Zoom)), 
+                2
+            );
+        }
+        private void GLDrawShape(Shape shape)
+        {
+            foreach (Line line in shape.Lines)
+            {
+                GLDrawLine(line);
             }
         }
 
@@ -259,12 +284,27 @@ namespace MathProgram.UIElements
             GLDrawAxis();
 
             // Draws each graph based on mathematical function
-            foreach (var function in Functions)
+            foreach (IFunction function in Geometry.Functions)
             {
                 GLDrawGraph(
-                    function: function,
+                   function: function,
                    color: color.Graph
                 );
+            }
+
+            // Draws shapes
+            foreach (IShape iShape in Geometry.Shape)
+            {
+                GLDrawShape(iShape.Shape());
+            }
+
+            // Draws points
+            foreach (IPoints iPoints in Geometry.Points)
+            {
+                foreach (PointD point in iPoints.Points())
+                {
+                    GLDrawPoint(point);
+                }
             }
 
             // End GL drawing
@@ -280,24 +320,26 @@ namespace MathProgram.UIElements
         /// </summary>
         public void CPUDraw(Graphics graphics)
         {
-            double centerX = Width / 2;
-            double centerY = Height / 2;
-
-            // Loops throgh each pixel on the x axis
-            for (double x = -centerX + X; x < centerX + X; x += GridFactor * 5)
+            if (IsAxisVisible)
             {
-                if (x == 0)
-                    continue;
+                //double centerX = Width / 2;
+                //double centerY = Height / 2;
 
-                graphics.DrawString(
-                    ((int)(x + X) / 60).ToString(),
-                    Font,
-                    textBrush,
-                    new Point(
-                        ((int)(-X + x + centerX)  - (int)((-X + x + centerX) % 60)),
-                        (int)(0 + y + centerY)
-                    )
-                 );
+                //// Loops throgh each pixel on the x axis
+                //for (double x = -centerX + X; x < centerX + X; x += GridFactor * 5)
+                //{
+                //    if (x == 0)
+                //        continue;
+                //    graphics.DrawString(
+                //        ((int)(x + X) / 60).ToString(),
+                //        Font,
+                //        textBrush,
+                //        new System.Drawing.Point(
+                //            ((int)(-X + x + centerX) - (int)((-X + x + centerX) % 60)),
+                //            (int)(0 + y + centerY)
+                //        )
+                //     );
+                //}
             }
         }
 
@@ -316,6 +358,14 @@ namespace MathProgram.UIElements
         }
 
         /// <summary>
+        /// Used to update Graph Program
+        /// </summary>
+        public void Update()
+        {
+            OpenGlControl.Refresh();
+        }
+
+        /// <summary>
         /// Goes to X: 0, Y: 0 and resets zoom
         /// </summary>
         public void GotoOrigin()
@@ -324,6 +374,22 @@ namespace MathProgram.UIElements
             Y = 0;
             Zoom = 0.5f;
             OpenGlControl.Refresh();
+        }
+
+        public void ChangeZoom(int direction, int mouseX = 0, int mouseY = 0)
+        {
+            if (direction > 0)
+            {
+                //X += mouseX - (Width / 2);
+                //Y -= mouseY - (Height / 2);
+                Zoom -= 0.1 * Zoom;
+            }
+            else
+            {
+                //X -= mouseX - (Width / 2);
+                //Y += mouseY - (Height / 2);
+                Zoom += 0.1 * Zoom;
+            }
         }
     }
 }

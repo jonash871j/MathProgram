@@ -61,7 +61,7 @@ namespace MathProgram.Forms
             this.gl_coordinateSystem.DepthBits = ((byte)(16));
             this.gl_coordinateSystem.Location = new System.Drawing.Point(0, 25);
             this.gl_coordinateSystem.Name = "gl_coordinateSystem";
-            this.gl_coordinateSystem.Size = new System.Drawing.Size(803, 427);
+            this.gl_coordinateSystem.Size = new System.Drawing.Size(506, 250);
             this.gl_coordinateSystem.StencilBits = ((byte)(0));
             this.gl_coordinateSystem.TabIndex = 0;
             this.gl_coordinateSystem.Load += new System.EventHandler(this.gl_coordinateSystem_Load);
@@ -109,7 +109,7 @@ namespace MathProgram.Forms
             this.bn_toggleGrid.Image = ((System.Drawing.Image)(resources.GetObject("bn_toggleGrid.Image")));
             this.bn_toggleGrid.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bn_toggleGrid.Name = "bn_toggleGrid";
-            this.bn_toggleGrid.Size = new System.Drawing.Size(23, 17);
+            this.bn_toggleGrid.Size = new System.Drawing.Size(23, 22);
             this.bn_toggleGrid.Text = "Vis/Skjul gitter";
             this.bn_toggleGrid.ToolTipText = "Vis/Skjul gitter";
             this.bn_toggleGrid.Click += new System.EventHandler(this.bn_toggleGrid_Click);
@@ -117,7 +117,7 @@ namespace MathProgram.Forms
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 20);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // bn_gotoOrigin
             // 
@@ -125,51 +125,60 @@ namespace MathProgram.Forms
             this.bn_gotoOrigin.Image = ((System.Drawing.Image)(resources.GetObject("bn_gotoOrigin.Image")));
             this.bn_gotoOrigin.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bn_gotoOrigin.Name = "bn_gotoOrigin";
-            this.bn_gotoOrigin.Size = new System.Drawing.Size(23, 17);
+            this.bn_gotoOrigin.Size = new System.Drawing.Size(23, 22);
             this.bn_gotoOrigin.Text = "Gå til origo";
             this.bn_gotoOrigin.Click += new System.EventHandler(this.bn_gotoOrigin_Click);
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(14, 17);
+            this.toolStripLabel1.Size = new System.Drawing.Size(14, 22);
             this.toolStripLabel1.Text = "X";
             // 
             // tb_x
             // 
+            this.tb_x.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.tb_x.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_x.ForeColor = System.Drawing.SystemColors.Control;
             this.tb_x.Name = "tb_x";
             this.tb_x.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.tb_x.ReadOnly = true;
-            this.tb_x.Size = new System.Drawing.Size(75, 20);
+            this.tb_x.Size = new System.Drawing.Size(75, 25);
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(14, 17);
+            this.toolStripLabel2.Size = new System.Drawing.Size(14, 22);
             this.toolStripLabel2.Text = "Y";
             // 
             // tb_y
             // 
+            this.tb_y.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.tb_y.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_y.ForeColor = System.Drawing.SystemColors.Control;
             this.tb_y.Name = "tb_y";
             this.tb_y.ReadOnly = true;
-            this.tb_y.Size = new System.Drawing.Size(75, 20);
+            this.tb_y.Size = new System.Drawing.Size(75, 25);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 20);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(39, 17);
+            this.toolStripLabel3.Size = new System.Drawing.Size(39, 22);
             this.toolStripLabel3.Text = "Zoom";
             // 
             // tb_zoom
             // 
+            this.tb_zoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.tb_zoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_zoom.ForeColor = System.Drawing.SystemColors.Window;
             this.tb_zoom.Name = "tb_zoom";
             this.tb_zoom.ReadOnly = true;
-            this.tb_zoom.Size = new System.Drawing.Size(50, 20);
+            this.tb_zoom.Size = new System.Drawing.Size(50, 25);
             // 
             // CoordinateSystemForm
             // 

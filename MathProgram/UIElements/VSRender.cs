@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace MathProgram.UIElements
+namespace MathProgram.StaticContainers
 {
     static class VSRender
     {

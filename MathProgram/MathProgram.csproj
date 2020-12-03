@@ -70,6 +70,7 @@
     <Compile Include="Component1.Designer.cs">
       <DependentUpon>Component1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Containers\Geometry.cs" />
     <Compile Include="UIElements\GraphProgram.cs" />
     <Compile Include="Forms\CalculatorForm.cs">
       <SubType>Form</SubType>
