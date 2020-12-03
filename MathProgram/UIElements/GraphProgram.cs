@@ -78,15 +78,19 @@ namespace MathProgram.UIElements
             }
             set 
             {
-                if (value <= 0.0002f)
-                    zoom = 0.0002f;
-                else if (value >= 1000.0f)
-                    zoom = 1000.0f;
+                if (value > 0)
+                {
+                    zoom -= zoom / 2.0;
+                }
                 else
-                    zoom = value;
+                {
+                    zoom += zoom;
+                }
+                if (zoom < 0.001953125)
+                    zoom = 0.001953125;
 
-                if ((zoom >= 0.9f) && (zoom < 1.0f))
-                    zoom = (float)Math.Round(zoom);
+                //if ((zoom >= 0.9f) && (zoom < 1.0f))
+                //    zoom = (float)Math.Round(zoom);
             }
         }
         public bool IsGridVisible { get; set; } = true;
@@ -100,9 +104,9 @@ namespace MathProgram.UIElements
 
             Functions = new List<Func<double, double>>();
 
-            color.Text = Color.FromArgb(255, 255, 255);
-            color.LargeGrid = Color.FromArgb(40, 40, 40);
-            color.SmallGrid = Color.FromArgb(24, 24, 24);
+            color.Text = Color.FromArgb(51, 173, 255);
+            color.LargeGrid = Color.FromArgb(48, 48, 48);
+            color.SmallGrid = Color.FromArgb(32, 32, 32);
             color.Background = Color.FromArgb(16, 16, 16);
             color.Axis = Color.FromArgb(192, 192, 192);
             color.Graph = Color.FromArgb(64, 128, 64);
@@ -132,7 +136,6 @@ namespace MathProgram.UIElements
         {
             if (IsGridVisible)
             {
-                // Changes grid dimensions based on
                 gridWidth /= Zoom;
                 gridHeight /= Zoom;
 
@@ -240,9 +243,9 @@ namespace MathProgram.UIElements
 
             // Draws small grid
             GLDrawGrid(
-                gridWidth: GridFactor, 
+                gridWidth: GridFactor,
                 gridHeight: GridFactor,
-                  color: color.SmallGrid
+                color: color.SmallGrid
             );
 
             // Draws large grid
@@ -277,17 +280,22 @@ namespace MathProgram.UIElements
         /// </summary>
         public void CPUDraw(Graphics graphics)
         {
-            for (double x = X; x < (Width / 2) - X; x += 60)
+            double centerX = Width / 2;
+            double centerY = Height / 2;
+
+            // Loops throgh each pixel on the x axis
+            for (double x = -centerX + X; x < centerX + X; x += GridFactor * 5)
             {
                 if (x == 0)
                     continue;
+
                 graphics.DrawString(
-                    ((int)(x + X) / 60).ToString(), 
-                    Font, 
-                    textBrush, 
+                    ((int)(x + X) / 60).ToString(),
+                    Font,
+                    textBrush,
                     new Point(
-                        (int)((Width / 2) + x), 
-                        (int)((Height / 2) - Y)
+                        ((int)(-X + x + centerX)  - (int)((-X + x + centerX) % 60)),
+                        (int)(0 + y + centerY)
                     )
                  );
             }

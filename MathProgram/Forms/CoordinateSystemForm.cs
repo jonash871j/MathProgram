@@ -77,7 +77,7 @@ namespace MathProgram.Forms
             graphProgram.GLDraw();
             if (!isDown)
             {
-                //graphProgram.CPUDraw(e.Graphics);
+                graphProgram.CPUDraw(e.Graphics);
             }
         }
         private void gl_coordinateSystem_Load(object sender, EventArgs e)
@@ -109,7 +109,7 @@ namespace MathProgram.Forms
         }
         private void gl_coordinateSystem_MouseWheel(object sender, MouseEventArgs e)
         {
-            graphProgram.Zoom -= (e.Delta / 1000.0f) * graphProgram.Zoom;
+            graphProgram.Zoom -= e.Delta;
             gl_coordinateSystem.Refresh();
         }
 
