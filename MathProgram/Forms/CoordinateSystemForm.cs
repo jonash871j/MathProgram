@@ -9,19 +9,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using System.Drawing.Drawing2D;
+using Tao.FreeGlut;
+using Tao.OpenGl;
+using Tao.Platform.Windows;
+using System.Drawing.Text;
+using MathProgram.UIElements;
+using MathProgram.StaticContainers;
 
 namespace MathProgram.Forms
 {
     public partial class CoordinateSystemForm : DockContent
     {
-        private Bitmap image;
+        private Point mouseStart = new Point(0, 0);
+        private Point mouseMove = new Point(0, 0);
+        private Point coordUpdate = new Point(0, 0);
+        private bool isDown = false;
+        public static GraphProgram GraphProgram { get; set; }
 
         public CoordinateSystemForm()
         {
             InitializeComponent();
-            image = new Bitmap(pb_coordinateSystem.Width, pb_coordinateSystem.Height);
+            EnableVSRenderer();
+            MouseWheel += new MouseEventHandler(gl_coordinateSystem_MouseWheel);
+            GraphProgram = new GraphProgram(ref gl_coordinateSystem);
 
-            UpdateCoordinateSystem();
+            SetSettings();
         }
 
         private void CoordinateSystemForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -33,82 +45,90 @@ namespace MathProgram.Forms
             }
         }
 
-        private void UpdateCoordinateSystem()
+        /* Toolbar *******************/
+
+        private void bn_toggleAxis_Click(object sender, EventArgs e)
         {
-            int width = image.Width;
-            int height = image.Height;
-
-            Graphics renderer = Graphics.FromImage(image);
-            renderer.SmoothingMode = SmoothingMode.AntiAlias;
-            renderer.Clear(Color.FromArgb(16, 16, 16));
-
-            Pen penBig = new Pen(Color.FromArgb(255, 192, 192, 192));
-            Pen penMedium = new Pen(Color.FromArgb(255, 32, 32, 32));
-            Pen penSmall = new Pen(Color.FromArgb(255, 24, 24, 24));
-            Pen penFunction = new Pen(Color.FromArgb(255, 64, 127, 64));
-
-            penFunction.Alignment = PenAlignment.Center;
-            penFunction.Width = 2;
-
-            CreateGrid(renderer, penSmall, 12, 12);
-            CreateGrid(renderer, penMedium, 60, 60);
-
-            renderer.DrawLine(penBig, width / 2, 0, width / 2, height);
-            renderer.DrawLine(penBig, 0, height / 2, width, height / 2);
-
-            int xPre = -width / 2;
-            int yPre = 0;
-            for (int x = -width / 2; x < width / 2; x++)
-            {
-                int y = (int)(0.01 * Math.Pow(x, 2) + x + 16);
-                renderer.DrawLine(
-                    penFunction,
-                    x + width / 2,
-                    y + height / 2,
-                    xPre + width / 2,
-                    yPre + height / 2
-                );
-                xPre = x;
-                yPre = y;
-            }
-
-            pb_coordinateSystem.Image = image;
+            UpdateSettings();
+        }
+        private void bn_toggleGrid_Click(object sender, EventArgs e)
+        {
+            UpdateSettings();
+        }
+        private void bn_gotoOrigin_Click(object sender, EventArgs e)
+        {
+            GraphProgram.GotoOrigin();
+            coordUpdate = new Point(0, 0);
         }
 
-        private void CreateGrid(Graphics renderer, Pen pen, int gridWidth, int gridHeight)
-        {
-            int width = image.Width;
-            int height = image.Height;
+        /* Graph *********************/
 
-            for (int y = (height / 2) % gridHeight; y < height; y += gridHeight)
+
+
+        private void gl_coordinateSystem_Paint(object sender, PaintEventArgs e)
+        {
+            tb_x.Text = GraphProgram.ActualX.ToString();
+            tb_y.Text = GraphProgram.ActualY.ToString();
+            tb_zoom.Text = (GraphProgram.Zoom).ToString();
+
+            GraphProgram.GLDraw();
+            if (!isDown)
             {
-                renderer.DrawLine(pen, 0, y, width, y);
-            }
-            for (int x = (width / 2) % gridWidth; x < width; x += gridWidth)
-            {
-                renderer.DrawLine(pen, x, 0, x, height);
+                GraphProgram.CPUDraw(e.Graphics);
             }
         }
-
-        private void CoordinateSystemForm_Resize(object sender, EventArgs e)
+        private void gl_coordinateSystem_Load(object sender, EventArgs e)
         {
-            image = new Bitmap(pb_coordinateSystem.Width, pb_coordinateSystem.Height);
-            UpdateCoordinateSystem();
+            GraphProgram.Load();
         }
 
-        private void pb_coordinateSystem_MouseMove(object sender, MouseEventArgs e)
+        private void gl_coordinateSystem_MouseMove(object sender, MouseEventArgs e)
         {
-       
+            if (isDown)
+            {
+                mouseMove = e.Location;
+                GraphProgram.X = coordUpdate.X + mouseStart.X - mouseMove.X;
+                GraphProgram.Y = coordUpdate.Y + mouseMove.Y - mouseStart.Y;
+                gl_coordinateSystem.Refresh();
+            }
+        }
+        private void gl_coordinateSystem_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseStart = e.Location;
+            isDown = true;
+        }
+        private void gl_coordinateSystem_MouseUp(object sender, MouseEventArgs e)
+        {
+            coordUpdate.X += mouseStart.X - mouseMove.X;
+            coordUpdate.Y += mouseMove.Y - mouseStart.Y;
+            isDown = false;
+            gl_coordinateSystem.Refresh();
+        }
+        private void gl_coordinateSystem_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta != 0)
+            {
+                GraphProgram.ChangeZoom(e.Delta, e.Location.X, e.Location.Y);
+                gl_coordinateSystem.Refresh();
+            }
         }
 
-        private void pb_coordinateSystem_MouseDown(object sender, MouseEventArgs e)
+        private void EnableVSRenderer()
         {
-        
+            VSRender.SetStyle(ts_main);
         }
 
-        private void pb_coordinateSystem_MouseUp(object sender, MouseEventArgs e)
+        private void SetSettings()
         {
-
+            bn_toggleAxis.Checked = GraphProgram.IsAxisVisible;
+            bn_toggleGrid.Checked = GraphProgram.IsGridVisible;
+            gl_coordinateSystem.Refresh();
+        }
+        private void UpdateSettings()
+        {
+            GraphProgram.IsAxisVisible = bn_toggleAxis.Checked;
+            GraphProgram.IsGridVisible = bn_toggleGrid.Checked;
+            gl_coordinateSystem.Refresh();
         }
     }
 }

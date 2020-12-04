@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathProgram.UIElements;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,8 +7,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+using MathProgram.StaticContainers;
 
 namespace MathProgram.Forms
 {
@@ -20,7 +23,13 @@ namespace MathProgram.Forms
         {
             InitializeComponent();
             EnableVSRenderer();
+
+            ShowDockForm(coordinateSystemForm, DockState.Document);
             WindowState = FormWindowState.Maximized;
+        }
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+         
         }
 
         private void mi_exit_Click(object sender, EventArgs e)
@@ -32,7 +41,6 @@ namespace MathProgram.Forms
         {
             ShowDockForm(coordinateSystemForm, DockState.Document);
         }
-
         private void mi_calculator_Click(object sender, EventArgs e)
         {
             ShowDockForm(new CalculatorForm(), DockState.DockRight);
@@ -40,6 +48,21 @@ namespace MathProgram.Forms
         private void mi_quadraticEquations_Click(object sender, EventArgs e)
         {
             ShowDockForm(new QuadraticEquationsForm(), DockState.DockLeft);
+        }
+
+        private void mi_isFullscreen_Click(object sender, EventArgs e)
+        {
+            if (mi_isFullscreen.Checked)
+            {
+                FormBorderStyle = FormBorderStyle.None;
+                WindowState = FormWindowState.Normal;
+                WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                TopMost = false;
+                FormBorderStyle = FormBorderStyle.Sizable;
+            }
         }
 
         private void ShowDockForm(DockContent dockForm, DockState dockState = DockState.Document)

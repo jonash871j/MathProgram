@@ -243,6 +243,7 @@ namespace MathProgram.Forms
             this.Controls.Add(this.groupBox1);
             this.Name = "QuadraticEquationsForm";
             this.Text = "Andengradsligning";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuadraticEquationsForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
