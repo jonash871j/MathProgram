@@ -32,12 +32,12 @@ namespace MathProgram.Forms
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tb_x1 = new System.Windows.Forms.TextBox();
-            this.tb_x2 = new System.Windows.Forms.TextBox();
+            this.TB_X1 = new System.Windows.Forms.TextBox();
+            this.TB_X2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tb_y2 = new System.Windows.Forms.TextBox();
-            this.tb_y1 = new System.Windows.Forms.TextBox();
+            this.TB_Y2 = new System.Windows.Forms.TextBox();
+            this.TB_Y1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.tb_calulation = new System.Windows.Forms.Label();
@@ -50,12 +50,12 @@ namespace MathProgram.Forms
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.tb_y2);
-            this.groupBox1.Controls.Add(this.tb_y1);
+            this.groupBox1.Controls.Add(this.TB_Y2);
+            this.groupBox1.Controls.Add(this.TB_Y1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.tb_x2);
-            this.groupBox1.Controls.Add(this.tb_x1);
+            this.groupBox1.Controls.Add(this.TB_X2);
+            this.groupBox1.Controls.Add(this.TB_X1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -90,19 +90,19 @@ namespace MathProgram.Forms
             // 
             // tb_x1
             // 
-            this.tb_x1.Location = new System.Drawing.Point(6, 32);
-            this.tb_x1.Name = "tb_x1";
-            this.tb_x1.Size = new System.Drawing.Size(80, 20);
-            this.tb_x1.TabIndex = 1;
-            this.tb_x1.TextChanged += new System.EventHandler(this.tb_x1_TextChanged);
+            this.TB_X1.Location = new System.Drawing.Point(6, 32);
+            this.TB_X1.Name = "TB_X1";
+            this.TB_X1.Size = new System.Drawing.Size(80, 20);
+            this.TB_X1.TabIndex = 1;
+            this.TB_X1.TextChanged += new System.EventHandler(this.TB_X1_TextChanged);
             // 
             // tb_x2
             // 
-            this.tb_x2.Location = new System.Drawing.Point(95, 32);
-            this.tb_x2.Name = "tb_x2";
-            this.tb_x2.Size = new System.Drawing.Size(80, 20);
-            this.tb_x2.TabIndex = 2;
-            this.tb_x2.TextChanged += new System.EventHandler(this.tb_x2_TextChanged);
+            this.TB_X2.Location = new System.Drawing.Point(95, 32);
+            this.TB_X2.Name = "TB_X2";
+            this.TB_X2.Size = new System.Drawing.Size(80, 20);
+            this.TB_X2.TabIndex = 2;
+            this.TB_X2.TextChanged += new System.EventHandler(this.TB_X2_TextChanged);
             // 
             // label2
             // 
@@ -124,19 +124,19 @@ namespace MathProgram.Forms
             // 
             // tb_y2
             // 
-            this.tb_y2.Location = new System.Drawing.Point(95, 73);
-            this.tb_y2.Name = "tb_y2";
-            this.tb_y2.Size = new System.Drawing.Size(80, 20);
-            this.tb_y2.TabIndex = 6;
-            this.tb_y2.TextChanged += new System.EventHandler(this.tb_y2_TextChanged);
+            this.TB_Y2.Location = new System.Drawing.Point(95, 73);
+            this.TB_Y2.Name = "TB_Y2";
+            this.TB_Y2.Size = new System.Drawing.Size(80, 20);
+            this.TB_Y2.TabIndex = 6;
+            this.TB_Y2.TextChanged += new System.EventHandler(this.TB_Y2_TextChanged);
             // 
             // tb_y1
             // 
-            this.tb_y1.Location = new System.Drawing.Point(6, 73);
-            this.tb_y1.Name = "tb_y1";
-            this.tb_y1.Size = new System.Drawing.Size(80, 20);
-            this.tb_y1.TabIndex = 5;
-            this.tb_y1.TextChanged += new System.EventHandler(this.tb_y1_TextChanged);
+            this.TB_Y1.Location = new System.Drawing.Point(6, 73);
+            this.TB_Y1.Name = "TB_Y1";
+            this.TB_Y1.Size = new System.Drawing.Size(80, 20);
+            this.TB_Y1.TabIndex = 5;
+            this.TB_Y1.TextChanged += new System.EventHandler(this.TB_Y1_TextChanged);
             // 
             // label4
             // 
@@ -208,12 +208,12 @@ namespace MathProgram.Forms
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tb_y2;
-        private System.Windows.Forms.TextBox tb_y1;
+        private System.Windows.Forms.TextBox TB_Y2;
+        private System.Windows.Forms.TextBox TB_Y1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tb_x2;
-        private System.Windows.Forms.TextBox tb_x1;
+        private System.Windows.Forms.TextBox TB_X2;
+        private System.Windows.Forms.TextBox TB_X1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_result;
         private System.Windows.Forms.Label label5;

@@ -32,38 +32,38 @@ namespace MathProgram.Forms
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.tb_inputC = new System.Windows.Forms.TextBox();
+            this.TB_InputC = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tb_inputB = new System.Windows.Forms.TextBox();
+            this.TB_InputB = new System.Windows.Forms.TextBox();
             this.tb_b = new System.Windows.Forms.Label();
-            this.tb_inputA = new System.Windows.Forms.TextBox();
+            this.TB_InputA = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tb_dResult = new System.Windows.Forms.TextBox();
+            this.TB_DResult = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tb_dCalculation = new System.Windows.Forms.TextBox();
+            this.TB_DCalculation = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tb_function = new System.Windows.Forms.TextBox();
+            this.TB_Function = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.tb_rootResult = new System.Windows.Forms.TextBox();
+            this.TB_RootResult = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.tb_rootAmountOfSolutions = new System.Windows.Forms.TextBox();
+            this.TB_RootAmountOfSolutions = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tb_root2Caluation = new System.Windows.Forms.TextBox();
-            this.tb_root1Caluation = new System.Windows.Forms.TextBox();
+            this.TB_Root2Caluation = new System.Windows.Forms.TextBox();
+            this.TB_Root1Caluation = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.tb_rootsCaluation = new System.Windows.Forms.TextBox();
+            this.TB_RootsCaluation = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.tb_topPointResult = new System.Windows.Forms.TextBox();
+            this.TB_TopPointResult = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.tb_topPointCalculation = new System.Windows.Forms.TextBox();
+            this.TB_TopPointCalculation = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -78,11 +78,11 @@ namespace MathProgram.Forms
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.tb_inputC);
+            this.groupBox1.Controls.Add(this.TB_InputC);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.tb_inputB);
+            this.groupBox1.Controls.Add(this.TB_InputB);
             this.groupBox1.Controls.Add(this.tb_b);
-            this.groupBox1.Controls.Add(this.tb_inputA);
+            this.groupBox1.Controls.Add(this.TB_InputA);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -111,15 +111,15 @@ namespace MathProgram.Forms
             this.checkBox1.Text = "Formler";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // tb_inputC
+            // TB_InputC
             // 
-            this.tb_inputC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_InputC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_inputC.Location = new System.Drawing.Point(6, 110);
-            this.tb_inputC.Name = "tb_inputC";
-            this.tb_inputC.Size = new System.Drawing.Size(201, 22);
-            this.tb_inputC.TabIndex = 5;
-            this.tb_inputC.TextChanged += new System.EventHandler(this.tb_inputC_TextChanged);
+            this.TB_InputC.Location = new System.Drawing.Point(6, 110);
+            this.TB_InputC.Name = "TB_InputC";
+            this.TB_InputC.Size = new System.Drawing.Size(201, 22);
+            this.TB_InputC.TabIndex = 5;
+            this.TB_InputC.TextChanged += new System.EventHandler(this.TB_InputC_TextChanged);
             // 
             // label2
             // 
@@ -130,15 +130,15 @@ namespace MathProgram.Forms
             this.label2.TabIndex = 4;
             this.label2.Text = "c";
             // 
-            // tb_inputB
+            // TB_InputB
             // 
-            this.tb_inputB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_InputB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_inputB.Location = new System.Drawing.Point(6, 71);
-            this.tb_inputB.Name = "tb_inputB";
-            this.tb_inputB.Size = new System.Drawing.Size(201, 22);
-            this.tb_inputB.TabIndex = 3;
-            this.tb_inputB.TextChanged += new System.EventHandler(this.tb_inputB_TextChanged);
+            this.TB_InputB.Location = new System.Drawing.Point(6, 71);
+            this.TB_InputB.Name = "TB_InputB";
+            this.TB_InputB.Size = new System.Drawing.Size(201, 22);
+            this.TB_InputB.TabIndex = 3;
+            this.TB_InputB.TextChanged += new System.EventHandler(this.TB_InputB_TextChanged);
             // 
             // tb_b
             // 
@@ -149,15 +149,15 @@ namespace MathProgram.Forms
             this.tb_b.TabIndex = 2;
             this.tb_b.Text = "b";
             // 
-            // tb_inputA
+            // TB_InputA
             // 
-            this.tb_inputA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_InputA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_inputA.Location = new System.Drawing.Point(6, 32);
-            this.tb_inputA.Name = "tb_inputA";
-            this.tb_inputA.Size = new System.Drawing.Size(201, 22);
-            this.tb_inputA.TabIndex = 1;
-            this.tb_inputA.TextChanged += new System.EventHandler(this.tb_inputA_TextChanged);
+            this.TB_InputA.Location = new System.Drawing.Point(6, 32);
+            this.TB_InputA.Name = "TB_InputA";
+            this.TB_InputA.Size = new System.Drawing.Size(201, 22);
+            this.TB_InputA.TabIndex = 1;
+            this.TB_InputA.TextChanged += new System.EventHandler(this.TB_InputA_TextChanged);
             // 
             // label1
             // 
@@ -173,9 +173,9 @@ namespace MathProgram.Forms
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox2.Controls.Add(this.tb_dResult);
+            this.groupBox2.Controls.Add(this.TB_DResult);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.tb_dCalculation);
+            this.groupBox2.Controls.Add(this.TB_DCalculation);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.label5);
@@ -186,15 +186,15 @@ namespace MathProgram.Forms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Diskriminanten";
             // 
-            // tb_dResult
+            // TB_DResult
             // 
-            this.tb_dResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_DResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_dResult.Location = new System.Drawing.Point(6, 110);
-            this.tb_dResult.Name = "tb_dResult";
-            this.tb_dResult.ReadOnly = true;
-            this.tb_dResult.Size = new System.Drawing.Size(250, 22);
-            this.tb_dResult.TabIndex = 5;
+            this.TB_DResult.Location = new System.Drawing.Point(6, 110);
+            this.TB_DResult.Name = "TB_DResult";
+            this.TB_DResult.ReadOnly = true;
+            this.TB_DResult.Size = new System.Drawing.Size(250, 22);
+            this.TB_DResult.TabIndex = 5;
             // 
             // label3
             // 
@@ -205,15 +205,15 @@ namespace MathProgram.Forms
             this.label3.TabIndex = 4;
             this.label3.Text = "Result";
             // 
-            // tb_dCalculation
+            // TB_DCalculation
             // 
-            this.tb_dCalculation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_DCalculation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_dCalculation.Location = new System.Drawing.Point(6, 71);
-            this.tb_dCalculation.Name = "tb_dCalculation";
-            this.tb_dCalculation.ReadOnly = true;
-            this.tb_dCalculation.Size = new System.Drawing.Size(250, 22);
-            this.tb_dCalculation.TabIndex = 3;
+            this.TB_DCalculation.Location = new System.Drawing.Point(6, 71);
+            this.TB_DCalculation.Name = "TB_DCalculation";
+            this.TB_DCalculation.ReadOnly = true;
+            this.TB_DCalculation.Size = new System.Drawing.Size(250, 22);
+            this.TB_DCalculation.TabIndex = 3;
             // 
             // label4
             // 
@@ -249,7 +249,7 @@ namespace MathProgram.Forms
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox3.Controls.Add(this.tb_function);
+            this.groupBox3.Controls.Add(this.TB_Function);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Location = new System.Drawing.Point(231, 12);
             this.groupBox3.Name = "groupBox3";
@@ -258,15 +258,15 @@ namespace MathProgram.Forms
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Andengradsligning";
             // 
-            // tb_function
+            // TB_Function
             // 
-            this.tb_function.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_Function.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_function.Location = new System.Drawing.Point(6, 32);
-            this.tb_function.Name = "tb_function";
-            this.tb_function.ReadOnly = true;
-            this.tb_function.Size = new System.Drawing.Size(250, 22);
-            this.tb_function.TabIndex = 1;
+            this.TB_Function.Location = new System.Drawing.Point(6, 32);
+            this.TB_Function.Name = "TB_Function";
+            this.TB_Function.ReadOnly = true;
+            this.TB_Function.Size = new System.Drawing.Size(250, 22);
+            this.TB_Function.TabIndex = 1;
             // 
             // label6
             // 
@@ -282,9 +282,9 @@ namespace MathProgram.Forms
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox4.Controls.Add(this.tb_rootResult);
+            this.groupBox4.Controls.Add(this.TB_RootResult);
             this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.tb_rootAmountOfSolutions);
+            this.groupBox4.Controls.Add(this.TB_RootAmountOfSolutions);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.groupBox5);
             this.groupBox4.Location = new System.Drawing.Point(12, 333);
@@ -294,15 +294,15 @@ namespace MathProgram.Forms
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Rødderne";
             // 
-            // tb_rootResult
+            // TB_RootResult
             // 
-            this.tb_rootResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_RootResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_rootResult.Location = new System.Drawing.Point(237, 161);
-            this.tb_rootResult.Name = "tb_rootResult";
-            this.tb_rootResult.ReadOnly = true;
-            this.tb_rootResult.Size = new System.Drawing.Size(232, 22);
-            this.tb_rootResult.TabIndex = 14;
+            this.TB_RootResult.Location = new System.Drawing.Point(237, 161);
+            this.TB_RootResult.Name = "TB_RootResult";
+            this.TB_RootResult.ReadOnly = true;
+            this.TB_RootResult.Size = new System.Drawing.Size(232, 22);
+            this.TB_RootResult.TabIndex = 14;
             // 
             // label10
             // 
@@ -315,13 +315,13 @@ namespace MathProgram.Forms
             this.label10.TabIndex = 13;
             this.label10.Text = "Resultat";
             // 
-            // tb_rootAmountOfSolutions
+            // TB_RootAmountOfSolutions
             // 
-            this.tb_rootAmountOfSolutions.Location = new System.Drawing.Point(15, 161);
-            this.tb_rootAmountOfSolutions.Name = "tb_rootAmountOfSolutions";
-            this.tb_rootAmountOfSolutions.ReadOnly = true;
-            this.tb_rootAmountOfSolutions.Size = new System.Drawing.Size(192, 22);
-            this.tb_rootAmountOfSolutions.TabIndex = 7;
+            this.TB_RootAmountOfSolutions.Location = new System.Drawing.Point(15, 161);
+            this.TB_RootAmountOfSolutions.Name = "TB_RootAmountOfSolutions";
+            this.TB_RootAmountOfSolutions.ReadOnly = true;
+            this.TB_RootAmountOfSolutions.Size = new System.Drawing.Size(192, 22);
+            this.TB_RootAmountOfSolutions.TabIndex = 7;
             // 
             // label7
             // 
@@ -339,10 +339,10 @@ namespace MathProgram.Forms
             this.groupBox5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox5.Controls.Add(this.label8);
             this.groupBox5.Controls.Add(this.label9);
-            this.groupBox5.Controls.Add(this.tb_root2Caluation);
-            this.groupBox5.Controls.Add(this.tb_root1Caluation);
+            this.groupBox5.Controls.Add(this.TB_Root2Caluation);
+            this.groupBox5.Controls.Add(this.TB_Root1Caluation);
             this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Controls.Add(this.tb_rootsCaluation);
+            this.groupBox5.Controls.Add(this.TB_RootsCaluation);
             this.groupBox5.Location = new System.Drawing.Point(9, 19);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(466, 118);
@@ -368,25 +368,25 @@ namespace MathProgram.Forms
             this.label9.TabIndex = 10;
             this.label9.Text = "Rod 1";
             // 
-            // tb_root2Caluation
+            // TB_Root2Caluation
             // 
-            this.tb_root2Caluation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_Root2Caluation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_root2Caluation.Location = new System.Drawing.Point(249, 83);
-            this.tb_root2Caluation.Name = "tb_root2Caluation";
-            this.tb_root2Caluation.ReadOnly = true;
-            this.tb_root2Caluation.Size = new System.Drawing.Size(211, 22);
-            this.tb_root2Caluation.TabIndex = 7;
+            this.TB_Root2Caluation.Location = new System.Drawing.Point(249, 83);
+            this.TB_Root2Caluation.Name = "TB_Root2Caluation";
+            this.TB_Root2Caluation.ReadOnly = true;
+            this.TB_Root2Caluation.Size = new System.Drawing.Size(211, 22);
+            this.TB_Root2Caluation.TabIndex = 7;
             // 
-            // tb_root1Caluation
+            // TB_Root1Caluation
             // 
-            this.tb_root1Caluation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_Root1Caluation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_root1Caluation.Location = new System.Drawing.Point(249, 29);
-            this.tb_root1Caluation.Name = "tb_root1Caluation";
-            this.tb_root1Caluation.ReadOnly = true;
-            this.tb_root1Caluation.Size = new System.Drawing.Size(211, 22);
-            this.tb_root1Caluation.TabIndex = 6;
+            this.TB_Root1Caluation.Location = new System.Drawing.Point(249, 29);
+            this.TB_Root1Caluation.Name = "TB_Root1Caluation";
+            this.TB_Root1Caluation.ReadOnly = true;
+            this.TB_Root1Caluation.Size = new System.Drawing.Size(211, 22);
+            this.TB_Root1Caluation.TabIndex = 6;
             // 
             // label12
             // 
@@ -398,20 +398,20 @@ namespace MathProgram.Forms
             this.label12.TabIndex = 4;
             this.label12.Text = "{";
             // 
-            // tb_rootsCaluation
+            // TB_RootsCaluation
             // 
-            this.tb_rootsCaluation.Location = new System.Drawing.Point(6, 55);
-            this.tb_rootsCaluation.Name = "tb_rootsCaluation";
-            this.tb_rootsCaluation.ReadOnly = true;
-            this.tb_rootsCaluation.Size = new System.Drawing.Size(192, 22);
-            this.tb_rootsCaluation.TabIndex = 3;
+            this.TB_RootsCaluation.Location = new System.Drawing.Point(6, 55);
+            this.TB_RootsCaluation.Name = "TB_RootsCaluation";
+            this.TB_RootsCaluation.ReadOnly = true;
+            this.TB_RootsCaluation.Size = new System.Drawing.Size(192, 22);
+            this.TB_RootsCaluation.TabIndex = 3;
             // 
             // groupBox6
             // 
             this.groupBox6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox6.Controls.Add(this.tb_topPointResult);
+            this.groupBox6.Controls.Add(this.TB_TopPointResult);
             this.groupBox6.Controls.Add(this.label11);
-            this.groupBox6.Controls.Add(this.tb_topPointCalculation);
+            this.groupBox6.Controls.Add(this.TB_TopPointCalculation);
             this.groupBox6.Controls.Add(this.label14);
             this.groupBox6.Location = new System.Drawing.Point(12, 182);
             this.groupBox6.Name = "groupBox6";
@@ -420,15 +420,15 @@ namespace MathProgram.Forms
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Toppunkt";
             // 
-            // tb_topPointResult
+            // TB_TopPointResult
             // 
-            this.tb_topPointResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_TopPointResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_topPointResult.Location = new System.Drawing.Point(6, 71);
-            this.tb_topPointResult.Name = "tb_topPointResult";
-            this.tb_topPointResult.ReadOnly = true;
-            this.tb_topPointResult.Size = new System.Drawing.Size(195, 22);
-            this.tb_topPointResult.TabIndex = 3;
+            this.TB_TopPointResult.Location = new System.Drawing.Point(6, 71);
+            this.TB_TopPointResult.Name = "TB_TopPointResult";
+            this.TB_TopPointResult.ReadOnly = true;
+            this.TB_TopPointResult.Size = new System.Drawing.Size(195, 22);
+            this.TB_TopPointResult.TabIndex = 3;
             // 
             // label11
             // 
@@ -439,15 +439,15 @@ namespace MathProgram.Forms
             this.label11.TabIndex = 2;
             this.label11.Text = "Resultat";
             // 
-            // tb_topPointCalculation
+            // TB_TopPointCalculation
             // 
-            this.tb_topPointCalculation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_TopPointCalculation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_topPointCalculation.Location = new System.Drawing.Point(6, 32);
-            this.tb_topPointCalculation.Name = "tb_topPointCalculation";
-            this.tb_topPointCalculation.ReadOnly = true;
-            this.tb_topPointCalculation.Size = new System.Drawing.Size(195, 22);
-            this.tb_topPointCalculation.TabIndex = 1;
+            this.TB_TopPointCalculation.Location = new System.Drawing.Point(6, 32);
+            this.TB_TopPointCalculation.Name = "TB_TopPointCalculation";
+            this.TB_TopPointCalculation.ReadOnly = true;
+            this.TB_TopPointCalculation.Size = new System.Drawing.Size(195, 22);
+            this.TB_TopPointCalculation.TabIndex = 1;
             // 
             // label14
             // 
@@ -462,7 +462,7 @@ namespace MathProgram.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(505, 534);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox4);
@@ -492,40 +492,40 @@ namespace MathProgram.Forms
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox tb_inputC;
+        private System.Windows.Forms.TextBox TB_InputC;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tb_inputB;
+        private System.Windows.Forms.TextBox TB_InputB;
         private System.Windows.Forms.Label tb_b;
-        private System.Windows.Forms.TextBox tb_inputA;
+        private System.Windows.Forms.TextBox TB_InputA;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox tb_dCalculation;
+        private System.Windows.Forms.TextBox TB_DCalculation;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox tb_function;
+        private System.Windows.Forms.TextBox TB_Function;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tb_dResult;
+        private System.Windows.Forms.TextBox TB_DResult;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox tb_rootResult;
+        private System.Windows.Forms.TextBox TB_RootResult;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tb_rootAmountOfSolutions;
+        private System.Windows.Forms.TextBox TB_RootAmountOfSolutions;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tb_root2Caluation;
-        private System.Windows.Forms.TextBox tb_root1Caluation;
+        private System.Windows.Forms.TextBox TB_Root2Caluation;
+        private System.Windows.Forms.TextBox TB_Root1Caluation;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox tb_rootsCaluation;
+        private System.Windows.Forms.TextBox TB_RootsCaluation;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox tb_topPointResult;
+        private System.Windows.Forms.TextBox TB_TopPointResult;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox tb_topPointCalculation;
+        private System.Windows.Forms.TextBox TB_TopPointCalculation;
     }
 }

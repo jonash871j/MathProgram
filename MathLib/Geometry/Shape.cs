@@ -6,7 +6,7 @@ namespace MathLib.Geometry
 {
     public class Shape
     {
-        private static Random random = new Random();
+        private static readonly Random random = new Random();
 
         public List<Line> Lines { get; set; }
         public Color Color { get; set; }

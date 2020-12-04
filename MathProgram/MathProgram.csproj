@@ -70,16 +70,16 @@
     <Compile Include="Component1.Designer.cs">
       <DependentUpon>Component1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Static\Geometry.cs" />
+    <Compile Include="Interfaces\ISetForm.cs" />
     <Compile Include="Forms\DistanceFormularForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\DistanceFormularForm.Designer.cs">
       <DependentUpon>DistanceFormularForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IToolForm.cs" />
+    <Compile Include="Interfaces\IUpdateForm.cs" />
     <Compile Include="Static\Misc.cs" />
-    <Compile Include="UIElements\GraphProgram.cs" />
+    <Compile Include="UIElements\CoordinateSystemProgram.cs" />
     <Compile Include="Forms\CalculatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,7 +154,9 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Images\Icons\Axis_16x.png" />
+    <Content Include="Images\Icons\Graph_16x.png" />
     <Content Include="Images\Icons\GridToggle_16xMD.png" />
+    <Content Include="Images\Icons\Points_16x.png" />
     <Content Include="Images\Icons\Restart_16x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -16,51 +16,47 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace MathProgram.Forms
 {
-    public partial class QuadraticEquationsForm : DockContent, IToolForm
+    public partial class QuadraticEquationsForm : DockContent, IUpdateForm
     {
         private QuadraticEquation quadraticEquation = new QuadraticEquation();
 
+        /* Init & uninit section *********************/
         public QuadraticEquationsForm()
         {
             InitializeComponent();
             quadraticEquation = new QuadraticEquation();
 
-            Geometry.Geometries.Add(quadraticEquation);
+            CoordinateSystemForm.Program.Geometries.Add(quadraticEquation);
         }
         private void QuadraticEquationsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Geometry.Geometries.Remove(quadraticEquation);
+            CoordinateSystemForm.Program.Geometries.Remove(quadraticEquation);
         }
 
-        private void tb_inputA_TextChanged(object sender, EventArgs e)
-        {
-            UpdateTool();
-        }
-        private void tb_inputB_TextChanged(object sender, EventArgs e)
-        {
-            UpdateTool();
-        }
-        private void tb_inputC_TextChanged(object sender, EventArgs e)
-        {
-            UpdateTool();
-        }
+        /* Input section *********************/
+        private void TB_InputA_TextChanged(object sender, EventArgs e) => UpdateForm();
+        private void TB_InputB_TextChanged(object sender, EventArgs e) => UpdateForm();
+        private void TB_InputC_TextChanged(object sender, EventArgs e) => UpdateForm();
 
-        public void UpdateTool()
+        /* Additional logic *********************/
+        public void UpdateForm()
         {
-            quadraticEquation.A = Misc.TextboxParse(tb_inputA);
-            quadraticEquation.B = Misc.TextboxParse(tb_inputB);
-            quadraticEquation.C = Misc.TextboxParse(tb_inputC);
-            tb_function.Text = quadraticEquation.GetFunction();
-            tb_dResult.Text = quadraticEquation.D.ToString();
-            tb_dCalculation.Text = quadraticEquation.GetDiscriminantCalculation();
-            tb_topPointCalculation.Text = quadraticEquation.GetTopPointCalulation();
-            tb_topPointResult.Text = quadraticEquation.GetTopPointResult();
-            tb_rootsCaluation.Text = quadraticEquation.GetRootsCalculation();
-            tb_root1Caluation.Text = quadraticEquation.GetRootPositiveCalculation();
-            tb_root2Caluation.Text = quadraticEquation.GetRootNegativeCalculation();
-            tb_rootAmountOfSolutions.Text = quadraticEquation.GetSolutionMessage();
-            tb_rootResult.Text = quadraticEquation.GetRootResult();
-            CoordinateSystemForm.GraphProgram.Update();
+            quadraticEquation.A = Misc.TextboxParse(TB_InputA);
+            quadraticEquation.B = Misc.TextboxParse(TB_InputB);
+            quadraticEquation.C = Misc.TextboxParse(TB_InputC);
+
+            TB_Function.Text = quadraticEquation.GetFunction();
+            TB_DResult.Text = quadraticEquation.D.ToString();
+            TB_DCalculation.Text = quadraticEquation.GetDiscriminantCalculation();
+            TB_TopPointCalculation.Text = quadraticEquation.GetTopPointCalulation();
+            TB_TopPointResult.Text = quadraticEquation.GetTopPointResult();
+            TB_RootsCaluation.Text = quadraticEquation.GetRootsCalculation();
+            TB_Root1Caluation.Text = quadraticEquation.GetRootPositiveCalculation();
+            TB_Root2Caluation.Text = quadraticEquation.GetRootNegativeCalculation();
+            TB_RootAmountOfSolutions.Text = quadraticEquation.GetSolutionMessage();
+            TB_RootResult.Text = quadraticEquation.GetRootResult();
+
+            CoordinateSystemForm.Program.Update();
         }
     }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MathProgram.Interfaces
 {
-    public interface IToolForm
+    public interface IUpdateForm
     {
-        void UpdateTool();
+        void UpdateForm();
     }
 }

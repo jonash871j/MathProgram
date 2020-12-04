@@ -1,13 +1,4 @@
-﻿using MathProgram.UIElements;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
+﻿using System;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using MathProgram.StaticContainers;
@@ -17,8 +8,9 @@ namespace MathProgram.Forms
     public partial class MainForm : Form
     {
         // Link to math formular libary: http://numerator.sourceforge.net/components.php
-        private CoordinateSystemForm coordinateSystemForm = new CoordinateSystemForm();
+        private readonly CoordinateSystemForm coordinateSystemForm = new CoordinateSystemForm();
 
+        /* Init & uninit section *********************/
         public MainForm()
         {
             InitializeComponent();
@@ -27,36 +19,28 @@ namespace MathProgram.Forms
             ShowDockForm(coordinateSystemForm, DockState.Document);
             WindowState = FormWindowState.Maximized;
         }
-        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        private void EnableVSRenderer()
         {
-         
+            DP_Main.Theme = VSRender.Theme;
+            VSRender.SetStyle(MS_Main);
+            VSRender.SetStyle(TS_Main);
+            VSRender.SetStyle(SS_Main);
         }
 
-        private void mi_exit_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        /* Menubar *********************/
+        /* File */
+        private void MI_Exit_Click(object sender, EventArgs e) => Close();
 
-        private void mi_coordSystem_Click(object sender, EventArgs e)
-        {
-            ShowDockForm(coordinateSystemForm, DockState.Document);
-        }
-        private void mi_calculator_Click(object sender, EventArgs e)
-        {
-            ShowDockForm(new CalculatorForm(), DockState.DockRight);
-        }
-        private void mi_quadraticEquations_Click(object sender, EventArgs e)
-        {
-            ShowDockForm(new QuadraticEquationsForm(), DockState.DockLeft);
-        }
-        private void mi_distanceFormluar_Click(object sender, EventArgs e)
-        {
-            ShowDockForm(new DistanceFormularForm(), DockState.DockLeft);
-        }
+        /* Tools */
+        private void MI_CoordSystem_Click(object sender, EventArgs e)        => ShowDockForm(coordinateSystemForm, DockState.Document);
+        private void MI_Calculator_Click(object sender, EventArgs e)         => ShowDockForm(new CalculatorForm(), DockState.DockRight);
+        private void MI_QuadraticEquations_Click(object sender, EventArgs e) => ShowDockForm(new QuadraticEquationsForm(), DockState.DockLeft);
+        private void MI_DistanceFormluar_Click(object sender, EventArgs e)   => ShowDockForm(new DistanceFormularForm(), DockState.DockLeft);
 
-        private void mi_isFullscreen_Click(object sender, EventArgs e)
+        /* Settings */
+        private void MI_IsFullscreen_Click(object sender, EventArgs e)
         {
-            if (mi_isFullscreen.Checked)
+            if (MI_IsFullscreen.Checked)
             {
                 FormBorderStyle = FormBorderStyle.None;
                 WindowState = FormWindowState.Normal;
@@ -69,16 +53,10 @@ namespace MathProgram.Forms
             }
         }
 
+        /* Additional logic *********************/
         private void ShowDockForm(DockContent dockForm, DockState dockState = DockState.Document)
         {
-            dockForm.Show(dp_main, dockState);
-        }
-
-        private void EnableVSRenderer()
-        {
-            dp_main.Theme = VSRender.Theme;
-            VSRender.SetStyle(ms_main);
-            VSRender.SetStyle(ss_main);
+            dockForm.Show(DP_Main, dockState);
         }
     }
 }

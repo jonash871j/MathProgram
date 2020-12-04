@@ -76,8 +76,10 @@ namespace MathLib
         }
         private List<CalculatorNumber> CalculateByOperators(List<CalculatorNumber> numbers, Operator[] operators)
         {
-            List<CalculatorNumber> results = new List<CalculatorNumber>();
-            results.Add(new CalculatorNumber());
+            List<CalculatorNumber> results = new List<CalculatorNumber>
+            {
+                new CalculatorNumber()
+            };
 
             foreach (CalculatorNumber number in numbers)
             {
