@@ -42,6 +42,7 @@ namespace MathProgram.Forms
             this.dp_main = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.ss_main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mi_distanceFormluar = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_main.SuspendLayout();
             this.ss_main.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +95,8 @@ namespace MathProgram.Forms
             // 
             this.værktøjerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mi_calculator,
-            this.mi_quadraticEquations});
+            this.mi_quadraticEquations,
+            this.mi_distanceFormluar});
             this.værktøjerToolStripMenuItem.Name = "værktøjerToolStripMenuItem";
             this.værktøjerToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.værktøjerToolStripMenuItem.Text = "Værktøjer";
@@ -102,14 +104,14 @@ namespace MathProgram.Forms
             // mi_calculator
             // 
             this.mi_calculator.Name = "mi_calculator";
-            this.mi_calculator.Size = new System.Drawing.Size(175, 22);
+            this.mi_calculator.Size = new System.Drawing.Size(180, 22);
             this.mi_calculator.Text = "Lommeregner";
             this.mi_calculator.Click += new System.EventHandler(this.mi_calculator_Click);
             // 
             // mi_quadraticEquations
             // 
             this.mi_quadraticEquations.Name = "mi_quadraticEquations";
-            this.mi_quadraticEquations.Size = new System.Drawing.Size(175, 22);
+            this.mi_quadraticEquations.Size = new System.Drawing.Size(180, 22);
             this.mi_quadraticEquations.Text = "Andengradsligning";
             this.mi_quadraticEquations.Click += new System.EventHandler(this.mi_quadraticEquations_Click);
             // 
@@ -158,6 +160,13 @@ namespace MathProgram.Forms
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(102, 17);
             this.toolStripStatusLabel1.Text = "Math Program 2.0";
             // 
+            // mi_distanceFormluar
+            // 
+            this.mi_distanceFormluar.Name = "mi_distanceFormluar";
+            this.mi_distanceFormluar.Size = new System.Drawing.Size(180, 22);
+            this.mi_distanceFormluar.Text = "Afstandsformlen";
+            this.mi_distanceFormluar.Click += new System.EventHandler(this.mi_distanceFormluar_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,6 +176,7 @@ namespace MathProgram.Forms
             this.Controls.Add(this.ss_main);
             this.Controls.Add(this.dp_main);
             this.Controls.Add(this.ms_main);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.ms_main;
             this.MinimumSize = new System.Drawing.Size(800, 600);
@@ -196,6 +206,7 @@ namespace MathProgram.Forms
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem indstillingerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mi_isFullscreen;
+        private System.Windows.Forms.ToolStripMenuItem mi_distanceFormluar;
     }
 }
 

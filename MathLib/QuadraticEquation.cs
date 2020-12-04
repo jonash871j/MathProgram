@@ -5,35 +5,6 @@ using System.Text;
 
 namespace MathLib
 {
-    //public class Number
-    //{
-    //    private double x;
-    //    public double Value 
-    //    { 
-    //        get
-    //        {
-    //            return x;
-    //        }
-    //        set
-    //        {
-    //            this.x = value;
-    //            Result = this.x.ToString();
-    //        }
-    //    }
-    //    public string Result { get; internal set; }
-
-    //    internal Number(double x)
-    //    {
-    //        Value = x;
-    //        Result = x.ToString();
-    //    }
-    //    internal Number(string result = "fejl")
-    //    {
-    //        Result = result;
-    //        Value = 0;
-    //    }
-    //}
-
     public class QuadraticEquation : IFunction, IPoints
     {
         public enum Solution
@@ -98,6 +69,8 @@ namespace MathLib
         public double X1 { get; private set; }
         public double X2 { get; private set; }
 
+        public Point2D TopPoint { get; private set; }
+
         public QuadraticEquation(double a = 0, double b = 0, double c = 0)
         {
             A = a;
@@ -110,27 +83,31 @@ namespace MathLib
             d = (Math.Pow(b, 2) - 4 * a * c);
             X1 = (-b + Math.Sqrt(d)) / (2 * a);
             X2 = (-b - Math.Sqrt(d)) / (2 * a);
+            TopPoint = new Point2D(-b / (2 * a), -d / (4 * a));
         }
 
-        //public Number GetSolution(Solution solution)
-        //{
-        //    if (GetSolutionsAmount() == 0)
-        //        return new Number("Ingen løsninger for andengradsligningen!");
-        //    else
-        //        return new Number((-d + Math.Sqrt(d) * (double)solution) / (2 * d));
-        //}
-
-        public double GetSolutionsAmount()
+        public string GetSolutionMessage()
         {
-            if (d < 0.0) 
-                return 0.0;
-            else if (d == 0.0)
-                return 1.0;
+            if (a == 0)
+                return "Udefineret, a ≠ 0";
+            if (d < 0.0)
+                return "Umulig, d < 0";
+            else if (d == 0)
+                return "En løsning, d = 0";
             else
-                return 2.0;
+                return "To løsninger, d > 0";
+        }
+        public string GetRootResult(double x)
+        {
+            if (a == 0)
+                return "Udefineret, a ≠ 0";
+            if (d < 0.0)
+                return "Umulig, d < 0";
+            else
+                return x.ToString();
         }
 
-        public string GetFunctionCalculation()
+        public string GetFunction()
         {
             return $"f(x) = ax^2 + bx + c = { a }x^2 + { b }x + { c }";
         }
@@ -138,17 +115,42 @@ namespace MathLib
         {
             return $"d = b^2 - 4 * a * c = { b }^2 - 4 * { a } * { c } = { d }";
         }
+        public string GetRootsCalculation()
+        {
+            return $"({-b} ± sqrt({ d }))/(2 * { a }) = ";
+        }
+        public string GetRootPositiveCalculation()
+        {
+            return $"({-b} - sqrt({ d }))/(2 * { a }) = " + GetRootResult(X1);
+        }
+        public string GetRootNegativeCalculation()
+        {
+            return $"({-b} - sqrt({ d }))/(2 * { a }) = " + GetRootResult(X1);
+        }
+        public string GetRootResult()
+        {
+            return "{ "+ GetRootResult(X1) + " ; "+ GetRootResult(X2) + " }";
+        }
+        public string GetTopPointCalulation()
+        {
+            return $"(T_x, T_y) = ({ -b }/(2 * { a }), { -d }/(4 * { a })) = " + GetTopPointResult();
+        }
+        public string GetTopPointResult()
+        {
+            return $"( { TopPoint.X } ; { TopPoint.Y })";
+        }
 
         public double Function(double x)
         {
             return A * Math.Pow(x, 2) + B * x + C;
         }
-        public PointD[] Points()
+        public Point2D[] Points()
         {
-            PointD[] points =
+            Point2D[] points =
             {
-                new PointD(X1, 0),
-                new PointD(X2, 0),
+                new Point2D(X1, 0),
+                new Point2D(X2, 0),
+                TopPoint,
             };
 
             return points;

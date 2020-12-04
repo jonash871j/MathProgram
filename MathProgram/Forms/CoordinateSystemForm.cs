@@ -63,8 +63,6 @@ namespace MathProgram.Forms
 
         /* Graph *********************/
 
-
-
         private void gl_coordinateSystem_Paint(object sender, PaintEventArgs e)
         {
             tb_x.Text = GraphProgram.ActualX.ToString();

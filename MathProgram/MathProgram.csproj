@@ -70,7 +70,15 @@
     <Compile Include="Component1.Designer.cs">
       <DependentUpon>Component1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Containers\Geometry.cs" />
+    <Compile Include="Static\Geometry.cs" />
+    <Compile Include="Forms\DistanceFormularForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DistanceFormularForm.Designer.cs">
+      <DependentUpon>DistanceFormularForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IToolForm.cs" />
+    <Compile Include="Static\Misc.cs" />
     <Compile Include="UIElements\GraphProgram.cs" />
     <Compile Include="Forms\CalculatorForm.cs">
       <SubType>Form</SubType>
@@ -104,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CoordinateSystemForm.resx">
       <DependentUpon>CoordinateSystemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DistanceFormularForm.resx">
+      <DependentUpon>DistanceFormularForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

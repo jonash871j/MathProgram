@@ -49,6 +49,10 @@ namespace MathProgram.Forms
         {
             ShowDockForm(new QuadraticEquationsForm(), DockState.DockLeft);
         }
+        private void mi_distanceFormluar_Click(object sender, EventArgs e)
+        {
+            ShowDockForm(new DistanceFormularForm(), DockState.DockLeft);
+        }
 
         private void mi_isFullscreen_Click(object sender, EventArgs e)
         {

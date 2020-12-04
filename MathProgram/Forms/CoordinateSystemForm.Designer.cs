@@ -137,7 +137,7 @@ namespace MathProgram.Forms
             // 
             // tb_x
             // 
-            this.tb_x.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.tb_x.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.tb_x.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_x.ForeColor = System.Drawing.SystemColors.Control;
             this.tb_x.Name = "tb_x";
@@ -153,7 +153,7 @@ namespace MathProgram.Forms
             // 
             // tb_y
             // 
-            this.tb_y.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.tb_y.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.tb_y.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_y.ForeColor = System.Drawing.SystemColors.Control;
             this.tb_y.Name = "tb_y";
@@ -173,7 +173,7 @@ namespace MathProgram.Forms
             // 
             // tb_zoom
             // 
-            this.tb_zoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.tb_zoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.tb_zoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_zoom.ForeColor = System.Drawing.SystemColors.Window;
             this.tb_zoom.Name = "tb_zoom";
@@ -187,6 +187,7 @@ namespace MathProgram.Forms
             this.ClientSize = new System.Drawing.Size(506, 274);
             this.Controls.Add(this.ts_main);
             this.Controls.Add(this.gl_coordinateSystem);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumSize = new System.Drawing.Size(128, 128);
             this.Name = "CoordinateSystemForm";
             this.Text = "Koordinatsystem";
