@@ -1,5 +1,5 @@
 ﻿using MathLib.Geometry;
-using MathProgram.Containers;
+using MathProgram.Static;
 using MathProgram.StaticContainers;
 using System;
 using System.Collections.Generic;
@@ -36,33 +36,21 @@ namespace MathProgram.UIElements
         public SimpleOpenGlControl OpenGlControl { get; private set; }
         public int Width
         {
-            get { return OpenGlControl.Width; }
+            get => OpenGlControl.Width;
         }
         public int Height
         {
-            get { return OpenGlControl.Height; }
+            get => OpenGlControl.Height;
         }
         public double X
         {
-            get 
-            { 
-                return x; 
-            }
-            set
-            {
-                x = value;
-            }
+            get => x;
+            set => x = value;
         }
         public double Y
         {
-            get
-            {
-                return y;
-            }
-            set
-            {
-                y = value;
-            }
+            get => y;
+            set => y = value;
         }
         public double ActualX
         {
@@ -75,10 +63,7 @@ namespace MathProgram.UIElements
         public double GridFactor = 12.0f;
         public double Zoom
         {
-            get 
-            { 
-                return zoom; 
-            }
+            get => zoom;
             set 
             {
                 zoom = value;
@@ -218,10 +203,10 @@ namespace MathProgram.UIElements
                 lastY = y;
             }
         }
-        private void GLDrawPoint(PointD point)
+        private void GLDrawPoint(Point2D point)
         {
             double x = -X + (point.X * (GridFactor / Zoom)) + Width / 2;
-            double y = -Y + Height / 2;
+            double y = -Y + (point.Y * (GridFactor / Zoom)) + Height / 2;
             int length = 6;
 
             Gl.glColor3ub(255, 0, 0);
@@ -284,24 +269,24 @@ namespace MathProgram.UIElements
             GLDrawAxis();
 
             // Draws each graph based on mathematical function
-            foreach (IFunction function in Geometry.Functions)
+            foreach (IFunction iFunction in Geometry.Geometries.OfType<IFunction>())
             {
                 GLDrawGraph(
-                   function: function,
+                   function: iFunction,
                    color: color.Graph
                 );
             }
 
             // Draws shapes
-            foreach (IShape iShape in Geometry.Shape)
+            foreach (IShape iShape in Geometry.Geometries.OfType<IShape>())
             {
                 GLDrawShape(iShape.Shape());
             }
 
             // Draws points
-            foreach (IPoints iPoints in Geometry.Points)
+            foreach (IPoints iPoints in Geometry.Geometries.OfType<IPoints>())
             {
-                foreach (PointD point in iPoints.Points())
+                foreach (Point2D point in iPoints.Points())
                 {
                     GLDrawPoint(point);
                 }

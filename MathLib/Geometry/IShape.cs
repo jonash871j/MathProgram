@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathLib.Geometry
 {
-    public interface IShape
+    public interface IShape : IGeometry
     {
         Shape Shape();
     }

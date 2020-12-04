@@ -40,38 +40,6 @@ namespace MathLib
         }
         public string Result { get; private set; } = "";
 
-
-        public string GetFormular()
-        {
-            List<CalculatorNumber> numbers = GetNumbers(calculation);
-            string formular = "";
-            bool wasDivision = false;
-
-            foreach(CalculatorNumber number in numbers)
-            {
-                if (number.Operator == Operator.Divide)
-                {
-                    formular += "\\frac{" + number.Value.ToString() + "}{";
-                    wasDivision = true;
-                }
-                else
-                {
-                    if (wasDivision)
-                    {
-                        formular += number.Value.ToString() + "}";
-                        wasDivision = false;
-                    }
-                    else
-                    {
-                        formular += number.Value.ToString();
-                    }
-                    if (number.Operator != Operator.Asign)
-                        formular += (char)number.Operator;
-                }
-            }
-            return formular;
-        }
-
         private void BeginCalculating()
         {
             try

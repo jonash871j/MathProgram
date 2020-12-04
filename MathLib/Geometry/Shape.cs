@@ -13,6 +13,7 @@ namespace MathLib.Geometry
 
         private Shape()
         {
+            Lines = new List<Line>();
             Color = Color.FromArgb(random.Next(64, 255), random.Next(64, 255), random.Next(64, 255));
         }
 
@@ -23,6 +24,15 @@ namespace MathLib.Geometry
             : this()
         {
             Lines = lines;
+        }
+
+        /// <summary>
+        /// Used to create line
+        /// </summary>
+        public Shape(Line a)
+            : this()
+        {
+            Lines.Add(a);
         }
 
         /// <summary>
