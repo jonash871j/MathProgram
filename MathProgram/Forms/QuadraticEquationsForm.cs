@@ -16,36 +16,26 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace MathProgram.Forms
 {
-    public partial class QuadraticEquationsForm : DockContent, IUpdateForm
+    public partial class QuadraticEquationsForm : DockContent
     {
-        private QuadraticEquation quadraticEquation = new QuadraticEquation();
+        private QuadraticEquationTool quadraticEquation = new QuadraticEquationTool();
 
         /* Init & uninit section *********************/
         public QuadraticEquationsForm()
         {
             InitializeComponent();
-            quadraticEquation = new QuadraticEquation();
 
-            CoordinateSystemForm.Program.Geometries.Add(quadraticEquation);
-        }
-        private void QuadraticEquationsForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            CoordinateSystemForm.Program.Geometries.Remove(quadraticEquation);
-        }
+            IC_QuadraticEquations.SetInput(quadraticEquation);
+            IC_QuadraticEquations.SetIGeometry(quadraticEquation);
 
-        /* Input section *********************/
-        private void TB_InputA_TextChanged(object sender, EventArgs e) => UpdateForm();
-        private void TB_InputB_TextChanged(object sender, EventArgs e) => UpdateForm();
-        private void TB_InputC_TextChanged(object sender, EventArgs e) => UpdateForm();
+            quadraticEquation.Calculation += OnCalulation;
+        }
 
         /* Additional logic *********************/
-        public void UpdateForm()
+        public void OnCalulation()
         {
-            quadraticEquation.A = Misc.TextboxParse(TB_InputA);
-            quadraticEquation.B = Misc.TextboxParse(TB_InputB);
-            quadraticEquation.C = Misc.TextboxParse(TB_InputC);
-
             TB_Function.Text = quadraticEquation.GetFunction();
+            TB_Calculations.Text = quadraticEquation.GetCalulations();
             TB_DResult.Text = quadraticEquation.D.ToString();
             TB_DCalculation.Text = quadraticEquation.GetDiscriminantCalculation();
             TB_TopPointCalculation.Text = quadraticEquation.GetTopPointCalulation();

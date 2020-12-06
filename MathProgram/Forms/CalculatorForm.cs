@@ -6,7 +6,7 @@ namespace MathProgram.Forms
 {
     public partial class CalculatorForm : DockContent
     {
-        readonly Calculator calculator = new Calculator();
+        readonly CalculatorTool calculator = new CalculatorTool();
 
         /* Init & uninit section *********************/
         public CalculatorForm()

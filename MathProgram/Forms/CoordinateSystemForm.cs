@@ -8,12 +8,13 @@ using MathProgram.Interfaces;
 
 namespace MathProgram.Forms
 {
-    public partial class CoordinateSystemForm : DockContent, ISetForm, IUpdateForm
+    public partial class CoordinateSystemForm : DockContent, ISetForm
     {
         private Point mouseStart = new Point(0, 0);
         private Point mouseMove = new Point(0, 0);
         private Point coordUpdate = new Point(0, 0);
         private bool isDown = false;
+        private bool isLoad = true;
 
         public static CoordinateSystemProgram Program { get; private set; }
 
@@ -57,11 +58,18 @@ namespace MathProgram.Forms
         {
             TB_X.Text = Program.ActualX.ToString();
             TB_Y.Text = Program.ActualY.ToString();
-            TB_Zoom.Text = (Program.Zoom).ToString();
+            TB_Zoom.Text = (Math.Round(Program.Zoom * 5, 3)).ToString();
 
             Program.GLDraw();
-            if (!isDown)
+
+            if ((isLoad) || (!isDown))
             {
+                if (isLoad)
+                {
+                    System.Threading.Thread.Sleep(10);
+                    isLoad = false;
+                }
+
                 Program.CPUDraw(e.Graphics);
             }
         }
@@ -75,7 +83,7 @@ namespace MathProgram.Forms
             {
                 mouseMove = e.Location;
                 Program.X = coordUpdate.X + mouseStart.X - mouseMove.X;
-                Program.Y = coordUpdate.Y + mouseMove.Y - mouseStart.Y;
+                Program.Y = coordUpdate.Y - mouseMove.Y + mouseStart.Y;
                 GL_CoordinateSystem.Refresh();
             }
         }
@@ -87,7 +95,7 @@ namespace MathProgram.Forms
         private void GL_CoordinateSystem_MouseUp(object sender, MouseEventArgs e)
         {
             coordUpdate.X += mouseStart.X - mouseMove.X;
-            coordUpdate.Y += mouseMove.Y - mouseStart.Y;
+            coordUpdate.Y -= mouseMove.Y - mouseStart.Y;
             isDown = false;
             GL_CoordinateSystem.Refresh();
         }
@@ -96,7 +104,20 @@ namespace MathProgram.Forms
             if (e.Delta != 0)
             {
                 Program.ChangeZoom(e.Delta, e.Location.X, e.Location.Y);
-                GL_CoordinateSystem.Refresh();
+                coordUpdate.X = (int)Program.X;
+                coordUpdate.Y = (int)Program.Y;
+
+                if (!isDown)
+                {
+                    GL_CoordinateSystem.Refresh();
+                }
+            }
+        }
+        private void GL_CoordinateSystem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                BN_GotoOrigin_Click(sender, null);
             }
         }
 

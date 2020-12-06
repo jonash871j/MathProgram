@@ -20,7 +20,7 @@ namespace MathLib
         internal Operator Operator { get; set; } = Operator.Asign;
     }
 
-    public class Calculator
+    public class CalculatorTool
     {
         private string calculation = "";
         private Exception exceptionCalculationError = new Exception("Udregnings fejl"); 

@@ -69,6 +69,7 @@ namespace MathProgram.Forms
             this.GL_CoordinateSystem.TabIndex = 0;
             this.GL_CoordinateSystem.Load += new System.EventHandler(this.GL_CoordinateSystem_Load);
             this.GL_CoordinateSystem.Paint += new System.Windows.Forms.PaintEventHandler(this.GL_CoordinateSystem_Paint);
+            this.GL_CoordinateSystem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GL_CoordinateSystem_KeyDown);
             this.GL_CoordinateSystem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GL_CoordinateSystem_MouseDown);
             this.GL_CoordinateSystem.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GL_CoordinateSystem_MouseMove);
             this.GL_CoordinateSystem.MouseUp += new System.Windows.Forms.MouseEventHandler(this.GL_CoordinateSystem_MouseUp);
@@ -181,6 +182,7 @@ namespace MathProgram.Forms
             // 
             this.TB_X.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.TB_X.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TB_X.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TB_X.ForeColor = System.Drawing.SystemColors.Control;
             this.TB_X.Name = "TB_X";
             this.TB_X.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
@@ -197,6 +199,7 @@ namespace MathProgram.Forms
             // 
             this.TB_Y.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.TB_Y.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TB_Y.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TB_Y.ForeColor = System.Drawing.SystemColors.Control;
             this.TB_Y.Name = "TB_Y";
             this.TB_Y.ReadOnly = true;
@@ -217,6 +220,7 @@ namespace MathProgram.Forms
             // 
             this.TB_Zoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.TB_Zoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TB_Zoom.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TB_Zoom.ForeColor = System.Drawing.SystemColors.Window;
             this.TB_Zoom.Name = "TB_Zoom";
             this.TB_Zoom.ReadOnly = true;

@@ -58,9 +58,13 @@ namespace MathProgram.UIElements
             {
                 zoom = value;
 
-                if (zoom < 0.001953125)
+                if (zoom < 0.003125)
                 {
-                    zoom = 0.001953125;
+                    zoom = 0.003125;
+                }
+                if (zoom > 1048576)
+                {
+                    zoom = 1048576;
                 }
                 scale = gridFactor / Zoom;
             }
@@ -80,7 +84,7 @@ namespace MathProgram.UIElements
             set
             {
                 y = value;
-                relY = -Y + centerY;
+                relY = Y + centerY;
             }
         }
         public double ActualX
@@ -89,7 +93,7 @@ namespace MathProgram.UIElements
         }
         public double ActualY
         {
-            get { return Math.Round((Y / gridFactor) * Zoom, 2); }
+            get { return Math.Round((-Y / gridFactor) * Zoom, 2); }
         }
         public bool IsGridVisible { get; set; } = true;
         public bool IsAxisVisible { get; set; } = true;
@@ -99,7 +103,6 @@ namespace MathProgram.UIElements
   
         public CoordinateSystemProgram(ref SimpleOpenGlControl simpleOpenGlControl)
         {
-            textBrush = new SolidBrush(color.Text);
             color.Text = Color.FromArgb(51, 173, 255);
             color.LargeGrid = Color.FromArgb(48, 48, 48);
             color.SmallGrid = Color.FromArgb(32, 32, 32);
@@ -107,13 +110,14 @@ namespace MathProgram.UIElements
             color.Axis = Color.FromArgb(192, 192, 192);
             color.Graph = Color.FromArgb(64, 128, 64);
             color.Shape = Color.FromArgb(128, 64, 128);
+            textBrush = new SolidBrush(color.Text);
 
             OpenGlControl = simpleOpenGlControl;
             OpenGlControl.SizeChanged += OnSizeChanged;
             Geometries = new List<IGeometry>();
 
-            Font = new Font(new FontFamily("Segoe UI"), 11.5f, FontStyle.Regular, GraphicsUnit.Pixel);
-            Zoom = 1.0;
+            Font = new Font(new FontFamily("Segoe UI"), 12.0f, FontStyle.Bold, GraphicsUnit.Pixel);
+            Zoom = 0.2;
             X = 0.0;
             Y = 0.0;
         }
@@ -123,7 +127,7 @@ namespace MathProgram.UIElements
             centerX = Width / 2;
             centerY = Height / 2;
             relX = -X + centerX;
-            relY = -Y + centerY;
+            relY = Y + centerY;
         }
 
         private void GLBoilerCode()
@@ -149,8 +153,8 @@ namespace MathProgram.UIElements
         {
             if (IsGridVisible)
             {
-                gridWidth /= Zoom;
-                gridHeight /= Zoom;
+                //gridWidth /= Zoom;
+                //gridHeight /= Zoom;
 
                 // Sets grid color
                 Gl.glColor3ub(color.R, color.G, color.B);
@@ -200,6 +204,10 @@ namespace MathProgram.UIElements
                 // Gets y from math function and 
                 // adds additional mathematics for scaling
                 double y = function.Function(x / scale) * scale;
+
+                // Dont draw if y is zero
+                //if (y == 0)
+                //    continue;
 
                 // Don't draw the graph line the first loop iteration.
                 // This is to avoid bad geometry
@@ -326,23 +334,90 @@ namespace MathProgram.UIElements
         /// </summary>
         public void CPUDraw(Graphics graphics)
         {
+            void CPUNumberX()
+            {
+                double wideGridFactor = gridFactor * 5;
+                double offset = relX % wideGridFactor;
+
+                for (double x = (-relX - wideGridFactor) + offset; x < centerX + X + offset; x += wideGridFactor)
+                {
+                    double number = x / scale;
+                    double y = this.y;
+
+                    if (y < -centerY + Font.Height)
+                    {
+                        y = -centerY + Font.Height;
+                    }
+                    if (y >= centerY)
+                    {
+                        y = centerY;
+                    }
+
+                    if (Math.Abs(number) != 0)
+                    {
+                        string numberStr;
+                        if (Math.Abs(number) < 100)
+                            numberStr = Math.Round(number, 4).ToString();
+                        else
+                            numberStr = Math.Ceiling(number).ToString();
+
+                        graphics.DrawString(
+                            numberStr,
+                            Font,
+                            textBrush,
+                            new Point(
+                                (int)(relX + x),
+                                (int)(centerY - y)
+                            )
+                         );
+                    }
+                }
+            }
+            void CPUNumberY()
+            {
+                double wideGridFactor = gridFactor * 5;
+                double relY = centerY - Y;
+                double offset = relY % wideGridFactor;
+
+                for (double y = (-relY - wideGridFactor) + offset; y < centerY + Y + offset; y += wideGridFactor)
+                {
+                    double number = -y / scale;
+                    double x = this.x;
+
+                    if (x < -centerX + Font.Height)
+                    {
+                        x = -centerX + Font.Height;
+                    }
+                    if (x >= centerX)
+                    {
+                        x = centerX;
+                    }
+
+                    if (Math.Abs(number) != 0)
+                    {
+                        string numberStr;
+                        if (Math.Abs(number) < 100)
+                            numberStr = Math.Round(number, 4).ToString();
+                        else
+                            numberStr = Math.Ceiling(number).ToString();
+
+                        graphics.DrawString(
+                            numberStr,
+                            Font,
+                            textBrush,
+                            new Point(
+                                (int)(centerX - x),
+                                (int)(relY + y)
+                            )
+                         );
+                    }
+                }
+            }
+
             if (IsAxisVisible)
             {
-                // Loops throgh each pixel on the x axis
-                for (double x = -centerX + X; x < centerX + X; x += gridFactor * 5)
-                {
-                    if (x == 0)
-                        continue;
-                    graphics.DrawString(
-                        ((int)(x + X) / 60).ToString(),
-                        Font,
-                        textBrush,
-                        new Point(
-                            ((int)(-X + x + centerX) - (int)((-X + x + centerX) % 60)),
-                            (int)(0 + y + centerY)
-                        )
-                     );
-                }
+                CPUNumberX();
+                CPUNumberY();
             }
         }
 
@@ -375,7 +450,7 @@ namespace MathProgram.UIElements
         {
             X = 0;
             Y = 0;
-            Zoom = 0.5f;
+            Zoom = 0.2f;
             OpenGlControl.Refresh();
         }
 
@@ -383,15 +458,13 @@ namespace MathProgram.UIElements
         {
             if (direction > 0)
             {
-                //X += mouseX - (Width / 2);
-                //Y -= mouseY - (Height / 2);
-                Zoom -= 0.1 * Zoom;
+                X += mouseX - centerX;
+                Y += mouseY - centerY;
+                Zoom /= 2.0;
             }
             else
             {
-                //X -= mouseX - (Width / 2);
-                //Y += mouseY - (Height / 2);
-                Zoom += 0.1 * Zoom;
+                Zoom += Zoom;
             }
         }
     }
