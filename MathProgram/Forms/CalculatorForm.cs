@@ -1,38 +1,31 @@
 ﻿using MathLib;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace MathProgram.Forms
 {
     public partial class CalculatorForm : DockContent
     {
-        Calculator calculator = new Calculator();
+        readonly CalculatorTool calculator = new CalculatorTool();
 
+        /* Init & uninit section *********************/
         public CalculatorForm()
         {
             InitializeComponent();
         }
 
-        private void tb_calculation_TextChanged(object sender, EventArgs e)
+        /* Input section *********************/
+        private void TB_Calculation_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                calculator.Calculation = tb_calculation.Text;
-                tb_result.Text = calculator.Result;
+                calculator.Calculation = TB_Calculation.Text;
+                TB_Result.Text = calculator.Result;
             }
             catch
             {
 
             }
-            
         }
     }
 }

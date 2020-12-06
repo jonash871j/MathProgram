@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MathLib.Geometry
+namespace MathLib.Formular
 {
-    public interface IPoints
+    internal class Parentheses
     {
-        PointD[] Points();
     }
 }

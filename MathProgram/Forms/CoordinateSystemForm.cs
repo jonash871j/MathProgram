@@ -1,41 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
-using System.Drawing.Drawing2D;
-using Tao.FreeGlut;
-using Tao.OpenGl;
-using Tao.Platform.Windows;
-using System.Drawing.Text;
 using MathProgram.UIElements;
 using MathProgram.StaticContainers;
+using MathProgram.Interfaces;
 
 namespace MathProgram.Forms
 {
-    public partial class CoordinateSystemForm : DockContent
+    public partial class CoordinateSystemForm : DockContent, ISetForm
     {
         private Point mouseStart = new Point(0, 0);
         private Point mouseMove = new Point(0, 0);
         private Point coordUpdate = new Point(0, 0);
         private bool isDown = false;
-        public static GraphProgram GraphProgram { get; set; }
+        private bool isLoad = true;
 
+        public static CoordinateSystemProgram Program { get; private set; }
+
+        /* Init & uninit section *********************/
         public CoordinateSystemForm()
         {
             InitializeComponent();
             EnableVSRenderer();
-            MouseWheel += new MouseEventHandler(gl_coordinateSystem_MouseWheel);
-            GraphProgram = new GraphProgram(ref gl_coordinateSystem);
+            MouseWheel += new MouseEventHandler(GL_CoordinateSystem_MouseWheel);
+            Program = new CoordinateSystemProgram(ref GL_CoordinateSystem);
 
-            SetSettings();
+            SetForm();
         }
-
         private void CoordinateSystemForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -44,91 +36,109 @@ namespace MathProgram.Forms
                 Hide();
             }
         }
-
-        /* Toolbar *******************/
-
-        private void bn_toggleAxis_Click(object sender, EventArgs e)
-        {
-            UpdateSettings();
-        }
-        private void bn_toggleGrid_Click(object sender, EventArgs e)
-        {
-            UpdateSettings();
-        }
-        private void bn_gotoOrigin_Click(object sender, EventArgs e)
-        {
-            GraphProgram.GotoOrigin();
-            coordUpdate = new Point(0, 0);
-        }
-
-        /* Graph *********************/
-
-
-
-        private void gl_coordinateSystem_Paint(object sender, PaintEventArgs e)
-        {
-            tb_x.Text = GraphProgram.ActualX.ToString();
-            tb_y.Text = GraphProgram.ActualY.ToString();
-            tb_zoom.Text = (GraphProgram.Zoom).ToString();
-
-            GraphProgram.GLDraw();
-            if (!isDown)
-            {
-                GraphProgram.CPUDraw(e.Graphics);
-            }
-        }
-        private void gl_coordinateSystem_Load(object sender, EventArgs e)
-        {
-            GraphProgram.Load();
-        }
-
-        private void gl_coordinateSystem_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (isDown)
-            {
-                mouseMove = e.Location;
-                GraphProgram.X = coordUpdate.X + mouseStart.X - mouseMove.X;
-                GraphProgram.Y = coordUpdate.Y + mouseMove.Y - mouseStart.Y;
-                gl_coordinateSystem.Refresh();
-            }
-        }
-        private void gl_coordinateSystem_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseStart = e.Location;
-            isDown = true;
-        }
-        private void gl_coordinateSystem_MouseUp(object sender, MouseEventArgs e)
-        {
-            coordUpdate.X += mouseStart.X - mouseMove.X;
-            coordUpdate.Y += mouseMove.Y - mouseStart.Y;
-            isDown = false;
-            gl_coordinateSystem.Refresh();
-        }
-        private void gl_coordinateSystem_MouseWheel(object sender, MouseEventArgs e)
-        {
-            if (e.Delta != 0)
-            {
-                GraphProgram.ChangeZoom(e.Delta, e.Location.X, e.Location.Y);
-                gl_coordinateSystem.Refresh();
-            }
-        }
-
         private void EnableVSRenderer()
         {
             VSRender.SetStyle(ts_main);
         }
 
-        private void SetSettings()
+        /* Toolbar *******************/
+        private void BN_TogglePoints_Click(object sender, EventArgs e)  => UpdateForm();
+        private void BN_ToggleShapes_Click(object sender, EventArgs e)  => UpdateForm();
+        private void BN_ToggleGraph_Click(object sender, EventArgs e)   => UpdateForm();
+        private void BN_ToggleAxis_Click(object sender, EventArgs e)    => UpdateForm();
+        private void BN_ToggleGrid_Click(object sender, EventArgs e)    => UpdateForm();
+        private void BN_GotoOrigin_Click(object sender, EventArgs e)
         {
-            bn_toggleAxis.Checked = GraphProgram.IsAxisVisible;
-            bn_toggleGrid.Checked = GraphProgram.IsGridVisible;
-            gl_coordinateSystem.Refresh();
+            Program.GotoOrigin();
+            coordUpdate = new Point(0, 0);
         }
-        private void UpdateSettings()
+
+        /* Program *********************/
+        private void GL_CoordinateSystem_Paint(object sender, PaintEventArgs e)
         {
-            GraphProgram.IsAxisVisible = bn_toggleAxis.Checked;
-            GraphProgram.IsGridVisible = bn_toggleGrid.Checked;
-            gl_coordinateSystem.Refresh();
+            TB_X.Text = Program.ActualX.ToString();
+            TB_Y.Text = Program.ActualY.ToString();
+            TB_Zoom.Text = (Math.Round(Program.Zoom * 5, 3)).ToString();
+
+            Program.GLDraw();
+
+            if ((isLoad) || (!isDown))
+            {
+                if (isLoad)
+                {
+                    System.Threading.Thread.Sleep(10);
+                    isLoad = false;
+                }
+
+                Program.CPUDraw(e.Graphics);
+            }
+        }
+        private void GL_CoordinateSystem_Load(object sender, EventArgs e)
+        {
+            Program.Load();
+        }
+        private void GL_CoordinateSystem_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDown)
+            {
+                mouseMove = e.Location;
+                Program.X = coordUpdate.X + mouseStart.X - mouseMove.X;
+                Program.Y = coordUpdate.Y - mouseMove.Y + mouseStart.Y;
+                GL_CoordinateSystem.Refresh();
+            }
+        }
+        private void GL_CoordinateSystem_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseStart = e.Location;
+            isDown = true;
+        }
+        private void GL_CoordinateSystem_MouseUp(object sender, MouseEventArgs e)
+        {
+            coordUpdate.X += mouseStart.X - mouseMove.X;
+            coordUpdate.Y -= mouseMove.Y - mouseStart.Y;
+            isDown = false;
+            GL_CoordinateSystem.Refresh();
+        }
+        private void GL_CoordinateSystem_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta != 0)
+            {
+                Program.ChangeZoom(e.Delta, e.Location.X, e.Location.Y);
+                coordUpdate.X = (int)Program.X;
+                coordUpdate.Y = (int)Program.Y;
+
+                if (!isDown)
+                {
+                    GL_CoordinateSystem.Refresh();
+                }
+            }
+        }
+        private void GL_CoordinateSystem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                BN_GotoOrigin_Click(sender, null);
+            }
+        }
+
+        /* Additional logic *********************/
+        public void SetForm()
+        {
+            BN_TogglePoints.Checked = Program.IsPointsVisible;
+            BN_ToggleShapes.Checked = Program.IsShapesVisible;
+            BN_ToggleGraphs.Checked = Program.IsGraphsVisible;
+            BN_ToggleAxis.Checked = Program.IsAxisVisible;
+            BN_ToggleGrid.Checked = Program.IsGridVisible;
+            GL_CoordinateSystem.Refresh();
+        }
+        public void UpdateForm()
+        {
+            Program.IsPointsVisible = BN_TogglePoints.Checked;
+            Program.IsShapesVisible = BN_ToggleShapes.Checked;
+            Program.IsGraphsVisible = BN_ToggleGraphs.Checked;
+            Program.IsAxisVisible = BN_ToggleAxis.Checked;
+            Program.IsGridVisible = BN_ToggleGrid.Checked;
+            GL_CoordinateSystem.Refresh();
         }
     }
 }

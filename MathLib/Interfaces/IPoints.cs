@@ -4,8 +4,8 @@ using System.Text;
 
 namespace MathLib.Geometry
 {
-    public interface IShape
+    public interface IPoints : IGeometry
     {
-        Shape Shape();
+        Point2D[] Points();
     }
 }
