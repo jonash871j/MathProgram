@@ -19,7 +19,7 @@ namespace MathProgram.Forms
             EnableVSRenderer();
 
             ShowDockForm(coordinateSystemForm, DockState.Document);
-            //ShowDockForm(new DistanceFormularForm(), DockState.DockLeft);
+            ShowDockForm(new DistanceFormularForm(), DockState.DockLeft);
             WindowState = FormWindowState.Maximized;
         }
         private void EnableVSRenderer()

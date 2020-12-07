@@ -3,7 +3,7 @@ using MathLib.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MathLib.FormularCalculator;
+using MathLib.Formular;
 
 namespace MathLib.AnalyticalPlaneGeometry
 {
@@ -23,9 +23,9 @@ namespace MathLib.AnalyticalPlaneGeometry
                 { "y_1", 0.0 },
                 { "y_2", 0.0 },
             };
-            Formular = new Calculator(Contants, "|AB| = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2)");
+            Formular = new Calculator(Contants, "|AB| = √((x_2 - x_1)^2 + (y_2 - y_1)^2)");
 
-      
+  
 
             //Formulars = new Dictionary<string, Formular>()
             //{
