@@ -42,6 +42,11 @@ namespace MathProgram.Forms
             ShowDockForm(new QuadraticEquationsForm(), DockState.DockLeft);
         }
 
+        private void mi_trigonometry_Click(object sender, EventArgs e)
+        {
+            ShowDockForm(new TrigonometryForm(), DockState.DockLeft);
+        }
+
         private void ShowDockForm(DockContent dockForm, DockState dockState = DockState.Document)
         {
             dockForm.Show(dp_main, dockState);
