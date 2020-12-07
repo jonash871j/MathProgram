@@ -59,58 +59,53 @@ namespace MathProgram.Forms
             // 
             // MS_Main
             // 
-            this.MS_Main.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.MS_Main.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.MS_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ms_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.visToolStripMenuItem,
-            this.værktøjerToolStripMenuItem,
-            this.indstillingerToolStripMenuItem});
-            this.MS_Main.Location = new System.Drawing.Point(0, 0);
-            this.MS_Main.Name = "MS_Main";
-            this.MS_Main.Size = new System.Drawing.Size(800, 25);
-            this.MS_Main.TabIndex = 0;
-            this.MS_Main.Text = "menuStrip1";
+            this.værktøjerToolStripMenuItem});
+            this.ms_main.Location = new System.Drawing.Point(0, 0);
+            this.ms_main.Name = "ms_main";
+            this.ms_main.Size = new System.Drawing.Size(800, 24);
+            this.ms_main.TabIndex = 0;
+            this.ms_main.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_Exit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(32, 21);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(31, 20);
             this.fileToolStripMenuItem.Text = "Fil";
             // 
             // MI_Exit
             // 
-            this.MI_Exit.Name = "MI_Exit";
-            this.MI_Exit.Size = new System.Drawing.Size(108, 22);
-            this.MI_Exit.Text = "Afslut";
-            this.MI_Exit.Click += new System.EventHandler(this.MI_Exit_Click);
+            this.mi_exit.Name = "mi_exit";
+            this.mi_exit.Size = new System.Drawing.Size(105, 22);
+            this.mi_exit.Text = "Afslut";
+            this.mi_exit.Click += new System.EventHandler(this.mi_exit_Click);
             // 
             // visToolStripMenuItem
             // 
             this.visToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_CoordSystem});
             this.visToolStripMenuItem.Name = "visToolStripMenuItem";
-            this.visToolStripMenuItem.Size = new System.Drawing.Size(37, 21);
+            this.visToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
             this.visToolStripMenuItem.Text = "Vis";
             // 
             // MI_CoordSystem
             // 
-            this.MI_CoordSystem.Name = "MI_CoordSystem";
-            this.MI_CoordSystem.Size = new System.Drawing.Size(180, 22);
-            this.MI_CoordSystem.Text = "Koordinatsystem";
-            this.MI_CoordSystem.Click += new System.EventHandler(this.MI_CoordSystem_Click);
+            this.mi_coordSystem.Name = "mi_coordSystem";
+            this.mi_coordSystem.Size = new System.Drawing.Size(163, 22);
+            this.mi_coordSystem.Text = "Koordinatsystem";
+            this.mi_coordSystem.Click += new System.EventHandler(this.mi_coordSystem_Click);
             // 
             // værktøjerToolStripMenuItem
             // 
             this.værktøjerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MI_Calculator,
-            this.toolStripSeparator1,
-            this.MI_QuadraticEquations,
-            this.analytiskPlangeometriToolStripMenuItem});
+            this.mi_calculator,
+            this.mi_quadraticEquations});
             this.værktøjerToolStripMenuItem.Name = "værktøjerToolStripMenuItem";
-            this.værktøjerToolStripMenuItem.Size = new System.Drawing.Size(76, 21);
+            this.værktøjerToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.værktøjerToolStripMenuItem.Text = "Værktøjer";
             // 
             // MI_Calculator
@@ -170,13 +165,19 @@ namespace MathProgram.Forms
             this.parallelleLinjerToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.parallelleLinjerToolStripMenuItem.Text = "Parallelle Linjer";
             // 
-            // linjerVinkelretPåHinandenToolStripMenuItem
+            this.mi_calculator.Name = "mi_calculator";
+            this.mi_calculator.Size = new System.Drawing.Size(180, 22);
+            this.mi_calculator.Text = "Lommeregner";
+            this.mi_calculator.Click += new System.EventHandler(this.mi_calculator_Click);
             // 
             this.linjerVinkelretPåHinandenToolStripMenuItem.Name = "linjerVinkelretPåHinandenToolStripMenuItem";
             this.linjerVinkelretPåHinandenToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.linjerVinkelretPåHinandenToolStripMenuItem.Text = "Linjer Vinkelret På Hinanden";
             // 
-            // afstandToolStripMenuItem
+            this.mi_quadraticEquations.Name = "mi_quadraticEquations";
+            this.mi_quadraticEquations.Size = new System.Drawing.Size(180, 22);
+            this.mi_quadraticEquations.Text = "Andengradsligning";
+            this.mi_quadraticEquations.Click += new System.EventHandler(this.mi_quadraticEquations_Click);
             // 
             this.afstandToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_PointToPoint,
@@ -219,51 +220,39 @@ namespace MathProgram.Forms
             this.DP_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DP_Main.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DP_Main.BackColor = System.Drawing.Color.Black;
-            this.DP_Main.Location = new System.Drawing.Point(0, 47);
-            this.DP_Main.Name = "DP_Main";
-            this.DP_Main.Size = new System.Drawing.Size(800, 493);
-            this.DP_Main.TabIndex = 1;
+            this.dp_main.BackColor = System.Drawing.Color.Black;
+            this.dp_main.Location = new System.Drawing.Point(0, 22);
+            this.dp_main.Name = "dp_main";
+            this.dp_main.Size = new System.Drawing.Size(800, 518);
+            this.dp_main.TabIndex = 1;
             // 
             // SS_Main
             // 
-            this.SS_Main.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.SS_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ss_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.SS_Main.Location = new System.Drawing.Point(0, 539);
-            this.SS_Main.Name = "SS_Main";
-            this.SS_Main.Size = new System.Drawing.Size(800, 22);
-            this.SS_Main.TabIndex = 4;
-            this.SS_Main.Text = "statusStrip1";
+            this.ss_main.Location = new System.Drawing.Point(0, 539);
+            this.ss_main.Name = "ss_main";
+            this.ss_main.Size = new System.Drawing.Size(800, 22);
+            this.ss_main.TabIndex = 4;
+            this.ss_main.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(102, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(127, 20);
             this.toolStripStatusLabel1.Text = "Math Program 2.0";
-            // 
-            // TS_Main
-            // 
-            this.TS_Main.Location = new System.Drawing.Point(0, 25);
-            this.TS_Main.Name = "TS_Main";
-            this.TS_Main.Size = new System.Drawing.Size(800, 25);
-            this.TS_Main.TabIndex = 7;
-            this.TS_Main.Text = "toolStrip1";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 561);
-            this.Controls.Add(this.TS_Main);
-            this.Controls.Add(this.SS_Main);
-            this.Controls.Add(this.DP_Main);
-            this.Controls.Add(this.MS_Main);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Controls.Add(this.ss_main);
+            this.Controls.Add(this.dp_main);
+            this.Controls.Add(this.ms_main);
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.MS_Main;
+            this.MainMenuStrip = this.ms_main;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "MainForm";
             this.Text = "Math Program";
@@ -289,19 +278,6 @@ namespace MathProgram.Forms
         private System.Windows.Forms.ToolStripMenuItem visToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MI_CoordSystem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripMenuItem indstillingerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MI_IsFullscreen;
-        private System.Windows.Forms.ToolStrip TS_Main;
-        private System.Windows.Forms.ToolStripMenuItem analytiskPlangeometriToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem determinantformlenAreaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vinkelMellemToLinjerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vinkelMellemToLinjerToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem parallelleLinjerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem linjerVinkelretPåHinandenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem afstandToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MI_PointToPoint;
-        private System.Windows.Forms.ToolStripMenuItem punktTilLinjeToolStripMenuItem;
     }
 }
 

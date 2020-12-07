@@ -58,6 +58,11 @@ namespace MathProgram.Forms
             }
         }
 
+        private void mi_trigonometry_Click(object sender, EventArgs e)
+        {
+            ShowDockForm(new TrigonometryForm(), DockState.DockLeft);
+        }
+
         /* Additional logic *********************/
         private void ShowDockForm(DockContent dockForm, DockState dockState = DockState.Document)
         {
