@@ -19,7 +19,7 @@ namespace MathProgram.Forms
             EnableVSRenderer();
 
             ShowDockForm(coordinateSystemForm, DockState.Document);
-            ShowDockForm(new DistanceFormularForm(), DockState.DockLeft);
+            //ShowDockForm(new DistanceFormularForm(), DockState.DockLeft);
             WindowState = FormWindowState.Maximized;
         }
         private void EnableVSRenderer()
@@ -35,12 +35,13 @@ namespace MathProgram.Forms
         private void MI_Exit_Click(object sender, EventArgs e) => Close();
 
         /* View */
-        private void MI_CoordSystem_Click(object sender, EventArgs e)        => ShowDockForm(coordinateSystemForm, DockState.Document);
+        private void MI_CoordSystem_Click(object sender, EventArgs e) => ShowDockForm(coordinateSystemForm, DockState.Document);
 
         /* Tools */
         private void MI_Calculator_Click(object sender, EventArgs e)         => ShowDockForm(new CalculatorForm(), DockState.DockRight);
         private void MI_QuadraticEquations_Click(object sender, EventArgs e) => ShowDockForm(new QuadraticEquationsForm(), DockState.DockLeft);
         private void MI_PointToPoint_Click(object sender, EventArgs e)       => ShowDockForm(new DistanceFormularForm(), DockState.DockLeft);
+        private void MI_Trigonometry_Click(object sender, EventArgs e)       => ShowDockForm(new TrigonometryForm(), DockState.DockLeft);
 
         /* Settings */
         private void MI_IsFullscreen_Click(object sender, EventArgs e)
@@ -56,11 +57,6 @@ namespace MathProgram.Forms
                 TopMost = false;
                 FormBorderStyle = FormBorderStyle.Sizable;
             }
-        }
-
-        private void mi_trigonometry_Click(object sender, EventArgs e)
-        {
-            ShowDockForm(new TrigonometryForm(), DockState.DockLeft);
         }
 
         /* Additional logic *********************/
