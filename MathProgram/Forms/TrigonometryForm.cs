@@ -10,85 +10,77 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+using MathLib.Trigonometry;
 
 namespace MathProgram.Forms
 {
     public partial class TrigonometryForm : DockContent
     {
 
-        Trigonometry program = new Trigonometry();
+        TrigonometryManager trigonometryManager = new TrigonometryManager();
 
         public TrigonometryForm()
         {
             InitializeComponent();
+            CoordinateSystemForm.Program.Geometries.Add(trigonometryManager);
+        }
+        private void TrigonometryForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CoordinateSystemForm.Program.Geometries.Remove(trigonometryManager);
         }
 
 
         private void input_side_a_TextChanged(object sender, EventArgs e)
         {
-            program.SideA = TextboxParse(input_side_a);
-            UpdateTrigonometryEquation();
+            trigonometryManager.SideA = TextboxParse(input_side_a);
+            UpdateTextBoxes();
         }
 
         private void input_side_b_TextChanged(object sender, EventArgs e)
         {
-            program.SideB = TextboxParse(input_side_b);
-            UpdateTrigonometryEquation();
+            trigonometryManager.SideB = TextboxParse(input_side_b);
+            UpdateTextBoxes();
         }
 
         private void input_side_c_TextChanged(object sender, EventArgs e)
         {
-            program.SideC = TextboxParse(input_side_c);
-            UpdateTrigonometryEquation();
+            trigonometryManager.SideC = TextboxParse(input_side_c);
+            UpdateTextBoxes();
         }
 
         private void input_degree_a_TextChanged(object sender, EventArgs e)
         {
-            program.DegreeA = TextboxParse(input_degree_a);
-            UpdateTrigonometryEquation();
+            trigonometryManager.DegreeA = TextboxParse(input_degree_a);
+            UpdateTextBoxes();
         }
 
         private void input_degree_b_TextChanged(object sender, EventArgs e)
         {
-            program.DegreeB = TextboxParse(input_degree_b);
-            UpdateTrigonometryEquation();
+            trigonometryManager.DegreeB = TextboxParse(input_degree_b);
+            UpdateTextBoxes();
         }
 
         private void input_degree_c_TextChanged(object sender, EventArgs e)
         {
-            program.DegreeC = TextboxParse(input_degree_c);
-            UpdateTrigonometryEquation();
+            trigonometryManager.DegreeC = TextboxParse(input_degree_c);
+            UpdateTextBoxes();
         }
 
-        private void Side_UpdateTextBoxes(double value1, double value2, double degree, char isChar)
+        private void UpdateTextBoxes()
         {
-            tb_tri_function.Text = program.GetCosinusSide_Regulation(value1, value2, degree, isChar);
-            tb_result.Text = program.GetCosinusSide_Result(value1, value2, degree).ToString();
-        }
-
-        public void UpdateTrigonometryEquation()
-        {
-            if (program.SideB > 0 && program.SideC > 0 && program.DegreeA > 0)
+            string[] calculated = trigonometryManager.Calculate().Split(':');
+            if (calculated[0] != "Fandt ingen formel der matchede" && calculated[1] != "0")
             {
-                Side_UpdateTextBoxes(program.SideB, program.SideC, program.DegreeA, 'a');
-            }
-            else if (program.SideA > 0 && program.SideC > 0 && program.DegreeB > 0)
-            {
-                Side_UpdateTextBoxes(program.SideA, program.SideC, program.DegreeB, 'b');
-            }
-            else if (program.SideA > 0 && program.SideB > 0 && program.DegreeC > 0)
-            {
-                Side_UpdateTextBoxes(program.SideA, program.SideB, program.DegreeC, 'c');
-            }
-            else if (program.SideA > 0 && program.SideB > 0 && program.SideC > 0)
-            {
-                
+                tb_tri_function.Text = calculated[0].Replace("#", "\r\n");
+                tb_tri_result.Text = calculated[1].Replace("#", "\r\n");
             }
             else
             {
-                tb_tri_function.Text = "Ingen løsning for trigonometri!";
+                tb_tri_function.Text = calculated[0];
+                tb_tri_result.Text = calculated[1];
             }
         }
+
 
         private double TextboxParse(TextBox textBox)
         {
@@ -101,6 +93,11 @@ namespace MathProgram.Forms
 
                 return 0.0;
             }
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

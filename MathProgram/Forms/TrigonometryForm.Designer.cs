@@ -61,10 +61,10 @@ namespace MathProgram.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.input_degree_a = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tb_tri_result = new System.Windows.Forms.TextBox();
             this.tb_tri_function = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.gb_result = new System.Windows.Forms.GroupBox();
-            this.tb_result = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -74,20 +74,19 @@ namespace MathProgram.Forms
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.gb_result.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(225, 102);
+            this.tabControl1.Location = new System.Drawing.Point(15, 382);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(263, 401);
+            this.tabControl1.Size = new System.Drawing.Size(488, 222);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -97,21 +96,19 @@ namespace MathProgram.Forms
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(255, 372);
+            this.tabPage1.Size = new System.Drawing.Size(480, 193);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cosinusrelationerne";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Location = new System.Drawing.Point(15, 198);
+            this.groupBox1.Location = new System.Drawing.Point(230, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(212, 168);
+            this.groupBox1.Size = new System.Drawing.Size(234, 171);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Formel for vinkler";
@@ -123,7 +120,7 @@ namespace MathProgram.Forms
             this.textBox4.Location = new System.Drawing.Point(6, 127);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(200, 22);
+            this.textBox4.Size = new System.Drawing.Size(219, 22);
             this.textBox4.TabIndex = 2;
             this.textBox4.Text = "cos(C) = (a^2 + b^2 - c^2)/2ab";
             // 
@@ -134,7 +131,7 @@ namespace MathProgram.Forms
             this.textBox5.Location = new System.Drawing.Point(6, 77);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(200, 22);
+            this.textBox5.Size = new System.Drawing.Size(219, 22);
             this.textBox5.TabIndex = 1;
             this.textBox5.Text = "cos(B) = (a^2 + c^2 - b^2)/2ac";
             // 
@@ -145,20 +142,18 @@ namespace MathProgram.Forms
             this.textBox6.Location = new System.Drawing.Point(6, 27);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(200, 22);
+            this.textBox6.Size = new System.Drawing.Size(219, 22);
             this.textBox6.TabIndex = 0;
             this.textBox6.Text = "cos(A) = (b^2 + c^2 - a^2)/2bc";
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.textBox10);
             this.groupBox2.Controls.Add(this.textBox11);
             this.groupBox2.Controls.Add(this.textBox12);
             this.groupBox2.Location = new System.Drawing.Point(15, 15);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(218, 168);
+            this.groupBox2.Size = new System.Drawing.Size(198, 171);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Formel for sider";
@@ -170,7 +165,7 @@ namespace MathProgram.Forms
             this.textBox10.Location = new System.Drawing.Point(6, 127);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(206, 22);
+            this.textBox10.Size = new System.Drawing.Size(183, 22);
             this.textBox10.TabIndex = 2;
             this.textBox10.Text = "c^2 = a^2 + b^2 - 2ab cos(C)";
             // 
@@ -181,7 +176,7 @@ namespace MathProgram.Forms
             this.textBox11.Location = new System.Drawing.Point(6, 77);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(206, 22);
+            this.textBox11.Size = new System.Drawing.Size(183, 22);
             this.textBox11.TabIndex = 1;
             this.textBox11.Text = "b^2 = a^2 + c^2 - 2ac cos(B)";
             // 
@@ -192,7 +187,7 @@ namespace MathProgram.Forms
             this.textBox12.Location = new System.Drawing.Point(6, 27);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(206, 22);
+            this.textBox12.Size = new System.Drawing.Size(183, 22);
             this.textBox12.TabIndex = 0;
             this.textBox12.Text = "a^2 = b^2 + c^2 - 2bc cos(A)";
             // 
@@ -203,7 +198,7 @@ namespace MathProgram.Forms
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(255, 372);
+            this.tabPage2.Size = new System.Drawing.Size(480, 193);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sinusrelationerne";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -215,9 +210,9 @@ namespace MathProgram.Forms
             this.groupBox5.Controls.Add(this.textBox7);
             this.groupBox5.Controls.Add(this.textBox8);
             this.groupBox5.Controls.Add(this.textBox9);
-            this.groupBox5.Location = new System.Drawing.Point(15, 198);
+            this.groupBox5.Location = new System.Drawing.Point(15, 195);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(219, 168);
+            this.groupBox5.Size = new System.Drawing.Size(545, 210);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Formel for vinkler";
@@ -229,7 +224,7 @@ namespace MathProgram.Forms
             this.textBox7.Location = new System.Drawing.Point(6, 127);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(207, 22);
+            this.textBox7.Size = new System.Drawing.Size(530, 22);
             this.textBox7.TabIndex = 2;
             this.textBox7.Text = "sin⁡(C) = (c * sin⁡(A))/a ";
             // 
@@ -240,7 +235,7 @@ namespace MathProgram.Forms
             this.textBox8.Location = new System.Drawing.Point(6, 77);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(207, 22);
+            this.textBox8.Size = new System.Drawing.Size(530, 22);
             this.textBox8.TabIndex = 1;
             this.textBox8.Text = "sin⁡(B) = (b * sin⁡(C))/c";
             // 
@@ -251,7 +246,7 @@ namespace MathProgram.Forms
             this.textBox9.Location = new System.Drawing.Point(6, 27);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(207, 22);
+            this.textBox9.Size = new System.Drawing.Size(530, 22);
             this.textBox9.TabIndex = 0;
             this.textBox9.Text = "sin⁡(A) = (a * sin⁡(B))/b";
             // 
@@ -264,7 +259,7 @@ namespace MathProgram.Forms
             this.groupBox4.Controls.Add(this.textBox3);
             this.groupBox4.Location = new System.Drawing.Point(15, 15);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(225, 168);
+            this.groupBox4.Size = new System.Drawing.Size(176, 210);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Formel for sider";
@@ -276,7 +271,7 @@ namespace MathProgram.Forms
             this.textBox1.Location = new System.Drawing.Point(6, 127);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(213, 22);
+            this.textBox1.Size = new System.Drawing.Size(161, 22);
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "c = (a * sin⁡(C))/(sin⁡(A))";
             // 
@@ -287,7 +282,7 @@ namespace MathProgram.Forms
             this.textBox2.Location = new System.Drawing.Point(6, 77);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(213, 22);
+            this.textBox2.Size = new System.Drawing.Size(161, 22);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "b = (c * sin⁡(B))/(sin⁡(C))";
             // 
@@ -298,7 +293,7 @@ namespace MathProgram.Forms
             this.textBox3.Location = new System.Drawing.Point(6, 27);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(213, 22);
+            this.textBox3.Size = new System.Drawing.Size(161, 22);
             this.textBox3.TabIndex = 0;
             this.textBox3.Text = "a = (b * sin⁡(A))/(sin⁡(B))";
             // 
@@ -409,16 +404,40 @@ namespace MathProgram.Forms
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox6.Controls.Add(this.label8);
+            this.groupBox6.Controls.Add(this.tb_tri_result);
             this.groupBox6.Controls.Add(this.tb_tri_function);
             this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Location = new System.Drawing.Point(12, 13);
+            this.groupBox6.Location = new System.Drawing.Point(246, 13);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox6.Size = new System.Drawing.Size(485, 80);
+            this.groupBox6.Size = new System.Drawing.Size(253, 181);
             this.groupBox6.TabIndex = 20;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Trigonometri";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 92);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 17);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Resultat";
+            // 
+            // tb_tri_result
+            // 
+            this.tb_tri_result.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_tri_result.Location = new System.Drawing.Point(7, 112);
+            this.tb_tri_result.Multiline = true;
+            this.tb_tri_result.Name = "tb_tri_result";
+            this.tb_tri_result.ReadOnly = true;
+            this.tb_tri_result.Size = new System.Drawing.Size(238, 55);
+            this.tb_tri_result.TabIndex = 2;
             // 
             // tb_tri_function
             // 
@@ -426,9 +445,12 @@ namespace MathProgram.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_tri_function.Location = new System.Drawing.Point(8, 39);
             this.tb_tri_function.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_tri_function.MaxLength = 10;
+            this.tb_tri_function.Multiline = true;
             this.tb_tri_function.Name = "tb_tri_function";
             this.tb_tri_function.ReadOnly = true;
-            this.tb_tri_function.Size = new System.Drawing.Size(468, 22);
+            this.tb_tri_function.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_tri_function.Size = new System.Drawing.Size(237, 49);
             this.tb_tri_function.TabIndex = 1;
             // 
             // label7
@@ -437,36 +459,12 @@ namespace MathProgram.Forms
             this.label7.Location = new System.Drawing.Point(8, 20);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 17);
+            this.label7.Size = new System.Drawing.Size(74, 17);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Forskift";
-            // 
-            // gb_result
-            // 
-            this.gb_result.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gb_result.Controls.Add(this.tb_result);
-            this.gb_result.Location = new System.Drawing.Point(12, 102);
-            this.gb_result.Name = "gb_result";
-            this.gb_result.Size = new System.Drawing.Size(200, 63);
-            this.gb_result.TabIndex = 21;
-            this.gb_result.TabStop = false;
-            this.gb_result.Text = "Resultat";
-            // 
-            // tb_result
-            // 
-            this.tb_result.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_result.Location = new System.Drawing.Point(6, 27);
-            this.tb_result.Name = "tb_result";
-            this.tb_result.ReadOnly = true;
-            this.tb_result.Size = new System.Drawing.Size(188, 22);
-            this.tb_result.TabIndex = 0;
+            this.label7.Text = "Udregning";
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.input_side_a);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.input_side_b);
@@ -479,12 +477,13 @@ namespace MathProgram.Forms
             this.groupBox3.Controls.Add(this.input_degree_b);
             this.groupBox3.Controls.Add(this.input_degree_a);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(12, 200);
+            this.groupBox3.Location = new System.Drawing.Point(12, 13);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 186);
+            this.groupBox3.Size = new System.Drawing.Size(209, 181);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Indtast dine værdier";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // TrigonometryForm
             // 
@@ -492,11 +491,11 @@ namespace MathProgram.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 544);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.gb_result);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.tabControl1);
             this.Name = "TrigonometryForm";
             this.Text = "Trigonometri";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TrigonometryForm_FormClosed);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -510,8 +509,6 @@ namespace MathProgram.Forms
             this.groupBox4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.gb_result.ResumeLayout(false);
-            this.gb_result.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -553,8 +550,8 @@ namespace MathProgram.Forms
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox tb_tri_function;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox gb_result;
-        private System.Windows.Forms.TextBox tb_result;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox tb_tri_result;
+        private System.Windows.Forms.Label label8;
     }
 }
