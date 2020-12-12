@@ -40,7 +40,7 @@ namespace MathLib.Trigonometry
         }
         public string GetDegreeRegulation(double value1, double value2, double value3, char isChar)
         {
-            return $"cos({isChar}) = ({value1}^2 + {value2}^2 - {value3}^2)/(2 * {value1} * {value2})\r\n{isChar} = cos^-1({GetDegreeResult(value1, value2, value3, false)})\r\n{isChar} = {GetDegreeResult(value1, value2, value3, true)}∘\r\n";
+            return $"cos({isChar}) = ({value1}^2 + {value2}^2 - {value3}^2)/(2 * {value1} * {value2})\r\n{isChar} = cos^(-1) 〖({GetDegreeResult(value1, value2, value3, false)})〗\r\n{isChar} = {GetDegreeResult(value1, value2, value3, true)}^∘\r\n";
         }
     }
 }

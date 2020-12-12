@@ -38,7 +38,7 @@ namespace MathLib.Trigonometry
         }
         public string GetDegreeRegulation(double value1, double value2, double degree, char isChar)
         {
-            return $"sin({isChar}) = ({value1} * sin({degree}))/({value2})\r\n{isChar} = sin^-1({GetDegreeResult(value1, value2, degree, false)})\r\n{isChar} = {GetDegreeResult(value1, value2, degree, true)}";
+            return $"sin({isChar}) = ({value1} * sin({degree}))/({value2})\r\n{isChar} = sin^(-1) 〖({GetDegreeResult(value1, value2, degree, false)}〗)\r\n{isChar} = {GetDegreeResult(value1, value2, degree, true)}^∘";
         }
     }
 }
