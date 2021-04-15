@@ -16,14 +16,15 @@ namespace MathProgram.Forms
         public DistanceFormularForm()
         {
             InitializeComponent();
+            CoordinateSystemForm.Program.Geometries.Add(distanceFormular);
             IC_Main.SetInput(distanceFormular);
             distanceFormular.Calculation += OnCalulation;
         }
 
         public void OnCalulation()
         {
-            textBox1.Text = distanceFormular.Formular.GetCalulation();
-            textBox2.Text = distanceFormular.Formular.GetResult();
+            TB_Calculations.Text = distanceFormular.GetLengthCalculation();
+            TB_Result.Text = distanceFormular.GetLengthResult();
         }
     }
 }
