@@ -79,6 +79,7 @@ namespace MathProgram.Forms
                 tb_tri_function.Text = calculated[0];
                 tb_tri_result.Text = calculated[1];
             }
+            CoordinateSystemForm.Program.Update();
         }
 
 
@@ -93,11 +94,6 @@ namespace MathProgram.Forms
 
                 return 0.0;
             }
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

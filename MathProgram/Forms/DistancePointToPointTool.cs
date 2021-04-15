@@ -8,23 +8,26 @@ using MathLib.AnalyticalPlaneGeometry;
 
 namespace MathProgram.Forms
 {
-    public partial class DistanceFormularForm : DockContent
+    public partial class DistancePointToPointForm : DockContent
     {
         private DistancePointToPointTool distanceFormular = new DistancePointToPointTool();
 
         /* Init & uninit section *********************/
-        public DistanceFormularForm()
+        public DistancePointToPointForm()
         {
             InitializeComponent();
-            CoordinateSystemForm.Program.Geometries.Add(distanceFormular);
+
             IC_Main.SetInput(distanceFormular);
+            IC_Main.SetIGeometry(distanceFormular);
             distanceFormular.Calculation += OnCalulation;
         }
 
         public void OnCalulation()
         {
-            TB_Calculations.Text = distanceFormular.GetLengthCalculation();
-            TB_Result.Text = distanceFormular.GetLengthResult();
+            DC_Calculation.Update(
+                distanceFormular.GetLengthCalculation(),
+                distanceFormular.GetLengthResult()
+            );
         }
     }
 }

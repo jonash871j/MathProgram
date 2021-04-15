@@ -167,11 +167,18 @@ namespace MathLib.Trigonometry
 
         public Shape Shape()
         {
+            double ax = SideA * Math.Cos(DegreeA * Math.PI / 180);
+            double ay = SideA * Math.Sin(DegreeA * Math.PI / 180);
+            double bx = SideB * Math.Cos(DegreeB * Math.PI / 180);
+            double by = SideB * Math.Sin(DegreeB * Math.PI / 180);
+            double cx = SideC * Math.Cos(DegreeC * Math.PI / 180);
+            double cy = SideC * Math.Sin(DegreeC * Math.PI / 180);
+
             return new Shape(new List<Line>
             {
-                new Line(0, 0, 0, 0),
-                new Line(0, 16, 4, 4),
-                new Line(0, 15, 16, 2),
+                new Line(0, 0, ax, ay),
+                new Line(ax, ay, bx, by),
+                new Line(bx, by, cx, cy),
             });
         }
 

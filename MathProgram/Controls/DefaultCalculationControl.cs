@@ -14,30 +14,32 @@ namespace MathProgram.Controls
 {
     public partial class DefaultCalculationControl : UserControl
     {
-        private IResult iResult = null;
-
-        public string Categorie 
+        public string Title 
         {
-            get => GB_Categorie.Text;
-            set => GB_Categorie.Text = value;
+            get => GB_Title.Text;
+            set => GB_Title.Text = value;
         }
+        public string Calulation
+        {
+            get => LB_Calculation.Text;
+            set => LB_Calculation.Text = value;
+        }
+        public string ResultName
+        {
+            get => LB_ResultName.Text;
+            set => LB_ResultName.Text = value;
+        }
+
 
         public DefaultCalculationControl()
         {
             InitializeComponent();
         }
 
-
-        public void SetIResult(IResult iResult)
+        public void Update(string calculation, string result)
         {
-            this.iResult = iResult;
-            this.iResult.Calculation += OnCalculation;
-        }
-
-        private void OnCalculation()
-        {
-            //TB_Calculation.Text = iResult.GetCalculation();
-            //TB_Result.Text = iResult.GetResult();
+            TB_Calculation.Text = calculation;
+            TB_Result.Text = result;
         }
     }
 }

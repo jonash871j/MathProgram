@@ -39,7 +39,7 @@ namespace MathProgram.Controls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GB_Main.Location = new System.Drawing.Point(0, 0);
             this.GB_Main.Name = "GB_Main";
-            this.GB_Main.Size = new System.Drawing.Size(184, 111);
+            this.GB_Main.Size = new System.Drawing.Size(184, 114);
             this.GB_Main.TabIndex = 1;
             this.GB_Main.TabStop = false;
             this.GB_Main.Text = "Input";
@@ -51,7 +51,7 @@ namespace MathProgram.Controls
             this.Controls.Add(this.GB_Main);
             this.Name = "InputControl";
             this.Size = new System.Drawing.Size(184, 114);
-            this.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.InputControl_ControlRemoved);
+            this.Load += new System.EventHandler(this.InputControl_Load);
             this.ResumeLayout(false);
 
         }

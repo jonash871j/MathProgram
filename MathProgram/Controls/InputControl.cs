@@ -27,10 +27,19 @@ namespace MathProgram.Controls
         {
             InitializeComponent();
         }
-        private void InputControl_ControlRemoved(object sender, ControlEventArgs e)
+
+        private void InputControl_Load(object sender, EventArgs e)
+        {
+            ParentForm.FormClosed += OnFormClosed;
+        }
+
+        private void OnFormClosed(object sender, FormClosedEventArgs e)
         {
             if (geometry != null)
+            {
                 CoordinateSystemForm.Program.Geometries.Remove(geometry);
+                CoordinateSystemForm.Program.Update();
+            }
         }
 
         public void SetInput(IInput input)

@@ -3,7 +3,6 @@ using MathLib.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MathLib.FormularCalculator;
 
 namespace MathLib.AnalyticalPlaneGeometry
 {

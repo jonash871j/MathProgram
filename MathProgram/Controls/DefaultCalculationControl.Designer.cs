@@ -29,29 +29,29 @@ namespace MathProgram.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            this.GB_Categorie = new System.Windows.Forms.GroupBox();
+            this.GB_Title = new System.Windows.Forms.GroupBox();
             this.TB_Result = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LB_ResultName = new System.Windows.Forms.Label();
             this.TB_Calculation = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.GB_Categorie.SuspendLayout();
+            this.LB_Calculation = new System.Windows.Forms.Label();
+            this.GB_Title.SuspendLayout();
             this.SuspendLayout();
             // 
-            // GB_Categorie
+            // GB_Title
             // 
-            this.GB_Categorie.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.GB_Title.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.GB_Categorie.Controls.Add(this.TB_Result);
-            this.GB_Categorie.Controls.Add(this.label2);
-            this.GB_Categorie.Controls.Add(this.TB_Calculation);
-            this.GB_Categorie.Controls.Add(this.label1);
-            this.GB_Categorie.Location = new System.Drawing.Point(0, 0);
-            this.GB_Categorie.Name = "GB_Categorie";
-            this.GB_Categorie.Size = new System.Drawing.Size(287, 133);
-            this.GB_Categorie.TabIndex = 0;
-            this.GB_Categorie.TabStop = false;
-            this.GB_Categorie.Text = "Unnamed";
+            this.GB_Title.Controls.Add(this.TB_Result);
+            this.GB_Title.Controls.Add(this.LB_ResultName);
+            this.GB_Title.Controls.Add(this.TB_Calculation);
+            this.GB_Title.Controls.Add(this.LB_Calculation);
+            this.GB_Title.Location = new System.Drawing.Point(0, 0);
+            this.GB_Title.Name = "GB_Title";
+            this.GB_Title.Size = new System.Drawing.Size(287, 133);
+            this.GB_Title.TabIndex = 0;
+            this.GB_Title.TabStop = false;
+            this.GB_Title.Text = "Titel";
             // 
             // TB_Result
             // 
@@ -61,17 +61,17 @@ namespace MathProgram.Controls
             this.TB_Result.Multiline = true;
             this.TB_Result.Name = "TB_Result";
             this.TB_Result.ReadOnly = true;
-            this.TB_Result.Size = new System.Drawing.Size(275, 20);
+            this.TB_Result.Size = new System.Drawing.Size(272, 20);
             this.TB_Result.TabIndex = 3;
             // 
-            // label2
+            // LB_ResultName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Resultat";
+            this.LB_ResultName.AutoSize = true;
+            this.LB_ResultName.Location = new System.Drawing.Point(9, 91);
+            this.LB_ResultName.Name = "LB_ResultName";
+            this.LB_ResultName.Size = new System.Drawing.Size(33, 13);
+            this.LB_ResultName.TabIndex = 2;
+            this.LB_ResultName.Text = "Navn";
             // 
             // TB_Calculation
             // 
@@ -84,34 +84,34 @@ namespace MathProgram.Controls
             this.TB_Calculation.Size = new System.Drawing.Size(272, 56);
             this.TB_Calculation.TabIndex = 1;
             // 
-            // label1
+            // LB_Calculation
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Udregning";
+            this.LB_Calculation.AutoSize = true;
+            this.LB_Calculation.Location = new System.Drawing.Point(9, 16);
+            this.LB_Calculation.Name = "LB_Calculation";
+            this.LB_Calculation.Size = new System.Drawing.Size(56, 13);
+            this.LB_Calculation.TabIndex = 0;
+            this.LB_Calculation.Text = "Udregning";
             // 
             // DefaultCalculationControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.GB_Categorie);
+            this.Controls.Add(this.GB_Title);
             this.Name = "DefaultCalculationControl";
             this.Size = new System.Drawing.Size(287, 136);
-            this.GB_Categorie.ResumeLayout(false);
-            this.GB_Categorie.PerformLayout();
+            this.GB_Title.ResumeLayout(false);
+            this.GB_Title.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox GB_Categorie;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox GB_Title;
+        private System.Windows.Forms.Label LB_Calculation;
         private System.Windows.Forms.TextBox TB_Result;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LB_ResultName;
         private System.Windows.Forms.TextBox TB_Calculation;
     }
 }
