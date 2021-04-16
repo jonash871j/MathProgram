@@ -68,7 +68,14 @@ namespace MathProgram.Forms
 
         private void UpdateTextBoxes()
         {
+            // Hva fuck er det her?
             string[] calculated = trigonometryManager.Calculate().Split(':');
+
+            if (calculated[0] == "")
+            {
+                return;
+            }
+
             if (calculated[0] != "Fandt ingen formel der matchede" && calculated[1] != "0")
             {
                 tb_tri_function.Text = calculated[0].Replace("#", "\r\n");
