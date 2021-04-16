@@ -120,10 +120,7 @@ namespace MathProgram.UIElements
             Font = new Font(new FontFamily("Segoe UI"), 12.0f, FontStyle.Bold, GraphicsUnit.Pixel);
             Zoom = 0.2;
             X = 0.0;
-            Y = 0.0;
-
-            glutInit();
-  
+            Y = 0.0; 
         }
 
         private void OnSizeChanged(object sender, EventArgs e)
