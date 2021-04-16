@@ -18,7 +18,7 @@ namespace MathProgram.Forms
             InitializeComponent();
 
             IC_Main.SetInput(distanceFormular);
-            IC_Main.SetIGeometry(distanceFormular);
+            IC_Main.SetGeometry(distanceFormular);
             distanceFormular.Calculation += OnCalulation;
         }
 

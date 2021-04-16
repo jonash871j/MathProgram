@@ -37,6 +37,7 @@ namespace MathProgram.Controls
             this.GB_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.GB_Main.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GB_Main.Location = new System.Drawing.Point(0, 0);
             this.GB_Main.Name = "GB_Main";
             this.GB_Main.Size = new System.Drawing.Size(184, 114);

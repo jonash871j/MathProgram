@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MathLib.AnalyticalPlaneGeometry
 {
-    public class DistancePointToPointTool : IInput, IShape
+    public class DistancePointToPointTool : IInput, IShape, IPoints
     {
         public double X1 { get => Contants["x1"]; private set => Contants["x1"] = value; }
         public double X2 { get => Contants["x2"]; private set => Contants["x2"] = value; }
@@ -51,8 +51,8 @@ namespace MathLib.AnalyticalPlaneGeometry
         public string GetLengthCalculation()
         {
             return "|AB|" +
-                Settings.Formular(" = \\sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2)") +
-                Settings.Calculation($" = \\sqrt(({ X2 } - { X1 })^2 + ({ Y2 } - { Y1 })^2)") +
+                Settings.Formular(" = \\sqrt((x_2-x_1)^2+(y_2-y_1)^2)") +
+                Settings.Calculation($" = \\sqrt(({ X2 }-{ X1 })^2+({ Y2 }-{ Y1 })^2)") +
                 Settings.Equal() + GetLengthResult();
         }
         public string GetLengthResult()

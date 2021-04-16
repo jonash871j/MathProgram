@@ -41,6 +41,7 @@ namespace MathProgram.Forms
         private void MI_Calculator_Click(object sender, EventArgs e)         => ShowDockForm(new CalculatorForm(), DockState.DockRight);
         private void MI_QuadraticEquations_Click(object sender, EventArgs e) => ShowDockForm(new QuadraticEquationsForm(), DockState.DockLeft);
         private void MI_PointToPoint_Click(object sender, EventArgs e)       => ShowDockForm(new DistancePointToPointForm(), DockState.DockLeft);
+        private void MI_PointToLine_Click(object sender, EventArgs e)        => ShowDockForm(new DistancePointToLineForm(), DockState.DockLeft);
         private void MI_Trigonometry_Click(object sender, EventArgs e)       => ShowDockForm(new TrigonometryForm(), DockState.DockLeft);
 
         /* Settings */

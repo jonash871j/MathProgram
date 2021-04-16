@@ -82,12 +82,18 @@
     <Compile Include="Controls\InputControl.Designer.cs">
       <DependentUpon>InputControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\ISetForm.cs" />
-    <Compile Include="Forms\DistancePointToPointTool.cs">
+    <Compile Include="Forms\DistancePointToLineForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DistancePointToPointTool.Designer.cs">
-      <DependentUpon>DistancePointToPointTool.cs</DependentUpon>
+    <Compile Include="Forms\DistancePointToLineForm.Designer.cs">
+      <DependentUpon>DistancePointToLineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ISetForm.cs" />
+    <Compile Include="Forms\DistancePointToPointForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DistancePointToPointForm.Designer.cs">
+      <DependentUpon>DistancePointToPointForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Static\Misc.cs" />
     <Compile Include="UIElements\CoordinateSystemProgram.cs" />
@@ -136,8 +142,11 @@
     <EmbeddedResource Include="Forms\CoordinateSystemForm.resx">
       <DependentUpon>CoordinateSystemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DistancePointToPointTool.resx">
-      <DependentUpon>DistancePointToPointTool.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DistancePointToLineForm.resx">
+      <DependentUpon>DistancePointToLineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DistancePointToPointForm.resx">
+      <DependentUpon>DistancePointToPointForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

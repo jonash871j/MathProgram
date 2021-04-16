@@ -25,7 +25,7 @@ namespace MathProgram.Forms
         {
             InitializeComponent();
 
-            IC_QuadraticEquations.SetIGeometry(quadraticEquation);
+            IC_QuadraticEquations.SetGeometry(quadraticEquation);
             IC_QuadraticEquations.SetInput(quadraticEquation);
 
             quadraticEquation.Calculation += OnCalulation;

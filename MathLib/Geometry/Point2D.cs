@@ -14,5 +14,10 @@ namespace MathLib.Geometry
             X = x;
             Y = y;
         }
+
+        public override string ToString()
+        {
+            return $"({X.ToString("N2")}; {Y.ToString("N2")})";
+        }
     }
 }

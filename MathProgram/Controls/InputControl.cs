@@ -47,7 +47,7 @@ namespace MathProgram.Controls
             this.input = input;
             CreateInputBoxes();
         }
-        public void SetIGeometry(IGeometry geometry)
+        public void SetGeometry(IGeometry geometry)
         {
             this.geometry = geometry;
             CoordinateSystemForm.Program.Geometries.Add(geometry);
@@ -93,7 +93,7 @@ namespace MathProgram.Controls
 
             i++;
 
-            if ((i % (GridColumns+1)) == GridColumns)
+            if ((i % (GridColumns)) == 0)
             {
                 y += 40;
             }

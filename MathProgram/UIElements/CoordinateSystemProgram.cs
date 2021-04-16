@@ -8,8 +8,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tao.OpenGl;
 using Tao.Platform.Windows;
+using static Tao.OpenGl.Gl;
+using static Tao.FreeGlut.Glut;
 
 namespace MathProgram.UIElements
 {
@@ -17,7 +18,8 @@ namespace MathProgram.UIElements
     {
         public struct Colors
         {
-            public Color Text;
+            public Color GraphText;
+            public Color DefaultText;
             public Color LargeGrid;
             public Color SmallGrid;
             public Color Background;
@@ -36,7 +38,6 @@ namespace MathProgram.UIElements
         private double relX = 0.0f;
         private double relY = 0.0f;
         private double scale = 1.0f;
-        private SolidBrush textBrush;
         public Colors color;
 
         // Properties
@@ -103,14 +104,14 @@ namespace MathProgram.UIElements
   
         public CoordinateSystemProgram(ref SimpleOpenGlControl simpleOpenGlControl)
         {
-            color.Text = Color.FromArgb(51, 173, 255);
+            color.GraphText = Color.FromArgb(51, 173, 255);
+            color.DefaultText = Color.FromArgb(255, 255, 255);
             color.LargeGrid = Color.FromArgb(48, 48, 48);
             color.SmallGrid = Color.FromArgb(32, 32, 32);
             color.Background = Color.FromArgb(16, 16, 16);
             color.Axis = Color.FromArgb(192, 192, 192);
             color.Graph = Color.FromArgb(64, 128, 64);
             color.Shape = Color.FromArgb(128, 64, 128);
-            textBrush = new SolidBrush(color.Text);
 
             OpenGlControl = simpleOpenGlControl;
             OpenGlControl.SizeChanged += OnSizeChanged;
@@ -120,6 +121,9 @@ namespace MathProgram.UIElements
             Zoom = 0.2;
             X = 0.0;
             Y = 0.0;
+
+            glutInit();
+  
         }
 
         private void OnSizeChanged(object sender, EventArgs e)
@@ -132,21 +136,23 @@ namespace MathProgram.UIElements
 
         private void GLBoilerCode()
         {
-            Gl.glViewport(0, 0, Width, Height);
-            Gl.glMatrixMode(Gl.GL_PROJECTION);
-            Gl.glLoadIdentity();
-            Gl.glOrtho(0, Width, 0, Height, -1, 1);
-            Gl.glMatrixMode(Gl.GL_MODELVIEW);
-            Gl.glLoadIdentity();
+            glEnable(GL_SCISSOR_TEST);
+            glViewport(0, 0, Width, Height);
+            glScissor(0, Height, Width, Height);
+            glMatrixMode(GL_PROJECTION);
+            glLoadIdentity();
+            glOrtho(0, Width, 0, Height, -1, 1);
+            glMatrixMode(GL_MODELVIEW);
+            glDisable(GL_SCISSOR_TEST);
         }
         private void GLDrawLine(double x1, double y1, double x2, double y2, int thickness)
         {
             for (int i = 0; i < thickness; i++)
             {
-                Gl.glVertex2d(x1, y1 + i);
-                Gl.glVertex2d(x2, y2 + i);
-                Gl.glVertex2d(x1 + i, y1);
-                Gl.glVertex2d(x2 + i, y2);
+                glVertex2d(x1, y1 + i);
+                glVertex2d(x2, y2 + i);
+                glVertex2d(x1 + i, y1);
+                glVertex2d(x2 + i, y2);
             }
         }
         private void GLDrawGrid(double gridWidth, double gridHeight, Color color)
@@ -157,22 +163,22 @@ namespace MathProgram.UIElements
                 //gridHeight /= Zoom;
 
                 // Sets grid color
-                Gl.glColor3ub(color.R, color.G, color.B);
+                glColor3ub(color.R, color.G, color.B);
 
                 // Draws horizontal grid lines
                 for (double y = relY % gridHeight; y < Height; y += gridHeight)
                 {
                     // Draws line
-                    Gl.glVertex2d(0, y);
-                    Gl.glVertex2d(Width, y);
+                    glVertex2d(0, y);
+                    glVertex2d(Width, y);
                 }
 
                 // Draws vertical grid lines
                 for (double x = relX % gridWidth; x < Width; x += gridWidth)
                 {
                     // Draws line
-                    Gl.glVertex2d(x, 0);
-                    Gl.glVertex2d(x, Height);
+                    glVertex2d(x, 0);
+                    glVertex2d(x, Height);
                 }
             }
         }
@@ -181,7 +187,7 @@ namespace MathProgram.UIElements
             if (IsAxisVisible)
             {
                 // Sets color
-                Gl.glColor3ub(color.Axis.R, color.Axis.G, color.Axis.B);
+                glColor3ub(color.Axis.R, color.Axis.G, color.Axis.B);
 
                 // Draws y axis
                 GLDrawLine(relX, 0.0f, relX, Height, 1);
@@ -196,7 +202,7 @@ namespace MathProgram.UIElements
             double lastY = 0.0;
 
             // Sets graph color
-            Gl.glColor3ub(color.R, color.G, color.B);
+            glColor3ub(color.R, color.G, color.B);
 
             // Loops throgh each pixel on the x axis
             for (double x = -centerX + X; x < centerX + X; x++)
@@ -228,16 +234,16 @@ namespace MathProgram.UIElements
             double y = relY + point.Y * scale;
             int length = 4;
 
-            Gl.glColor3ub(192, 32, 32);
+            glColor3ub(192, 32, 32);
             for (int i = -length; i < length; i++)
             {
-                Gl.glVertex2d(x - length, y + i);
-                Gl.glVertex2d(x + length, y + i);
+                glVertex2d(x - length, y + i);
+                glVertex2d(x + length, y + i);
             }
         }
         private void GLDrawLine(Line line)
         {
-            Gl.glColor3ub(color.Shape.R, color.Shape.G, color.Shape.B);
+            glColor3ub(color.Shape.R, color.Shape.G, color.Shape.B);
             GLDrawLine(
                 relX + line.A.X * scale, 
                 relY + line.A.Y * scale, 
@@ -254,6 +260,7 @@ namespace MathProgram.UIElements
             }
         }
 
+
         /// <summary>
         /// Used to draw coordinate sytem
         /// Must be called in Paint event
@@ -264,11 +271,11 @@ namespace MathProgram.UIElements
             GLBoilerCode();
 
             // Clears old content
-            Gl.glClearColor(0.06f, 0.06f, 0.06f, 1.0f);
-            Gl.glClear(Gl.GL_COLOR_BUFFER_BIT);
+            glClearColor(0.06f, 0.06f, 0.06f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT);
 
             // Begin GL line drawing
-            Gl.glBegin(Gl.GL_LINES);
+            glBegin(GL_LINES);
 
             // Draws small grid
             GLDrawGrid(
@@ -322,11 +329,12 @@ namespace MathProgram.UIElements
             }
 
             // End GL drawing
-            Gl.glEnd();
+            glEnd();
 
             // Updates GL window
             OpenGlControl.SwapBuffers();
         }
+
 
         /// <summary>
         /// Used to draw text which is for now bound to the CPU
@@ -360,16 +368,7 @@ namespace MathProgram.UIElements
                             numberStr = Math.Round(number, 4).ToString();
                         else
                             numberStr = Math.Ceiling(number).ToString();
-
-                        graphics.DrawString(
-                            numberStr,
-                            Font,
-                            textBrush,
-                            new Point(
-                                (int)(relX + x),
-                                (int)(centerY - y)
-                            )
-                         );
+                        CPUDrawGraphText((int)(relX + x), (int)(centerY - y), numberStr);
                     }
                 }
             }
@@ -401,23 +400,49 @@ namespace MathProgram.UIElements
                         else
                             numberStr = Math.Ceiling(number).ToString();
 
-                        graphics.DrawString(
-                            numberStr,
-                            Font,
-                            textBrush,
-                            new Point(
-                                (int)(centerX - x),
-                                (int)(relY + y)
-                            )
-                         );
+                        CPUDrawGraphText((int)(centerX - x), (int)(relY + y), numberStr);
                     }
                 }
+            }
+            void CPUDrawGraphText(int x, int y, string text)
+            {
+                graphics.DrawString(
+                    text,
+                    Font,
+                    new SolidBrush(color.GraphText),
+                    new Point(
+                        x,
+                        y
+                    )
+                 );
+            }
+            void CPUDrawText(double x, double y, string text)
+            {
+                graphics.DrawString(
+                    text,
+                    Font,
+                        new SolidBrush(color.DefaultText),
+                    new Point(
+                        (int)(x * scale - X + centerX),
+                        (int)(y * -scale - Y + centerY)
+                    )
+                 );
             }
 
             if (IsAxisVisible)
             {
                 CPUNumberX();
                 CPUNumberY();
+            }
+            if (IsPointsVisible)
+            {
+                foreach (IPoints iPoints in Geometries.OfType<IPoints>())
+                {
+                    foreach (Point2D point in iPoints.Points())
+                    {
+                        CPUDrawText(point.X, point.Y, point.ToString());
+                    }
+                }
             }
         }
 
