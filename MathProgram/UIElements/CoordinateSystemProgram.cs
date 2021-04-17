@@ -206,7 +206,15 @@ namespace MathProgram.UIElements
             {
                 // Gets y from math function and 
                 // adds additional mathematics for scaling
-                double y = function.Function(x / scale) * scale;
+                double rawY = function.Function(x / scale);
+                double y = rawY * scale;
+
+                if (rawY == 0.1254232)
+                {
+                    lastX = x;
+                    lastY = 0;
+                    continue;
+                }
 
                 // Dont draw if y is zero
                 //if (y == 0)
@@ -214,7 +222,7 @@ namespace MathProgram.UIElements
 
                 // Don't draw the graph line the first loop iteration.
                 // This is to avoid bad geometry
-                if (x != -relX)
+                if ((x != -relX) && (lastX != x))
                 {
                     // Draws graph line
                     GLDrawLine(relX + x, relY + y, relX + lastX, relY + lastY, 2);
@@ -222,7 +230,7 @@ namespace MathProgram.UIElements
 
                 // Stores current point as last point
                 lastX = x;
-                lastY = y;
+                lastY = (double)y;
             }
         }
         private void GLDrawPoint(Point2D point)

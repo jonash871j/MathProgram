@@ -35,7 +35,7 @@ namespace MathProgram.Forms
             this.visToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_CoordSystem = new System.Windows.Forms.ToolStripMenuItem();
             this.værktøjerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MI_Calculator = new System.Windows.Forms.ToolStripMenuItem();
+            this.MI_FunctionScript = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.afstandToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_PointToPoint = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +48,6 @@ namespace MathProgram.Forms
             this.SS_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TS_Main = new System.Windows.Forms.ToolStrip();
-            this.MI_FunctionScript = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_Main.SuspendLayout();
             this.SS_Main.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +55,7 @@ namespace MathProgram.Forms
             // MS_Main
             // 
             this.MS_Main.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.MS_Main.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.MS_Main.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MS_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -102,7 +102,6 @@ namespace MathProgram.Forms
             // 
             this.værktøjerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_FunctionScript,
-            this.MI_Calculator,
             this.toolStripSeparator1,
             this.afstandToolStripMenuItem1,
             this.MI_QuadraticEquations,
@@ -111,12 +110,12 @@ namespace MathProgram.Forms
             this.værktøjerToolStripMenuItem.Size = new System.Drawing.Size(110, 29);
             this.værktøjerToolStripMenuItem.Text = "Værktøjer";
             // 
-            // MI_Calculator
+            // MI_FunctionScript
             // 
-            this.MI_Calculator.Name = "MI_Calculator";
-            this.MI_Calculator.Size = new System.Drawing.Size(275, 34);
-            this.MI_Calculator.Text = "Lommeregner";
-            this.MI_Calculator.Click += new System.EventHandler(this.MI_Calculator_Click);
+            this.MI_FunctionScript.Name = "MI_FunctionScript";
+            this.MI_FunctionScript.Size = new System.Drawing.Size(275, 34);
+            this.MI_FunctionScript.Text = "Funktionsscript";
+            this.MI_FunctionScript.Click += new System.EventHandler(this.MI_FunctionScript_Click);
             // 
             // toolStripSeparator1
             // 
@@ -172,7 +171,7 @@ namespace MathProgram.Forms
             // 
             this.MI_IsFullscreen.CheckOnClick = true;
             this.MI_IsFullscreen.Name = "MI_IsFullscreen";
-            this.MI_IsFullscreen.Size = new System.Drawing.Size(270, 34);
+            this.MI_IsFullscreen.Size = new System.Drawing.Size(206, 34);
             this.MI_IsFullscreen.Text = "Fuldskærm";
             this.MI_IsFullscreen.Click += new System.EventHandler(this.MI_IsFullscreen_Click);
             // 
@@ -214,13 +213,6 @@ namespace MathProgram.Forms
             this.TS_Main.TabIndex = 7;
             this.TS_Main.Text = "toolStrip1";
             // 
-            // MI_FunctionScript
-            // 
-            this.MI_FunctionScript.Name = "MI_FunctionScript";
-            this.MI_FunctionScript.Size = new System.Drawing.Size(275, 34);
-            this.MI_FunctionScript.Text = "Funktionsscript";
-            this.MI_FunctionScript.Click += new System.EventHandler(this.MI_FunctionScript_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -253,7 +245,6 @@ namespace MathProgram.Forms
         private System.Windows.Forms.ToolStripMenuItem MI_Exit;
         private WeifenLuo.WinFormsUI.Docking.DockPanel DP_Main;
         private System.Windows.Forms.ToolStripMenuItem værktøjerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MI_Calculator;
         private System.Windows.Forms.ToolStripMenuItem MI_QuadraticEquations;
         private System.Windows.Forms.StatusStrip SS_Main;
         private System.Windows.Forms.ToolStripMenuItem visToolStripMenuItem;

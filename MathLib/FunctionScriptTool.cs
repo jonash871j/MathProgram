@@ -28,6 +28,7 @@ namespace MathLib
                "double acos(double x) { return System.Math.Acos(x); }" +
                "double atan(double x) { return System.Math.Atan(x); }" +
                "double sqrt(double x) { return System.Math.Sqrt(x); }" +
+               "double sqrt(double x, double y) { return System.Math.Pow(x, (double)1 / y); }" +
                "double pow(double x, double y) { return System.Math.Pow(x, y); }" +
                "double log(double x) { return System.Math.Log(x); }" +
                "double log10(double x) { return System.Math.Log10(x); }" +
@@ -36,13 +37,25 @@ namespace MathLib
                "double ceil(double x) { return System.Math.Ceiling(x); }" +
                "double sign(double x) { return System.Math.Sign(x); }" +
                "double truncate(double x) { return System.Math.Truncate(x); }" +
+               "double abs(double x) { return System.Math.Abs(x); }" +
                "double pi = System.Math.PI;" +
-               $"public double Function(double x){{{Script}}}" +
+               "public double Function(double x){" +
+               "int ix = (int)x;" +
+               "uint uix = (uint)x;" +
+               "short sx = (short)x;" +
+               "ushort usx = (ushort)x;" +
+               "sbyte bx = (sbyte)x;" +
+               "byte ubx = (byte)x;" +
+               "const double none = 0.1254232;" +
+               $"{Script}" +
+               $"return none;" +
+               "}" +
                "}");
         }
 
         public double Function(double x)
         {
+            
             if (assembly != null)
             {
                 foreach (Type type in assembly.GetExportedTypes())
