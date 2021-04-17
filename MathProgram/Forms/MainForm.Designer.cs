@@ -55,7 +55,6 @@ namespace MathProgram.Forms
             // MS_Main
             // 
             this.MS_Main.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.MS_Main.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.MS_Main.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MS_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,

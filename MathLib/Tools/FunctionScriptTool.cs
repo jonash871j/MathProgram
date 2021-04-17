@@ -39,6 +39,7 @@ namespace MathLib
                "double truncate(double x) { return System.Math.Truncate(x); }" +
                "double abs(double x) { return System.Math.Abs(x); }" +
                "double pi = System.Math.PI;" +
+               "double e = 2.7182818284590452353602874713527;" +
                "public double Function(double x){" +
                "int ix = (int)x;" +
                "uint uix = (uint)x;" +

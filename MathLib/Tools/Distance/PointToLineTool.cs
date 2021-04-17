@@ -2,10 +2,11 @@
 using MathLib.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
-namespace MathLib.AnalyticalPlaneGeometry
+namespace MathLib.Distance
 {
-    public class DistancePointToLineTool : IInput, IShape, IFunction, IPoints
+    public class PointToLineTool : IInput, IShape, IFunction, IPoints
     {
         public double X1 { get => Contants["x"]; private set => Contants["x"] = value; }
         public double Y1 { get => Contants["y"]; private set => Contants["y"] = value; }
@@ -14,12 +15,13 @@ namespace MathLib.AnalyticalPlaneGeometry
         public double Length { get; private set; }
         public double X2 { get; private set; }
         public double Y2 { get; private set; }
+        public Point2D MidPoint { get; private set; } = new Point2D();
 
         public event CalculationEventHandler Calculation;
 
         public Dictionary<string, double> Contants { get; set; }
 
-        public DistancePointToLineTool()
+        public PointToLineTool()
         {
             Contants = new Dictionary<string, double>()
             {
@@ -41,6 +43,8 @@ namespace MathLib.AnalyticalPlaneGeometry
 
             X2 = X1 - ((d > 0 ? Length : -Length) * Math.Cos(angle * Math.PI / 180));
             Y2 = Y1 + ((d > 0 ? Length : -Length) * Math.Sin(angle * Math.PI / 180));
+
+            MidPoint = new Point2D((X2 + X1) / 2, (Y2 + Y1) / 2, $"M#\nLægnde: {Length.ToString("N3")}", Color.Blue);
 
             Calculation?.Invoke();
         }
@@ -64,6 +68,17 @@ namespace MathLib.AnalyticalPlaneGeometry
         {
             return Settings.Result(Length);
         }
+        public string GetMidPointCalculation()
+        {
+            return "M(x, y)" +
+                Settings.Formular(" = ((x_2+x_1)/2,(y_2+y_1)/2)") +
+                Settings.Calculation($"  = (({X2}+{X1})/2,({Y2}+{Y1})/2)") +
+                Settings.Equal() + GetMidPointResult();
+        }
+        public string GetMidPointResult()
+        {
+            return $"({Settings.Result(MidPoint.X)} ; {Settings.Result(MidPoint.Y)})";
+        }
 
         public double Function(double x)
         {
@@ -76,8 +91,10 @@ namespace MathLib.AnalyticalPlaneGeometry
             return new Point2D[]
             {
                 new Point2D(X1, Y1),
-                new Point2D(X2, Y2)
+                new Point2D(X2, Y2),
+                MidPoint
             };
         }
+
     }
 }

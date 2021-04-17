@@ -239,7 +239,7 @@ namespace MathProgram.UIElements
             double y = relY + point.Y * scale;
             int length = 4;
 
-            glColor3ub(192, 32, 32);
+            glColor3ub(point.Color.R, point.Color.G, point.Color.B);
             for (int i = -length; i < length; i++)
             {
                 glVertex2d(x - length, y + i);
@@ -423,13 +423,22 @@ namespace MathProgram.UIElements
             }
             void CPUDrawText(double x, double y, string text)
             {
+                string[] lines = text.Split('\n');
+                string longest = lines.OrderByDescending(s => s.Length).First();
+
+                graphics.FillRectangle(new SolidBrush(color.Background), new Rectangle(
+                    (int)(x * scale - X + centerX) + 4, 
+                    (int)(y * -scale - Y + centerY) + 8,
+                    longest.Length * 6,
+                    lines.Length * 16)
+                );
                 graphics.DrawString(
                     text,
                     Font,
                         new SolidBrush(color.DefaultText),
                     new Point(
-                        (int)(x * scale - X + centerX),
-                        (int)(y * -scale - Y + centerY)
+                        (int)(x * scale - X + centerX) + 4,
+                        (int)(y * -scale - Y + centerY) + 8
                     )
                  );
             }
@@ -484,18 +493,44 @@ namespace MathProgram.UIElements
             OpenGlControl.Refresh();
         }
 
+        public override string ToString()
+        {
+            return
+                $"X: {X}\n" +
+                $"Y: {Y}\n" +
+                $"ActualX: {ActualX}\n" +
+                $"ActualY: {ActualY}\n" +
+                $"Zoom: {Zoom}\n" +
+                $"scale: {scale}\n" +
+                $"centerX: {centerX}\n" +
+                $"centerY: {centerY}\n" +
+                $"testX: {testX}\n";
+        }
+
+        double testX = 0;
         public void ChangeZoom(int direction, int mouseX = 0, int mouseY = 0)
         {
+            double xBefore = (mouseX - centerX + X) / scale;
+            double yBefore = (mouseY - centerY + Y) / scale;
+
             if (direction > 0)
             {
-                X += mouseX - centerX;
-                Y += mouseY - centerY;
-                Zoom /= 2.0;
+                //X += mouseX - centerX;
+                //Y += mouseY - centerY;
+                Zoom /= 2;
+                //Zoom *= 0.9;
             }
             else
             {
                 Zoom += Zoom;
+                //Zoom *= 1.1;
             }
+
+            double xAfter = (mouseX - centerX + X) / scale;
+            double yAfter = (mouseY - centerY + Y) / scale;
+
+            X += (xBefore - xAfter) * scale;
+            Y += (yBefore - yAfter) * scale;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using MathLib.AnalyticalPlaneGeometry;
+﻿using MathLib.Distance;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ namespace MathProgram.Forms
 {
     public partial class DistancePointToLineForm : DockContent
     {
-        private DistancePointToLineTool distancePointToLine = new DistancePointToLineTool();
+        private PointToLineTool distancePointToLine = new PointToLineTool();
 
         /* Init & uninit section *********************/
         public DistancePointToLineForm()
@@ -31,6 +31,10 @@ namespace MathProgram.Forms
             DC_Calculation.Update(
                 distancePointToLine.GetLengthCalculation(),
                 distancePointToLine.GetLengthResult()
+            );
+            DC_MidPoint.Update(
+                distancePointToLine.GetMidPointCalculation(),
+                distancePointToLine.GetMidPointResult()
             );
         }
     }

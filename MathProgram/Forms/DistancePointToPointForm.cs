@@ -4,13 +4,13 @@ using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using MathLib;
 using MathProgram.Static;
-using MathLib.AnalyticalPlaneGeometry;
+using MathLib.Distance;
 
 namespace MathProgram.Forms
 {
     public partial class DistancePointToPointForm : DockContent
     {
-        private DistancePointToPointTool distanceFormular = new DistancePointToPointTool();
+        private PointToPointTool distanceFormular = new PointToPointTool();
 
         /* Init & uninit section *********************/
         public DistancePointToPointForm()
@@ -24,9 +24,13 @@ namespace MathProgram.Forms
 
         public void OnCalulation()
         {
-            DC_Calculation.Update(
+            DC_Length.Update(
                 distanceFormular.GetLengthCalculation(),
                 distanceFormular.GetLengthResult()
+            );
+            DC_MidPoint.Update(
+                distanceFormular.GetMidPointCalculation(),
+                distanceFormular.GetMidPointResult()
             );
         }
     }

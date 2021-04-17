@@ -2,6 +2,7 @@
 using MathLib.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace MathLib
 {
@@ -40,7 +41,7 @@ namespace MathLib
             D = (Math.Pow(B, 2) - 4 * A * C);
             X1 = (-B + Math.Sqrt(D)) / (2 * A);
             X2 = (-B - Math.Sqrt(D)) / (2 * A);
-            TopPoint = new Point2D(-B / (2 * A), -D / (4 * A));
+            TopPoint = new Point2D(-B / (2 * A), -D / (4 * A), "T#");
             Calculation?.Invoke();
         }
         public double Function(double x)
@@ -60,8 +61,8 @@ namespace MathLib
             {
                 return new Point2D[]
                 {
-                    new Point2D(X1, 0),
-                    new Point2D(X2, 0),
+                    new Point2D(X1, 0, "+X#", Color.Magenta),
+                    new Point2D(X2, 0, "-X#", Color.Magenta),
                     TopPoint,
                 };
             }

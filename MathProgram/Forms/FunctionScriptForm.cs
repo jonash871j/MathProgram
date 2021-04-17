@@ -48,6 +48,7 @@ namespace MathProgram.Forms
         private void FunctionScriptForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             CoordinateSystemForm.Program.Geometries.Remove(functionScript);
+            CoordinateSystemForm.Program.Update();
         }
 
         private void TEC_Main_TextChanged(object sender, EventArgs e)

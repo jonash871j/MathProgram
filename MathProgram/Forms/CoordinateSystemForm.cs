@@ -12,6 +12,7 @@ namespace MathProgram.Forms
     {
         private Point mouseStart = new Point(0, 0);
         private Point mouseMove = new Point(0, 0);
+        private Point debugMouseMove = new Point(0, 0);
         private Point coordUpdate = new Point(0, 0);
         private bool isDown = false;
         private bool isLoad = true;
@@ -23,6 +24,7 @@ namespace MathProgram.Forms
         {
             InitializeComponent();
             EnableVSRenderer();
+            LB_Debug.Visible = false;
             MouseWheel += new MouseEventHandler(GL_CoordinateSystem_MouseWheel);
             Program = new CoordinateSystemProgram(ref GL_CoordinateSystem);
 
@@ -79,6 +81,8 @@ namespace MathProgram.Forms
         }
         private void GL_CoordinateSystem_MouseMove(object sender, MouseEventArgs e)
         {
+            debugMouseMove = e.Location;
+
             if (isDown)
             {
                 mouseMove = e.Location;
@@ -101,16 +105,13 @@ namespace MathProgram.Forms
         }
         private void GL_CoordinateSystem_MouseWheel(object sender, MouseEventArgs e)
         {
-            if (e.Delta != 0)
+            if ((isDown == false) && (e.Delta != 0))
             {
                 Program.ChangeZoom(e.Delta, e.Location.X, e.Location.Y);
                 coordUpdate.X = (int)Program.X;
                 coordUpdate.Y = (int)Program.Y;
 
-                if (!isDown)
-                {
-                    GL_CoordinateSystem.Refresh();
-                }
+                GL_CoordinateSystem.Refresh();
             }
         }
         private void GL_CoordinateSystem_KeyDown(object sender, KeyEventArgs e)
@@ -139,6 +140,13 @@ namespace MathProgram.Forms
             Program.IsAxisVisible = BN_ToggleAxis.Checked;
             Program.IsGridVisible = BN_ToggleGrid.Checked;
             GL_CoordinateSystem.Refresh();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            LB_Debug.Text = Program.ToString() + 
+                $"MouseX: {debugMouseMove.X}\n" + 
+                $"MouseY: {debugMouseMove.Y}";
         }
     }
 }
