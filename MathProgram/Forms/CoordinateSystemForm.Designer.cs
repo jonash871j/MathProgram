@@ -239,10 +239,12 @@ namespace MathProgram.Forms
             this.LB_Debug.Size = new System.Drawing.Size(42, 13);
             this.LB_Debug.TabIndex = 2;
             this.LB_Debug.Text = "Debug";
+            this.LB_Debug.Visible = false;
             // 
             // Timer
             // 
             this.Timer.Enabled = true;
+            this.Timer.Interval = 10;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // CoordinateSystemForm

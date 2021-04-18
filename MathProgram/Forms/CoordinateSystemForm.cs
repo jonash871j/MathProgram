@@ -16,6 +16,7 @@ namespace MathProgram.Forms
         private Point coordUpdate = new Point(0, 0);
         private bool isDown = false;
         private bool isLoad = true;
+        private bool isZooming = false;
 
         public static CoordinateSystemProgram Program { get; private set; }
 
@@ -24,7 +25,6 @@ namespace MathProgram.Forms
         {
             InitializeComponent();
             EnableVSRenderer();
-            LB_Debug.Visible = false;
             MouseWheel += new MouseEventHandler(GL_CoordinateSystem_MouseWheel);
             Program = new CoordinateSystemProgram(ref GL_CoordinateSystem);
 
@@ -64,7 +64,7 @@ namespace MathProgram.Forms
 
             Program.GLDraw();
 
-            if ((isLoad) || (!isDown))
+            if (((isLoad) || (!isDown)) && (!isZooming))
             {
                 if (isLoad)
                 {
@@ -93,15 +93,21 @@ namespace MathProgram.Forms
         }
         private void GL_CoordinateSystem_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseStart = e.Location;
-            isDown = true;
+            if (!isZooming)
+            {
+                mouseStart = e.Location;
+                isDown = true;
+            }
         }
         private void GL_CoordinateSystem_MouseUp(object sender, MouseEventArgs e)
         {
-            coordUpdate.X += mouseStart.X - mouseMove.X;
-            coordUpdate.Y -= mouseMove.Y - mouseStart.Y;
-            isDown = false;
-            GL_CoordinateSystem.Refresh();
+            if(isDown)
+            {
+                coordUpdate.X += mouseStart.X - mouseMove.X;
+                coordUpdate.Y -= mouseMove.Y - mouseStart.Y;
+                isDown = false;
+                GL_CoordinateSystem.Refresh();
+            }
         }
         private void GL_CoordinateSystem_MouseWheel(object sender, MouseEventArgs e)
         {
@@ -111,7 +117,6 @@ namespace MathProgram.Forms
                 coordUpdate.X = (int)Program.X;
                 coordUpdate.Y = (int)Program.Y;
 
-                GL_CoordinateSystem.Refresh();
             }
         }
         private void GL_CoordinateSystem_KeyDown(object sender, KeyEventArgs e)
@@ -144,9 +149,34 @@ namespace MathProgram.Forms
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            LB_Debug.Visible = MainForm.IsDebugInformationShown;
             LB_Debug.Text = Program.ToString() + 
                 $"MouseX: {debugMouseMove.X}\n" + 
                 $"MouseY: {debugMouseMove.Y}";
+
+         
+
+            if (Program.Zoom != Program.ZoomPre)
+            {
+                isZooming = true;
+                Program.UpdateScale();
+                GL_CoordinateSystem.Refresh();
+            }
+            else if (isZooming)
+            {
+                if (Program.ZoomXGoto != Program.ZoomXTemp || Program.ZoomYGoto != Program.ZoomYTemp)
+                {
+                    Program.UpdateScale();
+                    GL_CoordinateSystem.Refresh();
+                }
+                else
+                {
+                    isZooming = false;
+                    GL_CoordinateSystem.Refresh();
+                    coordUpdate.X = (int)Program.X;
+                    coordUpdate.Y = (int)Program.Y;
+                }
+            }
         }
     }
 }

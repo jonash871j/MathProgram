@@ -20,7 +20,7 @@ namespace MathLib.Geometry
             Text = text;
         }
         public Point2D(double x = 0.0, double y = 0.0, string text = "")
-            : this(x, y, text, Color.FromArgb(192, 32, 32))
+            : this(x, y, text, Color.Blue)
         {
         }
 

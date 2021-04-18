@@ -9,18 +9,24 @@ using System.CodeDom.Compiler;
 
 namespace MathLib
 {
+    public interface IAssemblyFunction
+    {
+        double Function(double x);
+    }
+
     public class FunctionScriptTool : IFunction
     {
-        public Assembly assembly;
+        private Assembly assembly;
 
         public string Script { get; set; } = "";
         public string ErrorText { get; private set; } = "";
+        public Function Properties { get; set; } = new Function();
 
         public void Update()
         {
             CompileCode(
-               "public class Script : MathLib.Geometry.IFunction" +
-               "{"+
+               "public class Script : MathLib.IAssemblyFunction" +
+               "{" +
                "double sin(double x) { return System.Math.Sin(x); }" +
                "double cos(double x) { return System.Math.Cos(x); }" +
                "double tan(double x) { return System.Math.Tan(x); }" +
@@ -63,12 +69,12 @@ namespace MathLib
                 {
                     foreach (Type iface in type.GetInterfaces())
                     {
-                        if (iface == typeof(IFunction))
+                        if (iface == typeof(IAssemblyFunction))
                         {
                             ConstructorInfo constructor = type.GetConstructor(System.Type.EmptyTypes);
                             if (constructor != null && constructor.IsPublic)
                             {
-                                IFunction scriptObject = constructor.Invoke(null) as IFunction;
+                                IAssemblyFunction scriptObject = constructor.Invoke(null) as IAssemblyFunction;
                                 if (scriptObject != null)
                                 {
                                     try
@@ -97,6 +103,7 @@ namespace MathLib
             options.GenerateInMemory = true; 
 
             options.ReferencedAssemblies.Add(Assembly.GetExecutingAssembly().Location);
+            options.ReferencedAssemblies.Add("netstandard.dll");
 
             // Compile our code
             CompilerResults result;

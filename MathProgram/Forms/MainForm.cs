@@ -12,13 +12,15 @@ namespace MathProgram.Forms
         // Link to math formular libary: http://numerator.sourceforge.net/components.php
         private readonly CoordinateSystemForm coordinateSystemForm = new CoordinateSystemForm();
 
+        public static bool IsDebugInformationShown { get; private set; } = false;
+
         /* Init & uninit section *********************/
         public MainForm()
         {
             InitializeComponent();
             EnableVSRenderer();
 
-            ShowDockForm(coordinateSystemForm, DockState.Document);
+            ShowDockForm(coordinateSystemForm, DockState.Document, DockStyle.Fill);
             //ShowDockForm(new DistanceFormularForm(), DockState.DockLeft);
             WindowState = FormWindowState.Maximized;
         }
@@ -35,14 +37,15 @@ namespace MathProgram.Forms
         private void MI_Exit_Click(object sender, EventArgs e) => Close();
 
         /* View */
-        private void MI_CoordSystem_Click(object sender, EventArgs e) => ShowDockForm(coordinateSystemForm, DockState.Document);
+        private void MI_CoordSystem_Click(object sender, EventArgs e)       => ShowDockForm(coordinateSystemForm, DockState.Document, DockStyle.Fill);
+        private void MI_DebugInfomation_Click(object sender, EventArgs e)   => IsDebugInformationShown = MI_DebugInfomation.Checked;
 
         /* Tools */
-        private void MI_FunctionScript_Click(object sender, EventArgs e)     => ShowDockForm(new FunctionScriptForm(), DockState.DockLeft);
-        private void MI_QuadraticEquations_Click(object sender, EventArgs e) => ShowDockForm(new QuadraticEquationsForm(), DockState.DockLeft);
-        private void MI_PointToPoint_Click(object sender, EventArgs e)       => ShowDockForm(new DistancePointToPointForm(), DockState.DockLeft);
-        private void MI_PointToLine_Click(object sender, EventArgs e)        => ShowDockForm(new DistancePointToLineForm(), DockState.DockLeft);
-        private void MI_Trigonometry_Click(object sender, EventArgs e)       => ShowDockForm(new TrigonometryForm(), DockState.DockLeft);
+        private void MI_FunctionScript_Click(object sender, EventArgs e)     => ShowDockForm(new FunctionScriptForm());
+        private void MI_QuadraticEquations_Click(object sender, EventArgs e) => ShowDockForm(new QuadraticEquationsForm());
+        private void MI_PointToPoint_Click(object sender, EventArgs e)       => ShowDockForm(new DistancePointToPointForm());
+        private void MI_PointToLine_Click(object sender, EventArgs e)        => ShowDockForm(new DistancePointToLineForm());
+        private void MI_Trigonometry_Click(object sender, EventArgs e)       => ShowDockForm(new TrigonometryForm());
 
         /* Settings */
         private void MI_IsFullscreen_Click(object sender, EventArgs e)
@@ -61,9 +64,10 @@ namespace MathProgram.Forms
         }
 
         /* Additional logic *********************/
-        private void ShowDockForm(DockContent dockForm, DockState dockState = DockState.Document)
+        private void ShowDockForm(DockContent dockForm, DockState dockState = DockState.DockLeft, DockStyle dockStyle = DockStyle.Left)
         {
             dockForm.Show(DP_Main, dockState);
+            dockForm.DockTo(DP_Main, dockStyle);
         }
     }
 }

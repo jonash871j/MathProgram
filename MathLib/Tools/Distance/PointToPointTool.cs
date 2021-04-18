@@ -33,7 +33,7 @@ namespace MathLib.Distance
         public void Calculate()
         {
             Length = Math.Abs(Math.Sqrt(Math.Pow(X2 - X1, 2) + Math.Pow(Y2 - Y1, 2)));
-            MidPoint = new Point2D((X2 + X1) / 2, (Y2 + Y1) / 2, $"M#\nLægnde: {Length.ToString("N3")}", Color.Blue);
+            MidPoint = new Point2D((X2 + X1) / 2, (Y2 + Y1) / 2, $"M#\nLægnde: {Length.ToString("N3")}");
             Calculation?.Invoke();
         }
 
@@ -64,8 +64,8 @@ namespace MathLib.Distance
         {
             return new Point2D[]
             {
-                new Point2D(X1, Y1, "P1#"),
-                new Point2D(X2, Y2, "P2#"),
+                new Point2D(X1, Y1, "P1#", Color.Green),
+                new Point2D(X2, Y2, "P2#", Color.Red),
                 MidPoint,
             };
         }

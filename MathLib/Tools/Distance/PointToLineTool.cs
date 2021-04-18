@@ -16,10 +16,12 @@ namespace MathLib.Distance
         public double X2 { get; private set; }
         public double Y2 { get; private set; }
         public Point2D MidPoint { get; private set; } = new Point2D();
+        public Function Properties { get; set; } = new Function();
 
         public event CalculationEventHandler Calculation;
 
         public Dictionary<string, double> Contants { get; set; }
+
 
         public PointToLineTool()
         {
@@ -44,7 +46,7 @@ namespace MathLib.Distance
             X2 = X1 - ((d > 0 ? Length : -Length) * Math.Cos(angle * Math.PI / 180));
             Y2 = Y1 + ((d > 0 ? Length : -Length) * Math.Sin(angle * Math.PI / 180));
 
-            MidPoint = new Point2D((X2 + X1) / 2, (Y2 + Y1) / 2, $"M#\nLægnde: {Length.ToString("N3")}", Color.Blue);
+            MidPoint = new Point2D((X2 + X1) / 2, (Y2 + Y1) / 2, $"M#\nLægnde: {Length.ToString("N3")}");
 
             Calculation?.Invoke();
         }
@@ -90,8 +92,8 @@ namespace MathLib.Distance
          
             return new Point2D[]
             {
-                new Point2D(X1, Y1),
-                new Point2D(X2, Y2),
+                new Point2D(X1, Y1, "#", Color.Green),
+                new Point2D(X2, Y2, "#", Color.Red),
                 MidPoint
             };
         }

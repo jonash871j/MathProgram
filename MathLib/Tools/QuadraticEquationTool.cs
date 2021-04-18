@@ -26,6 +26,7 @@ namespace MathLib
         public bool IsFormularVisible { get; set; }
         public bool IsCalculationVisible { get; set; }
         public Dictionary<string, double> Contants { get; set; }
+        public Function Properties { get; set; } = new Function();
 
         public QuadraticEquationTool()
         {
@@ -61,8 +62,8 @@ namespace MathLib
             {
                 return new Point2D[]
                 {
-                    new Point2D(X1, 0, "+X#", Color.Magenta),
-                    new Point2D(X2, 0, "-X#", Color.Magenta),
+                    new Point2D(X1, 0, "+X#"),
+                    new Point2D(X2, 0, "-X#"),
                     TopPoint,
                 };
             }

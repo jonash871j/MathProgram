@@ -28,8 +28,8 @@ namespace MathProgram.UIElements
             public Color Shape;
         }
 
-        // Fields
-        public const double gridFactor = 12.0f;
+        // Coordinates system fields
+        public const double GRID_FACTOR = 12.0f;
         private double zoom;
         private double x;
         private double y;
@@ -38,12 +38,12 @@ namespace MathProgram.UIElements
         private double relX = 0.0f;
         private double relY = 0.0f;
         private double scale = 1.0f;
-        public Colors color;
 
         // Properties
+        #region properties
         public Font Font { get; set; }
         public SimpleOpenGlControl OpenGlControl { get; private set; }
-        public List<IGeometry> Geometries { get; set; } 
+        public List<IGeometry> Geometries { get; private set; }
         public int Width
         {
             get => OpenGlControl.Width;
@@ -67,13 +67,18 @@ namespace MathProgram.UIElements
                 {
                     zoom = 1048576;
                 }
-                scale = gridFactor / Zoom;
             }
         }
+        public double ZoomPre { get; private set; }
+        public double ZoomXGoto { get; private set; }
+        public double ZoomYGoto { get; private set; }
+        public double ZoomXTemp { get; private set; }
+        public double ZoomYTemp { get; private set; }
+
         public double X
         {
             get => x;
-            set 
+            set
             {
                 x = value;
                 relX = -X + centerX;
@@ -90,18 +95,23 @@ namespace MathProgram.UIElements
         }
         public double ActualX
         {
-            get { return Math.Round((X / gridFactor) * Zoom, 2); }
+            get { return Math.Round((X / GRID_FACTOR) * Zoom, 2); }
         }
         public double ActualY
         {
-            get { return Math.Round((-Y / gridFactor) * Zoom, 2); }
+            get { return Math.Round((-Y / GRID_FACTOR) * Zoom, 2); }
         }
+
         public bool IsGridVisible { get; set; } = true;
         public bool IsAxisVisible { get; set; } = true;
         public bool IsGraphsVisible { get; set; } = true;
         public bool IsShapesVisible { get; set; } = true;
         public bool IsPointsVisible { get; set; } = true;
-  
+
+        #endregion
+
+        public Colors color;
+
         public CoordinateSystemProgram(ref SimpleOpenGlControl simpleOpenGlControl)
         {
             color.GraphText = Color.FromArgb(51, 173, 255);
@@ -111,7 +121,7 @@ namespace MathProgram.UIElements
             color.Background = Color.FromArgb(16, 16, 16);
             color.Axis = Color.FromArgb(192, 192, 192);
             color.Graph = Color.FromArgb(64, 128, 64);
-            color.Shape = Color.FromArgb(128, 64, 128);
+            color.Shape = Color.FromArgb(255, 255, 255);
 
             OpenGlControl = simpleOpenGlControl;
             OpenGlControl.SizeChanged += OnSizeChanged;
@@ -284,15 +294,15 @@ namespace MathProgram.UIElements
 
             // Draws small grid
             GLDrawGrid(
-                gridWidth: gridFactor,
-                gridHeight: gridFactor,
+                gridWidth: GRID_FACTOR,
+                gridHeight: GRID_FACTOR,
                 color: color.SmallGrid
             );
 
             // Draws large grid
             GLDrawGrid(
-                gridWidth: (gridFactor * 5),
-                gridHeight: (gridFactor * 5),
+                gridWidth: (GRID_FACTOR * 5),
+                gridHeight: (GRID_FACTOR * 5),
                 color: color.LargeGrid
             );
 
@@ -302,12 +312,14 @@ namespace MathProgram.UIElements
             // Draws each graph based on mathematical function
             if (IsGraphsVisible)
             {
-                foreach (IFunction iFunction in Geometries.OfType<IFunction>())
+                int index = 0;
+                foreach (IFunction function in Geometries.OfType<IFunction>())
                 {
                     GLDrawGraph(
-                       function: iFunction,
-                       color: color.Graph
+                       function: function,
+                       color: function.Properties.Color
                     );
+                    index++;
                 }
             }
 
@@ -349,7 +361,7 @@ namespace MathProgram.UIElements
         {
             void CPUNumberX()
             {
-                double wideGridFactor = gridFactor * 5;
+                double wideGridFactor = GRID_FACTOR * 5;
                 double offset = relX % wideGridFactor;
 
                 for (double x = (-relX - wideGridFactor) + offset; x < centerX + X + offset; x += wideGridFactor)
@@ -379,7 +391,7 @@ namespace MathProgram.UIElements
             }
             void CPUNumberY()
             {
-                double wideGridFactor = gridFactor * 5;
+                double wideGridFactor = GRID_FACTOR * 5;
                 double relY = centerY - Y;
                 double offset = relY % wideGridFactor;
 
@@ -490,6 +502,9 @@ namespace MathProgram.UIElements
             X = 0;
             Y = 0;
             Zoom = 0.2f;
+            ZoomPre = Zoom;
+            ZoomXTemp = 0;
+            ZoomYTemp = 0;
             OpenGlControl.Refresh();
         }
 
@@ -501,13 +516,16 @@ namespace MathProgram.UIElements
                 $"ActualX: {ActualX}\n" +
                 $"ActualY: {ActualY}\n" +
                 $"Zoom: {Zoom}\n" +
+                $"ZoomPre: {ZoomPre}\n" +
                 $"scale: {scale}\n" +
                 $"centerX: {centerX}\n" +
                 $"centerY: {centerY}\n" +
-                $"testX: {testX}\n";
+                $"ZoomXGoto: {ZoomXGoto}\n" +
+                $"ZoomYGoto: {ZoomYGoto}\n" +
+                $"ZoomXTemp: {ZoomXTemp}\n" +
+                $"ZoomYTemp: {ZoomYTemp}\n";
         }
 
-        double testX = 0;
         public void ChangeZoom(int direction, int mouseX = 0, int mouseY = 0)
         {
             double xBefore = (mouseX - centerX + X) / scale;
@@ -515,22 +533,66 @@ namespace MathProgram.UIElements
 
             if (direction > 0)
             {
-                //X += mouseX - centerX;
-                //Y += mouseY - centerY;
                 Zoom /= 2;
-                //Zoom *= 0.9;
             }
             else
             {
                 Zoom += Zoom;
-                //Zoom *= 1.1;
             }
 
-            double xAfter = (mouseX - centerX + X) / scale;
-            double yAfter = (mouseY - centerY + Y) / scale;
+            double xAfter = (mouseX - centerX + X) / (GRID_FACTOR / Zoom);
+            double yAfter = (mouseY - centerY + Y) / (GRID_FACTOR / Zoom);
 
-            X += (xBefore - xAfter) * scale;
-            Y += (yBefore - yAfter) * scale;
+            ZoomXGoto = X + ((xBefore - xAfter) * (GRID_FACTOR / Zoom));
+            ZoomYGoto = Y + ((yBefore - yAfter) * (GRID_FACTOR / Zoom));
+            ZoomXTemp = X;
+            ZoomYTemp = Y;
+        }
+        public void UpdateScale()
+        {
+            double UpdateVar(double x, double xPre, double xDelta, double speed = 0.1, double limit = 0.002)
+            {
+                if (x > xPre)
+                {
+                    if (x <= xPre + limit)
+                    {
+                        return x;
+                    }
+                    return xPre + (speed * xDelta);
+                }
+                if (x < xPre)
+                {
+                    if (x >= xPre - limit)
+                    {
+                        return x;
+                    }
+                    return xPre - (speed * -xDelta);
+                }
+                return x;
+            }
+
+            double zoomDelta = Zoom - ZoomPre;
+            double zoomXDelta = ZoomXGoto - ZoomXTemp;
+            double zoomYDelta = ZoomYGoto - ZoomYTemp;
+
+            ZoomXTemp = UpdateVar(ZoomXGoto, ZoomXTemp, zoomXDelta, 0.05, 20);
+            ZoomYTemp = UpdateVar(ZoomYGoto, ZoomYTemp, zoomYDelta, 0.05, 20);
+
+            ZoomPre = UpdateVar(Zoom, ZoomPre, zoomDelta, 0.1);
+
+            if (ZoomXTemp == ZoomXGoto && ZoomYTemp == ZoomYGoto && ZoomPre == Zoom)
+            {
+                X = ZoomXGoto;
+                Y = ZoomYGoto;
+                scale = GRID_FACTOR / Zoom;
+            }
+            else
+            {
+                if (ZoomXTemp != ZoomXGoto) X = ZoomXTemp;
+                if (ZoomYTemp != ZoomYGoto) Y = ZoomYTemp;
+                if (ZoomPre != Zoom)   scale = GRID_FACTOR / ZoomPre;
+            }
+       
         }
     }
 }
