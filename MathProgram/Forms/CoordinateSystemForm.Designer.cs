@@ -65,9 +65,9 @@ namespace MathProgram.Forms
             this.GL_CoordinateSystem.BackColor = System.Drawing.Color.Black;
             this.GL_CoordinateSystem.ColorBits = ((byte)(32));
             this.GL_CoordinateSystem.DepthBits = ((byte)(16));
-            this.GL_CoordinateSystem.Location = new System.Drawing.Point(0, 37);
+            this.GL_CoordinateSystem.Location = new System.Drawing.Point(0, 28);
             this.GL_CoordinateSystem.Name = "GL_CoordinateSystem";
-            this.GL_CoordinateSystem.Size = new System.Drawing.Size(680, 238);
+            this.GL_CoordinateSystem.Size = new System.Drawing.Size(680, 247);
             this.GL_CoordinateSystem.StencilBits = ((byte)(0));
             this.GL_CoordinateSystem.TabIndex = 0;
             this.GL_CoordinateSystem.Load += new System.EventHandler(this.GL_CoordinateSystem_Load);
@@ -79,8 +79,6 @@ namespace MathProgram.Forms
             // 
             // ts_main
             // 
-            this.ts_main.Dock = System.Windows.Forms.DockStyle.None;
-            this.ts_main.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.ts_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BN_TogglePoints,
             this.BN_ToggleShapes,
@@ -96,9 +94,9 @@ namespace MathProgram.Forms
             this.toolStripSeparator1,
             this.toolStripLabel3,
             this.TB_Zoom});
-            this.ts_main.Location = new System.Drawing.Point(0, 3);
+            this.ts_main.Location = new System.Drawing.Point(0, 0);
             this.ts_main.Name = "ts_main";
-            this.ts_main.Size = new System.Drawing.Size(559, 33);
+            this.ts_main.Size = new System.Drawing.Size(680, 25);
             this.ts_main.TabIndex = 1;
             this.ts_main.Text = "toolStrip1";
             // 
@@ -110,7 +108,7 @@ namespace MathProgram.Forms
             this.BN_TogglePoints.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BN_TogglePoints.Margin = new System.Windows.Forms.Padding(0, 1, 2, 2);
             this.BN_TogglePoints.Name = "BN_TogglePoints";
-            this.BN_TogglePoints.Size = new System.Drawing.Size(34, 30);
+            this.BN_TogglePoints.Size = new System.Drawing.Size(23, 22);
             this.BN_TogglePoints.Text = "Vis/Skjul punkter";
             this.BN_TogglePoints.Click += new System.EventHandler(this.BN_TogglePoints_Click);
             // 
@@ -122,7 +120,7 @@ namespace MathProgram.Forms
             this.BN_ToggleShapes.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BN_ToggleShapes.Margin = new System.Windows.Forms.Padding(0, 1, 2, 2);
             this.BN_ToggleShapes.Name = "BN_ToggleShapes";
-            this.BN_ToggleShapes.Size = new System.Drawing.Size(34, 32);
+            this.BN_ToggleShapes.Size = new System.Drawing.Size(28, 30);
             this.BN_ToggleShapes.Text = "Vis/Skjul figurer";
             this.BN_ToggleShapes.Click += new System.EventHandler(this.BN_ToggleShapes_Click);
             // 
@@ -134,7 +132,7 @@ namespace MathProgram.Forms
             this.BN_ToggleGraphs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BN_ToggleGraphs.Margin = new System.Windows.Forms.Padding(0, 1, 2, 2);
             this.BN_ToggleGraphs.Name = "BN_ToggleGraphs";
-            this.BN_ToggleGraphs.Size = new System.Drawing.Size(34, 32);
+            this.BN_ToggleGraphs.Size = new System.Drawing.Size(28, 30);
             this.BN_ToggleGraphs.Text = "Vis/Skjul grafer";
             this.BN_ToggleGraphs.Click += new System.EventHandler(this.BN_ToggleGraph_Click);
             // 
@@ -146,7 +144,7 @@ namespace MathProgram.Forms
             this.BN_ToggleAxis.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BN_ToggleAxis.Margin = new System.Windows.Forms.Padding(0, 1, 2, 2);
             this.BN_ToggleAxis.Name = "BN_ToggleAxis";
-            this.BN_ToggleAxis.Size = new System.Drawing.Size(34, 32);
+            this.BN_ToggleAxis.Size = new System.Drawing.Size(28, 30);
             this.BN_ToggleAxis.Text = "Vis/Skjul akse";
             this.BN_ToggleAxis.Click += new System.EventHandler(this.BN_ToggleAxis_Click);
             // 
@@ -157,7 +155,7 @@ namespace MathProgram.Forms
             this.BN_ToggleGrid.Image = ((System.Drawing.Image)(resources.GetObject("BN_ToggleGrid.Image")));
             this.BN_ToggleGrid.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BN_ToggleGrid.Name = "BN_ToggleGrid";
-            this.BN_ToggleGrid.Size = new System.Drawing.Size(34, 30);
+            this.BN_ToggleGrid.Size = new System.Drawing.Size(28, 30);
             this.BN_ToggleGrid.Text = "Vis/Skjul gitter";
             this.BN_ToggleGrid.ToolTipText = "Vis/Skjul gitter";
             this.BN_ToggleGrid.Click += new System.EventHandler(this.BN_ToggleGrid_Click);
@@ -165,7 +163,7 @@ namespace MathProgram.Forms
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 35);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
             // 
             // BN_GotoOrigin
             // 
@@ -173,69 +171,72 @@ namespace MathProgram.Forms
             this.BN_GotoOrigin.Image = ((System.Drawing.Image)(resources.GetObject("BN_GotoOrigin.Image")));
             this.BN_GotoOrigin.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BN_GotoOrigin.Name = "BN_GotoOrigin";
-            this.BN_GotoOrigin.Size = new System.Drawing.Size(34, 30);
+            this.BN_GotoOrigin.Size = new System.Drawing.Size(28, 30);
             this.BN_GotoOrigin.Text = "Gå til origo";
             this.BN_GotoOrigin.Click += new System.EventHandler(this.BN_GotoOrigin_Click);
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(23, 30);
+            this.toolStripLabel1.Size = new System.Drawing.Size(14, 30);
             this.toolStripLabel1.Text = "X";
             // 
             // TB_X
             // 
             this.TB_X.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.TB_X.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TB_X.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TB_X.ForeColor = System.Drawing.SystemColors.Control;
             this.TB_X.Name = "TB_X";
             this.TB_X.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.TB_X.ReadOnly = true;
-            this.TB_X.Size = new System.Drawing.Size(75, 35);
+            this.TB_X.Size = new System.Drawing.Size(75, 33);
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(22, 30);
+            this.toolStripLabel2.Size = new System.Drawing.Size(14, 30);
             this.toolStripLabel2.Text = "Y";
             // 
             // TB_Y
             // 
             this.TB_Y.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.TB_Y.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TB_Y.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TB_Y.ForeColor = System.Drawing.SystemColors.Control;
             this.TB_Y.Name = "TB_Y";
             this.TB_Y.ReadOnly = true;
-            this.TB_Y.Size = new System.Drawing.Size(75, 35);
+            this.TB_Y.Size = new System.Drawing.Size(75, 33);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 35);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 33);
             // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(60, 25);
+            this.toolStripLabel3.Size = new System.Drawing.Size(39, 30);
             this.toolStripLabel3.Text = "Zoom";
             // 
             // TB_Zoom
             // 
             this.TB_Zoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.TB_Zoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TB_Zoom.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TB_Zoom.ForeColor = System.Drawing.SystemColors.Window;
             this.TB_Zoom.Name = "TB_Zoom";
             this.TB_Zoom.ReadOnly = true;
-            this.TB_Zoom.Size = new System.Drawing.Size(50, 31);
+            this.TB_Zoom.Size = new System.Drawing.Size(50, 33);
             // 
             // LB_Debug
             // 
             this.LB_Debug.AutoSize = true;
             this.LB_Debug.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LB_Debug.ForeColor = System.Drawing.Color.Lime;
-            this.LB_Debug.Location = new System.Drawing.Point(12, 41);
+            this.LB_Debug.Location = new System.Drawing.Point(-3, 28);
             this.LB_Debug.Name = "LB_Debug";
-            this.LB_Debug.Size = new System.Drawing.Size(61, 23);
+            this.LB_Debug.Size = new System.Drawing.Size(42, 13);
             this.LB_Debug.TabIndex = 2;
             this.LB_Debug.Text = "Debug";
             // 
@@ -246,7 +247,7 @@ namespace MathProgram.Forms
             // 
             // CoordinateSystemForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(680, 274);
