@@ -41,11 +41,12 @@ namespace MathProgram.Forms
         private void MI_DebugInfomation_Click(object sender, EventArgs e)   => IsDebugInformationShown = MI_DebugInfomation.Checked;
 
         /* Tools */
-        private void MI_FunctionScript_Click(object sender, EventArgs e)     => ShowDockForm(new FunctionScriptForm());
-        private void MI_QuadraticEquations_Click(object sender, EventArgs e) => ShowDockForm(new QuadraticEquationsForm());
-        private void MI_PointToPoint_Click(object sender, EventArgs e)       => ShowDockForm(new DistancePointToPointForm());
-        private void MI_PointToLine_Click(object sender, EventArgs e)        => ShowDockForm(new DistancePointToLineForm());
-        private void MI_Trigonometry_Click(object sender, EventArgs e)       => ShowDockForm(new TrigonometryForm());
+        private void MI_FunctionScript_Click(object sender, EventArgs e)            => ShowDockForm(new FunctionScriptForm());
+        private void MI_QuadraticEquations_Click(object sender, EventArgs e)        => ShowDockForm(new QuadraticEquationsForm());
+        private void MI_PointToPoint_Click(object sender, EventArgs e)              => ShowDockForm(new DistancePointToPointForm());
+        private void MI_PointToLine_Click(object sender, EventArgs e)               => ShowDockForm(new DistancePointToLineForm());
+        private void MI_Trigonometry_Click(object sender, EventArgs e)              => ShowDockForm(new TrigonometryForm());
+        private void MI_AngleBetweenTwoVectors_Click(object sender, EventArgs e)    => ShowDockForm(new AngleBetweenTwoVectorsForm());
 
         /* Settings */
         private void MI_IsFullscreen_Click(object sender, EventArgs e)

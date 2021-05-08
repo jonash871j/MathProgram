@@ -34,6 +34,7 @@ namespace MathProgram.Forms
             this.MI_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.visToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_CoordSystem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MI_DebugInfomation = new System.Windows.Forms.ToolStripMenuItem();
             this.værktøjerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_FunctionScript = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -48,7 +49,8 @@ namespace MathProgram.Forms
             this.SS_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TS_Main = new System.Windows.Forms.ToolStrip();
-            this.MI_DebugInfomation = new System.Windows.Forms.ToolStripMenuItem();
+            this.vektorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MI_AngleBetweenTwoVectors = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_Main.SuspendLayout();
             this.SS_Main.SuspendLayout();
             this.SuspendLayout();
@@ -99,12 +101,21 @@ namespace MathProgram.Forms
             this.MI_CoordSystem.Text = "Koordinatsystem";
             this.MI_CoordSystem.Click += new System.EventHandler(this.MI_CoordSystem_Click);
             // 
+            // MI_DebugInfomation
+            // 
+            this.MI_DebugInfomation.CheckOnClick = true;
+            this.MI_DebugInfomation.Name = "MI_DebugInfomation";
+            this.MI_DebugInfomation.Size = new System.Drawing.Size(186, 22);
+            this.MI_DebugInfomation.Text = "Debug Information";
+            this.MI_DebugInfomation.Click += new System.EventHandler(this.MI_DebugInfomation_Click);
+            // 
             // værktøjerToolStripMenuItem
             // 
             this.værktøjerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_FunctionScript,
             this.toolStripSeparator1,
             this.afstandToolStripMenuItem1,
+            this.vektorerToolStripMenuItem,
             this.MI_QuadraticEquations,
             this.MI_Trigonometry});
             this.værktøjerToolStripMenuItem.Name = "værktøjerToolStripMenuItem";
@@ -214,13 +225,20 @@ namespace MathProgram.Forms
             this.TS_Main.TabIndex = 7;
             this.TS_Main.Text = "toolStrip1";
             // 
-            // MI_DebugInfomation
+            // vektorerToolStripMenuItem
             // 
-            this.MI_DebugInfomation.CheckOnClick = true;
-            this.MI_DebugInfomation.Name = "MI_DebugInfomation";
-            this.MI_DebugInfomation.Size = new System.Drawing.Size(186, 22);
-            this.MI_DebugInfomation.Text = "Debug Information";
-            this.MI_DebugInfomation.Click += new System.EventHandler(this.MI_DebugInfomation_Click);
+            this.vektorerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MI_AngleBetweenTwoVectors});
+            this.vektorerToolStripMenuItem.Name = "vektorerToolStripMenuItem";
+            this.vektorerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.vektorerToolStripMenuItem.Text = "Vektorer";
+            // 
+            // MI_AngleBetweenTwoVectors
+            // 
+            this.MI_AngleBetweenTwoVectors.Name = "MI_AngleBetweenTwoVectors";
+            this.MI_AngleBetweenTwoVectors.Size = new System.Drawing.Size(228, 22);
+            this.MI_AngleBetweenTwoVectors.Text = "Vinkel Mellem To Vektorer";
+            this.MI_AngleBetweenTwoVectors.Click += new System.EventHandler(this.MI_AngleBetweenTwoVectors_Click);
             // 
             // MainForm
             // 
@@ -269,5 +287,7 @@ namespace MathProgram.Forms
         private System.Windows.Forms.ToolStripMenuItem MI_PointToLine;
         private System.Windows.Forms.ToolStripMenuItem MI_FunctionScript;
         private System.Windows.Forms.ToolStripMenuItem MI_DebugInfomation;
+        private System.Windows.Forms.ToolStripMenuItem vektorerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MI_AngleBetweenTwoVectors;
     }
 }

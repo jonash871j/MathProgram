@@ -47,7 +47,7 @@ namespace MathLib
         }
         public static string Equal()
         {
-            return " \\approx ";
+            return " = ";
         }
     }
 }
