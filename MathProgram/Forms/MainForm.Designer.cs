@@ -29,6 +29,7 @@ namespace MathProgram.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MS_Main = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_Exit = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,7 @@ namespace MathProgram.Forms
             this.MI_PointToLine = new System.Windows.Forms.ToolStripMenuItem();
             this.vektorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_AngleBetweenTwoVectors = new System.Windows.Forms.ToolStripMenuItem();
+            this.MI_ProjectionOfVetorOnVector = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_QuadraticEquations = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_Trigonometry = new System.Windows.Forms.ToolStripMenuItem();
             this.indstillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +53,6 @@ namespace MathProgram.Forms
             this.SS_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TS_Main = new System.Windows.Forms.ToolStrip();
-            this.MI_ProjectionOfVetorOnVector = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_Main.SuspendLayout();
             this.SS_Main.SuspendLayout();
             this.SuspendLayout();
@@ -174,6 +175,13 @@ namespace MathProgram.Forms
             this.MI_AngleBetweenTwoVectors.Text = "Vinkel Mellem To Vektorer";
             this.MI_AngleBetweenTwoVectors.Click += new System.EventHandler(this.MI_AngleBetweenTwoVectors_Click);
             // 
+            // MI_ProjectionOfVetorOnVector
+            // 
+            this.MI_ProjectionOfVetorOnVector.Name = "MI_ProjectionOfVetorOnVector";
+            this.MI_ProjectionOfVetorOnVector.Size = new System.Drawing.Size(250, 22);
+            this.MI_ProjectionOfVetorOnVector.Text = "Projektion Af Vektor På Vektor";
+            this.MI_ProjectionOfVetorOnVector.Click += new System.EventHandler(this.MI_ProjectionOfVetorOnVector_Click);
+            // 
             // MI_QuadraticEquations
             // 
             this.MI_QuadraticEquations.Name = "MI_QuadraticEquations";
@@ -242,13 +250,6 @@ namespace MathProgram.Forms
             this.TS_Main.TabIndex = 7;
             this.TS_Main.Text = "toolStrip1";
             // 
-            // MI_ProjectionOfVetorOnVector
-            // 
-            this.MI_ProjectionOfVetorOnVector.Name = "MI_ProjectionOfVetorOnVector";
-            this.MI_ProjectionOfVetorOnVector.Size = new System.Drawing.Size(250, 22);
-            this.MI_ProjectionOfVetorOnVector.Text = "Projektion Af Vektor På Vektor";
-            this.MI_ProjectionOfVetorOnVector.Click += new System.EventHandler(this.MI_ProjectionOfVetorOnVector_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +261,7 @@ namespace MathProgram.Forms
             this.Controls.Add(this.DP_Main);
             this.Controls.Add(this.MS_Main);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MS_Main;
             this.MinimumSize = new System.Drawing.Size(800, 600);
