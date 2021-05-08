@@ -109,6 +109,12 @@
     <Compile Include="Forms\FunctionScriptForm.Designer.cs">
       <DependentUpon>FunctionScriptForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ProjectionOfVectorOnVectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProjectionOfVectorOnVectorForm.Designer.cs">
+      <DependentUpon>ProjectionOfVectorOnVectorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\ISetForm.cs" />
     <Compile Include="Forms\DistancePointToPointForm.cs">
       <SubType>Form</SubType>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProjectionOfVectorOnVectorForm.resx">
+      <DependentUpon>ProjectionOfVectorOnVectorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\QuadraticEquationsForm.resx">
       <DependentUpon>QuadraticEquationsForm.cs</DependentUpon>

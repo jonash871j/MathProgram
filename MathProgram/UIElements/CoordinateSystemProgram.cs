@@ -152,15 +152,39 @@ namespace MathProgram.UIElements
             glMatrixMode(GL_MODELVIEW);
             glDisable(GL_SCISSOR_TEST);
         }
-        private void GLDrawLine(double x1, double y1, double x2, double y2, int thickness)
+        private void GLDrawLine(double x1, double y1, double x2, double y2, int thickness, bool isStriped = false)
         {
-            for (int i = 0; i < thickness; i++)
+            if (!isStriped)
             {
-                glVertex2d(x1, y1 + i);
-                glVertex2d(x2, y2 + i);
-                glVertex2d(x1 + i, y1);
-                glVertex2d(x2 + i, y2);
+                for (int i = 0; i < thickness; i++)
+                {
+                    glVertex2d(x1, y1 + i);
+                    glVertex2d(x2, y2 + i);
+                    glVertex2d(x1 + i, y1);
+                    glVertex2d(x2 + i, y2);
+                }
             }
+            else
+            {
+                glEnd();
+                glPushAttrib(GL_ENABLE_BIT);
+                glLineStipple(6, 0xAAAA);
+                glEnable(GL_LINE_STIPPLE);
+                glBegin(GL_LINES);
+
+                for (int i = 0; i < thickness; i++)
+                {
+                    glVertex2d(x1, y1 + i);
+                    glVertex2d(x2, y2 + i);
+                    glVertex2d(x1 + i, y1);
+                    glVertex2d(x2 + i, y2);
+                }
+
+                glEnd();
+                glPopAttrib();
+                glBegin(GL_LINES);
+            }
+            
         }
         private void GLDrawGrid(double gridWidth, double gridHeight, Color color)
         {
@@ -258,13 +282,15 @@ namespace MathProgram.UIElements
         }
         private void GLDrawLine(Line line)
         {
-            glColor3ub(color.Shape.R, color.Shape.G, color.Shape.B);
+            glColor3ub(line.Color.R, line.Color.G, line.Color.B);
+
             GLDrawLine(
                 relX + line.A.X * scale, 
                 relY + line.A.Y * scale, 
                 relX + line.B.X * scale, 
                 relY + line.B.Y * scale, 
-                2
+                2,
+                line.IsStriped
             );
         }
         private void GLDrawShape(Shape shape)
@@ -346,7 +372,7 @@ namespace MathProgram.UIElements
             }
 
             // End GL drawing
-            glEnd();
+            glEnd();      
 
             // Updates GL window
             OpenGlControl.SwapBuffers();

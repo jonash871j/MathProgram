@@ -33,7 +33,7 @@ namespace MathLib.Tools.Vector
 
         public void Calculate()
         {
-            Angle = Acos((AX * BX + AY * BY) / (Sqrt(Pow(AX, 2) + Pow(AY, 2)) * Sqrt(Pow(BX, 2) + Pow(BY, 2)))) * 180.0 / PI;
+            Angle = Acos(((AX * BX) + (AY * BY)) / (Sqrt(Pow(AX, 2) + Pow(AY, 2)) * Sqrt(Pow(BX, 2) + Pow(BY, 2)))) * 180.0 / PI;
             Calculation?.Invoke();
         }
 
@@ -62,9 +62,9 @@ namespace MathLib.Tools.Vector
         {
             return new Point2D[]
           {
-                new Point2D(0, 0, $"{Angle.ToString("N2")}°\n#", Color.Red),
-                new Point2D(AX, AY, "A#", Color.Green),
-                new Point2D(BX, BY, "B#", Color.Green),
+                new Point2D(0, 0, $"{Angle.ToString("N2")}°", Color.Red),
+                new Point2D(AX, AY, "a#", Color.Green),
+                new Point2D(BX, BY, "b#", Color.Green),
           };
         }
     }

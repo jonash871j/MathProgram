@@ -41,6 +41,8 @@ namespace MathProgram.Forms
             this.afstandToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_PointToPoint = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_PointToLine = new System.Windows.Forms.ToolStripMenuItem();
+            this.vektorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MI_AngleBetweenTwoVectors = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_QuadraticEquations = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_Trigonometry = new System.Windows.Forms.ToolStripMenuItem();
             this.indstillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,8 +51,7 @@ namespace MathProgram.Forms
             this.SS_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TS_Main = new System.Windows.Forms.ToolStrip();
-            this.vektorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MI_AngleBetweenTwoVectors = new System.Windows.Forms.ToolStripMenuItem();
+            this.MI_ProjectionOfVetorOnVector = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_Main.SuspendLayout();
             this.SS_Main.SuspendLayout();
             this.SuspendLayout();
@@ -157,6 +158,22 @@ namespace MathProgram.Forms
             this.MI_PointToLine.Text = "Punkt Til Linje (Distanceformlen)";
             this.MI_PointToLine.Click += new System.EventHandler(this.MI_PointToLine_Click);
             // 
+            // vektorerToolStripMenuItem
+            // 
+            this.vektorerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MI_AngleBetweenTwoVectors,
+            this.MI_ProjectionOfVetorOnVector});
+            this.vektorerToolStripMenuItem.Name = "vektorerToolStripMenuItem";
+            this.vektorerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.vektorerToolStripMenuItem.Text = "Vektorer";
+            // 
+            // MI_AngleBetweenTwoVectors
+            // 
+            this.MI_AngleBetweenTwoVectors.Name = "MI_AngleBetweenTwoVectors";
+            this.MI_AngleBetweenTwoVectors.Size = new System.Drawing.Size(250, 22);
+            this.MI_AngleBetweenTwoVectors.Text = "Vinkel Mellem To Vektorer";
+            this.MI_AngleBetweenTwoVectors.Click += new System.EventHandler(this.MI_AngleBetweenTwoVectors_Click);
+            // 
             // MI_QuadraticEquations
             // 
             this.MI_QuadraticEquations.Name = "MI_QuadraticEquations";
@@ -225,20 +242,12 @@ namespace MathProgram.Forms
             this.TS_Main.TabIndex = 7;
             this.TS_Main.Text = "toolStrip1";
             // 
-            // vektorerToolStripMenuItem
+            // MI_ProjectionOfVetorOnVector
             // 
-            this.vektorerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MI_AngleBetweenTwoVectors});
-            this.vektorerToolStripMenuItem.Name = "vektorerToolStripMenuItem";
-            this.vektorerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.vektorerToolStripMenuItem.Text = "Vektorer";
-            // 
-            // MI_AngleBetweenTwoVectors
-            // 
-            this.MI_AngleBetweenTwoVectors.Name = "MI_AngleBetweenTwoVectors";
-            this.MI_AngleBetweenTwoVectors.Size = new System.Drawing.Size(228, 22);
-            this.MI_AngleBetweenTwoVectors.Text = "Vinkel Mellem To Vektorer";
-            this.MI_AngleBetweenTwoVectors.Click += new System.EventHandler(this.MI_AngleBetweenTwoVectors_Click);
+            this.MI_ProjectionOfVetorOnVector.Name = "MI_ProjectionOfVetorOnVector";
+            this.MI_ProjectionOfVetorOnVector.Size = new System.Drawing.Size(250, 22);
+            this.MI_ProjectionOfVetorOnVector.Text = "Projektion Af Vektor På Vektor";
+            this.MI_ProjectionOfVetorOnVector.Click += new System.EventHandler(this.MI_ProjectionOfVetorOnVector_Click);
             // 
             // MainForm
             // 
@@ -289,5 +298,6 @@ namespace MathProgram.Forms
         private System.Windows.Forms.ToolStripMenuItem MI_DebugInfomation;
         private System.Windows.Forms.ToolStripMenuItem vektorerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MI_AngleBetweenTwoVectors;
+        private System.Windows.Forms.ToolStripMenuItem MI_ProjectionOfVetorOnVector;
     }
 }
