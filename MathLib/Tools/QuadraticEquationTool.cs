@@ -31,9 +31,9 @@ namespace MathLib
         public QuadraticEquationTool()
         {
             Contants = new Dictionary<string, double>();
-            Contants.Add("a", 0.0);
-            Contants.Add("b", 0.0);
-            Contants.Add("c", 0.0);
+            Contants.Add("a", 0.5);
+            Contants.Add("b", 2.0);
+            Contants.Add("c", -2.0);
             Calculate();
         }
 

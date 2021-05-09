@@ -24,6 +24,7 @@ namespace MathProgram.Forms
             IC_Main.SetInput(distancePointToLine);
             IC_Main.SetGeometry(distancePointToLine);
             distancePointToLine.Calculation += OnCalulation;
+            distancePointToLine.Calculate();
         }
 
         public void OnCalulation()

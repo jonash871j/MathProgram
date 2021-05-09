@@ -29,6 +29,7 @@ namespace MathProgram.Forms
             IC_QuadraticEquations.SetInput(quadraticEquation);
 
             quadraticEquation.Calculation += OnCalulation;
+            quadraticEquation.Calculate();
         }
 
         /* Additional logic *********************/

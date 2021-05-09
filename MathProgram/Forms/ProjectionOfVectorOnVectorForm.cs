@@ -23,6 +23,7 @@ namespace MathProgram.Forms
             IC_Main.SetInput(projectionOfVectorOnVector);
             IC_Main.SetGeometry(projectionOfVectorOnVector);
             projectionOfVectorOnVector.Calculation += OnCalulation;
+            projectionOfVectorOnVector.Calculate();
         }
 
         public void OnCalulation()

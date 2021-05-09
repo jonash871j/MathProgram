@@ -27,10 +27,10 @@ namespace MathLib.Distance
         {
             Contants = new Dictionary<string, double>()
             {
-                { "x", 0.0 },
-                { "y", 0.0 },
-                { "a", 0.0 },
-                { "b", 0.0 },
+                { "x", 6.0 },
+                { "y", 4.0 },
+                { "a", 3.0 },
+                { "b", 2.0 },
             };
         }
 

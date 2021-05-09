@@ -23,6 +23,7 @@ namespace MathProgram.Forms
             IC_Main.SetInput(angleBetweenTwoVectors);
             IC_Main.SetGeometry(angleBetweenTwoVectors);
             angleBetweenTwoVectors.Calculation += OnCalulation;
+            angleBetweenTwoVectors.Calculate();
         }
 
         public void OnCalulation()

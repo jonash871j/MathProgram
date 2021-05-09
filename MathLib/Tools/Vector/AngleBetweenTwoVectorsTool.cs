@@ -24,10 +24,10 @@ namespace MathLib.Tools.Vector
         {
             Contants = new Dictionary<string, double>()
             {
-                { "ax", 0.0 },
-                { "ay", 0.0 },
-                { "bx", 0.0 },
-                { "by", 0.0 },
+                { "ax", 1.0 },
+                { "ay", 4.0 },
+                { "bx", 5.0 },
+                { "by", 1.0 },
             };
         }
 

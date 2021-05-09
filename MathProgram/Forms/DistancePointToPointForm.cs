@@ -20,6 +20,7 @@ namespace MathProgram.Forms
             IC_Main.SetInput(distanceFormular);
             IC_Main.SetGeometry(distanceFormular);
             distanceFormular.Calculation += OnCalulation;
+            distanceFormular.Calculate();
         }
 
         public void OnCalulation()
