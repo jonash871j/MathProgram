@@ -39,7 +39,7 @@ namespace MathProgram.Forms
             this.IC_Main.GridColumns = 2;
             this.IC_Main.Location = new System.Drawing.Point(12, 12);
             this.IC_Main.Name = "IC_Main";
-            this.IC_Main.Size = new System.Drawing.Size(207, 190);
+            this.IC_Main.Size = new System.Drawing.Size(207, 207);
             this.IC_Main.TabIndex = 0;
             // 
             // DC_Main
@@ -50,7 +50,7 @@ namespace MathProgram.Forms
             this.DC_Main.Location = new System.Drawing.Point(225, 12);
             this.DC_Main.Name = "DC_Main";
             this.DC_Main.ResultName = "Vinkel";
-            this.DC_Main.Size = new System.Drawing.Size(328, 190);
+            this.DC_Main.Size = new System.Drawing.Size(328, 207);
             this.DC_Main.TabIndex = 1;
             this.DC_Main.Title = "Vinkel mellem to vektorer";
             // 
@@ -58,7 +58,7 @@ namespace MathProgram.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 216);
+            this.ClientSize = new System.Drawing.Size(565, 224);
             this.Controls.Add(this.DC_Main);
             this.Controls.Add(this.IC_Main);
             this.Name = "AngleBetweenTwoVectorsForm";

@@ -60,14 +60,14 @@ namespace MathProgram.Controls
             label.Text = key;
             y += 16;
 
-            TextBox textBox = new TextBox();
-            textBox.Location = new Point(8, y);
-            textBox.Width = GB_Main.Width - 16;
-            textBox.Name = key;
-            textBox.TextChanged += OnTextChanged;
-            y += 24;
+            NumberBox numberBox = new NumberBox();
+            numberBox.Location = new Point(8, y);
+            numberBox.Width = GB_Main.Width - 16;
+            numberBox.Name = key;
+            numberBox.NumberChanged += OnNumberChanged;
+            y += 28;
 
-            GB_Main.Controls.Add(textBox);
+            GB_Main.Controls.Add(numberBox);
             GB_Main.Controls.Add(label);
         }
         private void CreateInputBoxesGrid(string key, ref int i, ref int y)
@@ -82,13 +82,13 @@ namespace MathProgram.Controls
             label.Text = key;
             label.Width = width - 16;
 
-            TextBox textBox = new TextBox();
-            textBox.Location = new Point(x, line + 16);
-            textBox.Width = width - 16;
-            textBox.Name = key;
-            textBox.TextChanged += OnTextChanged;
+            NumberBox numberBox = new NumberBox();
+            numberBox.Location = new Point(x, line + 16);
+            numberBox.Width = width - 16;
+            numberBox.Name = key;
+            numberBox.NumberChanged += OnNumberChanged;
 
-            GB_Main.Controls.Add(textBox);
+            GB_Main.Controls.Add(numberBox);
             GB_Main.Controls.Add(label);
 
             i++;
@@ -117,10 +117,10 @@ namespace MathProgram.Controls
             GB_Main.Show();
         }
 
-        private void OnTextChanged(object sender, EventArgs e)
+        private void OnNumberChanged(object sender, EventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
-            input.Contants[textBox.Name] = Misc.TextboxParse(textBox);
+            NumberBox numberBox = (NumberBox)sender;
+            input.Contants[numberBox.Name] = numberBox.Value;
             input.Calculate();
             CoordinateSystemForm.Program.Update();
         }
