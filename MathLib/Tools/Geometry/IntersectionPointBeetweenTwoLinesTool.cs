@@ -14,14 +14,14 @@ namespace MathLib.Tools.Geometry
         public event CalculationEventHandler Calculation;
 
         public Dictionary<string, double> Contants { get; set; }
-        public double AX { get => Contants["ax"]; private set => Contants["ax"] = value; }
-        public double AY { get => Contants["ay"]; private set => Contants["ay"] = value; }
-        public double BX { get => Contants["bx"]; private set => Contants["bx"] = value; }
-        public double BY { get => Contants["by"]; private set => Contants["by"] = value; }
-        public double CX { get => Contants["cx"]; private set => Contants["cx"] = value; }
-        public double CY { get => Contants["cy"]; private set => Contants["cy"] = value; }
-        public double DX { get => Contants["dx"]; private set => Contants["dx"] = value; }
-        public double DY { get => Contants["dy"]; private set => Contants["dy"] = value; }
+        public double X1 { get => Contants["x1"]; private set => Contants["x1"] = value; }
+        public double Y1 { get => Contants["y1"]; private set => Contants["y1"] = value; }
+        public double X2 { get => Contants["x2"]; private set => Contants["x2"] = value; }
+        public double Y2 { get => Contants["y2"]; private set => Contants["y2"] = value; }
+        public double X3 { get => Contants["x3"]; private set => Contants["x3"] = value; }
+        public double Y3 { get => Contants["y3"]; private set => Contants["y3"] = value; }
+        public double X4 { get => Contants["x4"]; private set => Contants["x4"] = value; }
+        public double Y4 { get => Contants["y4"]; private set => Contants["y4"] = value; }
 
         public double D { get; private set; }
         public double PX { get; private set; } = 0;
@@ -33,33 +33,35 @@ namespace MathLib.Tools.Geometry
         {
             Contants = new Dictionary<string, double>()
             {
-                { "ax", 0.0 },
-                { "ay", 0.0 },
-                { "bx", 0.0 },
-                { "by", 0.0 },
-                { "cx", 0.0 },
-                { "cy", 0.0 },
-                { "dx", 0.0 },
-                { "dy", 0.0 },
+                { "x1", 3.0 },
+                { "y1", 2.0 },
+                { "x2", 6.0 },
+                { "y2", 4.0 },
+                { "x3", 8.0 },
+                { "y3", 1.0 },
+                { "x4", 1.0 },
+                { "y4", 5.0 },
             };
         }
 
         public void Calculate()
         {
-            D = (AX - BX) * (CY - DY) - (AY - BY) * (CX - DX);
-            PX = (((AX * BY) - (AY * BX)) * (CX - DX) - (AX - BX) * ((CX * DY) - (CY * DX))) / D;
-            PY = (((AX * BY) - (AY * BX)) * (CY - DY) - (AY - BY) * ((CX * DY) - (CY * DX))) / D;
+            D = (X1 - X2) * (Y3 - Y4) - (Y1 - Y2) * (X3 - X4);
+            PX = (((X1 * Y2) - (Y1 * X2)) * (X3 - X4) - (X1 - X2) * ((X3 * Y4) - (Y3 * X4))) / D;
+            PY = (((X1 * Y2) - (Y1 * X2)) * (Y3 - Y4) - (Y1 - Y2) * ((X3 * Y4) - (Y3 * X4))) / D;
 
-            //if (D == 0)
-            //{
-            //    PX = double.NaN;
-            //    PY = double.NaN;
-            //}
+            if (D == 0)
+            {
+                PX = double.NaN;
+                PY = double.NaN;
+            }
 
-            //double x1Min = Min(AX, BX);
-            //double x1Max = Max(AX, BX);
-            //double x2Min = Min(CX, DX);
-            //double x2Max = Max(CX, DX);
+            // Restricts the intersection point to be inside of the line areas
+            #region UNUSED
+            //double x1Min = Min(X1, X2);
+            //double x1Max = Max(X1, X2);
+            //double x2Min = Min(X3, X4);
+            //double x2Max = Max(X3, X4);
 
             //if (PX < x1Min || PX > x1Max || PX < x2Min || PX > x2Max)
             //{
@@ -67,29 +69,27 @@ namespace MathLib.Tools.Geometry
             //    PY = double.NaN;
             //}
 
-            //double y1Min = Min(AY, BY);
-            //double y1Max = Max(AY, BY);
-            //double y2Min = Min(CY, DY);
-            //double y2Max = Max(CY, DY);
+            //double y1Min = Min(Y1, Y2);
+            //double y1Max = Max(Y1, Y2);
+            //double y2Min = Min(Y3, Y4);
+            //double y2Max = Max(Y3, Y4);
 
             //if (PY < y1Min || PY > y1Max || PY < y2Min || PY > y2Max)
             //{
             //    PX = double.NaN;
             //    PY = double.NaN;
             //}
-
-            //if ((PX >= 0 && PX <= 1) && (PY >= 0 && PY >= 1))
-            //{
-            //    PX = 0;
-            //    PY = 0;
-            //}
+            #endregion
 
             Calculation?.Invoke();
         }
 
         public string GetDCalculation()
         {
-            return "";
+            return "D" +
+              Settings.Formular(" = (x_1-x_2)·(y_3-y_4)-(y_1-y_2)·(x_3-x_4)") +
+              Settings.Calculation($" = ({X1}-{X2})·({Y3}-{Y4})-({Y1}-{Y2})·({X3}-{X4})") +
+              Settings.Equal() + GetDResult();
         }
         public string GetDResult()
         {
@@ -103,7 +103,14 @@ namespace MathLib.Tools.Geometry
             }
             else
             {
-                return "";
+                return GetDCalculation() + "\n" +
+                    "P_x" + Settings.Formular(" = (((x_1·y_2)-(y_1·x_2))·(x_3-x_4)-(x_1-x_2)·((x_3·y_4)-(y_3·x_4)))/D") +
+                    Settings.Calculation($" = ((({X1}·{Y2})-({Y1}·{X2}))·({X3}-{X4})-({X1}-{ X2})·(({X3}·{Y4})-({Y3}·{X4})))/{D}") +
+                    Settings.Equal() + Settings.Result(PX) + "\n" +
+                    "P_y" + Settings.Formular(" = (((x_1·y_2)-(y_1·x_2))·(y_3-y_4)-(y_1-y_2)·((x_3·y_4)-(y_3·x_4 )))/D") +
+                    Settings.Calculation($" = ((({X1}·{Y2})-({Y1}·{X2}))·({Y3}-{Y4})-({Y1}-{Y2})·(({X3}·{Y4})-({Y3}·{X4})))/{D}") +
+                    Settings.Equal() + Settings.Result(PY) +
+                    "\n(P_x, P_y)" + Settings.Equal() + GetIntersectionPointResult();
             }
         }
         public string GetIntersectionPointResult()
@@ -122,8 +129,8 @@ namespace MathLib.Tools.Geometry
         {
             return new Shape(new List<Line>()
             {
-                new Line(AX, AY, BX, BY),
-                new Line(CX, CY, DX, DY),
+                new Line(X1, Y1, X2, Y2),
+                new Line(X3, Y3, X4, Y4),
 
             });
         }
@@ -132,10 +139,10 @@ namespace MathLib.Tools.Geometry
         {
             return new Point2D[]
             {
-                new Point2D(AX, AY, "a#", Color.Green),
-                new Point2D(BX, BY, "b#", Color.Green),
-                new Point2D(CX, CY, "c#", Color.Green),
-                new Point2D(DX, DY, "d#", Color.Green),
+                new Point2D(X1, Y1, "a#", Color.Green),
+                new Point2D(X2, Y2, "b#", Color.Green),
+                new Point2D(X3, Y3, "c#", Color.Green),
+                new Point2D(X4, Y4, "d#", Color.Green),
                 new Point2D(PX, PY, "#\nkrydspunkt", Color.Blue),
             };
         }   

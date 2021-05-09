@@ -53,24 +53,25 @@ namespace MathProgram.Controls
             CoordinateSystemForm.Program.Geometries.Add(geometry);
         }
 
-        private void CreateInputBoxesVertical(string key, ref int y)
+        private void CreateInputBoxesVertical(KeyValuePair<string, double> input, ref int y)
         {
             Label label = new Label();
             label.Location = new Point(8, y);
-            label.Text = key;
+            label.Text = input.Key;
             y += 16;
 
             NumberBox numberBox = new NumberBox();
             numberBox.Location = new Point(8, y);
             numberBox.Width = GB_Main.Width - 16;
-            numberBox.Name = key;
+            numberBox.Name = input.Key;
+            numberBox.Value = input.Value;
             numberBox.NumberChanged += OnNumberChanged;
             y += 28;
 
             GB_Main.Controls.Add(numberBox);
             GB_Main.Controls.Add(label);
         }
-        private void CreateInputBoxesGrid(string key, ref int i, ref int y)
+        private void CreateInputBoxesGrid(KeyValuePair<string, double> input, ref int i, ref int y)
         {
             int width = GB_Main.Width / GridColumns;
             int x = (i % GridColumns) * width + 8;
@@ -79,13 +80,14 @@ namespace MathProgram.Controls
             Label label = new Label();
             label.Location = new Point(x, line + 4);
 
-            label.Text = key;
+            label.Text = input.Key;
             label.Width = width - 16;
 
             NumberBox numberBox = new NumberBox();
             numberBox.Location = new Point(x, line + 16);
             numberBox.Width = width - 16;
-            numberBox.Name = key;
+            numberBox.Name = input.Key;
+            numberBox.Value = input.Value;
             numberBox.NumberChanged += OnNumberChanged;
 
             GB_Main.Controls.Add(numberBox);
@@ -107,11 +109,11 @@ namespace MathProgram.Controls
             {
                 if (Grid)
                 {
-                    CreateInputBoxesGrid(input.Key, ref i, ref y);
+                    CreateInputBoxesGrid(input, ref i, ref y);
                 }
                 else
                 {
-                    CreateInputBoxesVertical(input.Key, ref y);
+                    CreateInputBoxesVertical(input, ref y);
                 }
             }
             GB_Main.Show();

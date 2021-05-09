@@ -12,7 +12,16 @@ namespace MathProgram.Controls
 {
     public partial class NumberBox : UserControl
     {
-        public double Value { get; set; }
+        private double _value;
+        public double Value 
+        {
+            get => _value;
+            set
+            {
+                _value = value;
+                TB_Main.Text = Value.ToString();
+            }
+        }
         public event EventHandler NumberChanged;
 
         public NumberBox()
@@ -38,13 +47,13 @@ namespace MathProgram.Controls
         {
             try
             {
-                Value = double.Parse(TB_Main.Text);
+                _value = double.Parse(TB_Main.Text);
             }
             catch
             {
-                Value = 0.0;
+                _value = 0.0;
             }
-            NumberChanged.Invoke(this, e);
+            NumberChanged?.Invoke(this, e);
         }
 
         private void TB_Main_Leave(object sender, EventArgs e)
@@ -52,7 +61,6 @@ namespace MathProgram.Controls
             if (string.IsNullOrEmpty(TB_Main.Text))
             {
                 Value = 0.0;
-                TB_Main.Text = "0";
             }
         }
     }

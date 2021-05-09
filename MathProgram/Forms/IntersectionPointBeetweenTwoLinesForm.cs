@@ -23,6 +23,8 @@ namespace MathProgram.Forms
             IC_Main.SetInput(lineLineIntersection);
             IC_Main.SetGeometry(lineLineIntersection);
             lineLineIntersection.Calculation += OnCalulation;
+
+            lineLineIntersection.Calculate();
         }
 
         public void OnCalulation()
