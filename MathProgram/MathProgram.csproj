@@ -118,6 +118,12 @@
     <Compile Include="Forms\FunctionScriptForm.Designer.cs">
       <DependentUpon>FunctionScriptForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\IntersectionPointBeetweenTwoLinesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IntersectionPointBeetweenTwoLinesForm.Designer.cs">
+      <DependentUpon>IntersectionPointBeetweenTwoLinesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ProjectionOfVectorOnVectorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FunctionScriptForm.resx">
       <DependentUpon>FunctionScriptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IntersectionPointBeetweenTwoLinesForm.resx">
+      <DependentUpon>IntersectionPointBeetweenTwoLinesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

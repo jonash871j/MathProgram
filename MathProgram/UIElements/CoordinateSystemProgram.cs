@@ -461,24 +461,30 @@ namespace MathProgram.UIElements
             }
             void CPUDrawText(double x, double y, string text)
             {
-                string[] lines = text.Split('\n');
-                string longest = lines.OrderByDescending(s => s.Length).First();
+                try
+                {
+                    string[] lines = text.Split('\n');
+                    string longest = lines.OrderByDescending(s => s.Length).First();
 
-                graphics.FillRectangle(new SolidBrush(color.Background), new Rectangle(
-                    (int)(x * scale - X + centerX) + 4, 
-                    (int)(y * -scale - Y + centerY) + 8,
-                    longest.Length * 6,
-                    lines.Length * 16)
-                );
-                graphics.DrawString(
-                    text,
-                    Font,
-                        new SolidBrush(color.DefaultText),
-                    new Point(
+                    graphics.FillRectangle(new SolidBrush(color.Background), new Rectangle(
                         (int)(x * scale - X + centerX) + 4,
-                        (int)(y * -scale - Y + centerY) + 8
-                    )
-                 );
+                        (int)(y * -scale - Y + centerY) + 8,
+                        longest.Length * 6,
+                        lines.Length * 16)
+                    );
+                    graphics.DrawString(
+                        text,
+                        Font,
+                            new SolidBrush(color.DefaultText),
+                        new Point(
+                            (int)(x * scale - X + centerX) + 4,
+                            (int)(y * -scale - Y + centerY) + 8
+                        )
+                     );
+                }
+                catch
+                {
+                }
             }
 
             if (IsAxisVisible)

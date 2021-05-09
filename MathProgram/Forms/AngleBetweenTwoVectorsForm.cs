@@ -14,7 +14,7 @@ namespace MathProgram.Forms
 {
     public partial class AngleBetweenTwoVectorsForm : DockContent
     {
-        AngleBetweenTwoVectors angleBetweenTwoVectors = new AngleBetweenTwoVectors();
+        AngleBetweenTwoVectorsTool angleBetweenTwoVectors = new AngleBetweenTwoVectorsTool();
 
         public AngleBetweenTwoVectorsForm()
         {

@@ -14,7 +14,7 @@ namespace MathProgram.Forms
 {
     public partial class ProjectionOfVectorOnVectorForm : DockContent
     {
-        ProjectionOfVectorOnVector projectionOfVectorOnVector = new ProjectionOfVectorOnVector();
+        ProjectionOfVectorOnVectorTool projectionOfVectorOnVector = new ProjectionOfVectorOnVectorTool();
 
         public ProjectionOfVectorOnVectorForm()
         {

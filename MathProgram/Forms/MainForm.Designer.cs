@@ -45,6 +45,8 @@ namespace MathProgram.Forms
             this.vektorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_AngleBetweenTwoVectors = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_ProjectionOfVetorOnVector = new System.Windows.Forms.ToolStripMenuItem();
+            this.andetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MI_IntersectionPointBeetweenTwoLines = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_QuadraticEquations = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_Trigonometry = new System.Windows.Forms.ToolStripMenuItem();
             this.indstillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,6 +120,7 @@ namespace MathProgram.Forms
             this.toolStripSeparator1,
             this.afstandToolStripMenuItem1,
             this.vektorerToolStripMenuItem,
+            this.andetToolStripMenuItem,
             this.MI_QuadraticEquations,
             this.MI_Trigonometry});
             this.værktøjerToolStripMenuItem.Name = "værktøjerToolStripMenuItem";
@@ -181,6 +184,21 @@ namespace MathProgram.Forms
             this.MI_ProjectionOfVetorOnVector.Size = new System.Drawing.Size(250, 22);
             this.MI_ProjectionOfVetorOnVector.Text = "Projektion Af Vektor På Vektor";
             this.MI_ProjectionOfVetorOnVector.Click += new System.EventHandler(this.MI_ProjectionOfVetorOnVector_Click);
+            // 
+            // andetToolStripMenuItem
+            // 
+            this.andetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MI_IntersectionPointBeetweenTwoLines});
+            this.andetToolStripMenuItem.Name = "andetToolStripMenuItem";
+            this.andetToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.andetToolStripMenuItem.Text = "Geometri";
+            // 
+            // MI_IntersectionPointBeetweenTwoLines
+            // 
+            this.MI_IntersectionPointBeetweenTwoLines.Name = "MI_IntersectionPointBeetweenTwoLines";
+            this.MI_IntersectionPointBeetweenTwoLines.Size = new System.Drawing.Size(241, 22);
+            this.MI_IntersectionPointBeetweenTwoLines.Text = "Krydspunkt Mellem To Linjer";
+            this.MI_IntersectionPointBeetweenTwoLines.Click += new System.EventHandler(this.MI_IntersectionPointBeetweenTwoLines_Click);
             // 
             // MI_QuadraticEquations
             // 
@@ -301,5 +319,7 @@ namespace MathProgram.Forms
         private System.Windows.Forms.ToolStripMenuItem vektorerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MI_AngleBetweenTwoVectors;
         private System.Windows.Forms.ToolStripMenuItem MI_ProjectionOfVetorOnVector;
+        private System.Windows.Forms.ToolStripMenuItem andetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MI_IntersectionPointBeetweenTwoLines;
     }
 }

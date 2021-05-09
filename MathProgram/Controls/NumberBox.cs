@@ -23,11 +23,11 @@ namespace MathProgram.Controls
         private void SB_Main_Scroll(object sender, ScrollEventArgs e)
         {
             int delta = e.OldValue - e.NewValue;
-            if (delta < 0)
+            if (delta > 0)
             {
                 Value++;
             }
-            if (delta > 0)
+            if (delta < 0)
             {
                 Value--;
             }

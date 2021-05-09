@@ -8,7 +8,7 @@ using static System.Math;
 
 namespace MathLib.Tools.Vector
 {
-    public class ProjectionOfVectorOnVector : IInput, IShape, IPoints
+    public class ProjectionOfVectorOnVectorTool : IInput, IShape, IPoints
     {
         public event CalculationEventHandler Calculation;
 
@@ -24,7 +24,7 @@ namespace MathLib.Tools.Vector
         public double PPX { get; private set; }
         public double PPY { get; private set; }
 
-        public ProjectionOfVectorOnVector()
+        public ProjectionOfVectorOnVectorTool()
         {
             Contants = new Dictionary<string, double>()
             {

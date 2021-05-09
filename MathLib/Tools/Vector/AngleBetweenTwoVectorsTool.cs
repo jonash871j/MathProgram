@@ -8,7 +8,7 @@ using static System.Math;
 
 namespace MathLib.Tools.Vector
 {
-    public class AngleBetweenTwoVectors : IInput, IShape, IPoints
+    public class AngleBetweenTwoVectorsTool : IInput, IShape, IPoints
     {
         public event CalculationEventHandler Calculation;
         
@@ -20,7 +20,7 @@ namespace MathLib.Tools.Vector
 
         public double Angle { get; private set; }
 
-        public AngleBetweenTwoVectors()
+        public AngleBetweenTwoVectorsTool()
         {
             Contants = new Dictionary<string, double>()
             {

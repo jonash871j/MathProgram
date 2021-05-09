@@ -77,7 +77,7 @@ namespace MathProgram.Controls
             int line = y + (i - (i % GridColumns));
 
             Label label = new Label();
-            label.Location = new Point(x, line);
+            label.Location = new Point(x, line + 4);
 
             label.Text = key;
             label.Width = width - 16;
