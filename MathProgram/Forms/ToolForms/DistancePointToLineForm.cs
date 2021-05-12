@@ -37,6 +37,7 @@ namespace MathProgram.Forms
                 distancePointToLine.GetMidPointCalculation(),
                 distancePointToLine.GetMidPointResult()
             );
+            CoordinateSystemForm.Program.Update();
         }
     }
 }

@@ -100,47 +100,47 @@
     <Compile Include="Controls\NumberBox.Designer.cs">
       <DependentUpon>NumberBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AngleBetweenTwoVectorsForm.cs">
+    <Compile Include="Forms\ToolForms\AngleBetweenTwoVectorsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AngleBetweenTwoVectorsForm.Designer.cs">
+    <Compile Include="Forms\ToolForms\AngleBetweenTwoVectorsForm.Designer.cs">
       <DependentUpon>AngleBetweenTwoVectorsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DistancePointToLineForm.cs">
+    <Compile Include="Forms\ToolForms\DistancePointToLineForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DistancePointToLineForm.Designer.cs">
+    <Compile Include="Forms\ToolForms\DistancePointToLineForm.Designer.cs">
       <DependentUpon>DistancePointToLineForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DotProductForm.cs">
+    <Compile Include="Forms\ToolForms\DotProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DotProductForm.Designer.cs">
+    <Compile Include="Forms\ToolForms\DotProductForm.Designer.cs">
       <DependentUpon>DotProductForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FunctionScriptForm.cs">
+    <Compile Include="Forms\ToolForms\FunctionScriptForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FunctionScriptForm.Designer.cs">
+    <Compile Include="Forms\ToolForms\FunctionScriptForm.Designer.cs">
       <DependentUpon>FunctionScriptForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\IntersectionPointBeetweenTwoLinesForm.cs">
+    <Compile Include="Forms\ToolForms\IntersectionPointBeetweenTwoLinesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\IntersectionPointBeetweenTwoLinesForm.Designer.cs">
+    <Compile Include="Forms\ToolForms\IntersectionPointBeetweenTwoLinesForm.Designer.cs">
       <DependentUpon>IntersectionPointBeetweenTwoLinesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ProjectionOfVectorOnVectorForm.cs">
+    <Compile Include="Forms\ToolForms\ProjectionOfVectorOnVectorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ProjectionOfVectorOnVectorForm.Designer.cs">
+    <Compile Include="Forms\ToolForms\ProjectionOfVectorOnVectorForm.Designer.cs">
       <DependentUpon>ProjectionOfVectorOnVectorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ISetForm.cs" />
-    <Compile Include="Forms\DistancePointToPointForm.cs">
+    <Compile Include="Forms\ToolForms\DistancePointToPointForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DistancePointToPointForm.Designer.cs">
+    <Compile Include="Forms\ToolForms\DistancePointToPointForm.Designer.cs">
       <DependentUpon>DistancePointToPointForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Static\Misc.cs" />
@@ -163,16 +163,16 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\QuadraticEquationsForm.cs">
+    <Compile Include="Forms\ToolForms\QuadraticEquationsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\QuadraticEquationsForm.Designer.cs">
+    <Compile Include="Forms\ToolForms\QuadraticEquationsForm.Designer.cs">
       <DependentUpon>QuadraticEquationsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TrigonometryForm.cs">
+    <Compile Include="Forms\ToolForms\TrigonometryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TrigonometryForm.Designer.cs">
+    <Compile Include="Forms\ToolForms\TrigonometryForm.Designer.cs">
       <DependentUpon>TrigonometryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -187,7 +187,7 @@
     <EmbeddedResource Include="Controls\NumberBox.resx">
       <DependentUpon>NumberBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AngleBetweenTwoVectorsForm.resx">
+    <EmbeddedResource Include="Forms\ToolForms\AngleBetweenTwoVectorsForm.resx">
       <DependentUpon>AngleBetweenTwoVectorsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CalculatorForm.resx">
@@ -196,31 +196,31 @@
     <EmbeddedResource Include="Forms\CoordinateSystemForm.resx">
       <DependentUpon>CoordinateSystemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DistancePointToLineForm.resx">
+    <EmbeddedResource Include="Forms\ToolForms\DistancePointToLineForm.resx">
       <DependentUpon>DistancePointToLineForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DistancePointToPointForm.resx">
+    <EmbeddedResource Include="Forms\ToolForms\DistancePointToPointForm.resx">
       <DependentUpon>DistancePointToPointForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DotProductForm.resx">
+    <EmbeddedResource Include="Forms\ToolForms\DotProductForm.resx">
       <DependentUpon>DotProductForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FunctionScriptForm.resx">
+    <EmbeddedResource Include="Forms\ToolForms\FunctionScriptForm.resx">
       <DependentUpon>FunctionScriptForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\IntersectionPointBeetweenTwoLinesForm.resx">
+    <EmbeddedResource Include="Forms\ToolForms\IntersectionPointBeetweenTwoLinesForm.resx">
       <DependentUpon>IntersectionPointBeetweenTwoLinesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ProjectionOfVectorOnVectorForm.resx">
+    <EmbeddedResource Include="Forms\ToolForms\ProjectionOfVectorOnVectorForm.resx">
       <DependentUpon>ProjectionOfVectorOnVectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\QuadraticEquationsForm.resx">
+    <EmbeddedResource Include="Forms\ToolForms\QuadraticEquationsForm.resx">
       <DependentUpon>QuadraticEquationsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TrigonometryForm.resx">
+    <EmbeddedResource Include="Forms\ToolForms\TrigonometryForm.resx">
       <DependentUpon>TrigonometryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

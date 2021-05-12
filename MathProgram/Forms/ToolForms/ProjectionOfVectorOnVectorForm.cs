@@ -32,6 +32,8 @@ namespace MathProgram.Forms
                 projectionOfVectorOnVector.GetProjectionVectorCalculation(),
                 projectionOfVectorOnVector.GetProjectionVectorResult()
             );
+
+            CoordinateSystemForm.Program.Update();
         }
     }
 }

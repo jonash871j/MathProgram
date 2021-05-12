@@ -37,6 +37,8 @@ namespace MathProgram.Forms
                 lineLineIntersection.GetIntersectionPointCalculation(),
                 lineLineIntersection.GetIntersectionPointResult()
             );
+
+            CoordinateSystemForm.Program.Update();
         }
     }
 }
