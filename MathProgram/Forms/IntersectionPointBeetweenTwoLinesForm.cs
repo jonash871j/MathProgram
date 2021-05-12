@@ -20,8 +20,8 @@ namespace MathProgram.Forms
         {
             InitializeComponent();
 
-            IC_Main.SetInput(lineLineIntersection);
             IC_Main.SetGeometry(lineLineIntersection);
+            IC_Main.SetInput(lineLineIntersection);
             lineLineIntersection.Calculation += OnCalulation;
 
             lineLineIntersection.Calculate();

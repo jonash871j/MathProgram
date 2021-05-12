@@ -20,8 +20,8 @@ namespace MathProgram.Forms
         {
             InitializeComponent();
 
-            IC_Main.SetInput(projectionOfVectorOnVector);
             IC_Main.SetGeometry(projectionOfVectorOnVector);
+            IC_Main.SetInput(projectionOfVectorOnVector);
             projectionOfVectorOnVector.Calculation += OnCalulation;
             projectionOfVectorOnVector.Calculate();
         }

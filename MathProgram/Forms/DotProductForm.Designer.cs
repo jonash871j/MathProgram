@@ -29,38 +29,42 @@ namespace MathProgram.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.IC_Main = new MathProgram.Controls.InputControl();
             this.DC_Main = new MathProgram.Controls.DefaultCalculationControl();
+            this.IC_Main = new MathProgram.Controls.InputControl();
             this.SuspendLayout();
+            // 
+            // DC_Main
+            // 
+            this.DC_Main.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DC_Main.Calulation = "Udregning";
+            this.DC_Main.Location = new System.Drawing.Point(227, 12);
+            this.DC_Main.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DC_Main.Name = "DC_Main";
+            this.DC_Main.ResultName = "Resultat";
+            this.DC_Main.Size = new System.Drawing.Size(252, 203);
+            this.DC_Main.TabIndex = 1;
+            this.DC_Main.Title = "Skalarprodukt";
             // 
             // IC_Main
             // 
             this.IC_Main.Grid = false;
             this.IC_Main.GridColumns = 2;
             this.IC_Main.Location = new System.Drawing.Point(12, 12);
+            this.IC_Main.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.IC_Main.Name = "IC_Main";
-            this.IC_Main.Size = new System.Drawing.Size(174, 198);
+            this.IC_Main.Size = new System.Drawing.Size(207, 203);
             this.IC_Main.TabIndex = 0;
-            // 
-            // DC_Main
-            // 
-            this.DC_Main.Calulation = "Udregning";
-            this.DC_Main.Location = new System.Drawing.Point(205, 12);
-            this.DC_Main.Name = "DC_Main";
-            this.DC_Main.ResultName = "Resultat";
-            this.DC_Main.Size = new System.Drawing.Size(274, 198);
-            this.DC_Main.TabIndex = 1;
-            this.DC_Main.Title = "Skalarprodukt";
             // 
             // DotProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 222);
+            this.ClientSize = new System.Drawing.Size(488, 229);
             this.Controls.Add(this.DC_Main);
             this.Controls.Add(this.IC_Main);
             this.Name = "DotProductForm";
-            this.Text = "DotProductForm";
+            this.Text = "Vektorer -> Skalar Produkt";
             this.ResumeLayout(false);
 
         }

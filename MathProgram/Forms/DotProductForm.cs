@@ -19,10 +19,10 @@ namespace MathProgram.Forms
         public DotProductForm()
         {
             InitializeComponent();
-            IC_Main.SetInput(dotProduct);
             IC_Main.SetGeometry(dotProduct);
-            dotProduct.Calculate();
+            IC_Main.SetInput(dotProduct);
             dotProduct.Calculation += OnCalculation;
+            dotProduct.Calculate();
         }
 
         private void OnCalculation()

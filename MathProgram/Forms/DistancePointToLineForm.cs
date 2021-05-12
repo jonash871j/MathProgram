@@ -21,8 +21,8 @@ namespace MathProgram.Forms
         {
             InitializeComponent();
 
-            IC_Main.SetInput(distancePointToLine);
             IC_Main.SetGeometry(distancePointToLine);
+            IC_Main.SetInput(distancePointToLine);
             distancePointToLine.Calculation += OnCalulation;
             distancePointToLine.Calculate();
         }

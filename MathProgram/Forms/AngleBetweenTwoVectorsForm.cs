@@ -20,8 +20,8 @@ namespace MathProgram.Forms
         {
             InitializeComponent();
 
-            IC_Main.SetInput(angleBetweenTwoVectors);
             IC_Main.SetGeometry(angleBetweenTwoVectors);
+            IC_Main.SetInput(angleBetweenTwoVectors);
             angleBetweenTwoVectors.Calculation += OnCalulation;
             angleBetweenTwoVectors.Calculate();
         }

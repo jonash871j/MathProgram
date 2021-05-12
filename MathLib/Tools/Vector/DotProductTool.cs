@@ -19,7 +19,7 @@ namespace MathLib.Tools.Vector
             Contants = new Dictionary<string, double>
             {
                 { "a1", 1.0 },
-                { "a2", 1.0 },
+                { "a2", 3.0 },
                 { "b1", 1.0 },
                 { "b2", 1.0 }
             };
@@ -63,8 +63,9 @@ namespace MathLib.Tools.Vector
         {
             return new Point2D[]
             {
-                new Point2D(A1, A2, "a#", Color.Blue),
-                new Point2D(B1, B2, "b#", Color.Blue)
+                new Point2D(A1, A2, "a#", Color.Green),
+                new Point2D(B1, B2, "b#", Color.Green),
+                new Point2D(DotProduct, 0, $"Længde: {DotProduct.ToString("N2")}", Color.Blue),
             };
         }
     }
