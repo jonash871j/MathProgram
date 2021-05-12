@@ -50,6 +50,11 @@ namespace MathProgram.Forms
         private void MI_ProjectionOfVetorOnVector_Click(object sender, EventArgs e)         => ShowDockForm(new ProjectionOfVectorOnVectorForm());
         private void MI_IntersectionPointBeetweenTwoLines_Click(object sender, EventArgs e) => ShowDockForm(new IntersectionPointBeetweenTwoLinesForm());
 
+        private void skalarProduktToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowDockForm(new DotProductForm());
+        }
+
         /* Settings */
         private void MI_IsFullscreen_Click(object sender, EventArgs e)
         {
@@ -72,5 +77,7 @@ namespace MathProgram.Forms
             dockForm.Show(DP_Main, dockState);
             dockForm.DockTo(DP_Main, dockStyle);
         }
+
+        
     }
 }
