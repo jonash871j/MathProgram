@@ -42,7 +42,7 @@ namespace MathProgram.Forms
             this.afstandToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_PointToPoint = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_PointToLine = new System.Windows.Forms.ToolStripMenuItem();
-            this.vektorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MI_DotTool = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_AngleBetweenTwoVectors = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_ProjectionOfVetorOnVector = new System.Windows.Forms.ToolStripMenuItem();
             this.andetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +55,7 @@ namespace MathProgram.Forms
             this.SS_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TS_Main = new System.Windows.Forms.ToolStrip();
+            this.skalarProduktToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_Main.SuspendLayout();
             this.SS_Main.SuspendLayout();
             this.SuspendLayout();
@@ -119,7 +120,7 @@ namespace MathProgram.Forms
             this.MI_FunctionScript,
             this.toolStripSeparator1,
             this.afstandToolStripMenuItem1,
-            this.vektorerToolStripMenuItem,
+            this.MI_DotTool,
             this.andetToolStripMenuItem,
             this.MI_QuadraticEquations,
             this.MI_Trigonometry});
@@ -162,14 +163,15 @@ namespace MathProgram.Forms
             this.MI_PointToLine.Text = "Punkt Til Linje (Distanceformlen)";
             this.MI_PointToLine.Click += new System.EventHandler(this.MI_PointToLine_Click);
             // 
-            // vektorerToolStripMenuItem
+            // MI_DotTool
             // 
-            this.vektorerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MI_DotTool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_AngleBetweenTwoVectors,
-            this.MI_ProjectionOfVetorOnVector});
-            this.vektorerToolStripMenuItem.Name = "vektorerToolStripMenuItem";
-            this.vektorerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.vektorerToolStripMenuItem.Text = "Vektorer";
+            this.MI_ProjectionOfVetorOnVector,
+            this.skalarProduktToolStripMenuItem});
+            this.MI_DotTool.Name = "MI_DotTool";
+            this.MI_DotTool.Size = new System.Drawing.Size(186, 22);
+            this.MI_DotTool.Text = "Vektorer";
             // 
             // MI_AngleBetweenTwoVectors
             // 
@@ -268,6 +270,13 @@ namespace MathProgram.Forms
             this.TS_Main.TabIndex = 7;
             this.TS_Main.Text = "toolStrip1";
             // 
+            // skalarProduktToolStripMenuItem
+            // 
+            this.skalarProduktToolStripMenuItem.Name = "skalarProduktToolStripMenuItem";
+            this.skalarProduktToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.skalarProduktToolStripMenuItem.Text = "Skalar Produkt";
+            this.skalarProduktToolStripMenuItem.Click += new System.EventHandler(this.skalarProduktToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,10 +325,11 @@ namespace MathProgram.Forms
         private System.Windows.Forms.ToolStripMenuItem MI_PointToLine;
         private System.Windows.Forms.ToolStripMenuItem MI_FunctionScript;
         private System.Windows.Forms.ToolStripMenuItem MI_DebugInfomation;
-        private System.Windows.Forms.ToolStripMenuItem vektorerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MI_DotTool;
         private System.Windows.Forms.ToolStripMenuItem MI_AngleBetweenTwoVectors;
         private System.Windows.Forms.ToolStripMenuItem MI_ProjectionOfVetorOnVector;
         private System.Windows.Forms.ToolStripMenuItem andetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MI_IntersectionPointBeetweenTwoLines;
+        private System.Windows.Forms.ToolStripMenuItem skalarProduktToolStripMenuItem;
     }
 }
