@@ -107,6 +107,7 @@ namespace MathProgram.UIElements
         public bool IsGraphsVisible { get; set; } = true;
         public bool IsShapesVisible { get; set; } = true;
         public bool IsPointsVisible { get; set; } = true;
+        public bool IsTextsVisible { get; set; } = true;
 
         #endregion
 
@@ -246,7 +247,7 @@ namespace MathProgram.UIElements
                 if (rawY == 0.1254232)
                 {
                     lastX = x;
-                    lastY = 0;
+                    lastY = 0.1254232;
                     continue;
                 }
 
@@ -258,7 +259,6 @@ namespace MathProgram.UIElements
                 // This is to avoid bad geometry
                 if ((x != -relX) && (lastX != x))
                 {
-                    // Draws graph line
                     GLDrawLine(relX + x, relY + y, relX + lastX, relY + lastY, 2);
                 }
 
@@ -461,6 +461,11 @@ namespace MathProgram.UIElements
             }
             void CPUDrawText(double x, double y, string text)
             {
+                if (string.IsNullOrEmpty(text))
+                {
+                    return;
+                }
+
                 try
                 {
                     string[] lines = text.Split('\n');
@@ -492,13 +497,23 @@ namespace MathProgram.UIElements
                 CPUNumberX();
                 CPUNumberY();
             }
-            if (IsPointsVisible)
+            if (IsPointsVisible && IsTextsVisible)
             {
-                foreach (IPoints iPoints in Geometries.OfType<IPoints>())
+                foreach (IPoints points in Geometries.OfType<IPoints>())
                 {
-                    foreach (Point2D point in iPoints.Points())
+                    foreach (Point2D point in points.Points())
                     {
                         CPUDrawText(point.X, point.Y, point.ToString());
+                    }
+                }
+            }
+            if (IsShapesVisible && IsTextsVisible)
+            {
+                foreach (IShape shape in Geometries.OfType<IShape>())
+                {
+                    foreach (Line line in shape.Shape().Lines)
+                    {
+                        CPUDrawText((line.B.X + line.A.X) / 2, (line.B.Y + line.A.Y) / 2, line.Text);
                     }
                 }
             }

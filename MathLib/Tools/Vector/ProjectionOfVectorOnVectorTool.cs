@@ -48,18 +48,18 @@ namespace MathLib.Tools.Vector
         {
             return "〖□(→┬a )〗_□(→┬b )" +
                 Settings.Formular(" = (□(→┬a )·□(→┬b ))/|□(→┬b )|^2 ·→┬b") +
-                Settings.Calculation($" = ((■({AX}@{AY}))·(■({BX}@{BY})))/|(■({BX}@{BY}))|^2 ·(■({BX}@{BY}))" +
+                Settings.CalculationInner($" = ((■({AX}@{AY}))·(■({BX}@{BY})))/|(■({BX}@{BY}))|^2 ·(■({BX}@{BY}))" +
                 $"=(({AX}·{BX})+({AY}·{BY}))/(√(({BX})^2+({BY})^2 ))^2 ·(■({BX}@{BY}))" +
-                $"={Settings.Result(R)}·(■({BX}@{BY}))") +
+                $"={Settings.Limit(R)}·(■({BX}@{BY}))") +
                 Settings.Equal() + GetProjectionVectorWMResult();
         }
         public string GetProjectionVectorWMResult()
         {
-            return $"(■({Settings.Result(PX)}@{Settings.Result(PY)}))";
+            return $"(■({Settings.Limit(PX)}@{Settings.Limit(PY)}))";
         }
         public string GetProjectionVectorResult()
         {
-            return $"({Settings.Result(PX)} ; {Settings.Result(PY)})";
+            return $"({Settings.Limit(PX)} ; {Settings.Limit(PY)})";
         }
 
         public Shape Shape()
@@ -69,7 +69,7 @@ namespace MathLib.Tools.Vector
                 new Line(0, 0, AX, AY),
                 new Line(0, 0, BX, BY),
                 new Line(0, 0, PX, PY, Color.Red),
-                new Line(PX, PY, AX, AY, Color.White, true),
+                new Line(PX, PY, AX, AY, Color.White, "", true),
  
             });
         }

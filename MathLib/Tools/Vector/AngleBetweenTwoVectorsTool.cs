@@ -41,12 +41,12 @@ namespace MathLib.Tools.Vector
         {
             return "v" +
                 Settings.Formular(" = acos⁡((→┬a·→┬b)/(|→┬a |·|→┬b | ))") +
-                Settings.Calculation($" = acos⁡(((■({AX}@{AY}))·(■({BX}@{BY})))/(|■({AX}@{AY})|·|■({BX}@{BY})| )) = (({AX}·{BX})+({AY}·{BY}))/(√(({AX})^2+({AY})^2)·√(({BX})^2+({BY})^2))") +
+                Settings.CalculationInner($" = acos⁡(((■({AX}@{AY}))·(■({BX}@{BY})))/(|■({AX}@{AY})|·|■({BX}@{BY})| )) = (({AX}·{BX})+({AY}·{BY}))/(√(({AX})^2+({AY})^2)·√(({BX})^2+({BY})^2))") +
                 Settings.Equal() + GetAngleResult() + "°";
         }
         public string GetAngleResult()
         {
-            return Settings.Result(Angle);
+            return Settings.Limit(Angle);
         }
 
         public Shape Shape()

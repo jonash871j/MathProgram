@@ -49,6 +49,8 @@ namespace MathProgram.Forms
         private void BN_ToggleGraph_Click(object sender, EventArgs e)   => UpdateForm();
         private void BN_ToggleAxis_Click(object sender, EventArgs e)    => UpdateForm();
         private void BN_ToggleGrid_Click(object sender, EventArgs e)    => UpdateForm();
+        private void BN_ToggleTexts_Click(object sender, EventArgs e)   => UpdateForm();
+
         private void BN_GotoOrigin_Click(object sender, EventArgs e)
         {
             Program.GotoOrigin();
@@ -135,6 +137,7 @@ namespace MathProgram.Forms
             BN_ToggleGraphs.Checked = Program.IsGraphsVisible;
             BN_ToggleAxis.Checked = Program.IsAxisVisible;
             BN_ToggleGrid.Checked = Program.IsGridVisible;
+            BN_ToggleTexts.Checked = Program.IsTextsVisible;
             GL_CoordinateSystem.Refresh();
         }
         public void UpdateForm()
@@ -144,6 +147,7 @@ namespace MathProgram.Forms
             Program.IsGraphsVisible = BN_ToggleGraphs.Checked;
             Program.IsAxisVisible = BN_ToggleAxis.Checked;
             Program.IsGridVisible = BN_ToggleGrid.Checked;
+            Program.IsTextsVisible = BN_ToggleTexts.Checked;
             GL_CoordinateSystem.Refresh();
         }
 
@@ -154,8 +158,7 @@ namespace MathProgram.Forms
                 $"MouseX: {debugMouseMove.X}\n" + 
                 $"MouseY: {debugMouseMove.Y}";
 
-         
-
+       
             if (Program.Zoom != Program.ZoomPre)
             {
                 isZooming = true;
@@ -178,5 +181,6 @@ namespace MathProgram.Forms
                 }
             }
         }
+
     }
 }

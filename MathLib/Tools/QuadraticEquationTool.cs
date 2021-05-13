@@ -89,23 +89,23 @@ namespace MathLib
         {
             return "d" +
                    Settings.Formular(" = b^2 - 4ac") +
-                   Settings.Calculation($" = { B }^2 - 4 * { A } * { C }") +
+                   Settings.CalculationInner($" = { B }^2 - 4 * { A } * { C }") +
                    " = " + D;
         }
         public string GetRootsCalculation()
         {
             return "x" +
                    Settings.Formular(" = (-b ± \\sqrt(d))/(2a)") +
-                   Settings.Calculation($" = ({-B} ± \\sqrt({ D }))/(2 * { A }) =");
+                   Settings.CalculationInner($" = ({-B} ± \\sqrt({ D }))/(2 * { A }) =");
         }
         public string GetRootPositiveCalculation()
         {
-            return Settings.Calculation($"({-B} + \\sqrt({ D }))/(2 * { A })") +
+            return Settings.CalculationInner($"({-B} + \\sqrt({ D }))/(2 * { A })") +
                    Settings.Equal() + GetRootResult(X1);
         }
         public string GetRootNegativeCalculation()
         {
-            return Settings.Calculation($"({-B} - \\sqrt({ D }))/(2 * { A })") +
+            return Settings.CalculationInner($"({-B} - \\sqrt({ D }))/(2 * { A })") +
                    Settings.Equal() + GetRootResult(X2);
         }
         public string GetRootResult()
@@ -117,7 +117,7 @@ namespace MathLib
         {
             return $"(T_x, T_y)" +
                    Settings.Formular(" = (-b/(2a) , -d/(4a)) ") +
-                   Settings.Calculation($"= ({ -B }/(2 * { A }), { -D }/(4 * { A }))") +
+                   Settings.CalculationInner($"= ({ -B }/(2 * { A }), { -D }/(4 * { A }))") +
                    Settings.Equal() + GetTopPointResult();
         }
 
@@ -132,12 +132,12 @@ namespace MathLib
         {
             if (A == 0)     return msgAUndefined;
             if (D < 0.0)    return msgDImpossible;
-            else            return Settings.Result(x);
+            else            return Settings.Limit(x);
         }
         public string GetTopPointResult()
         {
             if (A == 0)     return msgAUndefined;
-            else            return $"( { Settings.Result(TopPoint.X) } ; { Settings.Result(TopPoint.Y) })";
+            else            return $"( { Settings.Limit(TopPoint.X) } ; { Settings.Limit(TopPoint.Y) })";
         }
     }
 }

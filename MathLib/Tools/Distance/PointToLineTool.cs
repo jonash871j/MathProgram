@@ -61,25 +61,29 @@ namespace MathLib.Distance
 
         public string GetLengthCalculation()
         {
-            return "dist(P, l)" +
-                Settings.Formular(" = |ax_1+b-y_1|/\\sqrt(a^2+1)") +
-                Settings.Calculation($" = |{A}*{X1}+{B}-{Y1}|/\\sqrt({A}^2+1)") +
-                Settings.Equal() + GetLengthResult();
+            return Settings.Calculation(
+                "dist(P, l)",
+                "|ax_1+b-y_1|/\\sqrt(a^2+1)",
+                $"|{A}*{X1}+{B}-{Y1}|/\\sqrt({A}^2+1)",
+                GetLengthResult()
+            );
         }
         public string GetLengthResult()
         {
-            return Settings.Result(Length);
+            return Settings.Limit(Length);
         }
         public string GetMidPointCalculation()
         {
-            return "M(x, y)" +
-                Settings.Formular(" = ((x_2+x_1)/2,(y_2+y_1)/2)") +
-                Settings.Calculation($"  = (({X2}+{X1})/2,({Y2}+{Y1})/2)") +
-                Settings.Equal() + GetMidPointResult();
+            return Settings.Calculation(
+                "M(x, y)",
+                "((x_2+x_1)/2,(y_2+y_1)/2)",
+                $"(({X2}+{X1})/2,({Y2}+{Y1})/2)",
+                GetMidPointResult()
+            );
         }
         public string GetMidPointResult()
         {
-            return $"({Settings.Result(MidPoint.X)} ; {Settings.Result(MidPoint.Y)})";
+            return $"({Settings.Limit(MidPoint.X)} ; {Settings.Limit(MidPoint.Y)})";
         }
 
         public double Function(double x)

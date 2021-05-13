@@ -88,12 +88,12 @@ namespace MathLib.Tools.Geometry
         {
             return "D" +
               Settings.Formular(" = (x_1-x_2)·(y_3-y_4)-(y_1-y_2)·(x_3-x_4)") +
-              Settings.Calculation($" = ({X1}-{X2})·({Y3}-{Y4})-({Y1}-{Y2})·({X3}-{X4})") +
+              Settings.CalculationInner($" = ({X1}-{X2})·({Y3}-{Y4})-({Y1}-{Y2})·({X3}-{X4})") +
               Settings.Equal() + GetDResult();
         }
         public string GetDResult()
         {
-            return $"{Settings.Result(D)}";
+            return $"{Settings.Limit(D)}";
         }
         public string GetIntersectionPointCalculation()
         {
@@ -105,11 +105,11 @@ namespace MathLib.Tools.Geometry
             {
                 return GetDCalculation() + "\n" +
                     "P_x" + Settings.Formular(" = (((x_1·y_2)-(y_1·x_2))·(x_3-x_4)-(x_1-x_2)·((x_3·y_4)-(y_3·x_4)))/D") +
-                    Settings.Calculation($" = ((({X1}·{Y2})-({Y1}·{X2}))·({X3}-{X4})-({X1}-{ X2})·(({X3}·{Y4})-({Y3}·{X4})))/{D}") +
-                    Settings.Equal() + Settings.Result(PX) + "\n" +
+                    Settings.CalculationInner($" = ((({X1}·{Y2})-({Y1}·{X2}))·({X3}-{X4})-({X1}-{ X2})·(({X3}·{Y4})-({Y3}·{X4})))/{D}") +
+                    Settings.Equal() + Settings.Limit(PX) + "\n" +
                     "P_y" + Settings.Formular(" = (((x_1·y_2)-(y_1·x_2))·(y_3-y_4)-(y_1-y_2)·((x_3·y_4)-(y_3·x_4 )))/D") +
-                    Settings.Calculation($" = ((({X1}·{Y2})-({Y1}·{X2}))·({Y3}-{Y4})-({Y1}-{Y2})·(({X3}·{Y4})-({Y3}·{X4})))/{D}") +
-                    Settings.Equal() + Settings.Result(PY) +
+                    Settings.CalculationInner($" = ((({X1}·{Y2})-({Y1}·{X2}))·({Y3}-{Y4})-({Y1}-{Y2})·(({X3}·{Y4})-({Y3}·{X4})))/{D}") +
+                    Settings.Equal() + Settings.Limit(PY) +
                     "\n(P_x, P_y)" + Settings.Equal() + GetIntersectionPointResult();
             }
         }
@@ -121,7 +121,7 @@ namespace MathLib.Tools.Geometry
             }
             else
             {
-                return $"({Settings.Result(PX)} ; {Settings.Result(PY)})";
+                return $"({Settings.Limit(PX)} ; {Settings.Limit(PY)})";
             }
         }
 

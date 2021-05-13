@@ -39,25 +39,29 @@ namespace MathLib.Distance
 
         public string GetLengthCalculation()
         {
-            return "|AB|" +
-                Settings.Formular(" = \\sqrt((x_2-x_1)^2+(y_2-y_1)^2)") +
-                Settings.Calculation($" = \\sqrt(({ X2 }-{ X1 })^2+({ Y2 }-{ Y1 })^2)") +
-                Settings.Equal() + GetLengthResult();
+            return Settings.Calculation(
+                "|AB|",
+                "\\sqrt((x_2-x_1)^2+(y_2-y_1)^2)",
+                $"\\sqrt(({ X2 }-{ X1 })^2+({ Y2 }-{ Y1 })^2)",
+                GetLengthResult()
+            );
         }
         public string GetLengthResult()
         {
-            return Settings.Result(Length);
+            return Settings.Limit(Length);
         }
         public string GetMidPointCalculation()
         {
-            return "M(x, y)" +
-                Settings.Formular(" = ((x_2+x_1)/2,(y_2+y_1)/2)") +
-                Settings.Calculation($"  = (({X2}+{X1})/2,({Y2}+{Y1})/2)") +
-                Settings.Equal() + GetMidPointResult();
+            return Settings.Calculation(
+                "M(x, y)",
+                "((x_2+x_1)/2,(y_2+y_1)/2)",
+                $"(({X2}+{X1})/2,({Y2}+{Y1})/2)",
+                GetMidPointResult()
+            );
         }
         public string GetMidPointResult()
         {
-            return $"({Settings.Result(MidPoint.X)} ; {Settings.Result(MidPoint.Y)})";
+            return $"({Settings.Limit(MidPoint.X)} ; {Settings.Limit(MidPoint.Y)})";
         }
 
         public Point2D[] Points()

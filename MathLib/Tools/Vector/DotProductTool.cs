@@ -39,13 +39,13 @@ namespace MathLib.Tools.Vector
 
         public string GetDotResult()
         {
-            return Settings.Result(DotProduct);
+            return Settings.Limit(DotProduct);
         }
         public string GetDotCalculation()
         {
             return "□(→┬a· □(→┬b ))" +
                 Settings.Formular(" = (■(a_1@a_2 ))·(■(b_1@b_2 ))=a_1·b_1+a_2·b_2 ") +
-                Settings.Calculation($" = ({A1}·{B1})+({A2}·{B2})") +
+                Settings.CalculationInner($" = ({A1}·{B1})+({A2}·{B2})") +
                 Settings.Equal() + GetDotResult();
         }
 

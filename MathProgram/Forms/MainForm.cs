@@ -4,6 +4,7 @@ using WeifenLuo.WinFormsUI.Docking;
 using MathProgram.StaticContainers;
 using MathProgram.Interfaces;
 using MathLib;
+using MathProgram.Forms.ToolForms;
 
 namespace MathProgram.Forms
 {
@@ -45,7 +46,7 @@ namespace MathProgram.Forms
         private void MI_QuadraticEquations_Click(object sender, EventArgs e)                => ShowDockForm(new QuadraticEquationsForm());
         private void MI_PointToPoint_Click(object sender, EventArgs e)                      => ShowDockForm(new DistancePointToPointForm());
         private void MI_PointToLine_Click(object sender, EventArgs e)                       => ShowDockForm(new DistancePointToLineForm());
-        private void MI_Trigonometry_Click(object sender, EventArgs e)                      => ShowDockForm(new TrigonometryForm());
+        private void MI_Trigonometry_Click(object sender, EventArgs e)                      => ShowDockForm(new TrigonometryForm2());
         private void MI_AngleBetweenTwoVectors_Click(object sender, EventArgs e)            => ShowDockForm(new AngleBetweenTwoVectorsForm());
         private void MI_ProjectionOfVetorOnVector_Click(object sender, EventArgs e)         => ShowDockForm(new ProjectionOfVectorOnVectorForm());
         private void MI_IntersectionPointBeetweenTwoLines_Click(object sender, EventArgs e) => ShowDockForm(new IntersectionPointBeetweenTwoLinesForm());
