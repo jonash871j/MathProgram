@@ -124,18 +124,11 @@ namespace MathLib
 
         public Point2D[] Points()
         {
-            if (IsCoordinateShown)
+            if (IsCoordinateShown && Function(X) != 0.1254232)
             {
-                Y = 0;
-
-                if (assemblyFunction != null)
-                {
-                    Y = assemblyFunction.Function(X);
-                }
-
                 return new Point2D[]
                 {
-                new Point2D(X, Y, "#", Color.Red)
+                new Point2D(X, Function(X), "#", Color.Red)
                 };
             }
             else

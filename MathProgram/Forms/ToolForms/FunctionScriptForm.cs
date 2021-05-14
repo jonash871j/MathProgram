@@ -80,7 +80,14 @@ namespace MathProgram.Forms
         private void TNB_X_NumberChanged(object sender, EventArgs e)
         {
             functionScript.X = TNB_X.Value;
-            LB_Y.Text = $"y = {functionScript.Y}";
+            if (functionScript.Function(functionScript.X) != 0.1254232)
+            {
+                LB_Y.Text = $"y = {Settings.Limit(functionScript.Function(functionScript.X))}";
+            }
+            else
+            {
+                LB_Y.Text = $"y = none";
+            }
             CoordinateSystemForm.Program.Update();
         }
     }
