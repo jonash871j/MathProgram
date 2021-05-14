@@ -1,4 +1,5 @@
 ﻿using MathProgram.Forms;
+using RendererLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace MathProgram
             //if (Environment.OSVersion.Version.Major >= 6)
             //    SetProcessDPIAware();
 
+            Draw.Init();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

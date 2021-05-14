@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -277,6 +278,10 @@
     <ProjectReference Include="..\MathLib\MathLib.csproj">
       <Project>{befe8472-fd6d-40f8-b40b-b973a72909c0}</Project>
       <Name>MathLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RendererLib\RendererLib.vcxproj">
+      <Project>{7dd3a557-3d69-4369-8a88-9fd1878b3a65}</Project>
+      <Name>RendererLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

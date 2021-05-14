@@ -5,6 +5,7 @@ using WeifenLuo.WinFormsUI.Docking;
 using MathProgram.UIElements;
 using MathProgram.StaticContainers;
 using MathProgram.Interfaces;
+using RendererLib;
 
 namespace MathProgram.Forms
 {
@@ -134,7 +135,7 @@ namespace MathProgram.Forms
         {
             BN_TogglePoints.Checked = Program.IsPointsVisible;
             BN_ToggleShapes.Checked = Program.IsShapesVisible;
-            BN_ToggleGraphs.Checked = Program.IsGraphsVisible;
+            BN_ToggleGraphs.Checked = Program.IsFunctionsVisible;
             BN_ToggleAxis.Checked = Program.IsAxisVisible;
             BN_ToggleGrid.Checked = Program.IsGridVisible;
             BN_ToggleTexts.Checked = Program.IsTextsVisible;
@@ -144,7 +145,7 @@ namespace MathProgram.Forms
         {
             Program.IsPointsVisible = BN_TogglePoints.Checked;
             Program.IsShapesVisible = BN_ToggleShapes.Checked;
-            Program.IsGraphsVisible = BN_ToggleGraphs.Checked;
+            Program.IsFunctionsVisible = BN_ToggleGraphs.Checked;
             Program.IsAxisVisible = BN_ToggleAxis.Checked;
             Program.IsGridVisible = BN_ToggleGrid.Checked;
             Program.IsTextsVisible = BN_ToggleTexts.Checked;
@@ -154,11 +155,11 @@ namespace MathProgram.Forms
         private void Timer_Tick(object sender, EventArgs e)
         {
             LB_Debug.Visible = MainForm.IsDebugInformationShown;
-            LB_Debug.Text = Program.ToString() + 
-                $"MouseX: {debugMouseMove.X}\n" + 
+            LB_Debug.Text = Program.ToString() +
+                $"MouseX: {debugMouseMove.X}\n" +
                 $"MouseY: {debugMouseMove.Y}";
 
-       
+
             if (Program.Zoom != Program.ZoomPre)
             {
                 isZooming = true;

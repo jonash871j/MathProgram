@@ -44,9 +44,9 @@ namespace MathProgram.Forms.ToolForms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GP_Calculation.Controls.Add(this.label1);
             this.GP_Calculation.Controls.Add(this.TB_Calculation);
-            this.GP_Calculation.Location = new System.Drawing.Point(370, 3);
+            this.GP_Calculation.Location = new System.Drawing.Point(309, 3);
             this.GP_Calculation.Name = "GP_Calculation";
-            this.GP_Calculation.Size = new System.Drawing.Size(239, 194);
+            this.GP_Calculation.Size = new System.Drawing.Size(300, 194);
             this.GP_Calculation.TabIndex = 1;
             this.GP_Calculation.TabStop = false;
             this.GP_Calculation.Text = "-";
@@ -68,16 +68,18 @@ namespace MathProgram.Forms.ToolForms
             this.TB_Calculation.Multiline = true;
             this.TB_Calculation.Name = "TB_Calculation";
             this.TB_Calculation.ReadOnly = true;
-            this.TB_Calculation.Size = new System.Drawing.Size(224, 156);
+            this.TB_Calculation.Size = new System.Drawing.Size(285, 156);
             this.TB_Calculation.TabIndex = 0;
             // 
             // TIC_Main
             // 
             this.TIC_Main.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TIC_Main.Location = new System.Drawing.Point(3, 3);
+            this.TIC_Main.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.TIC_Main.Location = new System.Drawing.Point(4, 5);
+            this.TIC_Main.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TIC_Main.Name = "TIC_Main";
-            this.TIC_Main.Size = new System.Drawing.Size(361, 194);
+            this.TIC_Main.Size = new System.Drawing.Size(298, 194);
             this.TIC_Main.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -85,8 +87,8 @@ namespace MathProgram.Forms.ToolForms
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.TIC_Main, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.GP_Calculation, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
@@ -100,6 +102,7 @@ namespace MathProgram.Forms.ToolForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(636, 229);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "TrigonometryForm2";

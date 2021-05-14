@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Tao.Platform.Windows;
 using static Tao.OpenGl.Gl;
 using static Tao.FreeGlut.Glut;
+using RendererLib;
 
 namespace MathProgram.UIElements
 {
@@ -104,7 +105,7 @@ namespace MathProgram.UIElements
 
         public bool IsGridVisible { get; set; } = true;
         public bool IsAxisVisible { get; set; } = true;
-        public bool IsGraphsVisible { get; set; } = true;
+        public bool IsFunctionsVisible { get; set; } = true;
         public bool IsShapesVisible { get; set; } = true;
         public bool IsPointsVisible { get; set; } = true;
         public bool IsTextsVisible { get; set; } = true;
@@ -131,7 +132,7 @@ namespace MathProgram.UIElements
             Font = new Font(new FontFamily("Segoe UI"), 12.0f, FontStyle.Bold, GraphicsUnit.Pixel);
             Zoom = 0.2;
             X = 0.0;
-            Y = 0.0; 
+            Y = 0.0;
         }
 
         private void OnSizeChanged(object sender, EventArgs e)
@@ -142,75 +143,41 @@ namespace MathProgram.UIElements
             relY = Y + centerY;
         }
 
-        private void GLBoilerCode()
+        private void GLDrawPoint(Point2D point)
         {
-            glEnable(GL_SCISSOR_TEST);
-            glViewport(0, 0, Width, Height);
-            glScissor(0, Height, Width, Height);
-            glMatrixMode(GL_PROJECTION);
-            glLoadIdentity();
-            glOrtho(0, Width, 0, Height, -1, 1);
-            glMatrixMode(GL_MODELVIEW);
-            glDisable(GL_SCISSOR_TEST);
+            Draw.Color(point.Color.R, point.Color.G, point.Color.B);
+            Draw.Point(relX + point.X * scale, relY + point.Y * scale, 4);
         }
-        private void GLDrawLine(double x1, double y1, double x2, double y2, int thickness, bool isStriped = false)
+        private void GLDrawLine(Line line)
         {
-            if (!isStriped)
-            {
-                for (int i = 0; i < thickness; i++)
-                {
-                    glVertex2d(x1, y1 + i);
-                    glVertex2d(x2, y2 + i);
-                    glVertex2d(x1 + i, y1);
-                    glVertex2d(x2 + i, y2);
-                }
-            }
-            else
-            {
-                glEnd();
-                glPushAttrib(GL_ENABLE_BIT);
-                glLineStipple(6, 0xAAAA);
-                glEnable(GL_LINE_STIPPLE);
-                glBegin(GL_LINES);
-
-                for (int i = 0; i < thickness; i++)
-                {
-                    glVertex2d(x1, y1 + i);
-                    glVertex2d(x2, y2 + i);
-                    glVertex2d(x1 + i, y1);
-                    glVertex2d(x2 + i, y2);
-                }
-
-                glEnd();
-                glPopAttrib();
-                glBegin(GL_LINES);
-            }
-            
+            Draw.Color(line.Color.R, line.Color.G, line.Color.B);
+            Draw.Line(
+                relX + line.A.X * scale,
+                relY + line.A.Y * scale,
+                relX + line.B.X * scale,
+                relY + line.B.Y * scale,
+                2,
+                line.IsStriped
+            );
         }
+
         private void GLDrawGrid(double gridWidth, double gridHeight, Color color)
         {
             if (IsGridVisible)
             {
-                //gridWidth /= Zoom;
-                //gridHeight /= Zoom;
-
                 // Sets grid color
-                glColor3ub(color.R, color.G, color.B);
+                Draw.Color(color.R, color.G, color.B);
 
                 // Draws horizontal grid lines
                 for (double y = relY % gridHeight; y < Height; y += gridHeight)
                 {
-                    // Draws line
-                    glVertex2d(0, y);
-                    glVertex2d(Width, y);
+                    Draw.Line(0, y, Width, y, 1);
                 }
 
                 // Draws vertical grid lines
                 for (double x = relX % gridWidth; x < Width; x += gridWidth)
                 {
-                    // Draws line
-                    glVertex2d(x, 0);
-                    glVertex2d(x, Height);
+                    Draw.Line(x, 0, x, Height, 1);
                 }
             }
         }
@@ -222,13 +189,13 @@ namespace MathProgram.UIElements
                 glColor3ub(color.Axis.R, color.Axis.G, color.Axis.B);
 
                 // Draws y axis
-                GLDrawLine(relX, 0.0f, relX, Height, 1);
+                Draw.Line(relX, 0.0f, relX, Height, 1);
 
                 // Draws x axis
-                GLDrawLine(0.0f, relY, Width, relY, 1);
+                Draw.Line(0.0f, relY, Width, relY, 1);
             }
         }
-        private void GLDrawGraph(IFunction function, Color color)
+        private void GLDrawFunction(IFunction function, Color color)
         {
             double lastX = 0.0;
             double lastY = 0.0;
@@ -259,7 +226,7 @@ namespace MathProgram.UIElements
                 // This is to avoid bad geometry
                 if ((x != -relX) && (lastX != x))
                 {
-                    GLDrawLine(relX + x, relY + y, relX + lastX, relY + lastY, 2);
+                    Draw.Line(relX + x, relY + y, relX + lastX, relY + lastY, 2);
                 }
 
                 // Stores current point as last point
@@ -267,40 +234,46 @@ namespace MathProgram.UIElements
                 lastY = (double)y;
             }
         }
-        private void GLDrawPoint(Point2D point)
-        {
-            double x = relX + point.X * scale;
-            double y = relY + point.Y * scale;
-            int length = 4;
 
-            glColor3ub(point.Color.R, point.Color.G, point.Color.B);
-            for (int i = -length; i < length; i++)
+        private void GLDrawFunctions()
+        {
+            if (IsFunctionsVisible)
             {
-                glVertex2d(x - length, y + i);
-                glVertex2d(x + length, y + i);
+                foreach (IFunction function in Geometries.OfType<IFunction>())
+                {
+                    GLDrawFunction(
+                       function: function,
+                       color: function.Properties.Color
+                    );
+                }
             }
         }
-        private void GLDrawLine(Line line)
+        private void GLDrawShapes()
         {
-            glColor3ub(line.Color.R, line.Color.G, line.Color.B);
-
-            GLDrawLine(
-                relX + line.A.X * scale, 
-                relY + line.A.Y * scale, 
-                relX + line.B.X * scale, 
-                relY + line.B.Y * scale, 
-                2,
-                line.IsStriped
-            );
-        }
-        private void GLDrawShape(Shape shape)
-        {
-            foreach (Line line in shape.Lines)
+            if (IsShapesVisible)
             {
-                GLDrawLine(line);
+                foreach (IShape shape in Geometries.OfType<IShape>())
+                {
+                    foreach (Line line in shape.Shape().Lines)
+                    {
+                        GLDrawLine(line);
+                    }
+                }
             }
         }
-
+        private void GLDrawPoints()
+        {
+            if (IsPointsVisible)
+            {
+                foreach (IPoints points in Geometries.OfType<IPoints>())
+                {
+                    foreach (Point2D point in points.Points())
+                    {
+                        GLDrawPoint(point);
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Used to draw coordinate sytem
@@ -308,74 +281,28 @@ namespace MathProgram.UIElements
         /// </summary>
         public void GLDraw()
         {
-            // Some required GL boiler code
-            GLBoilerCode();
+            Draw.Setup(Width, Height);
+            Draw.Clear();
 
-            // Clears old content
-            glClearColor(0.06f, 0.06f, 0.06f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
-
-            // Begin GL line drawing
-            glBegin(GL_LINES);
-
-            // Draws small grid
-            GLDrawGrid(
+            Draw.Begin();
+            GLDrawGrid( // Small grid
                 gridWidth: GRID_FACTOR,
                 gridHeight: GRID_FACTOR,
                 color: color.SmallGrid
             );
-
-            // Draws large grid
-            GLDrawGrid(
+            GLDrawGrid( // Large grid
                 gridWidth: (GRID_FACTOR * 5),
                 gridHeight: (GRID_FACTOR * 5),
                 color: color.LargeGrid
             );
-
-            // Draws axis
             GLDrawAxis();
 
-            // Draws each graph based on mathematical function
-            if (IsGraphsVisible)
-            {
-                int index = 0;
-                foreach (IFunction function in Geometries.OfType<IFunction>())
-                {
-                    GLDrawGraph(
-                       function: function,
-                       color: function.Properties.Color
-                    );
-                    index++;
-                }
-            }
+            GLDrawFunctions();
+            GLDrawShapes();
+            GLDrawPoints();
+            Draw.End();
 
-
-            // Draws shapes
-            if (IsShapesVisible)
-            {
-                foreach (IShape iShape in Geometries.OfType<IShape>())
-                {
-                    GLDrawShape(iShape.Shape());
-                }
-            }
-
-            // Draws points
-            if (IsPointsVisible)
-            {
-                foreach (IPoints iPoints in Geometries.OfType<IPoints>())
-                {
-                    foreach (Point2D point in iPoints.Points())
-                    {
-                        GLDrawPoint(point);
-                    }
-                }
-            }
-
-            // End GL drawing
-            glEnd();      
-
-            // Updates GL window
-            OpenGlControl.SwapBuffers();
+            OpenGlControl.SwapBuffers(); // Updates GL window
         }
 
 
