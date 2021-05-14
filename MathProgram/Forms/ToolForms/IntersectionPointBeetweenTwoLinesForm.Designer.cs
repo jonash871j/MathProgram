@@ -29,10 +29,22 @@ namespace MathProgram.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.DC_D = new MathProgram.Controls.DefaultCalculationControl();
             this.DC_IntersectionPoint = new MathProgram.Controls.DefaultCalculationControl();
             this.IC_Main = new MathProgram.Controls.InputControl();
-            this.DC_D = new MathProgram.Controls.DefaultCalculationControl();
             this.SuspendLayout();
+            // 
+            // DC_D
+            // 
+            this.DC_D.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DC_D.Calulation = "Udregning";
+            this.DC_D.Location = new System.Drawing.Point(225, 12);
+            this.DC_D.Name = "DC_D";
+            this.DC_D.ResultName = "Resultat";
+            this.DC_D.Size = new System.Drawing.Size(305, 203);
+            this.DC_D.TabIndex = 4;
+            this.DC_D.Title = "D";
             // 
             // DC_IntersectionPoint
             // 
@@ -55,18 +67,6 @@ namespace MathProgram.Forms
             this.IC_Main.Size = new System.Drawing.Size(207, 203);
             this.IC_Main.TabIndex = 2;
             // 
-            // DC_D
-            // 
-            this.DC_D.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DC_D.Calulation = "Udregning";
-            this.DC_D.Location = new System.Drawing.Point(225, 12);
-            this.DC_D.Name = "DC_D";
-            this.DC_D.ResultName = "Resultat";
-            this.DC_D.Size = new System.Drawing.Size(305, 203);
-            this.DC_D.TabIndex = 4;
-            this.DC_D.Title = "D";
-            // 
             // IntersectionPointBeetweenTwoLinesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -76,7 +76,7 @@ namespace MathProgram.Forms
             this.Controls.Add(this.DC_IntersectionPoint);
             this.Controls.Add(this.IC_Main);
             this.Name = "IntersectionPointBeetweenTwoLinesForm";
-            this.Text = "LineLineIntersectionForm";
+            this.Text = "Geometri -> Krydspunkt Mellem To Linjer";
             this.ResumeLayout(false);
 
         }

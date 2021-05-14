@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MathProgram.Controls;
 
-namespace MathProgram.Controls.GlobalControls
+namespace MathProgram.Controls
 {
     public partial class ToggleableNumberBoxControl : UserControl
     {

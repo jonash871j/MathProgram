@@ -32,9 +32,13 @@ namespace RendererLib
     {
         glColor3ub(r, g, b);
     }
-    void Draw::Clear()
+    void Draw::Color(System::Drawing::Color color)
     {
-        glClearColor(0.06f, 0.06f, 0.06f, 1.0f);
+        glColor3ub(color.R, color.G, color.B);
+    }
+    void Draw::Clear(System::Drawing::Color color)
+    {
+        glClearColor((float)color.R / 255.0f, (float)color.G / 255.0f, (float)color.B / 255.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
     }
     void Draw::Point(double x, double y, int size)

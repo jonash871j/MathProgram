@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MathLib.Tools;
-using MathProgram.Controls.GlobalControls;
+using MathLib.Tools.Trigonometry;
+using MathProgram.Controls;
 using MathProgram.Forms;
 
 namespace MathProgram.Controls

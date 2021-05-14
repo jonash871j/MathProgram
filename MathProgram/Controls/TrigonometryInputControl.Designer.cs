@@ -31,12 +31,12 @@ namespace MathProgram.Controls
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.TNB_AngleC = new MathProgram.Controls.GlobalControls.ToggleableNumberBoxControl();
-            this.TNB_SiteC = new MathProgram.Controls.GlobalControls.ToggleableNumberBoxControl();
-            this.TNB_AngleB = new MathProgram.Controls.GlobalControls.ToggleableNumberBoxControl();
-            this.TNB_AngleA = new MathProgram.Controls.GlobalControls.ToggleableNumberBoxControl();
-            this.TNB_SiteA = new MathProgram.Controls.GlobalControls.ToggleableNumberBoxControl();
-            this.TNB_SiteB = new MathProgram.Controls.GlobalControls.ToggleableNumberBoxControl();
+            this.TNB_AngleC = new MathProgram.Controls.ToggleableNumberBoxControl();
+            this.TNB_SiteC = new MathProgram.Controls.ToggleableNumberBoxControl();
+            this.TNB_AngleB = new MathProgram.Controls.ToggleableNumberBoxControl();
+            this.TNB_AngleA = new MathProgram.Controls.ToggleableNumberBoxControl();
+            this.TNB_SiteA = new MathProgram.Controls.ToggleableNumberBoxControl();
+            this.TNB_SiteB = new MathProgram.Controls.ToggleableNumberBoxControl();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -168,11 +168,11 @@ namespace MathProgram.Controls
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private GlobalControls.ToggleableNumberBoxControl TNB_AngleC;
-        private GlobalControls.ToggleableNumberBoxControl TNB_SiteC;
-        private GlobalControls.ToggleableNumberBoxControl TNB_AngleB;
-        private GlobalControls.ToggleableNumberBoxControl TNB_AngleA;
-        private GlobalControls.ToggleableNumberBoxControl TNB_SiteA;
-        private GlobalControls.ToggleableNumberBoxControl TNB_SiteB;
+        private Controls.ToggleableNumberBoxControl TNB_AngleC;
+        private Controls.ToggleableNumberBoxControl TNB_SiteC;
+        private Controls.ToggleableNumberBoxControl TNB_AngleB;
+        private Controls.ToggleableNumberBoxControl TNB_AngleA;
+        private Controls.ToggleableNumberBoxControl TNB_SiteA;
+        private Controls.ToggleableNumberBoxControl TNB_SiteB;
     }
 }

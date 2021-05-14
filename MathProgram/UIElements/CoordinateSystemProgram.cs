@@ -9,24 +9,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tao.Platform.Windows;
-using static Tao.OpenGl.Gl;
-using static Tao.FreeGlut.Glut;
 using RendererLib;
 
 namespace MathProgram.UIElements
 {
     public class CoordinateSystemProgram
     {
-        public struct Colors
+        public static class Colors
         {
-            public Color GraphText;
-            public Color DefaultText;
-            public Color LargeGrid;
-            public Color SmallGrid;
-            public Color Background;
-            public Color Axis;
-            public Color Graph;
-            public Color Shape;
+            //public static Color GraphText = Color.FromArgb(0, 0, 0);
+            //public static Color DefaultText = Color.FromArgb(0, 0, 0);
+            //public static Color LargeGrid = Color.FromArgb(160, 160, 160);
+            //public static Color SmallGrid = Color.FromArgb(192, 192, 192);
+            //public static Color Background = Color.FromArgb(255, 255, 255);
+            //public static Color Axis = Color.FromArgb(0, 0, 0);
+
+            public static Color GraphText = Color.FromArgb(51, 173, 255);
+            public static Color DefaultText = Color.FromArgb(255, 255, 255);
+            public static Color LargeGrid = Color.FromArgb(48, 48, 48);
+            public static Color SmallGrid = Color.FromArgb(32, 32, 32);
+            public static Color Background = Color.FromArgb(16, 16, 16);
+            public static Color Axis = Color.FromArgb(192, 192, 192);
         }
 
         // Coordinates system fields
@@ -112,19 +115,8 @@ namespace MathProgram.UIElements
 
         #endregion
 
-        public Colors color;
-
         public CoordinateSystemProgram(ref SimpleOpenGlControl simpleOpenGlControl)
         {
-            color.GraphText = Color.FromArgb(51, 173, 255);
-            color.DefaultText = Color.FromArgb(255, 255, 255);
-            color.LargeGrid = Color.FromArgb(48, 48, 48);
-            color.SmallGrid = Color.FromArgb(32, 32, 32);
-            color.Background = Color.FromArgb(16, 16, 16);
-            color.Axis = Color.FromArgb(192, 192, 192);
-            color.Graph = Color.FromArgb(64, 128, 64);
-            color.Shape = Color.FromArgb(255, 255, 255);
-
             OpenGlControl = simpleOpenGlControl;
             OpenGlControl.SizeChanged += OnSizeChanged;
             Geometries = new List<IGeometry>();
@@ -145,7 +137,7 @@ namespace MathProgram.UIElements
 
         private void GLDrawPoint(Point2D point)
         {
-            Draw.Color(point.Color.R, point.Color.G, point.Color.B);
+            Draw.Color(point.Color);
             Draw.Point(relX + point.X * scale, relY + point.Y * scale, 4);
         }
         private void GLDrawLine(Line line)
@@ -166,7 +158,7 @@ namespace MathProgram.UIElements
             if (IsGridVisible)
             {
                 // Sets grid color
-                Draw.Color(color.R, color.G, color.B);
+                Draw.Color(color);
 
                 // Draws horizontal grid lines
                 for (double y = relY % gridHeight; y < Height; y += gridHeight)
@@ -186,7 +178,7 @@ namespace MathProgram.UIElements
             if (IsAxisVisible)
             {
                 // Sets color
-                glColor3ub(color.Axis.R, color.Axis.G, color.Axis.B);
+                Draw.Color(Colors.Axis);
 
                 // Draws y axis
                 Draw.Line(relX, 0.0f, relX, Height, 1);
@@ -201,7 +193,7 @@ namespace MathProgram.UIElements
             double lastY = 0.0;
 
             // Sets graph color
-            glColor3ub(color.R, color.G, color.B);
+            Draw.Color(color);
 
             // Loops throgh each pixel on the x axis
             for (double x = -centerX + X; x < centerX + X; x++)
@@ -282,18 +274,18 @@ namespace MathProgram.UIElements
         public void GLDraw()
         {
             Draw.Setup(Width, Height);
-            Draw.Clear();
+            Draw.Clear(Colors.Background);
 
             Draw.Begin();
             GLDrawGrid( // Small grid
                 gridWidth: GRID_FACTOR,
                 gridHeight: GRID_FACTOR,
-                color: color.SmallGrid
+                color: Colors.SmallGrid
             );
             GLDrawGrid( // Large grid
                 gridWidth: (GRID_FACTOR * 5),
                 gridHeight: (GRID_FACTOR * 5),
-                color: color.LargeGrid
+                color: Colors.LargeGrid
             );
             GLDrawAxis();
 
@@ -379,7 +371,7 @@ namespace MathProgram.UIElements
                 graphics.DrawString(
                     text,
                     Font,
-                    new SolidBrush(color.GraphText),
+                    new SolidBrush(Colors.GraphText),
                     new Point(
                         x,
                         y
@@ -398,7 +390,7 @@ namespace MathProgram.UIElements
                     string[] lines = text.Split('\n');
                     string longest = lines.OrderByDescending(s => s.Length).First();
 
-                    graphics.FillRectangle(new SolidBrush(color.Background), new Rectangle(
+                    graphics.FillRectangle(new SolidBrush(Colors.Background), new Rectangle(
                         (int)(x * scale - X + centerX) + 4,
                         (int)(y * -scale - Y + centerY) + 8,
                         longest.Length * 6,
@@ -407,7 +399,7 @@ namespace MathProgram.UIElements
                     graphics.DrawString(
                         text,
                         Font,
-                            new SolidBrush(color.DefaultText),
+                            new SolidBrush(Colors.DefaultText),
                         new Point(
                             (int)(x * scale - X + centerX) + 4,
                             (int)(y * -scale - Y + centerY) + 8

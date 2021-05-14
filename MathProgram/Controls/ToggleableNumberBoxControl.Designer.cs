@@ -1,5 +1,4 @@
-﻿
-namespace MathProgram.Controls.GlobalControls
+﻿namespace MathProgram.Controls
 {
     partial class ToggleableNumberBoxControl
     {
