@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MathLib;
 using MathLib.Tools;
 using MathLib.Tools.Trigonometry;
 using MathProgram.Controls;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,13 +15,15 @@ namespace MathProgram.Controls
     {
         private double _value;
         private bool _isReadOnly;
+
+        public static double IncrementValue { get; set; } = 1.0;
         public double Value 
         {
             get => _value;
             set
             {
                 _value = value;
-                TB_Main.Text = Value.ToString();
+                TB_Main.Text = Settings.Limit(Value);
             }
         }
         public bool IsReadOnly
@@ -66,15 +69,16 @@ namespace MathProgram.Controls
         private void SB_Main_Scroll(object sender, ScrollEventArgs e)
         {
             int delta = e.OldValue - e.NewValue;
+
             if (delta > 0)
             {
-                Value++;
+                Value += IncrementValue;
             }
             if (delta < 0)
             {
-                Value--;
+                Value -= IncrementValue;
             }
-            TB_Main.Text = Value.ToString();
+            TB_Main.Text = Settings.Limit(Value);
             TB_Main.SelectionStart = TB_Main.Text.Length;
         }
 
@@ -102,6 +106,7 @@ namespace MathProgram.Controls
             {
                 Value = 0.0;
             }
+            TB_Main.Text = Settings.Limit(Value);
         }
     }
 }

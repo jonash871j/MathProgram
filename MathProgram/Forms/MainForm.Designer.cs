@@ -39,7 +39,7 @@ namespace MathProgram.Forms
             this.værktøjerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_FunctionScript = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.afstandToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_PointToPoint = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_PointToLine = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_DotTool = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,8 +56,11 @@ namespace MathProgram.Forms
             this.SS_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TS_Main = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.TB_IncrementValue = new System.Windows.Forms.ToolStripTextBox();
             this.MS_Main.SuspendLayout();
             this.SS_Main.SuspendLayout();
+            this.TS_Main.SuspendLayout();
             this.SuspendLayout();
             // 
             // MS_Main
@@ -119,7 +122,7 @@ namespace MathProgram.Forms
             this.værktøjerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_FunctionScript,
             this.toolStripSeparator1,
-            this.afstandToolStripMenuItem1,
+            this.menuItem2,
             this.MI_DotTool,
             this.andetToolStripMenuItem,
             this.MI_QuadraticEquations,
@@ -140,14 +143,16 @@ namespace MathProgram.Forms
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(183, 6);
             // 
-            // afstandToolStripMenuItem1
+            // menuItem2
             // 
-            this.afstandToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.menuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_PointToPoint,
             this.MI_PointToLine});
-            this.afstandToolStripMenuItem1.Name = "afstandToolStripMenuItem1";
-            this.afstandToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
-            this.afstandToolStripMenuItem1.Text = "Afstand";
+            this.menuItem2.ForeColor = System.Drawing.SystemColors.Control;
+            this.menuItem2.Name = "menuItem2";
+            this.menuItem2.Size = new System.Drawing.Size(186, 22);
+            this.menuItem2.Text = "Afstand";
             // 
             // MI_PointToPoint
             // 
@@ -271,11 +276,31 @@ namespace MathProgram.Forms
             // TS_Main
             // 
             this.TS_Main.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.TS_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.TB_IncrementValue});
             this.TS_Main.Location = new System.Drawing.Point(0, 25);
             this.TS_Main.Name = "TS_Main";
             this.TS_Main.Size = new System.Drawing.Size(800, 25);
             this.TS_Main.TabIndex = 7;
             this.TS_Main.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.ForeColor = System.Drawing.SystemColors.Control;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(89, 22);
+            this.toolStripLabel1.Text = "Stigningsværdi:";
+            // 
+            // TB_IncrementValue
+            // 
+            this.TB_IncrementValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.TB_IncrementValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TB_IncrementValue.ForeColor = System.Drawing.SystemColors.Window;
+            this.TB_IncrementValue.Name = "TB_IncrementValue";
+            this.TB_IncrementValue.Size = new System.Drawing.Size(50, 25);
+            this.TB_IncrementValue.Text = "1,0";
+            this.TB_IncrementValue.Leave += new System.EventHandler(this.TB_IncrementValue_Leave);
             // 
             // MainForm
             // 
@@ -298,6 +323,8 @@ namespace MathProgram.Forms
             this.MS_Main.PerformLayout();
             this.SS_Main.ResumeLayout(false);
             this.SS_Main.PerformLayout();
+            this.TS_Main.ResumeLayout(false);
+            this.TS_Main.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,7 +347,7 @@ namespace MathProgram.Forms
         private System.Windows.Forms.ToolStrip TS_Main;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem MI_Trigonometry;
-        private System.Windows.Forms.ToolStripMenuItem afstandToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem menuItem2;
         private System.Windows.Forms.ToolStripMenuItem MI_PointToPoint;
         private System.Windows.Forms.ToolStripMenuItem MI_PointToLine;
         private System.Windows.Forms.ToolStripMenuItem MI_FunctionScript;
@@ -331,5 +358,7 @@ namespace MathProgram.Forms
         private System.Windows.Forms.ToolStripMenuItem andetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MI_IntersectionPointBeetweenTwoLines;
         private System.Windows.Forms.ToolStripMenuItem MI_DotProduct;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox TB_IncrementValue;
     }
 }

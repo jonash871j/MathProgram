@@ -21,26 +21,33 @@ namespace MathProgram.Forms
         {
             InitializeComponent();
 
-            timer = new System.Timers.Timer(500);
+            timer = new System.Timers.Timer(250);
             timer.Elapsed += OnTimerElapsed;
             timer.Start();
 
             TEC_Main.SetHighlighting("C#");
             TEC_Main.Font = new Font("Consolas", 16.0f, FontStyle.Regular);
             CoordinateSystemForm.Program.Geometries.Add(functionScript);
+            UpdateFunction();
+        }
+
+        private void UpdateFunction()
+        {
+            functionScript.Script = TEC_Main.Text;
+            functionScript.Update();
+            LB_ErrorText.Text = functionScript.ErrorText;
+            CoordinateSystemForm.Program.Update();
         }
 
         private void OnTimerElapsed(object sender, ElapsedEventArgs e)
         {
             timer.Stop();
-            BeginInvoke(new MethodInvoker(() => 
+
+            BeginInvoke(new MethodInvoker(() =>
             {
                 if (functionScript.Script != TEC_Main.Text)
                 {
-                    functionScript.Script = TEC_Main.Text;
-                    functionScript.Update();
-                    LB_ErrorText.Text = functionScript.ErrorText;
-                    CoordinateSystemForm.Program.Update();
+                    UpdateFunction();
                 }
             }));
         }
@@ -62,6 +69,19 @@ namespace MathProgram.Forms
                 timer.Stop();
                 timer.Start();
             }
+        }
+
+        private void TNB_X_CheckBoxChanged(object sender, EventArgs e)
+        {
+            functionScript.IsCoordinateShown = !TNB_X.IsReadOnly;
+            LB_Y.Text = $"y = ";
+            CoordinateSystemForm.Program.Update();
+        }
+        private void TNB_X_NumberChanged(object sender, EventArgs e)
+        {
+            functionScript.X = TNB_X.Value;
+            LB_Y.Text = $"y = {functionScript.Y}";
+            CoordinateSystemForm.Program.Update();
         }
     }
 }

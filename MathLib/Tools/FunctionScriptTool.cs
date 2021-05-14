@@ -6,6 +6,7 @@ using System.Text;
 using System.CodeDom;
 using Microsoft.CSharp;
 using System.CodeDom.Compiler;
+using System.Drawing;
 
 namespace MathLib
 {
@@ -14,13 +15,17 @@ namespace MathLib
         double Function(double x);
     }
 
-    public class FunctionScriptTool : IFunction
+    public class FunctionScriptTool : IFunction, IPoints
     {
         private Assembly assembly;
+        private IAssemblyFunction assemblyFunction;
 
         public string Script { get; set; } = "";
         public string ErrorText { get; private set; } = "";
         public Function Properties { get; set; } = new Function();
+        public bool IsCoordinateShown { get; set; } = false;
+        public double X { get; set; }
+        public double Y { get; private set; }
 
         public void Update()
         {
@@ -62,36 +67,14 @@ namespace MathLib
 
         public double Function(double x)
         {
-            
-            if (assembly != null)
+            if (assemblyFunction != null)
             {
-                foreach (Type type in assembly.GetExportedTypes())
-                {
-                    foreach (Type iface in type.GetInterfaces())
-                    {
-                        if (iface == typeof(IAssemblyFunction))
-                        {
-                            ConstructorInfo constructor = type.GetConstructor(System.Type.EmptyTypes);
-                            if (constructor != null && constructor.IsPublic)
-                            {
-                                IAssemblyFunction scriptObject = constructor.Invoke(null) as IAssemblyFunction;
-                                if (scriptObject != null)
-                                {
-                                    try
-                                    {
-                                        return scriptObject.Function(x);
-                                    }
-                                    catch(Exception exception)
-                                    {
-                                        ErrorText = "Dårligt script: " + exception.Message;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                return assemblyFunction.Function(x);
             }
-            return 0;
+            else
+            {
+                return 0.1254232;
+            }
         }
 
         void CompileCode(string code)
@@ -111,7 +94,7 @@ namespace MathLib
 
             if (result.Errors.HasErrors)
             {
-                ErrorText = "Linje " + result.Errors[0].Line + " - " + result.Errors[0].ErrorText;
+                ErrorText = "Fejl på linje " + result.Errors[0].Line;
 
                 // TODO: report back to the user that the script has errored
                 assembly = null;
@@ -120,6 +103,45 @@ namespace MathLib
             ErrorText = "";
 
             assembly = result.CompiledAssembly;
+            if (assembly != null)
+            {
+                foreach (Type type in assembly.GetExportedTypes())
+                {
+                    foreach (Type iface in type.GetInterfaces())
+                    {
+                        if (iface == typeof(IAssemblyFunction))
+                        {
+                            ConstructorInfo constructor = type.GetConstructor(System.Type.EmptyTypes);
+                            if (constructor != null && constructor.IsPublic)
+                            {
+                                assemblyFunction = constructor.Invoke(null) as IAssemblyFunction;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public Point2D[] Points()
+        {
+            if (IsCoordinateShown)
+            {
+                Y = 0;
+
+                if (assemblyFunction != null)
+                {
+                    Y = assemblyFunction.Function(X);
+                }
+
+                return new Point2D[]
+                {
+                new Point2D(X, Y, "#", Color.Red)
+                };
+            }
+            else
+            {
+                return new Point2D[] { };
+            }
         }
     }
 }

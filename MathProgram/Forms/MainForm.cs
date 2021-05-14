@@ -5,9 +5,13 @@ using MathProgram.StaticContainers;
 using MathProgram.Interfaces;
 using MathLib;
 using MathProgram.Forms.ToolForms;
+using System.Drawing;
+using MathProgram.Controls;
 
 namespace MathProgram.Forms
 {
+
+
     public partial class MainForm : Form
     {
         // Link to math formular libary: http://numerator.sourceforge.net/components.php
@@ -73,6 +77,22 @@ namespace MathProgram.Forms
         {
             dockForm.Show(DP_Main, dockState);
             dockForm.DockTo(DP_Main, dockStyle);
+        }
+
+        private void TB_IncrementValue_Leave(object sender, EventArgs e)
+        {
+            double value = 1.0;
+            if (double.TryParse(TB_IncrementValue.Text, out value))
+            {
+                TB_IncrementValue.Text = value.ToString();
+                NumberBox.IncrementValue = value;
+            }
+            else
+            {
+                TB_IncrementValue.Text = "1.0";
+                NumberBox.IncrementValue = 1;
+            }
+
         }
     }
 }
