@@ -113,6 +113,12 @@ namespace MathLib.Tools.Trigonometry.Internal
 				Form_A3();
 				Form_a1();
 			}
+
+			// Error checking
+			if (A >= 180 || B >= 180 || C >= 180 || A < 0 || B < 0 || C < 0)
+			{
+				ErrorMsg = "En vinkel må ikke være 180° eller mere!";
+			}
 		}
 
 		void Form_a1()

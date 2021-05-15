@@ -26,7 +26,7 @@ namespace MathLib.Geometry
 
         public override string ToString()
         {
-            string coordinate = $"({X.ToString("N2")} ; {Y.ToString("N2")})";
+            string coordinate = $"({Settings.Limit(X)} ; {Settings.Limit(Y)})";
 
             if (Text == "")
             {

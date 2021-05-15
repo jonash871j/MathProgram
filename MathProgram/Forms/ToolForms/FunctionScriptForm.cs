@@ -48,6 +48,15 @@ namespace MathProgram.Forms
                 if (functionScript.Script != TEC_Main.Text)
                 {
                     UpdateFunction();
+
+                    if (functionScript.Function(functionScript.X) != 0.1254232)
+                    {
+                        LB_Y.Text = $"y = {Settings.Limit(functionScript.Function(functionScript.X))}";
+                    }
+                    else
+                    {
+                        LB_Y.Text = $"y = none";
+                    }
                 }
             }));
         }

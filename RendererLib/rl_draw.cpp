@@ -5,6 +5,8 @@
 
 namespace RendererLib
 {
+    static uint8_t _r = 0, _g = 0, _b = 0;
+
     void Draw::Init()
     {
 
@@ -30,10 +32,16 @@ namespace RendererLib
     }
     void Draw::Color(uint8_t r, uint8_t g, uint8_t b)
     {
+        _r = r;
+        _g = g;
+        _b = b;
         glColor3ub(r, g, b);
     }
     void Draw::Color(System::Drawing::Color color)
     {
+        _r = color.R;
+        _g = color.G;
+        _b = color.B;
         glColor3ub(color.R, color.G, color.B);
     }
     void Draw::Clear(System::Drawing::Color color)

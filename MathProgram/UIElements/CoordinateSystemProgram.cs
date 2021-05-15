@@ -142,7 +142,7 @@ namespace MathProgram.UIElements
         }
         private void GLDrawLine(Line line)
         {
-            Draw.Color(line.Color.R, line.Color.G, line.Color.B);
+            Draw.Color(line.Color);
             Draw.Line(
                 relX + line.A.X * scale,
                 relY + line.A.Y * scale,
