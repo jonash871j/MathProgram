@@ -7,6 +7,7 @@ using MathLib;
 using MathProgram.Forms.ToolForms;
 using System.Drawing;
 using MathProgram.Controls;
+using static MathProgram.StaticContainers.VSRender;
 
 namespace MathProgram.Forms
 {
@@ -32,6 +33,7 @@ namespace MathProgram.Forms
         private void EnableVSRenderer()
         {
             DP_Main.Theme = VSRender.Theme;
+
             VSRender.SetStyle(MS_Main);
             VSRender.SetStyle(TS_Main);
             VSRender.SetStyle(SS_Main);

@@ -46,7 +46,7 @@ namespace MathLib.Tools.Geometry
 
         public void Calculate()
         {
-            D = (X1 - X2) * (Y3 - Y4) - (Y1 - Y2) * (X3 - X4);
+           D = (X1 - X2) * (Y3 - Y4) - (Y1 - Y2) * (X3 - X4);
             PX = (((X1 * Y2) - (Y1 * X2)) * (X3 - X4) - (X1 - X2) * ((X3 * Y4) - (Y3 * X4))) / D;
             PY = (((X1 * Y2) - (Y1 * X2)) * (Y3 - Y4) - (Y1 - Y2) * ((X3 * Y4) - (Y3 * X4))) / D;
 

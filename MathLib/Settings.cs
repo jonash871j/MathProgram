@@ -23,25 +23,7 @@ namespace MathLib
         public static string CalculationInner(string calculation)
         {
             if (IsCalculationVisible)
-            {
-                string finalCalculation = "";
-                char lastChar = ' ';
-
-                for (int i = 0; i < calculation.Length; i++)
-                {
-                    if ((lastChar != '-') || (calculation[i] != '-'))
-                    {
-                        finalCalculation += calculation[i];
-                    }
-                    if (calculation[i] != ' ')
-                    {
-                        lastChar = calculation[i];
-                    }
-                }
-
-                return finalCalculation;
-
-            }
+                return calculation.Replace(" ", "");
             else
                 return "";
         }
