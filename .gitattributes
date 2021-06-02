@@ -3,7 +3,7 @@
 ###############################################################################
 * text=auto
 *.cpp linguist-detectable=false
-*.cs linguist-detectable=false
+*.cs linguist-detectable=true
 
 ###############################################################################
 # Set default behavior for command prompt diff.
