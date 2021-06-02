@@ -2,8 +2,7 @@
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
 * text=auto
-*.cpp linguist-detectable=true
-*.cs linguist-detectable=false
+*.cc linguist-detectable=true
 
 ###############################################################################
 # Set default behavior for command prompt diff.
