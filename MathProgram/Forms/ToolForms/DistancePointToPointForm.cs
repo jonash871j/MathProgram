@@ -33,7 +33,6 @@ namespace MathProgram.Forms
                 distanceFormular.GetMidPointCalculation(),
                 distanceFormular.GetMidPointResult()
             );
-            CoordinateSystemForm.Program.Update();
         }
     }
 }

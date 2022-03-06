@@ -12,6 +12,7 @@ using MathLib.Tools;
 using MathLib.Tools.Trigonometry;
 using MathProgram.Controls;
 using MathProgram.Forms;
+using MathProgram.Static;
 
 namespace MathProgram.Controls
 {
@@ -49,15 +50,13 @@ namespace MathProgram.Controls
         {
             this.trigonometry = trigonometry;
             this.trigonometry.Calculation += OnCalculation;
-            CoordinateSystemForm.Program.Geometries.Add(trigonometry);
         }
 
         private void OnFormClosed(object sender, FormClosedEventArgs e)
         {
             if (trigonometry != null)
             {
-                CoordinateSystemForm.Program.Geometries.Remove(trigonometry);
-                CoordinateSystemForm.Program.Update();
+                AlgebraContainer.Geometries.Remove(trigonometry);
             }
         }
 
@@ -87,7 +86,6 @@ namespace MathProgram.Controls
                     field.Value.Value = trigonometry.Constants[field.Key];
                 }
             }
-            CoordinateSystemForm.Program.Update();
         }
 
         private void OnCheckboxChanged(object sender, EventArgs e)

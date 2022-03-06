@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A43D0AA0-CD73-4CF0-826D-C0214E7620BE}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>MathProgram</RootNamespace>
     <AssemblyName>MathProgram</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +36,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>mlogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.TextEditor, Version=3.2.1.6466, Culture=neutral, PublicKeyToken=4d61825e8dd49f1a, processorArchitecture=MSIL">
@@ -77,17 +81,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Component1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Component1.Designer.cs">
-      <DependentUpon>Component1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\DefaultCalculationControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\DefaultCalculationControl.Designer.cs">
       <DependentUpon>DefaultCalculationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GLEngineControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GLEngineControl.Designer.cs">
+      <DependentUpon>GLEngineControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\InputControl.cs">
       <SubType>UserControl</SubType>
@@ -162,6 +166,7 @@
     <Compile Include="Forms\ToolForms\DistancePointToPointForm.Designer.cs">
       <DependentUpon>DistancePointToPointForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Static\AlgebraContainer.cs" />
     <Compile Include="Static\Misc.cs" />
     <Compile Include="UIElements\CoordinateSystemProgram.cs" />
     <Compile Include="Forms\CalculatorForm.cs">
@@ -199,6 +204,9 @@
     <Compile Include="UIElements\VSRender.cs" />
     <EmbeddedResource Include="Controls\DefaultCalculationControl.resx">
       <DependentUpon>DefaultCalculationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GLEngineControl.resx">
+      <DependentUpon>GLEngineControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\InputControl.resx">
       <DependentUpon>InputControl.cs</DependentUpon>
@@ -260,6 +268,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="GLEngineResources\Shaders\basic3d_f.glsl" />
+    <None Include="GLEngineResources\Shaders\basic3d_v.glsl" />
+    <None Include="GLEngineResources\Shaders\font_f.glsl" />
+    <None Include="GLEngineResources\Shaders\font_v.glsl" />
+    <None Include="GLEngineResources\Shaders\primitive2d_f.glsl" />
+    <None Include="GLEngineResources\Shaders\primitive2d_v.glsl" />
+    <None Include="GLEngineResources\Shaders\screen_f.glsl" />
+    <None Include="GLEngineResources\Shaders\screen_v.glsl" />
+    <None Include="GLEngineResources\Shaders\sprite_f.glsl" />
+    <None Include="GLEngineResources\Shaders\sprite_v.glsl" />
+    <None Include="GLEngineResources\Shaders\texture2d_f.glsl" />
+    <None Include="GLEngineResources\Shaders\texture2d_v.glsl" />
+    <None Include="GLEngineResources\Shaders\texture3d_f.glsl" />
+    <None Include="GLEngineResources\Shaders\texture3d_v.glsl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -286,6 +308,21 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="GLEngineResources\Bitmap Fonts\font.png" />
+    <Content Include="GLEngineResources\freetype.dll" />
+    <Content Include="GLEngineResources\GLEngineLib.dll" />
+    <Content Include="GLEngineResources\glew32.dll" />
+    <Content Include="GLEngineResources\glfw3.dll" />
+    <Content Include="GLEngineResources\libFLAC-8.dll" />
+    <Content Include="GLEngineResources\libmodplug-1.dll" />
+    <Content Include="GLEngineResources\libmpg123-0.dll" />
+    <Content Include="GLEngineResources\libogg-0.dll" />
+    <Content Include="GLEngineResources\libopus-0.dll" />
+    <Content Include="GLEngineResources\libopusfile-0.dll" />
+    <Content Include="GLEngineResources\libvorbis-0.dll" />
+    <Content Include="GLEngineResources\libvorbisfile-3.dll" />
+    <Content Include="GLEngineResources\SDL2.dll" />
+    <Content Include="GLEngineResources\SDL2_mixer.dll" />
     <Content Include="Images\Icons\Axis_16x.png" />
     <Content Include="Images\Icons\Graph_16x.png" />
     <Content Include="Images\Icons\GridToggle_16xMD.png" />

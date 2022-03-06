@@ -47,7 +47,6 @@ namespace MathProgram.Forms
             TB_RootAmountOfSolutions.Text = quadraticEquation.GetSolutionMessage();
             TB_RootResult.Text = quadraticEquation.GetRootResult();
 
-            CoordinateSystemForm.Program.Update();
         }
     }
 }

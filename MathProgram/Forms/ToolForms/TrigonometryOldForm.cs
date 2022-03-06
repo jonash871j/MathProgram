@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using MathLib.Trigonometry;
+using MathProgram.Static;
 
 namespace MathProgram.Forms
 {
@@ -22,11 +23,11 @@ namespace MathProgram.Forms
         public TrigonometryForm()
         {
             InitializeComponent();
-            CoordinateSystemForm.Program.Geometries.Add(trigonometryManager);
+            AlgebraContainer.Geometries.Add(trigonometryManager);
         }
         private void TrigonometryForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            CoordinateSystemForm.Program.Geometries.Remove(trigonometryManager);
+            AlgebraContainer.Geometries.Remove(trigonometryManager);
         }
 
 
@@ -86,7 +87,6 @@ namespace MathProgram.Forms
                 tb_tri_function.Text = calculated[0];
                 tb_tri_result.Text = calculated[1];
             }
-            CoordinateSystemForm.Program.Update();
         }
 
 

@@ -124,7 +124,7 @@
   <data name="BN_TogglePoints.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB4SURBVDhPxY9BDoAgDAR79QM+qB/z11yrS1qCUgriwUk2
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAB4SURBVDhPxY9BDoAgDAR79QM+qB/z11yrS1qCUgriwUk2
         BNIdgFJKwsyClR7IToLo1qcnsDJybIFkJEB5SQCGZRAJPOxlun0nsLJ9LR/2BM1NF3U5FNigDetx5lYG
         kaAZ9vAEYKoMeoJpasFKimAlRfAl+pHfIDoBCqVF9g1pTTkAAAAASUVORK5CYII=
 </value>
@@ -132,7 +132,7 @@
   <data name="BN_ToggleShapes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABeSURBVDhPY/j27dt/Jyen/yCaAQv4L8bwH4TrgUyoECqg
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAABeSURBVDhPY/j27dt/Jyen/yCaAQv4L8bwH4TrgUyoECqg
         qQHIGnEaQjMDsGnAaghNDMDpXCDAkKO6ASAFxGC4IegGgCSIxVgNIBkgG0AOhhtADoYbQAmGemTAAAMD
         AL23YD09cjGcAAAAAElFTkSuQmCC
 </value>
@@ -140,7 +140,7 @@
   <data name="BN_ToggleGraphs.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABvSURBVDhPzc/RCoAwCAVQX4K+y7/sR301NrzSNmW0grpw
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAABvSURBVDhPzc/RCoAwCAVQX4K+y7/sR301NrzSNmW0grpw
         GQmeNhIRZWYtJwVR2hW1UZsMwNJBmzeEIuC6bKOaEMmAfhkBYp8jgD/MAEciIFtGmlu8CpThHaAiPTBb
         RvwW/wJW6sBKHXhSe9FnIToBMpNkBO+/PgAAAAAASUVORK5CYII=
 </value>
@@ -148,7 +148,7 @@
   <data name="BN_ToggleTexts.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB3SURBVDhPxY/RDYAwCERZwR8H6mIu6Dz8YmiEXAk1Uj+8
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAB3SURBVDhPxY/RDYAwCERZwR8H6mIu6Dz8YmiEXAk1Uj+8
         5FKgvRdKzCytNdGTVhQBB5HM3ANRCNBHss+dQp42sJC5B6IiwISAe5SrAkjrtwDsh7vqBucW5lWAzhRS
         BmA/3M0AKgubsPcaASt2wIod8MX9Gz+K6AJrN3JZKdvFaQAAAABJRU5ErkJggg==
 </value>
@@ -156,14 +156,14 @@
   <data name="BN_ToggleAxis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA6SURBVDhPY/j27dt/Jyen/yCagRwwasCoASAwuAwgB8MN
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAA6SURBVDhPY/j27dt/Jyen/yCagRwwasCoASAwuAwgB8MN
         IAfDDaAEQz2C6hViaahWCAAJkIoZGBgYALKYW5uIPMCVAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="BN_ToggleGrid.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVDhPY6Aa+P79uwMpGKoNAb59+/b/5MmTRGGQWqg2
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAABkSURBVDhPY6Aa+P79uwMpGKoNAb59+/b/5MmTRGGQWqg2
         BAAJOjk5/c/LzQNjfGy8Bnx4/xGM8bFpawAuZyOzaesCXJqQ2XgNwOVsZDZtXYBLEzIbrwHEYJwGkIKh
         2gYcMDAAAEoWzsQDrvCGAAAAAElFTkSuQmCC
 </value>
@@ -171,7 +171,7 @@
   <data name="BN_GotoOrigin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFjSURBVDhPjZNPaoNQEMa9QLtte5AsCl1lIYpHUHsD9SqB
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFjSURBVDhPjZNPaoNQEMa9QLtte5AsCl1lIYpHUHsD9SqB
         kE1KF4VSigsXHkDc5hKWinHjJtEkQhdO53uoGGOiHwy858z7vfnjk06nE3XtcDgox+PxvSiKCPvtdvvH
         6x9er/n7TOoLQfP5XFiWZZQkCS2XSzJNk2RZFmYYhvgWxzEx5LOqqvv6+DnAdV1SVbXd901RFPJ9H5lu
         WkgX0Jht2xQEAdKnNE0pDENyHKf1A4JMBgGr1eqsJ3WMmef5L8pADDKpy5kNZtBYA4C4kQ+ANJkAxv71

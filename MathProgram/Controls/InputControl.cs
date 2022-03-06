@@ -37,8 +37,7 @@ namespace MathProgram.Controls
         {
             if (geometry != null)
             {
-                CoordinateSystemForm.Program.Geometries.Remove(geometry);
-                CoordinateSystemForm.Program.Update();
+                AlgebraContainer.Geometries.Remove(geometry);
             }
         }
 
@@ -50,7 +49,7 @@ namespace MathProgram.Controls
         public void SetGeometry(IGeometry geometry)
         {
             this.geometry = geometry;
-            CoordinateSystemForm.Program.Geometries.Add(geometry);
+           AlgebraContainer.Geometries.Add(geometry);
         }
 
         private void CreateInputBoxesVertical(KeyValuePair<string, double> input, ref int y)
@@ -124,7 +123,6 @@ namespace MathProgram.Controls
             NumberBox numberBox = (NumberBox)sender;
             input.Contants[numberBox.Name] = numberBox.Value;
             input.Calculate();
-            CoordinateSystemForm.Program.Update();
         }
     }
 }

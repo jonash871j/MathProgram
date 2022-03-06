@@ -32,7 +32,6 @@ namespace MathProgram.Forms
                 angleBetweenTwoVectors.GetAngleCalculation(),
                 angleBetweenTwoVectors.GetAngleResult()
             );
-            CoordinateSystemForm.Program.Update();
         }
     }
 }

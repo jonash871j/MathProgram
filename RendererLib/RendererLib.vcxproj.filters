@@ -14,12 +14,30 @@
     <ClInclude Include="rl_draw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="rl_coordinate_system.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rl_color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rl_coordiate_system_elements.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="rl_draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rl_coordinate_system.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rl_color.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rl_coordiate_system_elements.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

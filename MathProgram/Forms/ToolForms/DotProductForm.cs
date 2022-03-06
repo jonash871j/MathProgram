@@ -28,7 +28,6 @@ namespace MathProgram.Forms
         private void OnCalculation()
         {
             DC_Main.Update(dotProduct.GetDotCalculation(), dotProduct.GetDotResult());
-            CoordinateSystemForm.Program.Update();
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MathLib.Geometry
+namespace MathLib
 {
     public interface IGeometry
     {

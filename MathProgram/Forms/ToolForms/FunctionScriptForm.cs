@@ -8,6 +8,7 @@ using System.Text;
 using System.Timers;
 using System.Windows.Forms;
 using MathLib;
+using MathProgram.Static;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace MathProgram.Forms
@@ -27,7 +28,7 @@ namespace MathProgram.Forms
 
             TEC_Main.SetHighlighting("C#");
             TEC_Main.Font = new Font("Consolas", 16.0f, FontStyle.Regular);
-            CoordinateSystemForm.Program.Geometries.Add(functionScript);
+            AlgebraContainer.Geometries.Add(functionScript);
             UpdateFunction();
         }
 
@@ -36,7 +37,6 @@ namespace MathProgram.Forms
             functionScript.Script = TEC_Main.Text;
             functionScript.Update();
             LB_ErrorText.Text = functionScript.ErrorText;
-            CoordinateSystemForm.Program.Update();
         }
 
         private void OnTimerElapsed(object sender, ElapsedEventArgs e)
@@ -63,8 +63,7 @@ namespace MathProgram.Forms
 
         private void FunctionScriptForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            CoordinateSystemForm.Program.Geometries.Remove(functionScript);
-            CoordinateSystemForm.Program.Update();
+            AlgebraContainer.Geometries.Remove(functionScript);
         }
 
         private void TEC_Main_TextChanged(object sender, EventArgs e)
@@ -84,7 +83,6 @@ namespace MathProgram.Forms
         {
             functionScript.IsCoordinateShown = !TNB_X.IsReadOnly;
             LB_Y.Text = $"y = ";
-            CoordinateSystemForm.Program.Update();
         }
         private void TNB_X_NumberChanged(object sender, EventArgs e)
         {
@@ -97,7 +95,6 @@ namespace MathProgram.Forms
             {
                 LB_Y.Text = $"y = none";
             }
-            CoordinateSystemForm.Program.Update();
         }
     }
 }

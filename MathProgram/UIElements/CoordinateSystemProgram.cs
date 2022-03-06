@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Tao.Platform.Windows;
 using RendererLib;
+using MathLib.Interfaces;
+using MathLib;
 
 namespace MathProgram.UIElements
 {
@@ -288,7 +290,6 @@ namespace MathProgram.UIElements
                 color: Colors.LargeGrid
             );
             GLDrawAxis();
-
             GLDrawFunctions();
             GLDrawShapes();
             GLDrawPoints();
