@@ -66,10 +66,10 @@ namespace MathLib.Tools.Vector
         {
             return new Shape(new List<Line>()
             {
-                new Line(0, 0, AX, AY),
-                new Line(0, 0, BX, BY),
                 new Line(0, 0, PX, PY, Color.Red),
-                new Line(PX, PY, AX, AY, Color.White, "", true),
+                new Line(0, 0, AX, AY),
+                new Line(0, 0, BX, BY, Color.White, lineWidth: 4),
+                new Line(PX, PY, AX, AY, Color.White, isStriped: true),
  
             });
         }

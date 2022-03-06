@@ -55,7 +55,7 @@ namespace MathLib.Tools.Vector
             {
                 new Line(0, 0, A1, A2),
                 new Line(0, 0, B1, B2),
-                new Line(0, 0, DotProduct, 0, Color.Red)
+                new Line(0, 0, DotProduct, 0, Color.Red, $"Laengde: {DotProduct.ToString("N2")}", lineWidth: 4)
             });
         }
 
@@ -65,7 +65,7 @@ namespace MathLib.Tools.Vector
             {
                 new Point2D(A1, A2, "a#", Color.Green),
                 new Point2D(B1, B2, "b#", Color.Green),
-                new Point2D(DotProduct, 0, $"Længde: {DotProduct.ToString("N2")}", Color.Blue),
+                new Point2D(DotProduct, 0, "", Color.Blue),
             };
         }
     }

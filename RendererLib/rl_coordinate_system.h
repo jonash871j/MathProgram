@@ -4,6 +4,9 @@
 #include "rl_coordiate_system_elements.h"
 
 using namespace GLEngine;
+using namespace MathLib;
+using namespace MathLib::Geometry;
+using namespace System::Collections::Generic;
 
 namespace RendererLib
 {
@@ -11,7 +14,8 @@ namespace RendererLib
 	{
 	private:
 		Win32Window* _window;
-		CoordinateSystemElements* _elements;
+		CoordinateSystemElements^ _elements;
+		List<IGeometry^>^ _geometries;
 
 	public:
 		int HalfWidth;
@@ -23,6 +27,7 @@ namespace RendererLib
 	public:
 		void Logic();
 		void Resize(int width, int height);
+		void UpdateGeometries(List<IGeometry^>^ geometries);
 
 	private:
 		void InputLogic();

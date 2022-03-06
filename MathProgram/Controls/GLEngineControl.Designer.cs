@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.GeometryUpdateTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // GeometryUpdateTimer
+            // 
+            this.GeometryUpdateTimer.Enabled = true;
+            this.GeometryUpdateTimer.Interval = 1000;
+            this.GeometryUpdateTimer.Tick += new System.EventHandler(this.GeometryUpdateTimer_Tick);
             // 
             // GLEngineControl
             // 
@@ -44,5 +52,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer GeometryUpdateTimer;
     }
 }

@@ -46,7 +46,7 @@ namespace MathLib.Distance
             X2 = X1 - ((d > 0 ? Length : -Length) * Math.Cos(angle * Math.PI / 180));
             Y2 = Y1 + ((d > 0 ? Length : -Length) * Math.Sin(angle * Math.PI / 180));
 
-            MidPoint = new Point2D((X2 + X1) / 2, (Y2 + Y1) / 2, $"M#\nLægnde: {Length.ToString("N3")}");
+            MidPoint = new Point2D((X2 + X1) / 2, (Y2 + Y1) / 2, $"M#\nLaegnde: {Length.ToString("N3")}");
 
             Calculation?.Invoke();
         }

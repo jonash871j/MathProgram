@@ -1,4 +1,5 @@
-﻿using RendererLib;
+﻿using MathProgram.Static;
+using RendererLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,6 +42,7 @@ namespace MathProgram.Controls
                 Thread t = new Thread(() =>
                 {
                     coordinateSystem = new CoordinateSystem(ptr, Width, Height);
+                    coordinateSystem.UpdateGeometries(AlgebraContainer.Geometries);
                     while (true)
                     {
                         coordinateSystem.Logic();
@@ -53,6 +55,16 @@ namespace MathProgram.Controls
                     }
                 });
                 t.Start();
+            }
+        }
+
+        private void GeometryUpdateTimer_Tick(object sender, EventArgs e)
+        {
+            bool isDesignMode = LicenseManager.UsageMode == LicenseUsageMode.Designtime;
+
+            if (!isDesignMode && !isInitialized)
+            {
+                coordinateSystem.UpdateGeometries(AlgebraContainer.Geometries);
             }
         }
     }

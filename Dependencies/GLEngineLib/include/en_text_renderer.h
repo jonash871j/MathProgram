@@ -10,9 +10,6 @@ namespace GLEngine
 	{
 	private:
 		Shader& _trueTypeShader;
-		Font* _font = nullptr;
-		vec2 _cursorPos = { 0, 0 };
-		float _textSize = 1.0f;
 		unsigned _trueTypeVAO;
 		unsigned _trueTypeVBO;
 
@@ -20,22 +17,15 @@ namespace GLEngine
 		TextRenderer();
 
 	public:
-		template<typename Enum>
-		void SetTextFont(Enum fontKey)
-		{
-			SetTextFont(ResourceManager::GetFont((int)fontKey));
-		}
-		export void SetTextFont(Font& font);
-		export void SetTextCursorPos(vec2 cursorPos);
-		export void SetTextSize(float textSize);
-		export void PrintTextf(const char* format, ...);
+		export void DrawTextf(const char* format, ...);
+		export void Draw3DTextf(const char* format, ...);
 
 	protected:
 		void UpdateShader();
 
 	private:
-		void PrintBitmapText(const char* text);
-		void PrintTrueTypeText(const char* text);
+		void DrawBitmapText(const char* text, bool is3D);
+		void DrawTrueTypeText(const char* text);
 		void InitRenderData();
 	};
 }

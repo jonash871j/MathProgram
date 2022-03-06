@@ -10,6 +10,6 @@ namespace MathProgram.Static
 {
     public static class AlgebraContainer
     {
-        public static List<IGeometry> Geometries { get; private set; }
+        public static List<IGeometry> Geometries { get; private set; } = new List<IGeometry>();
     }
 }
