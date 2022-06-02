@@ -39,19 +39,22 @@ namespace MathProgram.Controls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GB_Main.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GB_Main.Location = new System.Drawing.Point(0, 0);
+            this.GB_Main.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.GB_Main.Name = "GB_Main";
-            this.GB_Main.Size = new System.Drawing.Size(184, 114);
+            this.GB_Main.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.GB_Main.Size = new System.Drawing.Size(491, 272);
             this.GB_Main.TabIndex = 1;
             this.GB_Main.TabStop = false;
             this.GB_Main.Text = "Input";
             // 
             // InputControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.GB_Main);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "InputControl";
-            this.Size = new System.Drawing.Size(184, 114);
+            this.Size = new System.Drawing.Size(491, 272);
             this.Load += new System.EventHandler(this.InputControl_Load);
             this.ResumeLayout(false);
 

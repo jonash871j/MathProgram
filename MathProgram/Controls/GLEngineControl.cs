@@ -22,8 +22,6 @@ namespace MathProgram.Controls
         public GLEngineControl()
         {
             InitializeComponent();
-
-       
         }
 
         private void GLEngineControl_Resize(object sender, EventArgs e)
@@ -34,7 +32,7 @@ namespace MathProgram.Controls
         private void GLEngineControl_Paint(object sender, PaintEventArgs e)
         {
             bool isDesignMode = LicenseManager.UsageMode == LicenseUsageMode.Designtime;
-
+          
             if (!isDesignMode && !isInitialized)
             {
                 isInitialized = true;

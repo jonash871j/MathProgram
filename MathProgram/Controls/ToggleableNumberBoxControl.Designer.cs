@@ -36,18 +36,20 @@
             // LB_Title
             // 
             this.LB_Title.AutoSize = true;
-            this.LB_Title.Location = new System.Drawing.Point(7, 5);
+            this.LB_Title.Location = new System.Drawing.Point(19, 12);
+            this.LB_Title.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.LB_Title.Name = "LB_Title";
-            this.LB_Title.Size = new System.Drawing.Size(27, 13);
+            this.LB_Title.Size = new System.Drawing.Size(69, 32);
             this.LB_Title.TabIndex = 5;
             this.LB_Title.Text = "Titel";
             // 
             // CB_Toggler
             // 
             this.CB_Toggler.AutoSize = true;
-            this.CB_Toggler.Location = new System.Drawing.Point(9, 24);
+            this.CB_Toggler.Location = new System.Drawing.Point(24, 57);
+            this.CB_Toggler.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.CB_Toggler.Name = "CB_Toggler";
-            this.CB_Toggler.Size = new System.Drawing.Size(15, 14);
+            this.CB_Toggler.Size = new System.Drawing.Size(34, 33);
             this.CB_Toggler.TabIndex = 0;
             this.CB_Toggler.UseVisualStyleBackColor = true;
             this.CB_Toggler.CheckedChanged += new System.EventHandler(this.CB_Toggler_CheckedChanged);
@@ -58,21 +60,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NB_NumberField.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.NB_NumberField.IsReadOnly = false;
-            this.NB_NumberField.Location = new System.Drawing.Point(30, 16);
+            this.NB_NumberField.Location = new System.Drawing.Point(80, 38);
+            this.NB_NumberField.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.NB_NumberField.Name = "NB_NumberField";
-            this.NB_NumberField.Size = new System.Drawing.Size(142, 30);
+            this.NB_NumberField.Size = new System.Drawing.Size(379, 79);
             this.NB_NumberField.TabIndex = 1;
             this.NB_NumberField.Value = 0D;
             // 
             // ToggleableNumberBoxControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.LB_Title);
             this.Controls.Add(this.CB_Toggler);
             this.Controls.Add(this.NB_NumberField);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "ToggleableNumberBoxControl";
-            this.Size = new System.Drawing.Size(175, 48);
+            this.Size = new System.Drawing.Size(467, 114);
             this.Load += new System.EventHandler(this.ToggleableNumberBox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

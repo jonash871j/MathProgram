@@ -24,6 +24,7 @@ namespace MathProgram
 
             Draw.Init();
             Application.EnableVisualStyles();
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }

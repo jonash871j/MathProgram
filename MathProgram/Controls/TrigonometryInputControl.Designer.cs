@@ -46,9 +46,11 @@ namespace MathProgram.Controls
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 0);
+            this.groupBox1.Location = new System.Drawing.Point(8, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(417, 194);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.groupBox1.Size = new System.Drawing.Size(1112, 463);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input";
@@ -68,14 +70,15 @@ namespace MathProgram.Controls
             this.tableLayoutPanel1.Controls.Add(this.TNB_AngleA, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.TNB_SiteA, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.TNB_SiteB, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 19);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 45);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(402, 169);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1072, 403);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // TNB_AngleC
@@ -83,9 +86,10 @@ namespace MathProgram.Controls
             this.TNB_AngleC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TNB_AngleC.IsReadOnly = true;
-            this.TNB_AngleC.Location = new System.Drawing.Point(204, 115);
+            this.TNB_AngleC.Location = new System.Drawing.Point(557, 285);
+            this.TNB_AngleC.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.TNB_AngleC.Name = "TNB_AngleC";
-            this.TNB_AngleC.Size = new System.Drawing.Size(195, 47);
+            this.TNB_AngleC.Size = new System.Drawing.Size(494, 101);
             this.TNB_AngleC.TabIndex = 5;
             this.TNB_AngleC.Title = "Vinkel C";
             this.TNB_AngleC.Value = 0D;
@@ -95,9 +99,10 @@ namespace MathProgram.Controls
             this.TNB_SiteC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TNB_SiteC.IsReadOnly = true;
-            this.TNB_SiteC.Location = new System.Drawing.Point(3, 115);
+            this.TNB_SiteC.Location = new System.Drawing.Point(21, 285);
+            this.TNB_SiteC.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.TNB_SiteC.Name = "TNB_SiteC";
-            this.TNB_SiteC.Size = new System.Drawing.Size(195, 47);
+            this.TNB_SiteC.Size = new System.Drawing.Size(494, 101);
             this.TNB_SiteC.TabIndex = 4;
             this.TNB_SiteC.Title = "Siden c";
             this.TNB_SiteC.Value = 0D;
@@ -107,9 +112,10 @@ namespace MathProgram.Controls
             this.TNB_AngleB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TNB_AngleB.IsReadOnly = true;
-            this.TNB_AngleB.Location = new System.Drawing.Point(204, 59);
+            this.TNB_AngleB.Location = new System.Drawing.Point(557, 151);
+            this.TNB_AngleB.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.TNB_AngleB.Name = "TNB_AngleB";
-            this.TNB_AngleB.Size = new System.Drawing.Size(195, 47);
+            this.TNB_AngleB.Size = new System.Drawing.Size(494, 100);
             this.TNB_AngleB.TabIndex = 3;
             this.TNB_AngleB.Title = "Vinkel B";
             this.TNB_AngleB.Value = 0D;
@@ -119,9 +125,10 @@ namespace MathProgram.Controls
             this.TNB_AngleA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TNB_AngleA.IsReadOnly = true;
-            this.TNB_AngleA.Location = new System.Drawing.Point(204, 3);
+            this.TNB_AngleA.Location = new System.Drawing.Point(557, 17);
+            this.TNB_AngleA.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.TNB_AngleA.Name = "TNB_AngleA";
-            this.TNB_AngleA.Size = new System.Drawing.Size(195, 47);
+            this.TNB_AngleA.Size = new System.Drawing.Size(494, 100);
             this.TNB_AngleA.TabIndex = 1;
             this.TNB_AngleA.Title = "Vinkel A";
             this.TNB_AngleA.Value = 0D;
@@ -131,9 +138,10 @@ namespace MathProgram.Controls
             this.TNB_SiteA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TNB_SiteA.IsReadOnly = true;
-            this.TNB_SiteA.Location = new System.Drawing.Point(3, 3);
+            this.TNB_SiteA.Location = new System.Drawing.Point(21, 17);
+            this.TNB_SiteA.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.TNB_SiteA.Name = "TNB_SiteA";
-            this.TNB_SiteA.Size = new System.Drawing.Size(195, 47);
+            this.TNB_SiteA.Size = new System.Drawing.Size(494, 100);
             this.TNB_SiteA.TabIndex = 0;
             this.TNB_SiteA.Title = "Siden a";
             this.TNB_SiteA.Value = 0D;
@@ -143,20 +151,22 @@ namespace MathProgram.Controls
             this.TNB_SiteB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TNB_SiteB.IsReadOnly = true;
-            this.TNB_SiteB.Location = new System.Drawing.Point(3, 59);
+            this.TNB_SiteB.Location = new System.Drawing.Point(21, 151);
+            this.TNB_SiteB.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.TNB_SiteB.Name = "TNB_SiteB";
-            this.TNB_SiteB.Size = new System.Drawing.Size(195, 47);
+            this.TNB_SiteB.Size = new System.Drawing.Size(494, 100);
             this.TNB_SiteB.TabIndex = 2;
             this.TNB_SiteB.Title = "Siden b";
             this.TNB_SiteB.Value = 0D;
             // 
             // TrigonometryInputControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "TrigonometryInputControl";
-            this.Size = new System.Drawing.Size(425, 194);
+            this.Size = new System.Drawing.Size(1133, 463);
             this.Load += new System.EventHandler(this.TrigonometryInputControl_Load);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

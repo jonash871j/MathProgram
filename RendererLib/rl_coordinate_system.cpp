@@ -34,14 +34,15 @@ namespace RendererLib
 		Time& time = _window->GetTime();
 
 		InputLogic();
-		HalfWidth = (window.GetWidth() / camera.GetPosition().z + camera.GetPosition().z);
-		HalfHeight = (window.GetHeight() / camera.GetPosition().z + camera.GetPosition().z) / 2.0f;
+		HalfWidth = window.GetWidth() / 2.0f;
+		HalfHeight = window.GetHeight() / 2.0f;
 
 		modifier.SetDefault()
+			.SetLineWidth(1)
 			.SetColor(VecColor::FromRGB(192, 192, 192));
-		renderer.Draw3DLine({ -999990, 0, 0 }, { 99999, 0, 0 });
-		renderer.Draw3DLine({ 0, -99999, 0 }, { 0, 99999, 0 });
-		renderer.Draw3DLine({ 0, 0, -99999 }, { 0, 0, 99999 });
+		renderer.DrawLine({ 0, HalfHeight }, { window.GetWidth(), HalfHeight });
+		renderer.DrawLine({ HalfWidth, 0}, {HalfWidth, window.GetHeight()});
+		//_elements->DrawGrid();
 
 		for each (IGeometry^ geometry in _geometries)
 		{
@@ -61,8 +62,8 @@ namespace RendererLib
 			.SetFontSize(2.0f)
 			.SetFont(0);
 		renderer.DrawTextf("FPS: %f\n", time.GetFPS());
-		renderer.DrawTextf("x: %f, y: %f, z: %f\n", cameraPos.x, cameraPos.y, cameraPos.z);
-		renderer.DrawTextf("pitch: %f, yaw: %f\n", camera.GetPitch(), camera.GetYaw());
+		renderer.DrawTextf("Zoom: %f\n", _elements->zoom);
+		//renderer.DrawTextf("x: %f, y: %f, z: %f\n", cameraPos.x, cameraPos.y, cameraPos.z);
 
 		modifier.SetDefault()
 			.SetTextCursorPos({ 0, 0, 0 })
@@ -101,35 +102,16 @@ namespace RendererLib
 		float camSpeed = 25.0f * time.GetDeltaTime();
 		if (input.KeyState(Key::W))
 		{
-			cameraPos += camera.GetMovementX() * camSpeed;
+			_elements->zoom += 5.0f * time.GetDeltaTime();
+			_elements->UpdateGrid();
 		}
 		if (input.KeyState(Key::S))
 		{
-			cameraPos -= camera.GetMovementX() * camSpeed;
+			_elements->zoom -= 5.0f * time.GetDeltaTime();
+			_elements->UpdateGrid();
 		}
 		if (input.KeyState(Key::A))
 		{
-			cameraPos -= camera.GetMovementZ() * camSpeed;
-		}
-		if (input.KeyState(Key::D))
-		{
-			cameraPos += camera.GetMovementZ() * camSpeed;
-		}
-		if (input.KeyState(Key::Space))
-		{
-			cameraPos += camera.GetMovementY() * camSpeed;
-		}
-		if (input.KeyState(Key::LeftShift))
-		{
-			cameraPos -= camera.GetMovementY() * camSpeed;
-		}
-		if (input.KeyState(Key::R))
-		{
-			input.SetIsMouseDeltaMode(true);
-		}
-		if (input.KeyState(Key::T))
-		{
-			input.SetIsMouseDeltaMode(false);
 		}
 		if (input.KeyState(Key::Num1))
 		{

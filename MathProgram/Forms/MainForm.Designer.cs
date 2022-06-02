@@ -66,6 +66,7 @@ namespace MathProgram.Forms
             // MS_Main
             // 
             this.MS_Main.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.MS_Main.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.MS_Main.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MS_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -74,7 +75,7 @@ namespace MathProgram.Forms
             this.indstillingerToolStripMenuItem});
             this.MS_Main.Location = new System.Drawing.Point(0, 0);
             this.MS_Main.Name = "MS_Main";
-            this.MS_Main.Size = new System.Drawing.Size(800, 25);
+            this.MS_Main.Size = new System.Drawing.Size(1960, 60);
             this.MS_Main.TabIndex = 0;
             this.MS_Main.Text = "menuStrip1";
             // 
@@ -83,13 +84,13 @@ namespace MathProgram.Forms
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_Exit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(32, 21);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(76, 56);
             this.fileToolStripMenuItem.Text = "Fil";
             // 
             // MI_Exit
             // 
             this.MI_Exit.Name = "MI_Exit";
-            this.MI_Exit.Size = new System.Drawing.Size(108, 22);
+            this.MI_Exit.Size = new System.Drawing.Size(270, 54);
             this.MI_Exit.Text = "Afslut";
             this.MI_Exit.Click += new System.EventHandler(this.MI_Exit_Click);
             // 
@@ -99,13 +100,13 @@ namespace MathProgram.Forms
             this.MI_CoordSystem,
             this.MI_DebugInfomation});
             this.visToolStripMenuItem.Name = "visToolStripMenuItem";
-            this.visToolStripMenuItem.Size = new System.Drawing.Size(37, 21);
+            this.visToolStripMenuItem.Size = new System.Drawing.Size(86, 56);
             this.visToolStripMenuItem.Text = "Vis";
             // 
             // MI_CoordSystem
             // 
             this.MI_CoordSystem.Name = "MI_CoordSystem";
-            this.MI_CoordSystem.Size = new System.Drawing.Size(186, 22);
+            this.MI_CoordSystem.Size = new System.Drawing.Size(459, 54);
             this.MI_CoordSystem.Text = "Koordinatsystem";
             this.MI_CoordSystem.Click += new System.EventHandler(this.MI_CoordSystem_Click);
             // 
@@ -113,7 +114,7 @@ namespace MathProgram.Forms
             // 
             this.MI_DebugInfomation.CheckOnClick = true;
             this.MI_DebugInfomation.Name = "MI_DebugInfomation";
-            this.MI_DebugInfomation.Size = new System.Drawing.Size(186, 22);
+            this.MI_DebugInfomation.Size = new System.Drawing.Size(459, 54);
             this.MI_DebugInfomation.Text = "Debug Information";
             this.MI_DebugInfomation.Click += new System.EventHandler(this.MI_DebugInfomation_Click);
             // 
@@ -128,20 +129,20 @@ namespace MathProgram.Forms
             this.MI_QuadraticEquations,
             this.MI_Trigonometry});
             this.værktøjerToolStripMenuItem.Name = "værktøjerToolStripMenuItem";
-            this.værktøjerToolStripMenuItem.Size = new System.Drawing.Size(76, 21);
+            this.værktøjerToolStripMenuItem.Size = new System.Drawing.Size(182, 56);
             this.værktøjerToolStripMenuItem.Text = "Værktøjer";
             // 
             // MI_FunctionScript
             // 
             this.MI_FunctionScript.Name = "MI_FunctionScript";
-            this.MI_FunctionScript.Size = new System.Drawing.Size(186, 22);
+            this.MI_FunctionScript.Size = new System.Drawing.Size(458, 54);
             this.MI_FunctionScript.Text = "Funktionsscript";
             this.MI_FunctionScript.Click += new System.EventHandler(this.MI_FunctionScript_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(183, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(455, 6);
             // 
             // menuItem2
             // 
@@ -151,20 +152,20 @@ namespace MathProgram.Forms
             this.MI_PointToLine});
             this.menuItem2.ForeColor = System.Drawing.SystemColors.Control;
             this.menuItem2.Name = "menuItem2";
-            this.menuItem2.Size = new System.Drawing.Size(186, 22);
+            this.menuItem2.Size = new System.Drawing.Size(458, 54);
             this.menuItem2.Text = "Afstand";
             // 
             // MI_PointToPoint
             // 
             this.MI_PointToPoint.Name = "MI_PointToPoint";
-            this.MI_PointToPoint.Size = new System.Drawing.Size(266, 22);
+            this.MI_PointToPoint.Size = new System.Drawing.Size(664, 54);
             this.MI_PointToPoint.Text = "Punkt Til Punkt (Afstandsformlen)";
             this.MI_PointToPoint.Click += new System.EventHandler(this.MI_PointToPoint_Click);
             // 
             // MI_PointToLine
             // 
             this.MI_PointToLine.Name = "MI_PointToLine";
-            this.MI_PointToLine.Size = new System.Drawing.Size(266, 22);
+            this.MI_PointToLine.Size = new System.Drawing.Size(664, 54);
             this.MI_PointToLine.Text = "Punkt Til Linje (Distanceformlen)";
             this.MI_PointToLine.Click += new System.EventHandler(this.MI_PointToLine_Click);
             // 
@@ -175,27 +176,27 @@ namespace MathProgram.Forms
             this.MI_ProjectionOfVetorOnVector,
             this.MI_DotProduct});
             this.MI_DotTool.Name = "MI_DotTool";
-            this.MI_DotTool.Size = new System.Drawing.Size(186, 22);
+            this.MI_DotTool.Size = new System.Drawing.Size(458, 54);
             this.MI_DotTool.Text = "Vektorer";
             // 
             // MI_AngleBetweenTwoVectors
             // 
             this.MI_AngleBetweenTwoVectors.Name = "MI_AngleBetweenTwoVectors";
-            this.MI_AngleBetweenTwoVectors.Size = new System.Drawing.Size(250, 22);
+            this.MI_AngleBetweenTwoVectors.Size = new System.Drawing.Size(617, 54);
             this.MI_AngleBetweenTwoVectors.Text = "Vinkel Mellem To Vektorer";
             this.MI_AngleBetweenTwoVectors.Click += new System.EventHandler(this.MI_AngleBetweenTwoVectors_Click);
             // 
             // MI_ProjectionOfVetorOnVector
             // 
             this.MI_ProjectionOfVetorOnVector.Name = "MI_ProjectionOfVetorOnVector";
-            this.MI_ProjectionOfVetorOnVector.Size = new System.Drawing.Size(250, 22);
+            this.MI_ProjectionOfVetorOnVector.Size = new System.Drawing.Size(617, 54);
             this.MI_ProjectionOfVetorOnVector.Text = "Projektion Af Vektor På Vektor";
             this.MI_ProjectionOfVetorOnVector.Click += new System.EventHandler(this.MI_ProjectionOfVetorOnVector_Click);
             // 
             // MI_DotProduct
             // 
             this.MI_DotProduct.Name = "MI_DotProduct";
-            this.MI_DotProduct.Size = new System.Drawing.Size(250, 22);
+            this.MI_DotProduct.Size = new System.Drawing.Size(617, 54);
             this.MI_DotProduct.Text = "Skalar Produkt";
             this.MI_DotProduct.Click += new System.EventHandler(this.MI_DotProduct_Click);
             // 
@@ -204,27 +205,27 @@ namespace MathProgram.Forms
             this.andetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_IntersectionPointBeetweenTwoLines});
             this.andetToolStripMenuItem.Name = "andetToolStripMenuItem";
-            this.andetToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.andetToolStripMenuItem.Size = new System.Drawing.Size(458, 54);
             this.andetToolStripMenuItem.Text = "Geometri";
             // 
             // MI_IntersectionPointBeetweenTwoLines
             // 
             this.MI_IntersectionPointBeetweenTwoLines.Name = "MI_IntersectionPointBeetweenTwoLines";
-            this.MI_IntersectionPointBeetweenTwoLines.Size = new System.Drawing.Size(241, 22);
+            this.MI_IntersectionPointBeetweenTwoLines.Size = new System.Drawing.Size(592, 54);
             this.MI_IntersectionPointBeetweenTwoLines.Text = "Krydspunkt Mellem To Linjer";
             this.MI_IntersectionPointBeetweenTwoLines.Click += new System.EventHandler(this.MI_IntersectionPointBeetweenTwoLines_Click);
             // 
             // MI_QuadraticEquations
             // 
             this.MI_QuadraticEquations.Name = "MI_QuadraticEquations";
-            this.MI_QuadraticEquations.Size = new System.Drawing.Size(186, 22);
+            this.MI_QuadraticEquations.Size = new System.Drawing.Size(458, 54);
             this.MI_QuadraticEquations.Text = "Andengradsligning";
             this.MI_QuadraticEquations.Click += new System.EventHandler(this.MI_QuadraticEquations_Click);
             // 
             // MI_Trigonometry
             // 
             this.MI_Trigonometry.Name = "MI_Trigonometry";
-            this.MI_Trigonometry.Size = new System.Drawing.Size(186, 22);
+            this.MI_Trigonometry.Size = new System.Drawing.Size(458, 54);
             this.MI_Trigonometry.Text = "Trigonometri";
             this.MI_Trigonometry.Click += new System.EventHandler(this.MI_Trigonometry_Click);
             // 
@@ -233,14 +234,14 @@ namespace MathProgram.Forms
             this.indstillingerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_IsFullscreen});
             this.indstillingerToolStripMenuItem.Name = "indstillingerToolStripMenuItem";
-            this.indstillingerToolStripMenuItem.Size = new System.Drawing.Size(87, 21);
+            this.indstillingerToolStripMenuItem.Size = new System.Drawing.Size(212, 56);
             this.indstillingerToolStripMenuItem.Text = "Indstillinger";
             // 
             // MI_IsFullscreen
             // 
             this.MI_IsFullscreen.CheckOnClick = true;
             this.MI_IsFullscreen.Name = "MI_IsFullscreen";
-            this.MI_IsFullscreen.Size = new System.Drawing.Size(139, 22);
+            this.MI_IsFullscreen.Size = new System.Drawing.Size(345, 54);
             this.MI_IsFullscreen.Text = "Fuldskærm";
             this.MI_IsFullscreen.Click += new System.EventHandler(this.MI_IsFullscreen_Click);
             // 
@@ -251,9 +252,10 @@ namespace MathProgram.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DP_Main.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.DP_Main.BackColor = System.Drawing.Color.Black;
-            this.DP_Main.Location = new System.Drawing.Point(0, 47);
+            this.DP_Main.Location = new System.Drawing.Point(0, 97);
+            this.DP_Main.Margin = new System.Windows.Forms.Padding(8);
             this.DP_Main.Name = "DP_Main";
-            this.DP_Main.Size = new System.Drawing.Size(800, 493);
+            this.DP_Main.Size = new System.Drawing.Size(2000, 1253);
             this.DP_Main.TabIndex = 1;
             // 
             // SS_Main
@@ -261,16 +263,17 @@ namespace MathProgram.Forms
             this.SS_Main.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.SS_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.SS_Main.Location = new System.Drawing.Point(0, 539);
+            this.SS_Main.Location = new System.Drawing.Point(0, 1348);
             this.SS_Main.Name = "SS_Main";
-            this.SS_Main.Size = new System.Drawing.Size(800, 22);
+            this.SS_Main.Padding = new System.Windows.Forms.Padding(2, 0, 35, 0);
+            this.SS_Main.Size = new System.Drawing.Size(1960, 54);
             this.SS_Main.TabIndex = 4;
             this.SS_Main.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(102, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(256, 41);
             this.toolStripStatusLabel1.Text = "Math Program 2.0";
             // 
             // TS_Main
@@ -279,9 +282,10 @@ namespace MathProgram.Forms
             this.TS_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
             this.TB_IncrementValue});
-            this.TS_Main.Location = new System.Drawing.Point(0, 25);
+            this.TS_Main.Location = new System.Drawing.Point(0, 60);
             this.TS_Main.Name = "TS_Main";
-            this.TS_Main.Size = new System.Drawing.Size(800, 25);
+            this.TS_Main.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.TS_Main.Size = new System.Drawing.Size(1960, 62);
             this.TS_Main.TabIndex = 7;
             this.TS_Main.Text = "toolStrip1";
             // 
@@ -289,25 +293,26 @@ namespace MathProgram.Forms
             // 
             this.toolStripLabel1.ForeColor = System.Drawing.SystemColors.Control;
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(89, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(221, 55);
             this.toolStripLabel1.Text = "Stigningsværdi:";
             // 
             // TB_IncrementValue
             // 
             this.TB_IncrementValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.TB_IncrementValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TB_IncrementValue.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TB_IncrementValue.ForeColor = System.Drawing.SystemColors.Window;
             this.TB_IncrementValue.Name = "TB_IncrementValue";
-            this.TB_IncrementValue.Size = new System.Drawing.Size(50, 25);
+            this.TB_IncrementValue.Size = new System.Drawing.Size(122, 62);
             this.TB_IncrementValue.Text = "1,0";
             this.TB_IncrementValue.Leave += new System.EventHandler(this.TB_IncrementValue_Leave);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(800, 561);
+            this.ClientSize = new System.Drawing.Size(1960, 1402);
             this.Controls.Add(this.TS_Main);
             this.Controls.Add(this.SS_Main);
             this.Controls.Add(this.DP_Main);
@@ -316,7 +321,8 @@ namespace MathProgram.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MS_Main;
-            this.MinimumSize = new System.Drawing.Size(800, 600);
+            this.Margin = new System.Windows.Forms.Padding(8);
+            this.MinimumSize = new System.Drawing.Size(1952, 1368);
             this.Name = "MainForm";
             this.Text = "Math Program";
             this.MS_Main.ResumeLayout(false);

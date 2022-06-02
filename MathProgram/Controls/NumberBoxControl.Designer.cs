@@ -38,9 +38,10 @@ namespace MathProgram.Controls
             // 
             this.TB_Main.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_Main.Location = new System.Drawing.Point(3, 5);
+            this.TB_Main.Location = new System.Drawing.Point(8, 12);
+            this.TB_Main.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.TB_Main.Name = "TB_Main";
-            this.TB_Main.Size = new System.Drawing.Size(132, 20);
+            this.TB_Main.Size = new System.Drawing.Size(345, 38);
             this.TB_Main.TabIndex = 0;
             this.TB_Main.Text = "0";
             this.TB_Main.TextChanged += new System.EventHandler(this.TB_Main_TextChanged);
@@ -49,32 +50,34 @@ namespace MathProgram.Controls
             // SB_Main
             // 
             this.SB_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SB_Main.Location = new System.Drawing.Point(134, 0);
+            this.SB_Main.Location = new System.Drawing.Point(371, 0);
             this.SB_Main.Maximum = 99999999;
             this.SB_Main.Minimum = -99999999;
             this.SB_Main.Name = "SB_Main";
-            this.SB_Main.Size = new System.Drawing.Size(22, 30);
+            this.SB_Main.Size = new System.Drawing.Size(22, 72);
             this.SB_Main.TabIndex = 1;
             this.SB_Main.Scroll += new System.Windows.Forms.ScrollEventHandler(this.SB_Main_Scroll);
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(81, 0);
+            this.panel1.Location = new System.Drawing.Point(216, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(55, 30);
+            this.panel1.Size = new System.Drawing.Size(147, 72);
             this.panel1.TabIndex = 2;
             // 
             // NumberBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.TB_Main);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.SB_Main);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "NumberBox";
-            this.Size = new System.Drawing.Size(156, 30);
+            this.Size = new System.Drawing.Size(416, 72);
             this.Load += new System.EventHandler(this.NumberBox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

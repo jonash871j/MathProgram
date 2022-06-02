@@ -39,11 +39,11 @@ namespace MathProgram.Forms
             this.DC_Length.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DC_Length.Calulation = "Udregning";
-            this.DC_Length.Location = new System.Drawing.Point(236, 9);
-            this.DC_Length.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.DC_Length.Location = new System.Drawing.Point(629, 21);
+            this.DC_Length.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.DC_Length.Name = "DC_Length";
             this.DC_Length.ResultName = "Resultat";
-            this.DC_Length.Size = new System.Drawing.Size(287, 112);
+            this.DC_Length.Size = new System.Drawing.Size(765, 267);
             this.DC_Length.TabIndex = 3;
             this.DC_Length.Title = "Længde";
             // 
@@ -51,10 +51,10 @@ namespace MathProgram.Forms
             // 
             this.IC_Main.Grid = false;
             this.IC_Main.GridColumns = 2;
-            this.IC_Main.Location = new System.Drawing.Point(9, 9);
-            this.IC_Main.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.IC_Main.Location = new System.Drawing.Point(24, 21);
+            this.IC_Main.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.IC_Main.Name = "IC_Main";
-            this.IC_Main.Size = new System.Drawing.Size(221, 237);
+            this.IC_Main.Size = new System.Drawing.Size(589, 565);
             this.IC_Main.TabIndex = 2;
             // 
             // DC_MidPoint
@@ -62,23 +62,24 @@ namespace MathProgram.Forms
             this.DC_MidPoint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DC_MidPoint.Calulation = "Udregning";
-            this.DC_MidPoint.Location = new System.Drawing.Point(236, 135);
-            this.DC_MidPoint.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.DC_MidPoint.Location = new System.Drawing.Point(629, 322);
+            this.DC_MidPoint.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.DC_MidPoint.Name = "DC_MidPoint";
             this.DC_MidPoint.ResultName = "Resultat";
-            this.DC_MidPoint.Size = new System.Drawing.Size(287, 112);
+            this.DC_MidPoint.Size = new System.Drawing.Size(765, 267);
             this.DC_MidPoint.TabIndex = 4;
             this.DC_MidPoint.Title = "Midtpunkt";
             // 
             // DistancePointToPointForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(529, 256);
+            this.ClientSize = new System.Drawing.Size(1411, 610);
             this.Controls.Add(this.DC_MidPoint);
             this.Controls.Add(this.DC_Length);
             this.Controls.Add(this.IC_Main);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "DistancePointToPointForm";
             this.Text = "Afstand -> Punkt Til Punkt (Afstandsformlen)";
             this.ResumeLayout(false);

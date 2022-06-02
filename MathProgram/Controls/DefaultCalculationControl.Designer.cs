@@ -48,8 +48,10 @@ namespace MathProgram.Controls
             this.GB_Title.Controls.Add(this.TB_Calculation);
             this.GB_Title.Controls.Add(this.LB_Calculation);
             this.GB_Title.Location = new System.Drawing.Point(0, 0);
+            this.GB_Title.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.GB_Title.Name = "GB_Title";
-            this.GB_Title.Size = new System.Drawing.Size(284, 142);
+            this.GB_Title.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.GB_Title.Size = new System.Drawing.Size(757, 339);
             this.GB_Title.TabIndex = 0;
             this.GB_Title.TabStop = false;
             this.GB_Title.Text = "Titel";
@@ -58,19 +60,21 @@ namespace MathProgram.Controls
             // 
             this.TB_Result.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_Result.Location = new System.Drawing.Point(9, 32);
+            this.TB_Result.Location = new System.Drawing.Point(24, 76);
+            this.TB_Result.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.TB_Result.Multiline = true;
             this.TB_Result.Name = "TB_Result";
             this.TB_Result.ReadOnly = true;
-            this.TB_Result.Size = new System.Drawing.Size(269, 20);
+            this.TB_Result.Size = new System.Drawing.Size(711, 42);
             this.TB_Result.TabIndex = 3;
             // 
             // LB_ResultName
             // 
             this.LB_ResultName.AutoSize = true;
-            this.LB_ResultName.Location = new System.Drawing.Point(9, 16);
+            this.LB_ResultName.Location = new System.Drawing.Point(24, 38);
+            this.LB_ResultName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.LB_ResultName.Name = "LB_ResultName";
-            this.LB_ResultName.Size = new System.Drawing.Size(33, 13);
+            this.LB_ResultName.Size = new System.Drawing.Size(80, 32);
             this.LB_ResultName.TabIndex = 2;
             this.LB_ResultName.Text = "Navn";
             // 
@@ -79,29 +83,32 @@ namespace MathProgram.Controls
             this.TB_Calculation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_Calculation.Location = new System.Drawing.Point(9, 73);
+            this.TB_Calculation.Location = new System.Drawing.Point(24, 174);
+            this.TB_Calculation.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.TB_Calculation.Multiline = true;
             this.TB_Calculation.Name = "TB_Calculation";
             this.TB_Calculation.ReadOnly = true;
-            this.TB_Calculation.Size = new System.Drawing.Size(269, 59);
+            this.TB_Calculation.Size = new System.Drawing.Size(711, 135);
             this.TB_Calculation.TabIndex = 1;
             // 
             // LB_Calculation
             // 
             this.LB_Calculation.AutoSize = true;
-            this.LB_Calculation.Location = new System.Drawing.Point(9, 57);
+            this.LB_Calculation.Location = new System.Drawing.Point(24, 136);
+            this.LB_Calculation.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.LB_Calculation.Name = "LB_Calculation";
-            this.LB_Calculation.Size = new System.Drawing.Size(56, 13);
+            this.LB_Calculation.Size = new System.Drawing.Size(146, 32);
             this.LB_Calculation.TabIndex = 0;
             this.LB_Calculation.Text = "Udregning";
             // 
             // DefaultCalculationControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.GB_Title);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "DefaultCalculationControl";
-            this.Size = new System.Drawing.Size(287, 142);
+            this.Size = new System.Drawing.Size(765, 339);
             this.GB_Title.ResumeLayout(false);
             this.GB_Title.PerformLayout();
             this.ResumeLayout(false);

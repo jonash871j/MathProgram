@@ -11,6 +11,11 @@ namespace RendererLib
 {
 	ref class CoordinateSystemElements
 	{
+	public:
+		float zoom = 32.0f;
+		float xRel = 1.0f;
+		float yRel = 1.0f;
+
 	private:
 		Window& window;
 		Renderer& renderer;
@@ -23,5 +28,6 @@ namespace RendererLib
 		void DrawGrid();
 		void DrawShape(IShape^ shape);
 		void DrawPoints(IPoints ^ points);
+		void UpdateGrid();
 	};
 }

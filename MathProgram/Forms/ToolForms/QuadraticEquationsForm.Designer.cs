@@ -99,7 +99,7 @@ namespace MathProgram.Forms
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(237, 145);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.Size = new System.Drawing.Size(115, 38);
             this.label10.TabIndex = 13;
             this.label10.Text = "Resultat";
             // 
@@ -117,7 +117,7 @@ namespace MathProgram.Forms
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(15, 145);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.Size = new System.Drawing.Size(138, 38);
             this.label7.TabIndex = 6;
             this.label7.Text = "Løsninger";
             // 
@@ -144,7 +144,7 @@ namespace MathProgram.Forms
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(207, 86);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 13);
+            this.label8.Size = new System.Drawing.Size(88, 38);
             this.label8.TabIndex = 11;
             this.label8.Text = "Rod 2";
             // 
@@ -153,7 +153,7 @@ namespace MathProgram.Forms
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(207, 29);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.Size = new System.Drawing.Size(88, 38);
             this.label9.TabIndex = 10;
             this.label9.Text = "Rod 1";
             // 
@@ -185,7 +185,7 @@ namespace MathProgram.Forms
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(201, 35);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(36, 51);
+            this.label12.Size = new System.Drawing.Size(86, 120);
             this.label12.TabIndex = 4;
             this.label12.Text = "{";
             // 
@@ -203,7 +203,7 @@ namespace MathProgram.Forms
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.Size = new System.Drawing.Size(108, 38);
             this.label6.TabIndex = 0;
             this.label6.Text = "Forskift";
             // 
@@ -223,7 +223,7 @@ namespace MathProgram.Forms
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 75);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.Size = new System.Drawing.Size(148, 38);
             this.label5.TabIndex = 2;
             this.label5.Text = "Udregning";
             // 
@@ -259,6 +259,7 @@ namespace MathProgram.Forms
             this.IC_QuadraticEquations.Grid = false;
             this.IC_QuadraticEquations.GridColumns = 2;
             this.IC_QuadraticEquations.Location = new System.Drawing.Point(12, 12);
+            this.IC_QuadraticEquations.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.IC_QuadraticEquations.Name = "IC_QuadraticEquations";
             this.IC_QuadraticEquations.Size = new System.Drawing.Size(207, 148);
             this.IC_QuadraticEquations.TabIndex = 8;
@@ -268,7 +269,7 @@ namespace MathProgram.Forms
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.Size = new System.Drawing.Size(148, 38);
             this.label4.TabIndex = 2;
             this.label4.Text = "Udregning";
             // 
@@ -288,7 +289,7 @@ namespace MathProgram.Forms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.Size = new System.Drawing.Size(92, 38);
             this.label3.TabIndex = 4;
             this.label3.Text = "Result";
             // 
@@ -324,7 +325,7 @@ namespace MathProgram.Forms
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(6, 16);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 13);
+            this.label14.Size = new System.Drawing.Size(148, 38);
             this.label14.TabIndex = 0;
             this.label14.Text = "Udregning";
             // 
@@ -344,7 +345,7 @@ namespace MathProgram.Forms
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(6, 55);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.Size = new System.Drawing.Size(115, 38);
             this.label11.TabIndex = 2;
             this.label11.Text = "Resultat";
             // 
@@ -375,8 +376,8 @@ namespace MathProgram.Forms
             // 
             // QuadraticEquationsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(505, 485);
             this.Controls.Add(this.IC_QuadraticEquations);
