@@ -188,12 +188,6 @@
     <Compile Include="Forms\ToolForms\QuadraticEquationsForm.Designer.cs">
       <DependentUpon>QuadraticEquationsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ToolForms\TrigonometryOldForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ToolForms\TrigonometryOldForm.Designer.cs">
-      <DependentUpon>TrigonometryOldForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIElements\VSRender.cs" />
@@ -244,9 +238,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ToolForms\QuadraticEquationsForm.resx">
       <DependentUpon>QuadraticEquationsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ToolForms\TrigonometryOldForm.resx">
-      <DependentUpon>TrigonometryOldForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ToolForms\TrigonometryForm.resx">
       <DependentUpon>TrigonometryForm.cs</DependentUpon>

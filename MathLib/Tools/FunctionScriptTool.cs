@@ -67,59 +67,71 @@ namespace MathLib
 
         public double Function(double x)
         {
-            if (assemblyFunction != null)
+            try
             {
-                return assemblyFunction.Function(x);
-            }
-            else
-            {
-                return 0.1254232;
-            }
+				if (assemblyFunction != null)
+				{
+					return assemblyFunction.Function(x);
+				}
+				else
+				{
+					return 0.1254232;
+				}
+			}
+            catch { }
+            return 0;
         }
 
         void CompileCode(string code)
         {
-            CSharpCodeProvider csProvider = new CSharpCodeProvider();
-
-            CompilerParameters options = new CompilerParameters();
-            options.GenerateExecutable = false; 
-            options.GenerateInMemory = true; 
-
-            options.ReferencedAssemblies.Add(Assembly.GetExecutingAssembly().Location);
-            options.ReferencedAssemblies.Add("netstandard.dll");
-
-            // Compile our code
-            CompilerResults result;
-            result = csProvider.CompileAssemblyFromSource(options, code);
-
-            if (result.Errors.HasErrors)
+            try
             {
-                ErrorText = "Fejl på linje " + result.Errors[0].Line;
+				CSharpCodeProvider csProvider = new CSharpCodeProvider();
 
-                // TODO: report back to the user that the script has errored
-                assembly = null;
-                return;
-            }
-            ErrorText = "";
+				CompilerParameters options = new CompilerParameters();
+				options.GenerateExecutable = false;
+				options.GenerateInMemory = true;
 
-            assembly = result.CompiledAssembly;
-            if (assembly != null)
+				options.ReferencedAssemblies.Add(Assembly.GetExecutingAssembly().Location);
+				options.ReferencedAssemblies.Add("netstandard.dll");
+
+				// Compile our code
+				CompilerResults result;
+				result = csProvider.CompileAssemblyFromSource(options, code);
+
+				if (result.Errors.HasErrors)
+				{
+					ErrorText = "Fejl på linje " + result.Errors[0].Line;
+
+					// TODO: report back to the user that the script has errored
+					assembly = null;
+					return;
+				}
+				ErrorText = "";
+
+				assembly = result.CompiledAssembly;
+				if (assembly != null)
+				{
+					foreach (Type type in assembly.GetExportedTypes())
+					{
+						foreach (Type iface in type.GetInterfaces())
+						{
+							if (iface == typeof(IAssemblyFunction))
+							{
+								ConstructorInfo constructor = type.GetConstructor(System.Type.EmptyTypes);
+								if (constructor != null && constructor.IsPublic)
+								{
+									assemblyFunction = constructor.Invoke(null) as IAssemblyFunction;
+								}
+							}
+						}
+					}
+				}
+			}
+            catch
             {
-                foreach (Type type in assembly.GetExportedTypes())
-                {
-                    foreach (Type iface in type.GetInterfaces())
-                    {
-                        if (iface == typeof(IAssemblyFunction))
-                        {
-                            ConstructorInfo constructor = type.GetConstructor(System.Type.EmptyTypes);
-                            if (constructor != null && constructor.IsPublic)
-                            {
-                                assemblyFunction = constructor.Invoke(null) as IAssemblyFunction;
-                            }
-                        }
-                    }
-                }
-            }
+				ErrorText = "Fatal fejl";
+			}
         }
 
         public Point2D[] Points()
